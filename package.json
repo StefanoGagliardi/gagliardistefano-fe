@@ -1,17 +1,22 @@
 {
-  "name": "with-typescript-eslint-jest",
-  "author": "@erikdstock",
+  "name": "stfanogagliardi-fe",
+  "author": "@stefanogagliardi",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "BUNDLE_ANALYZE=both yarn build",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "husky": {
     "hooks": {
@@ -26,10 +31,17 @@
     ]
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^10.0.7",
+    "autoprefixer": "^10.2.4",
     "next": "latest",
     "next-seo": "^4.20.0",
+    "postcss": "^8.2.6",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-nesting": "^7.0.1",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.5",

@@ -6,10 +6,13 @@ Officiale repo for nextJs website / commerce / blog del mio sito personale.
 
 1. Folder structure and code strategy - **folder_strategy.md**
 2. Website base skeleton: \_document, Head, default seo - **base_skeleton.md**
+3. next.config.js "nextJs htaccess" - **next-config.md**
+4. Style, css and Tailwind - **styles.md**
 
 ## Third Parts
 
 1. SEO - [next-seo](https://github.com/garmeeh/next-seo)
+2. Next bundle Analyzer - [nextJs Bundle Ana](https://www.npmjs.com/package/@next/bundle-analyzer)
 
 ## General info
 

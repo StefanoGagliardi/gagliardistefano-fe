@@ -6,6 +6,8 @@ import React, { FC, useEffect } from 'react'
 
 // Import customs
 import { Head } from '@components/common'
+import '@assets/main.css'
+import '@assets/chrome-bug.css'
 
 /**
  * Script start
