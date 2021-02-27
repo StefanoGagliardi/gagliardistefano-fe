@@ -1,0 +1,22 @@
+{
+  "name": "Stefano Gagliardi - Website, blog, commer",
+  "short_name": "Stefano Gagliardi - website",
+  "description": "I'm professional web developer and designer since 2017. I'm start in web company that i love it and nowadays i'm a their React / Next developer",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#0c82b6",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

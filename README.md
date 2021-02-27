@@ -2,30 +2,17 @@
 
 Officiale repo for nextJs website / commerce / blog del mio sito personale.
 
-**Typescript define custom import:**
-NB: Nel file tsconfig.json posso definire import custom.
-Vedere sezione "path" del file tsconfig.json per definire gli import.
-
-```ts
-import * from "@assets";
-import * from "@config";
-import * from "@components";
-import * from "@lib";
-import * from "@utils";
-import * from "@framework";
-import * from "@commerce";
-```
-
-All main folder are at root level
-
 ## Indice
 
-## Macro task
+1. Folder structure and code strategy - **folder_strategy.md**
+2. Website base skeleton: \_document, Head, default seo - **base_skeleton.md**
 
-### TODO PROOGETTO
+## Third Parts
 
-### Roadmap
+1. SEO - [next-seo](https://github.com/garmeeh/next-seo)
 
-### Varie
+## General info
 
-### Foldering
+Main color: #0c82b6
+Font primary: Montserrat
+Font alternative: Overpass

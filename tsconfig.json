@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -17,7 +18,7 @@
     //   "@lib/*": ["lib/*"],
     //   "@assets/*": ["assets/*"],
       "@config/*": ["config/*"],
-    //   "@components/*": ["components/*"],
+      "@components/*": ["components/*"]
     //   "@utils/*": ["utils/*"],
     //   "@commerce/*": ["framework/commerce/*"],
     //   "@commerce": ["framework/commerce"],
