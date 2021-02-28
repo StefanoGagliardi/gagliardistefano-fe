@@ -6,6 +6,22 @@ import Image from 'next/image'
 
 // Import customs
 import Layout from '@components/common/Layout'
+import { SVGArrowSvg } from '@assets/svg'
+import { GetStaticPropsContext } from 'next'
+
+/**
+ * Script start
+ */
+export async function getStaticProps({
+  locale,
+  preview,
+}: GetStaticPropsContext) {
+  return {
+    props: {
+      pages: ["page_one", "page_2"],
+    },
+  }
+}
 
 export const Home = (): JSX.Element => (
   <div className="container">
@@ -19,18 +35,26 @@ export const Home = (): JSX.Element => (
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
       <div className="h-64 grid grid-rows-3 grid-flow-col gap-4">
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>9</div>
+        <div>
+          <h1>1</h1>
+        </div>
+        <div>
+          <h1>2</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>4</h1>
+        </div>
+        <div>
+          <h1>5</h1>
+        </div>
+        <div>
+          <h1>6</h1>
+        </div>
       </div>
+      <SVGArrowSvg />
     </main>
 
     <footer>

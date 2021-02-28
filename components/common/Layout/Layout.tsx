@@ -11,8 +11,17 @@ import s from './Layout.module.scss'
 /**
  * Script start
  */
-
-export const Layout: FC = ({ children }) => {
+//
+// Page[] - Studiare Page da next-commerce
+//
+// pages è una props ritornata dalle singole pagine da "getStaticProps" che chiama
+// il metodo "await getAllPages()"che recupera l'elenco delle pagine da delle API (in questo caso STOREFRONT shopify)
+interface Props {
+  pageProps: {
+    pages?: any[]
+  }
+}
+export const Layout: FC<Props> = ({ children, pageProps }) => {
   return (
     <>
       {/* Commerce context */}

@@ -57,3 +57,10 @@ There are specially files like `_document.tsx` and `_app.tsx`
 1. All images
 2. Favicon
 3. Manifest.json
+
+#### Framework
+
+Funzioni candidate:
+
+1. get-all-pages.ts - recupero elenco pagine da delle API (cosi da poterle creare dinamicamente da un ADMIN)
+2. 
