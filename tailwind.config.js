@@ -18,6 +18,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      maxWidth: {
+        '8xl': '1920px',
+      },
       colors: {
         primary: 'var(--primary)',
       },
@@ -37,6 +40,7 @@ module.exports = {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+      '8xl': '1920px',
     },
   },
   variants: {

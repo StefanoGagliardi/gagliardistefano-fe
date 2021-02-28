@@ -7,8 +7,18 @@ Gli stili delle classi del layout sono nel css module.
 
 ## Componenti Layout
 
-2. Header
-3. Mobile Menu
-4. Footer
-5. Modal (login)
-6. Cookies banner
+1. Header
+2. Mobile Menu
+3. Footer
+4. Modal
+5. Features Banner
+6. Sidebar
+
+### Header
+
+Il componente `@components/common/Header` contiene sia la navbar che la topbar.
+Contiene inoltre il controller per il menu mobile.
+
+### Footer
+
+Il componente `@components/common/Footer` contiene sia il Footer che il socket.

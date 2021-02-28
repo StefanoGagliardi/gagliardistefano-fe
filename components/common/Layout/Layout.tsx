@@ -7,6 +7,8 @@ import cn from 'classnames'
 // Import custom
 import s from './Layout.module.scss'
 import Footer from '../Footer'
+import Header from '../Header'
+import MobileMenu from '../MobileMenu'
 
 /**
  * Script start
@@ -26,14 +28,14 @@ export const Layout: FC<Props> = ({ children, pageProps }) => {
     <>
       {/* Commerce context */}
       <div className={cn(s.siteRoot)}>
-        {/* <Header /> Navbar & Topbar*/}
-        {/* <MobileMenu /> Navbar & Topbar*/}
+        <Header />
+        <MobileMenu />
 
         <main className="fit">{children}</main>
 
         {/* <Sidebar> Cart or Blog sidebar (mobile ?)</Sidebar> */}
 
-        <Footer/>
+        <Footer />
 
         {/* <Modal > {modalContent} </Modal> */}
         {/* <FeaturesBar > rendered content (cookie) </FeaturesBar> */}

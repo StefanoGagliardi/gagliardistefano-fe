@@ -39,9 +39,10 @@ qui impostiamo le variabili del tema, alcune osservazioni:
 1. Le prime opzioni: pages, purge. Servono per includere tutti i css module e le direttive "@apply"
 2. La seconda porte importante è la sezione "themed" si impostano i colori, valori delle variabili sulle quali verrano generate le classi helper
 3. La darkmode viene abilitata nel config tramite `darkMode: "class",` di default è false. Nel file base.css definiremo le variabili due volte (una per modalità)
+4. viene impostata la max-width come variabile "8xl": ``` maxWidth: { '8xl': '1920px', }, ```
 
 **Variabili css (light e dark):**
-Le variabili usate dal `tailwind.config.js` sono variabili css ":root" nel file `@assets/base.css` se la dark mode è attiva 
+Le variabili usate dal `tailwind.config.js` sono variabili css ":root" nel file `@assets/base.css` se la dark mode è attiva
 avrò la stessa variabile in due condizioni diverse.
 Sempre in base.css viene formatto il documento html
 
