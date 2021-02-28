@@ -7,7 +7,6 @@ Gli stili delle classi del layout sono nel css module.
 
 ## Componenti Layout
 
-1. TopBar
 2. Header
 3. Mobile Menu
 4. Footer
