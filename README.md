@@ -20,3 +20,8 @@ Officiale repo for nextJs website / commerce / blog del mio sito personale.
 Main color: #0c82b6
 Font primary: Montserrat
 Font alternative: Overpass
+
+### Features:
+
+Plugin sconosciuto per next per minificare le classi (estende css-loader):
+[NextJs classMinify](https://github.com/kenmueller/next-optimized-classnames)

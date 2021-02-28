@@ -2,7 +2,6 @@ module.exports = {
   plugins: [
     'tailwindcss',
     'postcss-nesting',
-    'postcss-classname-minify',
     'postcss-flexbugs-fixes',
     [
       'postcss-preset-env',
