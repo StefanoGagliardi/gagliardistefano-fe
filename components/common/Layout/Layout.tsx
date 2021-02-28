@@ -3,6 +3,7 @@
 import { FC } from 'react'
 
 // Import third parts
+import cn from 'classnames'
 
 // Import custom
 import s from './Layout.module.scss'
@@ -14,7 +15,22 @@ import s from './Layout.module.scss'
 export const Layout: FC = ({ children }) => {
   return (
     <>
-      <div className={s.siteRoot}>{children}</div>
+      {/* Commerce context */}
+      <div className={cn(s.siteRoot)}>
+        {/* <Topbar />*/}
+        {/* <Navbar />*/}
+
+        <main className="fit">{children}</main>
+
+        {/* <Sidebar> Cart or Blog sidebar</Sidebar> */}
+
+        {/* <Footer />*/}
+        {/* <Socket />*/}
+
+        {/* <Modal > {modalContent} </Modal> */}
+        {/* <FeaturesBar > rendered content (cookie) </FeaturesBar> */}
+      </div>
+      {/* Close Commerce context */}
     </>
   )
 }

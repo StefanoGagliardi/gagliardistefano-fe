@@ -17,11 +17,17 @@ Officiale repo for nextJs website / commerce / blog del mio sito personale.
 
 ## General info
 
-Main color: #0c82b6
-Font primary: Montserrat
-Font alternative: Overpass
+Main color: #0c82b6  
+Font primary: Montserrat  
+Font alternative: Overpass  
+SVG as Component from `import UserSvg from @assets/svg`
 
-### Features:
+### Babel plugin
+
+1. [Babel remove console](https://www.npmjs.com/package/babel-plugin-transform-remove-console) - Prod
+2. [Inline react svg](babel-plugin-inline-react-svg)
+
+### Features TODO:
 
 Plugin sconosciuto per next per minificare le classi (estende css-loader):
 [NextJs classMinify](https://github.com/kenmueller/next-optimized-classnames)
