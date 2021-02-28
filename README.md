@@ -7,7 +7,8 @@ Officiale repo for nextJs website / commerce / blog del mio sito personale.
 1. Folder structure and code strategy - **folder_strategy.md**
 2. Website base skeleton: \_document, Head, default seo - **base_skeleton.md**
 3. next.config.js "nextJs htaccess" - **next-config.md**
-4. Style, css and Tailwind - **styles.md**
+4. Style, css, sass and Tailwind with dark mode - **styles.md**
+5. NextJs persistant LAYOUT - **layout.md**
 
 ## Third Parts
 

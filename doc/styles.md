@@ -3,6 +3,10 @@
 Integrazione degli stili garfici, il mio stack è sempre stato `scss + className`.
 Con questo sito web proverò l'integrazione di tailwind css.
 
+Gli stili dei componenti (css module) supportano anche sass.
+
+La dark mode è supportata tramite tailwind
+
 ## Tailwind css
 
 Integrazione ed utilizzo di tailwind css
@@ -16,7 +20,9 @@ NB: In next-commerce non viene usato sass perchè sono tutte varaiabili e classi
 3. Creare il file `postcss.config.js`
 4. In assets creare il file `./assets/main.css` che importerà le varie parti di tailwind
    Inoltre le varie classi di tailwind possono essere sovrascritte con file custom dello stesso nome degli import di tailwind.
-5. Impotare i moduli css **globali** di "assets" nel file `./pages/_app.tsx`. Poi avremo anche i css module a un livello più basso. 
+5. Impotare i moduli css **globali** di "assets" nel file `./pages/_app.tsx`. Poi avremo anche i css module a un livello più basso.
+6. Per abilitare i css modulo con sass `npm i sass`
+7. Si consiglia di installare l'intellisens di Visual code per Tailwind
 
 ## ./assets CSS
 
@@ -25,6 +31,19 @@ Nel file tsconfig.json "assets" è stato definito come modulo quindi i file al s
 
 `import '@assets/main.css'`
 
-## SASS
+## tailwind.config.js
 
-Utilizzo di file scss
+Queto è il file di configurazione di tailwind presente nella root. Tra le varie impostazioni
+qui impostiamo le variabili del tema, alcune osservazioni:
+
+1. Le prime opzioni: pages, purge. Servono per includere tutti i css module e le direttive "@apply"
+2. La seconda porte importante è la sezione "themed" si impostano i colori, valori delle variabili sulle quali verrano generate le classi helper
+3. La darkmode viene abilitata nel config tramite `darkMode: "class",` di default è false. Nel file base.css definiremo le variabili due volte (una per modalità)
+
+**Variabili css (light e dark):**
+Le variabili usate dal `tailwind.config.js` sono variabili css ":root" nel file `@assets/base.css` se la dark mode è attiva 
+avrò la stessa variabile in due condizioni diverse.
+Sempre in base.css viene formatto il documento html
+
+**Utilizzo classi tailwind**
+Negli stili dei moduli (css o scss) tramite l'operatore `@apply bg-primary mx-auto;` posso estendere una classe custom con quelle di tailwind.

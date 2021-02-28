@@ -1,5 +1,11 @@
+// Import core
 import Head from 'next/head'
 import Image from 'next/image'
+
+// Import third parts
+
+// Import customs
+import Layout from '@components/common/Layout'
 
 export const Home = (): JSX.Element => (
   <div className="container">
@@ -40,4 +46,5 @@ export const Home = (): JSX.Element => (
   </div>
 )
 
+Home.Layout = Layout
 export default Home

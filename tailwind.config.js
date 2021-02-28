@@ -1,6 +1,6 @@
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   future: {
     purgeLayersByDefault: true,
     applyComplexClasses: true,
@@ -17,7 +17,11 @@ module.exports = {
     },
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'var(--primary)',
+      },
+    },
     screens: {
       sm: '640px',
       // => @media (min-width: 640px) { ... }

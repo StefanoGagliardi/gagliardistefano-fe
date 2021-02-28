@@ -29,7 +29,7 @@ export const Head: FC = () => {
           rel="stylesheet"
         ></link>
 
-        <link rel="manifest" href="/manifest.json" />
+        {/* <link rel="manifest" href="/manifest.json" /> */}
         <meta name="msapplication-TileColor" content="#0c82b6" />
         <meta name="theme-color" content="#0c82b6" />
       </NextHead>
