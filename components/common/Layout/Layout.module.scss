@@ -1,4 +1,8 @@
 .siteRoot {
-  @apply h-full bg-primary mx-auto transition-colors duration-150;
+  @apply h-full;
+  @apply bg-primary;
+  @apply mx-auto;
+  @apply transition-colors;
+  @apply duration-150;
   max-width: 2460px;
 }
