@@ -31,3 +31,8 @@ SVG as Component from `import UserSvg from @assets/svg`
 
 Plugin sconosciuto per next per minificare le classi (estende css-loader):
 [NextJs classMinify](https://github.com/kenmueller/next-optimized-classnames)
+
+Custom server.js
+
+### SEO
+Sitemap generator
