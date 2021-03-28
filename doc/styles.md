@@ -39,7 +39,15 @@ qui impostiamo le variabili del tema, alcune osservazioni:
 1. Le prime opzioni: pages, purge. Servono per includere tutti i css module e le direttive "@apply"
 2. La seconda porte importante è la sezione "themed" si impostano i colori, valori delle variabili sulle quali verrano generate le classi helper
 3. La darkmode viene abilitata nel config tramite `darkMode: "class",` di default è false. Nel file base.css definiremo le variabili due volte (una per modalità)
-4. viene impostata la max-width come variabile "8xl": ``` maxWidth: { '8xl': '1920px', }, ```
+4. viene impostata la max-width come variabile "8xl": `maxWidth: { '8xl': '1920px', },`
+
+### Tailwind css style rule
+
+[Resource](https://stackoverflow.com/questions/61443484/how-to-solve-semi-colon-expected-csscss-semicolonexpected)
+
+1. `npm install --save-dev stylelint stylelint-config-standard`
+2. Creare nella main root `stylelint.config.js` e riempirlo col suo contenuto
+3. Installare in vscode due estensioni: Tailwind intellisens e Stylelint
 
 **Variabili css (light e dark):**
 Le variabili usate dal `tailwind.config.js` sono variabili css ":root" nel file `@assets/base.css` se la dark mode è attiva

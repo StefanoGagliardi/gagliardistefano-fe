@@ -1,7 +1,8 @@
-@tailwind base;
 @import './base.css'; /* Sovrascrive le classi di tailwind (base) */
 
+@tailwind base;
 @tailwind components;
+
 /* @import './components.css'; */
 
 @tailwind utilities;

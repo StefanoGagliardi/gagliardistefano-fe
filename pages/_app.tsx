@@ -6,8 +6,10 @@ import React, { FC, useEffect } from 'react'
 
 // Import customs
 import { Head } from '@components/common'
-import '@assets/main.css'
-import '@assets/chrome-bug.css'
+import { ManagedUIContext } from '@components/ui/context'
+import '../assets/main.css'
+import '../assets/chrome-bug.css'
+// import '../assets/styles.scss'
 
 /**
  * Script start
@@ -23,11 +25,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head />
-      {/* TODO: OPEN UI CONTEXT */}
-      <Layout pageProps={pageProps}>
-        <Component {...pageProps} />
-      </Layout>
-      {/* TODO: CLOSE UI CONTEXT */}
+      <ManagedUIContext>
+        <Layout pageProps={pageProps}>
+          <Component {...pageProps} />
+        </Layout>
+      </ManagedUIContext>
     </>
   )
 }

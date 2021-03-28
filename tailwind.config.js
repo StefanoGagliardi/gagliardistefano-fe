@@ -1,6 +1,7 @@
+// Custom plugin / function
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
-  purge: [],
-  darkMode: 'class', // or 'media' or 'class'
   future: {
     purgeLayersByDefault: true,
     applyComplexClasses: true,
@@ -22,7 +23,33 @@ module.exports = {
         '8xl': '1920px',
       },
       colors: {
-        primary: 'var(--primary)',
+        ctaStart: 'var(--color-bg-cta-start)',
+        ctaStop: 'var(--color-bg-cta-stop)',
+      },
+      backgroundColor: {
+        primary: 'var(--color-bg-primary)',
+        secondary: 'var(--color-bg-secondary)',
+      },
+      gradientColorStops: {
+        ctaStop: 'var(--color-bg-cta-stop)',
+      },
+      textColor: {
+        accent: 'var(--color-text-accent)',
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)',
+      },
+      textOpacity: {
+        20: '0.2',
+        80: '0.8',
+      },
+      spacing: {
+        header: '75px',
+      },
+      height: {
+        header: '75px',
+      },
+      margin: {
+        30: '30px',
       },
     },
     screens: {
@@ -38,13 +65,37 @@ module.exports = {
       xl: '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
-      '8xl': '1920px',
+      // Per aumentare i container scommentre qui
+      // '2xl': '1536px',
+      // // => @media (min-width: 1536px) { ... }
+
+      // '8xl': '1920px',
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['hover'],
+      textOpacity: ['hover'],
+    },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({
+      addUtilities,
+      theme,
+      // addComponents,
+      // e,
+      // prefix,
+      // config,
+      // variants,
+    }) {
+      // Add your custom styles here
+      // console.log("backgroundColor", theme("backgroundColor"))
+      const utilityPtHeaderHeight = {
+        '.pt-h-header': {
+          'padding-top': theme('height').header,
+        },
+      }
+      addUtilities(utilityPtHeaderHeight, []) // ["hover", "focus"]
+    }),
+  ],
 }

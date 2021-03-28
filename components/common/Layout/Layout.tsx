@@ -29,9 +29,9 @@ export const Layout: FC<Props> = ({ children, pageProps }) => {
       {/* Commerce context */}
       <div className={cn(s.siteRoot)}>
         <Header />
-        <MobileMenu />
+        {/* <MobileMenu /> */}
 
-        <main className="fit">{children}</main>
+        <main className={cn('fit', 'pt-h-header')}>{children}</main>
 
         {/* <Sidebar> Cart or Blog sidebar (mobile ?)</Sidebar> */}
 

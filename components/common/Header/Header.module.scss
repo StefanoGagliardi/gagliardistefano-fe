@@ -1,0 +1,35 @@
+.root {
+  @apply sticky top-0 bg-primary z-40 transition-all duration-150;
+}
+
+.logo {
+  @apply cursor-pointer rounded-full border transform duration-100 ease-in-out;
+
+  &:hover {
+    @apply shadow-md;
+
+    transform: scale(1.05);
+  } 
+}
+
+.mobileToggle {
+  > span {
+    width: 33px;
+    height: 7px;
+    display: block;
+    border-radius: 30px;
+
+    @apply bg-gradient-to-r;
+    @apply from-ctaStart;
+    @apply to-ctaStop;
+
+    &:nth-child(1) {
+    }
+
+    &:nth-child(2) {
+    }
+
+    &:nth-child(3) {
+    }
+  }
+}

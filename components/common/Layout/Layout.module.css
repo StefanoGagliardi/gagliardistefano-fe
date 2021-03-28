@@ -3,6 +3,6 @@
   @apply bg-primary;
   @apply mx-auto;
   @apply transition-colors;
-  @apply duration-150; // Dark mode?
+  @apply duration-150;
   max-width: 2460px;
 }

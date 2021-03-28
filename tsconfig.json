@@ -2,7 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -15,17 +19,39 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-    //   "@lib/*": ["lib/*"],
-      "@assets/*": ["assets/*"],
-      "@config/*": ["config/*"],
-      "@components/*": ["components/*"]
-    //   "@utils/*": ["utils/*"],
-    //   "@commerce/*": ["framework/commerce/*"],
-    //   "@commerce": ["framework/commerce"],
-    //   "@framework/*": ["framework/bigcommerce/*"],
-    //   "@framework": ["framework/bigcommerce"]
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
+      "@services/*": [
+        "services/*"
+      ]
+      //   "@lib/*": ["lib/*"],
+      //   "@utils/*": ["utils/*"],
+      //   "@commerce/*": ["framework/commerce/*"],
+      //   "@commerce": ["framework/commerce"],
+      //   "@framework/*": ["framework/bigcommerce/*"],
+      //   "@framework": ["framework/bigcommerce"]
     }
   },
-  "exclude": ["node_modules", ".next", "out"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "custom.d.ts"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "custom.d.ts"
+  ]
 }
