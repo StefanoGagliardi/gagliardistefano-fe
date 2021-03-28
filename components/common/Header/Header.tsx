@@ -14,7 +14,7 @@ export const Header: FC = () => {
     <nav className="p-2 bg-primary shadow-md fixed w-100 left-0 right-0 z-50 h-header">
       <div className="flex items-center justify-between flex-wrap container mx-auto">
         <div className="flex items-center flex-no-shrink text-white mr-6">
-          <img src={'/stefano_gagliardi_logo.png'} width="100" height="57" />
+          <img src={'/gagliardistefano_logo.png'} width="100" height="57" />
         </div>
         <div className="block lg:hidden">
           <button className={s.mobileToggle}>

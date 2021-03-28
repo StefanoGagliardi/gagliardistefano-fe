@@ -22,3 +22,5 @@ export const ThemeToggle: FC = (): ReactElement => {
     </label>
   )
 }
+
+export default ThemeToggle;

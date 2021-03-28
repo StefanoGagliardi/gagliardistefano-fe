@@ -32,3 +32,5 @@ export const NavbarMenu: FC = (): ReactElement => {
     </>
   )
 }
+
+export default NavbarMenu;

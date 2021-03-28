@@ -5,7 +5,6 @@ import React, { FC, useEffect } from 'react'
 // Import third parts
 
 // Import customs
-import { Head } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
 import '../assets/main.css'
 import '../assets/chrome-bug.css'
@@ -24,7 +23,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head />
       <ManagedUIContext>
         <Layout pageProps={pageProps}>
           <Component {...pageProps} />

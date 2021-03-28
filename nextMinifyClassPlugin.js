@@ -15,9 +15,6 @@ const getKey = ({ rootContext, resourcePath }, name) =>
   `${relative(rootContext, resourcePath).replace(/\\+/g, '/')}#${name}`
 
 const getLocalIdent = (path, _, name) => {
-  console.log("path", path);
-  console.log("_",_);
-  console.log("name", name);
   return  getName(getKey(path, name))
 }
 

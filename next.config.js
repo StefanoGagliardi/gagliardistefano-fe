@@ -5,8 +5,6 @@ const bundleAnalyzer = require('@next/bundle-analyzer')({
 const { join, relative } = require('path')
 const generateName = require('css-class-generator')
 
-const CSS_LOADER_MATCH = join('compiled', 'css-loader', 'cjs.js')
-
 const locales = ['it']
 const defaultLocale = 'it'
 
@@ -59,25 +57,12 @@ const defaultLocale = 'it'
       for (const { oneOf } of config.module.rules) {
         if (Array.isArray(oneOf)) {
           for (const { sideEffects, use } of oneOf) {
-            console.log('sideEffects', sideEffects)
             if (sideEffects === false && Array.isArray(use)) {
-              // console.log('oneOf', oneOf) // CSS LOADER
-              // console.log('use', use)
-
               for (const { loader, options } of use) {
-                // console.log('loadder', loader)
-                // console.log('options', options)
                 if (
                   loader.endsWith(CSS_LOADER_MATCH) &&
                   typeof options.modules === 'object'
                 ) {
-                  console.log('options.modules', options.modules) // CSS LOADER
-                  console.log(
-                    'options.modules.getLocalIdent',
-                    options.modules.getLocalIdent
-                  )
-                  // options.modules.getLocalIdent = getLocalIdent
-
                   const names = {}
                   let index = 0
 
@@ -93,9 +78,6 @@ const defaultLocale = 'it'
                     )}#${name}`
 
                   const getLocalIdent = (path, _, name) => {
-                    // console.log('path', path)
-                    // console.log('_', _)
-                    // console.log('name', name)
                     return getName(getKey(path, name))
                   }
 
@@ -111,16 +93,13 @@ const defaultLocale = 'it'
                   //   console.log('localName', localName) // class name;
                   //   return localIdentName
                   // })
+
                 }
               }
-              // && Array.isArray(use)
-              // console.log('use.loader', use.loader)
-              // console.log('use.options', use.options)
             }
           }
         }
       }
-
       // Important: return the modified config
       return config
     },
