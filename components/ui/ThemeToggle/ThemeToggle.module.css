@@ -1,0 +1,88 @@
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch-wrapper em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.theme-switch-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 21px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ebebeb;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+
+  border-radius: 40px;
+  height: 21px;
+  width: 40px;
+}
+
+.dot {
+  background: -moz-linear-gradient(180deg, #d582c8 0%, #2d338c 100%);
+  background: -webkit-linear-gradient(180deg, #d582c8 0%, #2d338c 100%);
+  background: -o-linear-gradient(180deg, #d582c8 0%, #2d338c 100%);
+  background: -ms-linear-gradient(180deg, #d582c8 0%, #2d338c 100%);
+  background: linear-gradient(180deg, #d582c8 0%, #2d338c 100%);
+  bottom: -1px;
+  content: '';
+  height: 23px;
+  left: 0;
+  position: absolute;
+  transition: 0.4s;
+  width: 23px;
+  border-radius: 50%;
+
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+}
+
+.slider .dot #darkIcon {
+  display: none;
+}
+
+.slider .dot #lightIcon {
+  display: block;
+}
+
+.slider.dark .dot {
+  background: -moz-linear-gradient(180deg, #5cc5df 0%, #2d338c 100%);
+  background: -webkit-linear-gradient(180deg, #5cc5df 0%, #2d338c 100%);
+  background: -o-linear-gradient(180deg, #5cc5df 0%, #2d338c 100%);
+  background: -ms-linear-gradient(180deg, #5cc5df 0%, #2d338c 100%);
+  background: linear-gradient(180deg, #5cc5df 0%, #2d338c 100%);
+}
+
+.slider.dark .dot #darkIcon {
+  display: block;
+}
+
+.slider.dark .dot #lightIcon {
+  display: none;
+}
+
+input:checked + .slider .dot {
+  transform: translateX(17px);
+}

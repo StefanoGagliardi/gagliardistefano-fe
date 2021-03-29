@@ -46,6 +46,10 @@ const defaultLocale = 'it'
 })),
   (module.exports = {
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+      if (dev) {
+        return config
+      }
+
       // Note: we provide webpack above so you should not `require` it
       // Perform customizations to webpack config
       config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
@@ -84,7 +88,7 @@ const defaultLocale = 'it'
                   options.modules.getLocalIdent = getLocalIdent
 
                   // (options.modules.getLocalIdent = (
-                  //   context,
+                  //   co ntext,
                   //   localIdentName,
                   //   localName,
                   //   options
@@ -93,7 +97,6 @@ const defaultLocale = 'it'
                   //   console.log('localName', localName) // class name;
                   //   return localIdentName
                   // })
-
                 }
               }
             }
@@ -104,40 +107,3 @@ const defaultLocale = 'it'
       return config
     },
   })
-
-// // module.exports = bundleAnalyzer({
-// //   // images: {
-// //   //   domains: ['cdn11.bigcommerce.com'],
-// //   // },
-// //   i18n: {
-// //     locales: ['it'],
-// //     defaultLocale: 'it',
-// //   },
-// //   // Example of rewrites
-// //   async rewrites() {
-// //     const ret = [
-// //       ...this.i18n.locales
-// //         .filter((locale) => locale !== defaultLocale)
-// //         .map((locale) => [
-// //           { source: `/${locale}{/}?`, destination: '/' },
-// //           { source: `/${locale}/:path*`, destination: '/:path*' },
-// //         ])
-// //         .reduce((acc, cur) => [...acc, ...cur], []),
-// //     ]
-// //     return ret
-// //   },
-// //   async redirects() {
-// //     return [
-// //       {
-// //         source: `/${defaultLocale}{/}?`,
-// //         destination: '/',
-// //         permanent: true,
-// //       },
-// //       {
-// //         source: `/${defaultLocale}/:path*`,
-// //         destination: '/:path*',
-// //         permanent: true,
-// //       },
-// //     ]
-// //   },
-// // })
