@@ -25,7 +25,7 @@ export const UIProvider = (props) => {
 // Context to use in app - integra ui provider
 export const ManagedUIContext: FC = ({ children }) => (
   <UIProvider>
-    <ThemeProvider>{children}</ThemeProvider>
+    <ThemeProvider attribute="class">{children}</ThemeProvider>
   </UIProvider>
 )
 

@@ -1,25 +1,49 @@
 // Import core
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 // Import third parts
 import cn from 'classnames'
 
 // Import custom
 import s from './Header.module.scss'
-import { ThemeToggle } from '@components/ui/ThemeToggle/ThemeToggle'
 import { NavbarMenu } from '../NavbarMenu/NavbarMenu'
+import useScrollPosition, { IScrollProps } from '@services/hooks/useBodyScroll'
+import HeaderLogo from './HeaderLogo'
 
 export const Header: FC = () => {
+  const [scrollClass, setScrollClass] = useState<boolean>(false)
+
+  // Get scroll position and set class
+  useScrollPosition({
+    effect: (props: IScrollProps) => {
+      const { prevPos, currPos } = props
+
+      if (currPos.y && Math.abs(currPos.y) > 70) {
+        setScrollClass(true)
+      } else {
+        setScrollClass(false)
+      }
+    },
+    deps: [scrollClass],
+    element: null,
+    useWindow: false,
+    wait: 300,
+  })
+
   return (
-    <nav className="p-2 bg-primary shadow-md fixed w-100 left-0 right-0 z-50 h-header">
-      <div className="flex items-center justify-between flex-wrap container mx-auto">
-        <div className="flex items-center flex-no-shrink text-white mr-6">
-          <img src={'/gagliardistefano_logo.png'} width="100" height="57" />
+    <nav
+      className={cn('p-2 bg-primary fixed w-100 left-0 right-0 z-50 h-header', {
+        scrolled: scrollClass,
+      })}
+    >
+      <div className="flex items-center justify-between flex-wrap px-5 mx-auto">
+        <div className="flex items-center flex-no-shrink text-white">
+          <HeaderLogo />
         </div>
         <div className="block lg:hidden">
           <button className={s.mobileToggle}>
             <span></span>
-            <span className={cn("my-1")}></span>
+            <span className={cn('my-1')}></span>
             <span></span>
           </button>
         </div>

@@ -5,7 +5,7 @@ import { FC } from 'react'
 import cn from 'classnames'
 
 // Import custom
-import s from './Layout.module.scss'
+import s from './Layout.module.css'
 import Footer from '../Footer'
 import Header from '../Header'
 import MobileMenu from '../MobileMenu'

@@ -2,6 +2,7 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  darkMode: 'class',
   future: {
     purgeLayersByDefault: true,
     applyComplexClasses: true,
@@ -43,10 +44,10 @@ module.exports = {
         80: '0.8',
       },
       spacing: {
-        header: '75px',
+        header: '65px',
       },
       height: {
-        header: '75px',
+        header: '65px',
       },
       margin: {
         30: '30px',
@@ -76,7 +77,8 @@ module.exports = {
     extend: {
       textColor: ['hover'],
       textOpacity: ['hover'],
-    },
+      opacity: ['dark'],
+    }
   },
   plugins: [
     plugin(function ({

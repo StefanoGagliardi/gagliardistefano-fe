@@ -29,31 +29,13 @@ export const Home = (): JSX.Element => (
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <section className="py-5">
-      <div className="container mx-auto">
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <div className="h-64 grid grid-rows-3 grid-flow-col gap-4">
-          <div>
-            <h1>1</h1>
-          </div>
-          <div>
-            <h1>2</h1>
-          </div>
-          <div>
-            <h1>3</h1>
-          </div>
-          <div>
-            <h1>4</h1>
-          </div>
-          <div>
-            <h1>5</h1>
-          </div>
-          <div>
-            <h1>6</h1>
-          </div>
-        </div>
+    <section className="py-5 px-3">
+      <div className="grid grid-rows-2 grid-flow-col gap-4 grid-cols-4">
+        <div className="row-span-2 col-span-2 bg-secondary">1</div>
+        <div className="">2</div>
+        <div className="">3</div>
+        <div className="">4</div>
+        <div className="">5</div>
       </div>
     </section>
     <section className="py-5">

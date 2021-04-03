@@ -1,0 +1,27 @@
+.logoWrapper {
+  width: 250px;
+  height: 49px;
+}
+
+.logoWrapper::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 49px;
+
+  @apply bg-primary;
+
+  z-index: 3;
+  width: 0;
+  transition: 1s linear width;
+}
+
+.logoWrapper img {
+  z-index: 2;
+}
+
+.scrolled.logoWrapper::after {
+  width: 210px;
+  transition: 1s linear width;
+}
