@@ -1,14 +1,7 @@
-const bundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: !!process.env.BUNDLE_ANALYZE,
-})
-
-const { join, relative } = require('path')
-const generateName = require('css-class-generator')
-
 const locales = ['it']
 const defaultLocale = 'it'
 
-;(module.exports = bundleAnalyzer({
+module.exports = require('./next-plugins/minifyClass')({
   // images: {
   //   domains: ['cdn11.bigcommerce.com'],
   // },
@@ -43,14 +36,4 @@ const defaultLocale = 'it'
       },
     ]
   },
-})),
-  (module.exports = {
-    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-      // if (dev) {
-      //   return config
-      // }
-
-        
-      return config
-    },
-  })
+})

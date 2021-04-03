@@ -7,6 +7,7 @@ import cn from 'classnames'
 // Impot customs
 import useScrollPosition, { IScrollProps } from '@services/hooks/useBodyScroll'
 import s from './HeaderLogo.module.css'
+import Link from 'next/link'
 
 export const HeaderLogo: FC = (): ReactElement => {
   const [scrollClass, setScrollClass] = useState<boolean>(false)
@@ -30,7 +31,7 @@ export const HeaderLogo: FC = (): ReactElement => {
 
   return (
     <div
-      className={cn(s.logoWrapper, "relative", {
+      className={cn(s.logoWrapper, 'relative', {
         [s.scrolled]: scrollClass,
       })}
     >
@@ -46,6 +47,11 @@ export const HeaderLogo: FC = (): ReactElement => {
         width="250"
         height="49"
       />
+      <Link href="#">
+        <a href="" className={s.link}>
+          TEST CLAsS MINIFY
+        </a>
+      </Link>
     </div>
   )
 }

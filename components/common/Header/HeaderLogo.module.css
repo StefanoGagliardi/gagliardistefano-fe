@@ -17,6 +17,10 @@
   transition: 1s linear width;
 }
 
+.link {
+  color: red;
+}
+
 .logoWrapper img {
   z-index: 2;
 }
