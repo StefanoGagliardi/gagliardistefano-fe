@@ -1,8 +1,6 @@
 // Import third parts
-const { join, relative } = require('path')
 const path = require('path')
 const generateName = require('css-class-generator')
-const loaderUtils = require('loader-utils')
 
 /**
  * Re-wrap next.config.js with custom webpack configuration
@@ -10,9 +8,8 @@ const loaderUtils = require('loader-utils')
 module.exports = (nextConfig = {}) => ({
   ...nextConfig,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    if (isDev) return config // Disable during devoloping
+    // if (isDev) return config // Disable during dev
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
-    // console.log("config.module.rules[i].oneOf", config.module.rules[0]);
     if (config.module.rules[1].oneOf) {
       for (let i = 0; i < config.module.rules[1].oneOf.length; i++) {
         if (config.module.rules[1].oneOf[i].sideEffects === false) {
@@ -22,6 +19,7 @@ module.exports = (nextConfig = {}) => ({
               l < config.module.rules[1].oneOf[i].use.length;
               l++
             ) {
+              console.log("loader", loader);
               const { loader, options } = config.module.rules[1].oneOf[i].use[l]
               if (options.modules) {
                 config.module.rules[1].oneOf[i].use[
@@ -38,10 +36,10 @@ module.exports = (nextConfig = {}) => ({
 })
 
 /**
- * Funzione originale - https://github.com/webpack-contrib/css-loader/blob/5e702e7d2e081b7f6d372f0c967fdfca6a40a584/src/utils.js#L37
+ * Original implementation of function - https://github.com/webpack-contrib/css-loader/blob/5e702e7d2e081b7f6d372f0c967fdfca6a40a584/src/utils.js#L37
  *
  * @param {*} context
- * @param {string} localIdentName - Type of parse [hash:base64]
+ * @param {string} localIdentName - Type of parse - defualt: [hash:base64]
  * @param {string} localName - Myclassname
  * @param {*} options
  * @returns
@@ -58,22 +56,18 @@ const getLocalIdentCustom = (context, localIdentName, localName, options) => {
 
   const newClassName = getMinifiedClassName(localName, request)
 
-  // // LINK as test
-  // if (localName === 'link') {
-  //   console.log('localName', localName)
-  //   console.log('request', request)
-  //   console.log('newClassName', newClassName)
-  // }
-
-  // Posso usare il nome generato dalla funzione di default come chiave univoca e generare sulla base di quella la classe minificaa (lettera)
-
   return newClassName
 }
 
+// Store file name and his class
 let classKey = {}
-let classIndex = 0
+let classIndex = 0 // Index of classname for generation
+
 const getMinifiedClassName = (className, path) => {
   // generate key of file: Parent folder firt letter and file name
+
+  // NB: I can have two className with same name but in differente file
+  // I generate uniqui key name based on [FirstLetter of Parent folder] + filname without .module.css
   const strings = path.split('/')
   const fileName = Array.isArray(strings)
     ? strings[strings.length - 1].toLowerCase()
@@ -84,9 +78,6 @@ const getMinifiedClassName = (className, path) => {
     : ''
 
   const keyName = parentFolder + fileName.split('.')[0]
-
-  // console.log('classKey', classKey)
-
   classIndex++
 
   let retKey = classIndex
@@ -94,18 +85,18 @@ const getMinifiedClassName = (className, path) => {
   // Find key
   if (classKey[keyName]) {
     if (classKey[keyName][className]) {
+      // Exist filename
+      // Get exist index
       retKey = classKey[keyName][className].index
     } else {
+      // Exists file but not classname
       classKey[keyName][className] = { index: classIndex }
     }
   } else {
-    // Store ket and first class
+    // Store First key and first className
     classKey[keyName] = {}
     classKey[keyName][className] = { index: classIndex }
   }
-
-  // console.log("classKey", classKey);
-
   const newName = generateName(retKey)
   return newName
 }
