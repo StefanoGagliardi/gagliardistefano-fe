@@ -5,10 +5,16 @@ const generateName = require('css-class-generator')
 /**
  * Re-wrap next.config.js with custom webpack configuration
  */
-module.exports = (nextConfig = {}) => ({
+let classPrefix = ''
+module.exports = (prefix, nextConfig = {}) => ({
   ...nextConfig,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // if (isDev) return config // Disable during dev
+    if (dev) return config // Disable during dev
+
+    if (prefix) {
+      classPrefix = prefix
+    }
+
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
     if (config.module.rules[1].oneOf) {
       for (let i = 0; i < config.module.rules[1].oneOf.length; i++) {
@@ -19,7 +25,6 @@ module.exports = (nextConfig = {}) => ({
               l < config.module.rules[1].oneOf[i].use.length;
               l++
             ) {
-              console.log("loader", loader);
               const { loader, options } = config.module.rules[1].oneOf[i].use[l]
               if (options.modules) {
                 config.module.rules[1].oneOf[i].use[
@@ -63,6 +68,12 @@ const getLocalIdentCustom = (context, localIdentName, localName, options) => {
 let classKey = {}
 let classIndex = 0 // Index of classname for generation
 
+/**
+ *
+ * @param {string} className - original className
+ * @param {string} path - Css module path
+ * @returns {string} - new className
+ */
 const getMinifiedClassName = (className, path) => {
   // generate key of file: Parent folder firt letter and file name
 
@@ -97,6 +108,12 @@ const getMinifiedClassName = (className, path) => {
     classKey[keyName] = {}
     classKey[keyName][className] = { index: classIndex }
   }
-  const newName = generateName(retKey)
+
+  let newName = generateName(retKey)
+
+  if (classPrefix) {
+    newName = classPrefix + '_' + newName
+  }
+
   return newName
 }

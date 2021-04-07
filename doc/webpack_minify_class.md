@@ -46,12 +46,12 @@ Se non ci sono altri plugin per next.config mi basterà importare il file
 
 2. webpack.module -> rule: contiene il match dei file tsx, ts ecc.
    coniene inoltre una variabile "oneOf" che è un "Array di loader"
-
+w
 3. I loader che mi interessano sono gli unici ad avere il paramentro "sideEffect": false
 4. accedere alla funzione getLocalIdent
 5. Studiare la funzioen originale: https://github.com/webpack-contrib/css-loader/blob/5e702e7d2e081b7f6d372f0c967fdfca6a40a584/src/utils.js#L37
 
-NB: Il loader funziona sia per css che scss e match solo i .module{css|scss|sass}
+NB: Il loader funziona sia per css che scss e match solo i .maodule{css|scss|sass}
 
 ### Testare la generazione delle classi
 
@@ -69,4 +69,4 @@ request components/common/NavbarMenu/NavbarMenu.module.scss
 localName link
 request components/common/NavbarMenu/NavbarMenu.module.scss
 localName link
-request components/common/NavbarMenu/NavbarMenu.module.scss
+request components/common/NavbarMenu/NavbarMenu.module.scssw

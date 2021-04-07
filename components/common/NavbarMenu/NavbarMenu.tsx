@@ -17,7 +17,7 @@ import Link from 'next/link'
 export const NavbarMenu: FC = (): ReactElement => {
   return (
     <>
-      <div className="text-md flex lg:justify-center lg:flex-grow mr-5">
+      <div className="text-md text-white flex lg:justify-center lg:flex-grow mr-5">
         {navbarMenuData.map((value: IMainMenuLink, index: number) => {
           return (
             <Link href={value.url as string} key={index}>

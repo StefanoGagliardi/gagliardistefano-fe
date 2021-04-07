@@ -31,7 +31,7 @@ export const Layout: FC<Props> = ({ children, pageProps }) => {
         <Header />
         {/* <MobileMenu /> */}
 
-        <main className={cn('fit', 'pt-h-header')}>{children}</main>
+        <main className={cn('fit')}>{children}</main>
 
         {/* <Sidebar> Cart or Blog sidebar (mobile ?)</Sidebar> */}
 

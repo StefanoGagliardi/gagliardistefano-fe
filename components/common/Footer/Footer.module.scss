@@ -1,0 +1,23 @@
+.footer {
+  height: 300px;
+  position: relative;
+  background: #f5f8fa;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.socket {
+  background: #0c82b6;
+  color: #fff;
+  position: absolute;
+  padding: 20px 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+  }
+}

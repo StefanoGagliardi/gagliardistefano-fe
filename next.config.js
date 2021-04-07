@@ -1,7 +1,7 @@
 const locales = ['it']
 const defaultLocale = 'it'
 
-module.exports = require('./next-plugins/minifyClass')({
+module.exports = require('./next-plugins/minifyClass')('gs', {
   // images: {
   //   domains: ['cdn11.bigcommerce.com'],
   // },

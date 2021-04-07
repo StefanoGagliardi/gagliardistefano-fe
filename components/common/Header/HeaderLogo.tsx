@@ -17,7 +17,7 @@ export const HeaderLogo: FC = (): ReactElement => {
     effect: (props: IScrollProps) => {
       const { prevPos, currPos } = props
 
-      if (currPos.y && Math.abs(currPos.y) > 70) {
+      if (currPos.y && Math.abs(currPos.y) > 500) {
         setScrollClass(true)
       } else {
         setScrollClass(false)
@@ -36,22 +36,29 @@ export const HeaderLogo: FC = (): ReactElement => {
       })}
     >
       <img
-        className="dark:opacity-100 opacity-0 transition-opacity absolute top-0 left-0"
+        className={cn(
+          'dark:opacity-100 transition-opacity absolute top-0 left-0',
+          {
+            'opacity-100': !scrollClass,
+            'opacity-0': scrollClass,
+          }
+        )}
         src={'/logo/res/gagliardistefano-logo-light250.png'}
         width="250"
         height="49"
       />
       <img
-        className="dark:opacity-0 opacity-100 transition-opacity absolute top-0 left-0"
+        className={cn(
+          'dark:opacity-0 transition-opacity absolute top-0 left-0 dark:hide',
+          {
+            'opacity-0': !scrollClass,
+            'opacity-100': scrollClass,
+          }
+        )}
         src={'/logo/res/gagliardistefano-logo-dark250.png'}
         width="250"
         height="49"
       />
-      <Link href="#">
-        <a href="" className={s.link}>
-          TEST CLAsS MINIFY
-        </a>
-      </Link>
     </div>
   )
 }

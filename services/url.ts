@@ -14,6 +14,7 @@ export const url = {
   products: (): IAppLinkHref => `/prodotti`,
   blog: (): IAppLinkHref => `/blog`,
   contacts: (): IAppLinkHref => `/contatti`,
+  PrivacyPolicy: (): IAppLinkHref => `/privacy-policy`,
 }
 
 export default url

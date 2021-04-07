@@ -26,6 +26,12 @@ module.exports = {
       colors: {
         ctaStart: 'var(--color-bg-cta-start)',
         ctaStop: 'var(--color-bg-cta-stop)',
+        green: {
+          light: '--color-green-light',
+          DEFAULT: '--color-green-dark',
+          dark: '--color-green-dark',
+        },
+        logoBlue: '#145fb4',
       },
       backgroundColor: {
         primary: 'var(--color-bg-primary)',
@@ -44,13 +50,14 @@ module.exports = {
         80: '0.8',
       },
       spacing: {
-        header: '65px',
+        header: '80px',
       },
       height: {
-        header: '65px',
+        header: '80px',
       },
       margin: {
         30: '30px',
+        50: '50px',
       },
     },
     screens: {
@@ -78,7 +85,7 @@ module.exports = {
       textColor: ['hover'],
       textOpacity: ['hover'],
       opacity: ['dark'],
-    }
+    },
   },
   plugins: [
     plugin(function ({

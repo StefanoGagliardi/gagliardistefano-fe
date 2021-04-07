@@ -12,24 +12,48 @@
   }
 }
 
-.mobileToggle {
-  > span {
-    width: 33px;
-    height: 7px;
-    display: block;
-    border-radius: 30px;
+.mobileToggle > span {
+  width: 33px;
+  height: 7px;
+  display: block;
+  border-radius: 30px;
 
-    @apply bg-gradient-to-r;
-    @apply from-ctaStart;
-    @apply to-ctaStop;
+  @apply bg-gradient-to-r;
+  @apply from-ctaStart;
+  @apply to-ctaStop;
 
-    &:nth-child(1) {
-    }
-
-    &:nth-child(2) {
-    }
-
-    &:nth-child(3) {
-    }
+  &:nth-child(1) {
   }
+
+  &:nth-child(2) {
+  }
+
+  &:nth-child(3) {
+  }
+}
+
+.logoLight {
+}
+
+.logoDarl {
+}
+
+.glass {
+}
+
+.glass::before {
+  content: ' ';
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgb(70 70 70 / 37%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  z-index: 0;
 }

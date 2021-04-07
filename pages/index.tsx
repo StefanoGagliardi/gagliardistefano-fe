@@ -3,11 +3,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 // Import third parts
+import cn from 'classnames'
 
 // Import customs
 import Layout from '@components/common/Layout'
-import { SVGArrowSvg } from '@assets/svg'
+import { SVGArrowSvg, SvgScrollIcon } from '@assets/svg'
 import { GetStaticPropsContext } from 'next'
+import s from './index.module.css'
 
 /**
  * Script start
@@ -29,93 +31,39 @@ export const Home = (): JSX.Element => (
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <section className="py-5 px-3">
-      <div className="grid grid-rows-2 grid-flow-col gap-4 grid-cols-4">
-        <div className="row-span-2 col-span-2 bg-secondary">1</div>
-        <div className="">2</div>
-        <div className="">3</div>
-        <div className="">4</div>
-        <div className="">5</div>
-      </div>
-    </section>
-    <section className="py-5">
-      <div className="container mx-auto">
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <div className="h-64 grid grid-rows-3 grid-flow-col gap-4">
-          <div>
-            <h1>1</h1>
+    <section
+      className={cn('py-5 px-3 relative flex items-center', s.firstSection)}
+    >
+      <div className="container mx-auto relative z-10">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="col-span-2">
+            <img src={'./scrollIcon.png'} className={s.scrollIcon} />
+            <div className={cn('ml-50 py-5')}>
+              <h1 className={s.h1}>
+                Assumi le skill,<br></br>la qualità e l'sperienza
+              </h1>
+              <p className={cn(s.subTitle, 'text-white mt-5')}>
+                Accellera i tuoi progetti software e digitali con un team
+                <br></br>
+                all'avanguardia, d'esperienza pronto a valutare ed offire
+                soluzioni
+                <br></br>
+                <span className="font-bold text-logoBlue">competitive</span>
+              </p>
+            </div>
           </div>
-          <div>
-            <h1>2</h1>
-          </div>
-          <div>
-            <h1>3</h1>
-          </div>
-          <div>
-            <h1>4</h1>
-          </div>
-          <div>
-            <h1>5</h1>
-          </div>
-          <div>
-            <h1>6</h1>
-          </div>
+          <div></div>
         </div>
       </div>
     </section>
-    <section className="py-5">
+    <section
+      className={cn(s.secondSection, 'py-5 px-3 relative flex items-center')}
+    >
       <div className="container mx-auto">
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <div className="h-64 grid grid-rows-3 grid-flow-col gap-4">
-          <div>
-            <h1>1</h1>
-          </div>
-          <div>
-            <h1>2</h1>
-          </div>
-          <div>
-            <h1>3</h1>
-          </div>
-          <div>
-            <h1>4</h1>
-          </div>
-          <div>
-            <h1>5</h1>
-          </div>
-          <div>
-            <h1>6</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section className="py-5">
-      <div className="container mx-auto">
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <div className="h-64 grid grid-rows-3 grid-flow-col gap-4">
-          <div>
-            <h1>1</h1>
-          </div>
-          <div>
-            <h1>2</h1>
-          </div>
-          <div>
-            <h1>3</h1>
-          </div>
-          <div>
-            <h1>4</h1>
-          </div>
-          <div>
-            <h1>5</h1>
-          </div>
-          <div>
-            <h1>6</h1>
-          </div>
+        <div className="grid grid-cols-3">
+          <div>div card1</div>
+          <div>div card2</div>
+          <div>div card3</div>
         </div>
       </div>
     </section>
