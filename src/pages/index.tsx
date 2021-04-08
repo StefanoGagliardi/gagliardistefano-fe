@@ -64,13 +64,13 @@ export const Home = (): JSX.Element => (
         </div>
       </div>
     </section>
+    <section className={cn(s.secondSectionBefore)}></section>
     <section
       className={cn(s.secondSection, 'py-5 px-3 relative flex items-center')}
     >
-      <div className="container mx-auto">
-        <HomeComponents.MainServiceCard />
-      </div>
+      <HomeComponents.MainServiceCard />
     </section>
+    <section className={cn(s.secondSectionAfter)}></section>
   </>
 )
 

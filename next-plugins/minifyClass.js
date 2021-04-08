@@ -9,6 +9,7 @@ let classPrefix = ''
 module.exports = (prefix, nextConfig = {}) => ({
   ...nextConfig,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    return config
     if (dev) return config // Disable during dev
 
     if (prefix) {

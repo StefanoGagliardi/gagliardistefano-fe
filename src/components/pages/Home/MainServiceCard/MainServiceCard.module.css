@@ -1,0 +1,234 @@
+.focusCardHeader {
+  @apply flex;
+  @aplly items-center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+.focusCardHeader svg {
+  width: 50px;
+  height: 50px;
+  fill: #222;
+}
+.focusCardHeader > span {
+  border: 2px solid #1359a7;
+  border-radius: 50%;
+  padding: 10px;
+}
+.focusCardHeader h5 {
+  font-size: 22px;
+  line-height: 1.45;
+  color: #222;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.focusCardBody {
+  padding-bottom: 20px;
+}
+.focusCardBody > p:first-child {
+  margin-bottom: 33px;
+  padding-left: 19px;
+  border-left: 3px solid #1359a7;
+  font-size: 20px;
+  color: #222;
+}
+.focusCardBody > p:last-child {
+  line-height: 1.625;
+  font-weight: bold;
+  color: #222;
+}
+.focusCardHeader,
+.focusCardBody {
+  position: relative;
+  padding: 0 10px;
+}
+
+.colors1,
+.colors2,
+.colors3,
+.colors4 {
+  position: absolute;
+  filter: blur(150px);
+  -webkit-filter: blur(150px);
+}
+
+.colors1 {
+  width: 600px;
+  height: 600px;
+  left: calc(50% - 300px);
+  top: -150px;
+  background: #ff359b;
+}
+
+.colors2 {
+  width: 500px;
+  height: 500px;
+  left: calc(50% - 300px);
+  bottom: -150px;
+  background: #fffd87;
+}
+
+.colors3 {
+  width: 500px;
+  height: 500px;
+  right: 50px;
+  bottom: 0px;
+  background: #617dfe;
+}
+
+.colors4 {
+  width: 500px;
+  height: 500px;
+  left: 50px;
+  bottom: 0px;
+  background: #1f8ab9;
+}
+
+.serviceCard {
+  padding: 20px 10px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.square {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+
+  width: 100px;
+  height: 100px;
+
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(-70px);
+  }
+  50% {
+    transform: translateY(70px);
+  }
+}
+
+.square:nth-child(1) {
+  z-index: 2;
+  top: -60px;
+  left: -50px;
+  background-image: url("../../../../../public/tech-logo/sass.svg");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+  width: 110px;
+  height: 110px;
+
+  animation-delay: calc(-1s * 0);
+}
+
+.square:nth-child(2) {
+  bottom: -40px;
+  left: -50px;
+  background-image: url("../../../../../public/tech-logo/docker.svg");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+  animation-delay: calc(-1s * 1);
+
+  width: 80px;
+  height: 80px;
+}
+
+.square:nth-child(3) {
+  bottom: -200px;
+  left: 200px;
+  background-image: url("../../../../../public/tech-logo/wordpress.svg");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  animation-delay: calc(-1s * 2);
+}
+
+.square:nth-child(4) {
+  z-index: 2;
+  top: -150px;
+  left: 300px;
+  background-image: url("../../../../../public/tech-logo/nextjs-logo.svg");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  animation-delay: calc(-1s * 3);
+}
+
+.square:nth-child(5) {
+  top: -200px;
+  left: 50%;
+  background-image: url("../../../../../public/tech-logo/typescriptlang-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  animation-delay: calc(-1s * 1);
+}
+
+.square:nth-child(6) {
+  z-index: 2;
+  top: -60px;
+  right: 30%;
+  background-image: url("../../../../../public/tech-logo/reactjs-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+  animation-delay: calc(-1s * 2);
+}
+
+.square:nth-child(7) {
+  width: 80px;
+  height: 80px;
+  right: -60px;
+  top: -50px;
+  background-image: url("../../../../../public/tech-logo/redux.svg");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+  animation-delay: calc(-1s * 0);
+}
+
+.square:nth-child(8) {
+  right: 0;
+  bottom: -120px;
+  background-image: url("../../../../../public/tech-logo/enzyme.png");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  animation-delay: calc(-1s * 1);
+}
+
+.square:nth-child(9) {
+  z-index: 2;
+  bottom: -80px;
+  right: 40%;
+  background-image: url("../../../../../public/tech-logo/i18next.svg");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  animation-delay: calc(-1s * 3);
+}
+
+/* .square:nth-child(10) {
+  top: -200px;
+  left: 50%;
+} */

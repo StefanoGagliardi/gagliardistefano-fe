@@ -1,4 +1,4 @@
-import MainServiceCard from './MainServiceCard'
+import MainServiceCard from './MainServiceCard/MainServiceCard'
 export const HomeComponents = {
   MainServiceCard,
 }
