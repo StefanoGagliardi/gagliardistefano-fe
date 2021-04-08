@@ -1,6 +1,6 @@
 // Import custom
 import { IMainMenuLink } from '@interfaces/mainMenuLink'
-import url from '@services/url'
+import url from 'src/services/url'
 
 const footerMenuData: IMainMenuLink[] = [
   {

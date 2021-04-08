@@ -6,6 +6,9 @@ import Instagram from './instagram.svg'
 import Youtube from './youtube.svg'
 import Linkedin from './linkedin.svg'
 import ScrollIcon from './scrollIcon.svg'
+import Globe from './globe.svg'
+// import Smartphone from './smartphone.svg'
+// import Ecommerce from './online-shop.svg'
 
 const SVGArrowSvg = SVGArrow
 const SVGThemeLight = ThemeLight
@@ -15,6 +18,9 @@ const SvgInstagram = Instagram
 const SvgYoutube = Youtube
 const SvgLinkedin = Linkedin
 const SvgScrollIcon = ScrollIcon
+const SvgGlobe = Globe
+// const SvgSmartphone = Smartphone
+// const SvgEcommerce = Ecommerce
 
 export {
   SVGArrowSvg,
@@ -25,4 +31,7 @@ export {
   SvgYoutube,
   SvgLinkedin,
   SvgScrollIcon,
+  SvgGlobe,
+  // SvgSmartphone,
+  // SvgEcommerce,
 }

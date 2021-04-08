@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "target": "es5",
     "lib": [
       "dom",
@@ -19,27 +19,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@assets/*": [
-        "assets/*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@interfaces/*": [
-        "interfaces/*"
-      ],
-      "@services/*": [
-        "services/*"
-      ]
-      //   "@lib/*": ["lib/*"],
-      //   "@utils/*": ["utils/*"],
-      //   "@commerce/*": ["framework/commerce/*"],
-      //   "@commerce": ["framework/commerce"],
-      //   "@framework/*": ["framework/bigcommerce/*"],
-      //   "@framework": ["framework/bigcommerce"]
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"],
+      "@components/*": ["src/components/*"],
+      "@components/pages/*": ["src/components/pages/*"],
+      "@services/*": ["src/services/*"],
+      "@interfaces/*": ["src/interfaces/*"]
     }
   },
   "exclude": [

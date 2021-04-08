@@ -5,7 +5,7 @@ import { FC, ReactElement, useState } from 'react'
 import cn from 'classnames'
 
 // Impot customs
-import useScrollPosition, { IScrollProps } from '@services/hooks/useBodyScroll'
+import useScrollPosition, { IScrollProps } from 'src/services/hooks/useBodyScroll'
 import s from './HeaderLogo.module.css'
 import Link from 'next/link'
 
@@ -45,7 +45,7 @@ export const HeaderLogo: FC = (): ReactElement => {
         )}
         src={'/logo/res/gagliardistefano-logo-light250.png'}
         width="250"
-        height="49"
+        height="49" 
       />
       <img
         className={cn(

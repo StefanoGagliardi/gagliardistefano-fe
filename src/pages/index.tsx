@@ -7,9 +7,10 @@ import cn from 'classnames'
 
 // Import customs
 import Layout from '@components/common/Layout'
-import { SVGArrowSvg, SvgScrollIcon } from '@assets/svg'
+import { SVGArrowSvg, SvgGlobe, SvgScrollIcon } from '@assets/svg'
 import { GetStaticPropsContext } from 'next'
 import s from './index.module.css'
+import HomeComponents from '@components/pages/Home'
 
 /**
  * Script start
@@ -38,7 +39,14 @@ export const Home = (): JSX.Element => (
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-2">
             <img src={'./scrollIcon.png'} className={s.scrollIcon} />
-            <div className={cn('ml-50 py-5')}>
+            <div
+              className={cn('ml-50 py-5')}
+              data-aos="fade-left"
+              data-aos-offset="400"
+              data-aos-delay="300"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-sine"
+            >
               <h1 className={s.h1}>
                 Assumi le skill,<br></br>la qualità e l'sperienza
               </h1>
@@ -60,11 +68,7 @@ export const Home = (): JSX.Element => (
       className={cn(s.secondSection, 'py-5 px-3 relative flex items-center')}
     >
       <div className="container mx-auto">
-        <div className="grid grid-cols-3">
-          <div>div card1</div>
-          <div>div card2</div>
-          <div>div card3</div>
-        </div>
+        <HomeComponents.MainServiceCard />
       </div>
     </section>
   </>

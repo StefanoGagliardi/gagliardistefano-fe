@@ -7,7 +7,7 @@ import cn from 'classnames'
 // Import custom
 import s from './Header.module.scss'
 import { NavbarMenu } from '../NavbarMenu/NavbarMenu'
-import useScrollPosition, { IScrollProps } from '@services/hooks/useBodyScroll'
+import useScrollPosition, { IScrollProps } from 'src/services/hooks/useBodyScroll'
 import HeaderLogo from './HeaderLogo'
 
 export const Header: FC = () => {
