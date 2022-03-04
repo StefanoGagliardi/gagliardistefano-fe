@@ -1,5 +1,5 @@
 // Custom plugin / function
-const plugin = require('tailwindcss/plugin')
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   darkMode: 'class',
@@ -7,19 +7,27 @@ module.exports = {
     purgeLayersByDefault: true,
     applyComplexClasses: true,
   },
-  purge: {
-    content: [
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-      './src/components/**/*.{js,ts,jsx,tsx}',
-      
-    ],
-    options: {
-      safelist: {
-        standard: ['outline-none'],
-      },
-    },
-  },
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}', // Pages contain own style
+    './src/components/**/*.{js,ts,jsx,tsx}', // Site Components
+    './src/services/forms/**/*.{js,ts,jsx,tsx}' // ./services/forms contain views for forms
+  ],
+  // First value is FontSize, second is LineHeight
   theme: {
+    // Font definition: size and weight.
+    // NB: Weigt must match font-wieght defined in src/assets/avenir.css
+    fontSize: {
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      lgm: ['24px', '1.4'],
+      xl: ['40px', '1.4'],
+    },
+    fontWeight: {
+      regular: 400,
+      medium: 500,
+      bold: 800,
+    },
     extend: {
       maxWidth: {
         '8xl': '1920px',
@@ -45,6 +53,7 @@ module.exports = {
         accent: 'var(--color-text-accent)',
         primary: 'var(--color-text-primary)',
         secondary: 'var(--color-text-secondary)',
+        dark: 'var(--color-text-dark)'
       },
       textOpacity: {
         20: '0.2',
@@ -89,6 +98,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function ({
       addUtilities,
       theme,
@@ -104,8 +114,8 @@ module.exports = {
         '.pt-h-header': {
           'padding-top': theme('height').header,
         },
-      }
-      addUtilities(utilityPtHeaderHeight, []) // ["hover", "focus"]
+      };
+      addUtilities(utilityPtHeaderHeight, []); // ["hover", "focus"]
     }),
   ],
-}
+};

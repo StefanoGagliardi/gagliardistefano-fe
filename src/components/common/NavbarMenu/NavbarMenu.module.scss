@@ -10,10 +10,15 @@
   }
 }
 
-// .link:hover {
-//   @apply text-accents-9;
-// }
-
 .link:focus {
   @apply outline-none; // text-accents-8
+}
+
+.langSelector {
+  margin-left: 20px;
+  cursor: pointer;
+  svg {
+    width: 20px;
+    @apply text-secondary;
+  }
 }

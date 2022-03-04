@@ -11,6 +11,8 @@ import { SVGArrowSvg, SvgGlobe, SvgScrollIcon } from '@assets/svg'
 import { GetStaticPropsContext } from 'next'
 import s from './index.module.css'
 import HomeComponents from '@components/pages/Home'
+import { AnimatePresence, motion } from 'framer-motion'
+import React from 'react'
 
 /**
  * Script start
@@ -20,13 +22,18 @@ export async function getStaticProps({
   preview,
 }: GetStaticPropsContext) {
   return {
-    props: {
-      pages: ['page_one', 'page_2'],
-    },
+    props: {},
   }
 }
 
+ // <AnimatePresence exitBeforeEnter>
+  //   <motion.div
+  //     initial={{ opacity: 0 }}
+  //     animate={{ opacity: 1 }}
+  //     exit={{ opacity: 0 }}
+  //   >
 export const Home = (): JSX.Element => (
+ 
   <>
     <Head>
       <title>Create Next App</title>
@@ -41,11 +48,7 @@ export const Home = (): JSX.Element => (
             <img src={'./scrollIcon.png'} className={s.scrollIcon} />
             <div
               className={cn('ml-50 py-5')}
-              data-aos="fade-left"
-              data-aos-offset="400"
-              data-aos-delay="300"
-              data-aos-duration="500"
-              data-aos-easing="ease-in-sine"
+              
             >
               <h1 className={s.h1}>
                 Assumi le skill,<br></br>la qualità e l'sperienza
@@ -72,7 +75,9 @@ export const Home = (): JSX.Element => (
     </section>
     <section className={cn(s.secondSectionAfter)}></section>
   </>
-)
+);
+// </motion.div>
+// </AnimatePresence>
 
 Home.Layout = Layout
 export default Home

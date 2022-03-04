@@ -15,6 +15,8 @@ export const url = {
   blog: (): IAppLinkHref => `/blog`,
   contacts: (): IAppLinkHref => `/contatti`,
   PrivacyPolicy: (): IAppLinkHref => `/privacy-policy`,
+  blockchain: (): IAppLinkHref => `/blockchain`,
+  webThree: (): IAppLinkHref => `/web3`,
 }
 
 export default url

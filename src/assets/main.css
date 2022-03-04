@@ -1,4 +1,5 @@
 @import './base.css'; /* Sovrascrive le classi di tailwind (base) */
+@import './avenir.css'; /* Sovrascrive le classi di tailwind (base) */
 
 @tailwind base;
 @tailwind components;
@@ -13,3 +14,10 @@ h6 {
   font-weight: bold;
   color: #1d1e1e;
 }
+
+body, html {
+  overflow-x: hidden;
+}
+
+/* Mailgo hide development by: */
+.m-by {display: none !important;}

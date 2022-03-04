@@ -5,3 +5,8 @@ export interface IMainMenuLink {
   url: IAppLinkHref
   class?: string
 }
+
+export interface INavigaionMenu {
+  links: IMainMenuLink[],
+  visible: boolean;
+}

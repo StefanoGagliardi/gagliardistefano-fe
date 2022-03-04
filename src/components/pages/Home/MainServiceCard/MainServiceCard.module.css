@@ -232,3 +232,10 @@
   top: -200px;
   left: 50%;
 } */
+
+.btnSeeMore {
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+  text-decoration: none;
+}

@@ -4,5 +4,6 @@ module.exports = {
     'tailwindcss',
     'postcss-nesting',
     'postcss-flexbugs-fixes',
+    'cssnano'
   ],
 }

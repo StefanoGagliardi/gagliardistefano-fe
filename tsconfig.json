@@ -19,13 +19,26 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@config/*": ["src/config/*"],
-      "@components/*": ["src/components/*"],
-      "@components/pages/*": ["src/components/pages/*"],
-      "@services/*": ["src/services/*"],
-      "@interfaces/*": ["src/interfaces/*"]
-    }
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@components/pages/*": [
+        "src/components/pages/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@interfaces/*": [
+        "src/interfaces/*"
+      ]
+    },
+    "incremental": true
   },
   "exclude": [
     "node_modules",

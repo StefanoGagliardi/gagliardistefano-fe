@@ -4,7 +4,7 @@ declare module '*.svg' {
   const content: FunctionComponent<{
     className?: string
   }>
-
+    
   // noinspection JSDuplicatedDeclaration
   export default content
 }
@@ -15,3 +15,13 @@ type Enumerable<T> = {
 
 declare module '*.jpeg'
 declare module '*.jpg'
+
+/**
+ * Interface for i18n translations
+ */
+export interface Dictionary {
+  title: string;
+  subtitle: string;
+  link: string;
+  greet: string;
+}

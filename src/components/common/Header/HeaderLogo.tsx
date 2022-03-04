@@ -5,7 +5,9 @@ import { FC, ReactElement, useState } from 'react'
 import cn from 'classnames'
 
 // Impot customs
-import useScrollPosition, { IScrollProps } from 'src/services/hooks/useBodyScroll'
+import useScrollPosition, {
+  IScrollProps,
+} from 'src/services/hooks/useBodyScroll'
 import s from './HeaderLogo.module.css'
 import Link from 'next/link'
 
@@ -35,30 +37,34 @@ export const HeaderLogo: FC = (): ReactElement => {
         [s.scrolled]: scrollClass,
       })}
     >
-      <img
-        className={cn(
-          'dark:opacity-100 transition-opacity absolute top-0 left-0',
-          {
-            'opacity-100': !scrollClass,
-            'opacity-0': scrollClass,
-          }
-        )}
-        src={'/logo/res/gagliardistefano-logo-light250.png'}
-        width="250"
-        height="49" 
-      />
-      <img
-        className={cn(
-          'dark:opacity-0 transition-opacity absolute top-0 left-0 dark:hide',
-          {
-            'opacity-0': !scrollClass,
-            'opacity-100': scrollClass,
-          }
-        )}
-        src={'/logo/res/gagliardistefano-logo-dark250.png'}
-        width="250"
-        height="49"
-      />
+      <Link href="/">
+        <a href="/">
+          <img
+            className={cn(
+              'dark:opacity-100 transition-opacity absolute top-0 left-0',
+              {
+                'opacity-100': !scrollClass,
+                'opacity-0': scrollClass,
+              }
+            )}
+            src={'/logo/res/gagliardistefano-logo-light250.png'}
+            width="250"
+            height="49"
+          />
+          <img
+            className={cn(
+              'dark:opacity-0 transition-opacity absolute top-0 left-0 dark:hide',
+              {
+                'opacity-0': !scrollClass,
+                'opacity-100': scrollClass,
+              }
+            )}
+            src={'/logo/res/gagliardistefano-logo-dark250.png'}
+            width="250"
+            height="49"
+          />
+        </a>
+      </Link>
     </div>
   )
 }

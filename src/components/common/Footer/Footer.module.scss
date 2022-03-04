@@ -1,13 +1,36 @@
 .footer {
-  height: 300px;
+  // height: 300px;
   position: relative;
-  background: #f5f8fa;
   padding-top: 60px;
   padding-bottom: 60px;
+
+  background-color: var(--footer-bg);
+  // background-image: url(https://postlight.com/wp-content/themes/postlight/public/img/footer-bg.svg);
+  background-position: -3px -3px;
+  color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  .footerLogo {
+    img {
+      margin-bottom: 30px;
+    }
+    p {
+      max-width: 320px;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  }
+
+  .footerContainer {
+    padding-bottom: 60px;
+  }
 }
 
 .socket {
-  background: #0c82b6;
+  background: var(--socket-bg);
   color: #fff;
   position: absolute;
   padding: 20px 0;
@@ -19,5 +42,84 @@
     width: 20px;
     height: 20px;
     fill: #fff;
+  }
+
+  > div > div {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+
+    // Copy
+    > div:first-child {
+    }
+
+    // Link
+    > div:last-child {
+      a {
+        text-decoration: underline;
+        line-height: 20px;
+        margin-right: 0px;
+
+        opacity: 1;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      a:not(:last-child) {
+        position: relative;
+        text-decoration: underline;
+        margin-right: 25px;
+        &::after {
+          content: ' ';
+          width: 5px;
+          height: 5px;
+          background: var(--color-bg-primary-inverted);
+          position: absolute;
+          right: -16px;
+          border-radius: 50%;
+          top: calc(50% - 2.5px);
+        }
+      }
+    }
+  }
+}
+
+.socketCopy {
+}
+
+.socketDivider {
+  position: relative;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: -20px; left: 0;
+    height: 1px;
+    width: 100%;
+    background: var(--color-bg-primary-inverted);
+  }
+}
+
+.menuList {
+  > li {
+    &:not(:last-child) {
+    }
+    a {
+      font-size: 14px;
+      padding: 10px 0px;
+      display: block;
+      line-height: 1.6;
+      // margin: 1.14em 0px;
+      font-weight: 400;
+      // text-decoration: underline;
+      opacity: 1;
+      &:hover {
+        opacity: .7;
+      }
+      // color: var(--text-white);
+
+      &:focus, &:focus-visible {
+        outline: 0px;
+      }
+    }
   }
 }

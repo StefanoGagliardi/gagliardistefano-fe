@@ -1,38 +1,40 @@
 // Import core
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 
 // Import third parts
-import cn from 'classnames'
+import cn from 'classnames';
 
 // Import custom
-import s from './Header.module.scss'
-import { NavbarMenu } from '../NavbarMenu/NavbarMenu'
-import useScrollPosition, { IScrollProps } from 'src/services/hooks/useBodyScroll'
-import HeaderLogo from './HeaderLogo'
+import s from './Header.module.scss';
+import { NavbarMenu } from '../NavbarMenu/NavbarMenu';
+import useScrollPosition, {
+  IScrollProps,
+} from 'src/services/hooks/useBodyScroll';
+import HeaderLogo from './HeaderLogo';
 
 export const Header: FC = () => {
-  const [scrollClass, setScrollClass] = useState<boolean>(false)
+  const [scrollClass, setScrollClass] = useState<boolean>(false);
 
   // Get scroll position and set class
   useScrollPosition({
     effect: (props: IScrollProps) => {
-      const { prevPos, currPos } = props
+      const { prevPos, currPos } = props;
 
       if (currPos.y && Math.abs(currPos.y) > 70) {
-        setScrollClass(true)
+        setScrollClass(true);
       } else {
-        setScrollClass(false)
+        setScrollClass(false);
       }
     },
     deps: [scrollClass],
     element: null,
     useWindow: false,
     wait: 300,
-  })
+  });
 
   return (
     <nav
-      className={cn('p-4  fixed w-100 left-0 right-0 z-50 h-header', s.glass,{
+      className={cn('p-4  fixed w-100 left-0 right-0 z-50 h-header', s.glass, {
         scrolled: scrollClass,
       })}
     >
@@ -52,6 +54,6 @@ export const Header: FC = () => {
         </div>
       </div>
     </nav>
-  )
-}
-export default Header
+  );
+};
+export default Header;

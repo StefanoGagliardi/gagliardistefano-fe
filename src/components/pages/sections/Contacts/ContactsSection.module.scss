@@ -1,0 +1,68 @@
+.contactsSection {
+  min-height: 300px;
+  padding: 60px 0px;
+  background: #02044a;
+
+  .colHead {
+  }
+
+  .colBody {
+    .contactsBoxes {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        a {
+          @apply text-white;
+          @apply flex;
+          @apply items-center;
+          padding: 10px 20px;
+          border: 2px solid transparent;
+          &:hover {
+            display: flex;
+            padding: 10px 20px;
+            border-color: #3b82f6;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.1);
+          }
+        }
+        svg {
+          @apply text-secondary;
+          margin-right: 15px;
+        }
+      }
+    }
+
+    ul {
+      li {
+        svg {
+          width: 20px;
+          max-width: 30px;
+        }
+      }
+    }
+  }
+
+  .colFoot {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      li {
+        svg {
+          width: 20px;
+          max-width: 20px;
+          @apply text-white;
+          fill: #fff;
+        }
+      }
+    }
+  }
+}
+
+.formBox {
+  background: #fff;
+  height: 500px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 40px 40px;
+}

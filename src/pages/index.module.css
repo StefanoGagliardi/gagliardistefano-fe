@@ -49,7 +49,7 @@
 
 .firstSection {
   background-image: url("../../public/programmatore-senior-milano.jpg");
-  min-height: 600px;
+  min-height: 700px;
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
@@ -91,11 +91,13 @@
 }
 
 .secondSectionBefore {
-  height: 400px;
+  height: 600px;
   background-color: transparent;
+  background: linear-gradient(173deg, #f5f8fa, transparent);
 }
 
 .secondSectionAfter {
-  height: 400px;
+  height: 600px;
   background-color: transparent;
+  background: linear-gradient(357deg, #f5f8fa, transparent);
 }

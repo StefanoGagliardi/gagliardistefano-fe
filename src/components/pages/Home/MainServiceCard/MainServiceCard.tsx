@@ -3,10 +3,12 @@ import React, { FC, ReactElement } from 'react'
 
 // import third parts
 import cn from 'classnames'
+import { motion } from "framer-motion";
 
 // import custom
 import s from './MainServiceCard.module.css'
 import { SvgEcommerce, SvgGlobe, SvgSmartphone } from '@assets/svg'
+import Link from 'next/link'
 
 export const MainServiceCard: FC = (): ReactElement => {
   return (
@@ -16,15 +18,15 @@ export const MainServiceCard: FC = (): ReactElement => {
       <div className={s.colors3}></div>
       <div className={s.colors4}></div>
       <div className="container mx-auto relative">
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="200"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="100"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="600"></div>
+        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up"></div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
           <div
@@ -35,15 +37,15 @@ export const MainServiceCard: FC = (): ReactElement => {
             data-aos-easing="ease-in-sine"
             className={cn(s.serviceCard, 'relative', 'p-50')}
           >
-            <div className={cn('z-10 relative mx-10', s.glass)}>
-              <div className={s.focusCardHeader}>
+            <motion.div className={cn('z-10 relative mx-10', s.glass)}>
+              <motion.div className={s.focusCardHeader}>
                 <span>
                   <SvgGlobe />
                 </span>
-                <h5>
+                <motion.h5 layoutId="title">
                   siti web<br></br>corporate
-                </h5>
-              </div>
+                </motion.h5>
+              </motion.div>
               <div className={s.focusCardBody}>
                 <p>
                   Senza un'app Web, la tua azienda sta perdendo denaro e quote
@@ -54,8 +56,13 @@ export const MainServiceCard: FC = (): ReactElement => {
                   digitalizzare la tua attività e a rivoluzionare il mercato,
                   indipendentemente dalle dimensioni della tua azienda.
                 </p>
+                <Link href="/sviluppo-web">
+                  <a href="/sviluppo-web" className={s.btnSeeMore}>
+                    Scopri di più
+                  </a>
+                </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div
             ata-aos="fade-right"

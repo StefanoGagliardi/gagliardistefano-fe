@@ -1,15 +1,17 @@
-:root {
+/* :root {
   @apply light;
-}
+} */
 
-[data-theme='dark'],
+[data-theme="dark"],
 .dark {
   --color-bg-primary: #2d3748;
+  --color-bg-primary-inverted: #fff;
   --color-bg-secondary: #283141;
   --color-bg-cta-start: #81e6d9;
   --color-bg-cta-stop: #2b6cb0;
   --color-text-primary: #f7fafc;
-  --color-text-secondary: #e2e8f0;
+  --text-white: #fff;
+  --color-text-secondary: #0e73fb;
   --color-text-accent: #81e6d9;
   --accents-0: #212529;
   --accents-1: #343a40;
@@ -23,16 +25,26 @@
   --accents-9: #f8f9fa;
   --color-green-light: #b7f0ed;
   --color-green-dark: #05baca;
+
+  /* Common */
+  --footer-bg: #272727;
+  --socket-bg: #272727;
+
+  /* Display helper */
+  --show-dark-in-light: block;
 }
 
-[data-theme='light'],
+[data-theme="light"],
 .light {
+
+  /* Tailwind override */
   --color-bg-primary: #fff;
+  --color-bg-primary-inverted: #2d3748;
   --color-bg-secondary: #edf2f7;
   --color-bg-cta-start: #81e6d9;
   --color-bg-cta-stop: #2b6cb0;
   --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
+  --color-text-secondary: #0e73fb;
   --color-text-accent: #2b6cb0;
   --accents-0: #f8f9fa;
   --accents-1: #f1f3f5;
@@ -46,6 +58,26 @@
   --accents-9: #212529;
   --color-green-light: #b7f0ed;
   --color-green-dark: #05baca;
+
+  /* Dark / light */
+  --text-white: #000;
+  --color-text-dark: #333;
+  /* --color-bg-dark: #02044a; */
+  
+  /* Common parts */
+  --footer-bg: #fff;
+  --socket-bg: #fff;
+  
+
+  /* Display */
+  --show-dark-in-light: block;
+}
+
+/**
+ * Custom css variable not used by Tailwind
+ */
+:root {
+  --font-avenir: "avenir next";
 }
 
 *,
@@ -58,7 +90,7 @@ html {
   height: 100%;
   box-sizing: border-box;
   touch-action: manipulation;
-  font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
+  font-feature-settings: "case" 1, "rlig" 1, "calt" 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,7 +98,7 @@ html {
 
 html,
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-avenir);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
