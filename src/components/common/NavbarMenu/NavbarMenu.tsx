@@ -28,10 +28,17 @@ export const NavbarMenu: FC = (): ReactElement => {
   return (
     <>
       <div className="text-md text-white flex lg:justify-end lg:flex-grow mr-10">
-        {navbarMenuData.map((value: IMainMenuLink, index: number) => {
+        {/* {navbarMenuData.map((value: IMainMenuLink, index: number) => {
           return (
             <Link href={value.url as string} key={index}>
               <a className={cn(s.link)}>{value.title}</a>
+            </Link>
+          );
+        })} */}
+        {navbarMenuData.map((value: IMainMenuLink, index: number) => {
+          return (
+            <Link href={value.url as string} key={index}>
+              <a className={cn(s.link)} data-dropdown={value?.megaMenu ? value.megaMenu : ""}>{value.title}</a>
             </Link>
           );
         })}

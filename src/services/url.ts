@@ -8,7 +8,7 @@ import { IAppLinkHref } from '@interfaces/appLinkHref'
  */
 export const url = {
   home: (): IAppLinkHref => `/`,
-  services: (): IAppLinkHref => `/servizzi`,
+  services: (): IAppLinkHref => `/servizi`,
   about: (): IAppLinkHref => `/about`,
   portfolio: (): IAppLinkHref => `/portfolio`,
   products: (): IAppLinkHref => `/prodotti`,

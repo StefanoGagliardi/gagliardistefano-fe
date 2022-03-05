@@ -4,15 +4,15 @@ import React, { FC, useEffect } from 'react';
 
 // Import third parts
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 import mailgo from 'mailgo';
 
 // Import customs
 import { ManagedUIContext } from '@components/ui/context';
+
+// Import global styles
 import '../assets/main.css';
 import '../assets/chrome-bug.css';
-import { appWithTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
+import 'aos/dist/aos.css';
 
 const mailgoConfig = {
   dark: true,
@@ -30,14 +30,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     mailgo(mailgoConfig);
   }, []);
 
-  const { locale, locales, asPath } = useRouter();
-  console.log('LOCALE useRouter: ', locale);
-  console.log('LOCALES useRouter: ', locales);
-  console.log('ASPATH useRouter: ', asPath);
-  useEffect(() => {
-
-  }, [])
-
   return (
     <>
       <ManagedUIContext>
@@ -51,4 +43,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(MyApp);
+export default MyApp;

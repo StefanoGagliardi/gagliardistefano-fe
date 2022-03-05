@@ -11,6 +11,7 @@ import useScrollPosition, {
   IScrollProps,
 } from 'src/services/hooks/useBodyScroll';
 import HeaderLogo from './HeaderLogo';
+import MegaMenuDropdown from './MegaMenuDropdown';
 
 export const Header: FC = () => {
   const [scrollClass, setScrollClass] = useState<boolean>(false);
@@ -53,6 +54,9 @@ export const Header: FC = () => {
           <NavbarMenu />
         </div>
       </div>
+
+      {/* Add MegaMenu Dropdown */}
+      <MegaMenuDropdown />
     </nav>
   );
 };

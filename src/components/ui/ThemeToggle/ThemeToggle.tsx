@@ -1,7 +1,6 @@
 // import core
-import React, { FC, ReactElement, useEffect } from 'react';
+import React, { FC, ReactElement } from 'react';
 // Import third parts
-import { useTheme } from 'next-themes';
 import cn from 'classnames';
 // Import custom
 import {
@@ -10,8 +9,8 @@ import {
   SVGThemeDark,
   SVGThemeLight,
 } from '@assets/svg';
-import { useUI } from '../context';
 import s from './ThemeToggle.module.css';
+import useThemeWrap from '@services/theme/themeStyleHook';
 
 /**
  * Version 2.0 - mode just icon
@@ -24,22 +23,12 @@ export const ThemeToggle: FC<Props> = ({
   design = 'default',
   icon = true,
 }: Props): ReactElement => {
-  // Custom hook per accedere all'ui
-  const contextUi = useUI();
-  const { theme, setTheme } = useTheme();
-
-  const isDark = () => {
-    return theme === 'dark';
-  };
+  const [theme, setTheme] = useThemeWrap();
 
   const handleToggleSwitch = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    setTheme(theme == 'dark' ? 'light' : 'dark');
+    setTheme(!theme ? "light" : "dark");
   };
-
-  useEffect(() => {
-    console.log('theme: ', theme);
-  }, [theme]);
 
   return (
     <div
@@ -50,7 +39,7 @@ export const ThemeToggle: FC<Props> = ({
       })}
       onClick={handleToggleSwitch}
     >
-      {design !== 'icons' && (
+      {/* {design !== 'icons' && (
         <label
           className={cn(s['theme-switch'], {
             dark: isDark(),
@@ -89,22 +78,22 @@ export const ThemeToggle: FC<Props> = ({
             </span>
           </div>
         </label>
-      )}
-      {design === 'icons' && (
-        <div
-          className={cn(s.iconsWrap, {
-            [s.darkTheme]: theme === 'dark',
-            [s.lightTheme]: theme === 'light',
-          })}
-        >
-          <span>
-            <SvgSunTheme />
-          </span>
-          <span>
-            <SvgMoonTheme />
-          </span>
-        </div>
-      )}
+      )} */}
+      {/* {design === 'icons' && ( */}
+      <div
+        className={cn(s.iconsWrap, {
+          [s.darkTheme]: theme == false,
+          [s.lightTheme]: theme == true,
+        })}
+      >
+        <span>
+          <SvgSunTheme />
+        </span>
+        <span>
+          <SvgMoonTheme />
+        </span>
+      </div>
+      {/* )} */}
     </div>
   );
 };

@@ -37,7 +37,6 @@ export const Home = (): JSX.Element => (
   <>
     <Head>
       <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
     </Head>
     <section
       className={cn('py-5 px-3 relative flex items-center', s.firstSection)}

@@ -2,9 +2,11 @@ import { FC, ReactElement, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import s from './Globe.module.scss';
 import GlobeClass from './classes/GlobeClass';
+import { IRef } from '@interfaces/props';
 
 const Globe: FC = (): ReactElement => {
-  const jsGlobeRef = useRef<HTMLDivElement>(null);
+  const jsGlobeRef: IRef<HTMLDivElement> = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // When div reference is load
     if (jsGlobeRef.current) {
@@ -24,7 +26,7 @@ const Globe: FC = (): ReactElement => {
         globeClass.play();
       }
     }
-  }, [jsGlobeRef]);
+  }, []); // NB: Con le ref non servono depss
 
   return (
     <figure className={s.backgroundGlobe} data-js-controller="BackgroundGlobe">

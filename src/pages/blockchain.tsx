@@ -5,32 +5,21 @@ import { NextPage } from 'next';
 
 // Import third parts
 import cn from 'classnames';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 // Import customs
 import Layout from '@components/common/Layout';
 import s from './blockchain.module.scss';
 import Globe from '@components/pages/Blockchain/Globe';
 import ContactsSection from '@components/pages/sections/Contacts';
-import { useTranslation } from 'next-i18next';
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['blockchain', 'footer'])),
-      // Will be passed to the page component as props
-    },
-  };
-}
 
 export const Blockchain: NextPage & { Layout: FC } = (): ReactElement => {
-  const { t } = useTranslation('footer');
-
   return (
     <>
       <Head>
-        <title>{t('title')}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>
+          Sviluppo Blockchain, Smart contract e solidity - Next Generation
+          Developers
+        </title>
       </Head>
       <section className={cn('relative ', s.firstSection)}>
         <div className={s.sectionMask}>
@@ -53,16 +42,18 @@ export const Blockchain: NextPage & { Layout: FC } = (): ReactElement => {
               <div className={cn(s.firstRow)}>
                 <div className={cn('col-span-2', s.pointerAuto)}>
                   <span className="block text-secondary font-bold text-base mb-3">
-                    {t('subtitle')}
+                    Blockchain & Smart Contract consultanting
                   </span>
                   <h1 className="text-white text-xl font-bold mb-5">
-                    {t('h1')}
+                    Il tuo partner per il
+                    <br />
+                    prossimo grande salto
                   </h1>
                   <h2 className="text-white text-lg font-semibold">
-                    We bring strategy, design, and engineering to deliver
-                    platforms
+                    Portiamo strategie, design e tecnologie per consegnare
                     <br />
-                    and experiences that drive digitsal transformation.
+                    piattaforme ed esperienze che guidino<br /> la trasformazione
+                    digitale
                   </h2>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 // Import core
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 // Import third parts
 import Link from 'next/link';
@@ -10,10 +10,10 @@ import s from './Footer.module.scss';
 import { SvgFacebook, SvgInstagram } from '@assets/svg';
 import { IMainMenuLink } from '@interfaces/mainMenuLink';
 import footerMenuData from './footerMenuData';
-import { useTheme } from 'next-themes';
+import useThemeWrap from '@services/theme/themeStyleHook';
 
 export const Footer: FC = () => {
-  const { theme } = useTheme();
+  const [theme] = useThemeWrap();
 
   return (
     <>
@@ -21,12 +21,14 @@ export const Footer: FC = () => {
         <div className={cn('container mx-auto', s.footerContainer)}>
           <div className="grid grid-cols-5">
             <div className={cn('col-span-2', s.footerLogo)}>
-              {theme === 'dark' ? (
-                <img
-                  src={'/logo/res/gagliardistefano-logo-light250.png'}
-                  width="250"
-                  height="49"
-                />
+              {theme == false ? (
+                <>
+                  <img
+                    src={'/logo/res/gagliardistefano-logo-light250.png'}
+                    width="250"
+                    height="49"
+                  />
+                </>
               ) : (
                 <img
                   src={'/logo/res/gagliardistefano-logo-dark250.png'}
@@ -91,7 +93,9 @@ export const Footer: FC = () => {
               </ul>
             </div>
             <div className="col-span-1">
-              <h6 className="mb-5 text-black dark:text-white">Blog e Formazione</h6>
+              <h6 className="mb-5 text-black dark:text-white">
+                Blog e Formazione
+              </h6>
               <ul className={cn('text-dark dark:text-white', s.menuList)}>
                 <li>
                   <Link href="/">Bundle loader: Webpack & Rollup</Link>

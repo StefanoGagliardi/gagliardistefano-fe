@@ -6,19 +6,18 @@
   },
   "scripts": {
     "dev": "next dev",
-    "devServer": "NODE_ENV=development node server.js",
-    "dev3001": "next dev -p 3001",
     "build": "next build",
-    "buildAnalyze": "NODE_ENV=BUNDLE_ANALYZE next build",
     "start": "next start",
-    "startServer": "NODE_ENV=production node server.js",
-    "analyze": "BUNDLE_ANALYZE=both yarn build",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"./**/*.{ts,tsx,json}\"",
     "format-check": "prettier --check \"./**/*.{ts,tsx,json}\"",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "devServer": "NODE_ENV=development node ser ver.js",
+    "buildAnalyze": "NODE_ENV=BUNDLE_ANALYZE next build",
+    "startServer": "NODE_ENV=production node server.js",
+    "analyze": "BUNDLE_ANALYZE=both yarn build"
   },
   "prettier": {
     "semi": true,
@@ -41,7 +40,6 @@
     "mailgo": "^0.12.2",
     "next": "12.1.0",
     "next-compose-plugins": "^2.2.1",
-    "next-i18next": "^10.5.0",
     "next-optimized-classnames": "^1.0.2",
     "next-seo": "^5.1.0",
     "next-themes": "0.1.1",

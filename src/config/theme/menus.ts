@@ -6,19 +6,22 @@ const navbarMenuData: IMainMenuLink[] = [
   {
     title: 'Servizi',
     url: url.services(),
+    megaMenu: 'service',
   },
   {
-    title: 'Blockchain / Web3',
+    title: 'Web3',
     url: url.blockchain(),
+    megaMenu: 'blockchain',
   },
   {
     title: 'Formazione',
     url: url.webThree(),
+    megaMenu: 'training',
   },
-  // {
-  //   title: 'Portfolio',
-  //   url: url.portfolio(),
-  // },
+  {
+    title: 'Portfolio',
+    url: url.portfolio(),
+  },
   // {
   //   title: 'Prodotti',
   //   url: url.products(),
@@ -35,6 +38,6 @@ const navbarMenuData: IMainMenuLink[] = [
 
 const menus = {
   primaryMenu: navbarMenuData,
-}
+};
 
 export default menus;

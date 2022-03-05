@@ -245,7 +245,7 @@ export class GlobeClass extends GlobeClassAbstract {
     // Add global light to Scene
     this.scene.add(GlobalLight);
 
-    const FirstPointLight = new PointLight(12775677, 2, 0, 2);
+    const FirstPointLight: PointLight = new PointLight(12775677, 2, 0, 2);
     FirstPointLight.position.set(-1000, -1100, -3300);
     this.scene.add(FirstPointLight);
 

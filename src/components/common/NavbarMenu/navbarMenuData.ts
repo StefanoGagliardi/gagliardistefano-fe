@@ -4,7 +4,7 @@ import url from 'src/services/url'
 
 const navbarMenuData: IMainMenuLink[] = [
   {
-    title: 'Servizzi',
+    title: 'Servizi',
     url: url.services(),
   },
   {

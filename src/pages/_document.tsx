@@ -13,7 +13,7 @@ class MyDocument extends Document {
     return (
       <Html lang={lang} dir={dir}>
         <Head>
-          <link rel="shortcut icon" href={'favicon.png'} />
+          <link rel="shortcut icon" href={'/favicon.png'} />
 
           {/* fonts */}
           <link
