@@ -35,7 +35,7 @@
     "cssnano": "^5.1.0",
     "ethereum-waffle": "^3.4.0",
     "framer-motion": "^6.2.8",
-    "hardhat": "^2.9.0",
+    "hardhat": "^2.9.1",
     "ipfs-http-client": "^56.0.1",
     "mailgo": "^0.12.2",
     "next": "12.1.0",
