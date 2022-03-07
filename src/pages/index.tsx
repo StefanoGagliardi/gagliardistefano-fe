@@ -1,18 +1,17 @@
 // Import core
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 
 // Import third parts
-import cn from 'classnames'
+import cn from 'classnames';
 
 // Import customs
-import Layout from '@components/common/Layout'
-import { SVGArrowSvg, SvgGlobe, SvgScrollIcon } from '@assets/svg'
-import { GetStaticPropsContext } from 'next'
-import s from './index.module.css'
-import HomeComponents from '@components/pages/Home'
-import { AnimatePresence, motion } from 'framer-motion'
-import React from 'react'
+import Layout from '@components/common/Layout';
+import { SVGArrowSvg, SvgGlobe, SvgScrollIcon } from '@assets/svg';
+import { GetStaticPropsContext } from 'next';
+import s from './index.module.css';
+import HomeComponents from '@components/pages/Home';
+import React from 'react';
 
 /**
  * Script start
@@ -23,17 +22,10 @@ export async function getStaticProps({
 }: GetStaticPropsContext) {
   return {
     props: {},
-  }
+  };
 }
 
- // <AnimatePresence exitBeforeEnter>
-  //   <motion.div
-  //     initial={{ opacity: 0 }}
-  //     animate={{ opacity: 1 }}
-  //     exit={{ opacity: 0 }}
-  //   >
 export const Home = (): JSX.Element => (
- 
   <>
     <Head>
       <title>Create Next App</title>
@@ -45,10 +37,7 @@ export const Home = (): JSX.Element => (
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-2">
             <img src={'./scrollIcon.png'} className={s.scrollIcon} />
-            <div
-              className={cn('ml-50 py-5')}
-              
-            >
+            <div className={cn('ml-50 py-5')}>
               <h1 className={s.h1}>
                 Assumi le skill,<br></br>la qualità e l'sperienza
               </h1>
@@ -72,11 +61,19 @@ export const Home = (): JSX.Element => (
     >
       <HomeComponents.MainServiceCard />
     </section>
-    <section className={cn(s.secondSectionAfter)}></section>
+    <section className={cn(s.secondSectionAfter)}>
+      <button
+        onClick={() => {
+          alert('With typescript and Jest');
+        }}
+      >
+        Test Button
+      </button>
+    </section>
   </>
 );
 // </motion.div>
 // </AnimatePresence>
 
-Home.Layout = Layout
-export default Home
+Home.Layout = Layout;
+export default Home;
