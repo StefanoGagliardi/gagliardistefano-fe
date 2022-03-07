@@ -1,14 +1,13 @@
 // import core
-import React, { FC, ReactElement } from 'react'
+import React, { FC, ReactElement } from 'react';
 
 // import third parts
-import cn from 'classnames'
-import { motion } from "framer-motion";
+import cn from 'classnames';
 
 // import custom
-import s from './MainServiceCard.module.css'
-import { SvgEcommerce, SvgGlobe, SvgSmartphone } from '@assets/svg'
-import Link from 'next/link'
+import s from './MainServiceCard.module.css';
+import { SvgEcommerce, SvgGlobe, SvgSmartphone } from '@assets/svg';
+import Link from 'next/link';
 
 export const MainServiceCard: FC = (): ReactElement => {
   return (
@@ -18,34 +17,78 @@ export const MainServiceCard: FC = (): ReactElement => {
       <div className={s.colors3}></div>
       <div className={s.colors4}></div>
       <div className="container mx-auto relative">
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="200"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="100"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="400"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up" data-aos-offset="600"></div>
-        <div className={s.square} data-aos-delay="500" data-aos="zoom-out-up"></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="400"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="400"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="400"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="400"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="200"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="100"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="400"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+          data-aos-offset="600"
+        ></div>
+        <div
+          className={s.square}
+          data-aos-delay="500"
+          data-aos="zoom-out-up"
+        ></div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
           <div
             ata-aos="fade-right"
             data-aos-offset="400"
-            data-aos-delay="300"  
+            data-aos-delay="300"
             data-aos-duration="500"
             data-aos-easing="ease-in-sine"
             className={cn(s.serviceCard, 'relative', 'p-50')}
           >
-            <motion.div className={cn('z-10 relative mx-10', s.glass)}>
-              <motion.div className={s.focusCardHeader}>
+            <div className={cn('z-10 relative mx-10', s.glass)}>
+              <div className={s.focusCardHeader}>
                 <span>
                   <SvgGlobe />
                 </span>
-                <motion.h5 layoutId="title">
+                <h5>
                   siti web<br></br>corporate
-                </motion.h5>
-              </motion.div>
+                </h5>
+              </div>
               <div className={s.focusCardBody}>
                 <p>
                   Senza un'app Web, la tua azienda sta perdendo denaro e quote
@@ -62,7 +105,7 @@ export const MainServiceCard: FC = (): ReactElement => {
                   </a>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
           <div
             ata-aos="fade-right"
@@ -127,7 +170,7 @@ export const MainServiceCard: FC = (): ReactElement => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default MainServiceCard
+export default MainServiceCard;

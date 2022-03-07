@@ -2,136 +2,248 @@
 
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="jsx-1276654382 container"
+  <section
+    class="py-5 px-3 relative flex items-center firstSection"
   >
-    <main
-      class="jsx-1276654382"
+    <div
+      class="container mx-auto relative z-10"
     >
-      <h1
-        class="jsx-1276654382 title"
-      >
-        Welcome to 
-        <a
-          class="jsx-1276654382"
-          href="https://nextjs.org"
-        >
-          Next.js!
-        </a>
-      </h1>
-      <p
-        class="jsx-1276654382 description"
-      >
-        Get started by editing 
-        <code
-          class="jsx-1276654382"
-        >
-          pages/index.tsx
-        </code>
-      </p>
-      <button
-        class="jsx-1276654382"
-      >
-        Test Button
-      </button>
       <div
-        class="jsx-1276654382 grid"
+        class="grid grid-cols-3 gap-4"
       >
-        <a
-          class="jsx-1276654382 card"
-          href="https://nextjs.org/docs"
-        >
-          <h3
-            class="jsx-1276654382"
-          >
-            Documentation →
-          </h3>
-          <p
-            class="jsx-1276654382"
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-        <a
-          class="jsx-1276654382 card"
-          href="https://nextjs.org/learn"
-        >
-          <h3
-            class="jsx-1276654382"
-          >
-            Learn →
-          </h3>
-          <p
-            class="jsx-1276654382"
-          >
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </a>
-        <a
-          class="jsx-1276654382 card"
-          href="https://github.com/vercel/next.js/tree/master/examples"
-        >
-          <h3
-            class="jsx-1276654382"
-          >
-            Examples →
-          </h3>
-          <p
-            class="jsx-1276654382"
-          >
-            Discover and deploy boilerplate example Next.js projects.
-          </p>
-        </a>
-        <a
-          class="jsx-1276654382 card"
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        >
-          <h3
-            class="jsx-1276654382"
-          >
-            Deploy →
-          </h3>
-          <p
-            class="jsx-1276654382"
-          >
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-    <footer
-      class="jsx-1276654382"
-    >
-      <a
-        class="jsx-1276654382"
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Powered by 
         <div
-          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+          class="col-span-2"
+        >
+          <img
+            class="scrollIcon"
+            src="./scrollIcon.png"
+          />
+          <div
+            class="ml-50 py-5"
+          >
+            <h1
+              class="h1"
+            >
+              Assumi le skill,
+              <br />
+              la qualità e l'sperienza
+            </h1>
+            <p
+              class="subTitle text-white mt-5"
+            >
+              Accellera i tuoi progetti software e digitali con un team
+              <br />
+              all'avanguardia, d'esperienza pronto a valutare ed offire soluzioni
+              <br />
+              <span
+                class="font-bold text-logoBlue"
+              >
+                competitive
+              </span>
+            </p>
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </section>
+  <section
+    class="secondSectionBefore"
+  />
+  <section
+    class="secondSection py-5 px-3 relative flex items-center"
+  >
+    <div
+      class="colors1"
+    />
+    <div
+      class="colors2"
+    />
+    <div
+      class="colors3"
+    />
+    <div
+      class="colors4"
+    />
+    <div
+      class="container mx-auto relative"
+    >
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="400"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="400"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="400"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="400"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="200"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="100"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="400"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+        data-aos-offset="600"
+      />
+      <div
+        class="square"
+        data-aos="zoom-out-up"
+        data-aos-delay="500"
+      />
+      <div
+        class="grid grid-cols-3 gap-5"
+      >
+        <div
+          ata-aos="fade-right"
+          class="serviceCard relative p-50"
+          data-aos-delay="300"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-sine"
+          data-aos-offset="400"
         >
           <div
-            style="box-sizing: border-box; display: block; max-width: 100%;"
+            class="z-10 relative mx-10 glass"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
-            />
+            <div
+              class="focusCardHeader"
+            >
+              <span>
+                <test-file-stub />
+              </span>
+              <h5>
+                siti web
+                <br />
+                corporate
+              </h5>
+            </div>
+            <div
+              class="focusCardBody"
+            >
+              <p>
+                Senza un'app Web, la tua azienda sta perdendo denaro e quote di mercato.
+              </p>
+              <p>
+                Servizi di sviluppo end-to-end che ti aiuteranno a digitalizzare la tua attività e a rivoluzionare il mercato, indipendentemente dalle dimensioni della tua azienda.
+              </p>
+              <a
+                class="btnSeeMore"
+                href="/sviluppo-web"
+              >
+                Scopri di più
+              </a>
+            </div>
           </div>
-          <img
-            alt="Vercel Logo"
-            decoding="async"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          />
         </div>
-      </a>
-    </footer>
-  </div>
+        <div
+          ata-aos="fade-right"
+          class="serviceCard relative p-50"
+          data-aos-delay="300"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-sine"
+          data-aos-offset="400"
+        >
+          <div
+            class="z-10 relative mx-10 glass"
+          >
+            <div
+              class="focusCardHeader"
+            >
+              <span>
+                <test-file-stub />
+              </span>
+              <h5>
+                Soluzioni
+                <br />
+                E-commerce
+              </h5>
+            </div>
+            <div
+              class="focusCardBody"
+            >
+              <p>
+                Possiamo portare online e accativare i prodotti della tua organizzaziones
+              </p>
+              <p>
+                Diversi fattori incidono nella riuscita di un e-commerce di successo, esperienza di sviluppo è fondamentale per non sbagliare
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          ata-aos="fade-right"
+          class="serviceCard relative p-50"
+          data-aos-delay="300"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-sine"
+          data-aos-offset="400"
+        >
+          <div
+            class="z-10 relative mx-10 glass"
+          >
+            <div
+              class="focusCardHeader"
+            >
+              <span>
+                <test-file-stub />
+              </span>
+              <h5>
+                Applicazioni
+                <br />
+                per smartphone
+              </h5>
+            </div>
+            <div
+              class="focusCardBody"
+            >
+              <p>
+                Grazie alla tecnologia ibrida le applicazioni per smartphone diventano accessibili a tutti
+              </p>
+              <p>
+                Sviluppo mobile multipiattaforma e nativo incentrato su React Native e soluzioni completamente native per creare o far crescere il tuo prodotto software.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    class="secondSectionAfter"
+  >
+    <button>
+      Test Button
+    </button>
+  </section>
 </DocumentFragment>
 `;
