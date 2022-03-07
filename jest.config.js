@@ -1,26 +1,15 @@
-// module.exports = {
-//   roots: ['<rootDir>'],
-//   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
-//   testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
-//   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
-//   transform: {
-//     '^.+\\.(ts|tsx)$': 'babel-jest',
-//   },
-//   watchPlugins: [
-//     'jest-watch-typeahead/filename',
-//     'jest-watch-typeahead/testname',
-//   ],
-//   moduleNameMapper: {
-//     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-//     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
-//   },
-//   preset: '@babel/preset-react',
-// };
+const nextJest = require('next/jest');
+const createJestConfig = nextJest({ dir: '.' });
 
-module.exports = {
+const customJestConfig = {
   roots: ['<rootDir>'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  // allow SWC to run on typescript code of generated types (to use schema model types)
+  //   or cached types (to use enum's code), while still keeping mode_modules disabled
+  transformIgnorePatterns: [
+    'node_modules/(?!@types/graphql-let|.cache/graphql-let)',
+  ],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
@@ -42,5 +31,25 @@ module.exports = {
   },
   testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules', '<rootDir>/src'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!**/*.stories.tsx',
+    // types (graphql, custom)
+    '!**/*.d.ts',
+    // example components, not used in production
+    '!**/examples/**',
+  ],
   // preset: '@babel/preset-react',
+};
+
+const asyncConfig = createJestConfig(customJestConfig);
+
+module.exports = async () => {
+  const config = await asyncConfig();
+
+  // next/jest ignores node_modules and allows to add more ignore patterns, but we need to override them fully to whitelist some node_modules
+  // https://github.com/vercel/next.js/blob/canary/packages/next/build/jest/jest.ts
+  config.transformIgnorePatterns = customJestConfig.transformIgnorePatterns;
+
+  return config;
 };

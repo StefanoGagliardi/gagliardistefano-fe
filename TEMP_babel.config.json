@@ -1,0 +1,27 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    "inline-react-svg",
+    [
+      "babel-plugin-react-css-modules",
+      {
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss"
+          }
+        },
+        "generateScopedName": "[local]__[hash:base64:5]"
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ],
+      "comments": false
+    }
+  }
+}
