@@ -36,18 +36,28 @@ export const Home = (): JSX.Element => (
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-2">
-            <img src={'./scrollIcon.png'} className={s.scrollIcon} />
+            <img src={'/scrollIcon.png'} className={s.scrollIcon} />
             <div className={cn('ml-50 py-5')}>
-              <h1 className={s.h1}>
+              <h1 className={s.h1} data-aos="fade-up">
                 Assumi le skill,<br></br>la qualità e l'sperienza
               </h1>
-              <p className={cn(s.subTitle, 'text-white mt-5')}>
+              <p
+                className={cn(s.subTitle, 'text-white mt-5')}
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
                 Accellera i tuoi progetti software e digitali con un team
                 <br></br>
                 all'avanguardia, d'esperienza pronto a valutare ed offire
                 soluzioni
                 <br></br>
-                <span className="font-bold text-logoBlue">competitive</span>
+                <span
+                  className="font-bold text-logoBlue"
+                  data-aos="fade-up"
+                  data-aos-delay="600"
+                >
+                  competitive
+                </span>
               </p>
             </div>
           </div>

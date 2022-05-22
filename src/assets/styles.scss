@@ -11,6 +11,7 @@
   --color-text-primary: #f7fafc;
   --color-text-secondary: #e2e8f0;
   --color-text-accent: #81e6d9;
+
   --accents-0: #212529;
   --accents-1: #343a40;
   --accents-2: #495057;
@@ -32,6 +33,7 @@
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5568;
   --color-text-accent: #2b6cb0;
+  
   --accents-0: #f8f9fa;
   --accents-1: #f1f3f5;
   --accents-2: #e9ecef;
@@ -63,7 +65,7 @@ html {
 html,
 body {
   font-family: var(--font-sans);
-  text-rendering: optimizeLegibility;
+  text- rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primary);
@@ -83,3 +85,6 @@ a {
 @import '~tailwindcss/base';
 @import '~tailwindcss/components';
 @import '~tailwindcss/utilities';
+
+// Custom global component - Mega menu
+@import './mega-menu.css';

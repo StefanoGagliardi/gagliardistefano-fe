@@ -11,9 +11,6 @@ import useScrollPosition, {
   IScrollProps,
 } from 'src/services/hooks/useBodyScroll';
 import HeaderLogo from './HeaderLogo';
-import MegaMenuDropdown from './MegaMenuDropdown';
-import HeaderContext from './HeaderContext';
-import { IRef, IRefs } from '@interfaces/props';
 
 export const Header: FC = () => {
   const [scrollClass, setScrollClass] = useState<boolean>(false);
@@ -35,44 +32,32 @@ export const Header: FC = () => {
     wait: 300,
   });
 
-  const [dropdownRefs, setDropdownRefs] = useState<
-    IRefs<IRef<HTMLDivElement>[]>
-  >([]);
-
-  const initialValue = {
-    dropdownRefs,
-    setDropdownRefs,
-  };
-
   return (
-    <HeaderContext.Provider value={initialValue}>
-      <nav
-        className={cn(
-          'p-4  fixed w-100 left-0 right-0 z-50 h-header',
-          s.glass,
-          {
-            scrolled: scrollClass,
-          }
-        )}
-      >
-        <div className="flex items-center justify-between flex-wrap px-5 container relative z-10 mx-auto">
-          <div className="flex items-center flex-no-shrink text-white">
-            <HeaderLogo />
-          </div>
-          <div className="block lg:hidden">
-            <button className={s.mobileToggle}>
-              <span></span>
-              <span className={cn('my-1')}></span>
-              <span></span>
-            </button>
-          </div>
-          <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <NavbarMenu />
-          </div>
+    <nav
+      className={cn(
+        'p-4  fixed w-100 left-0 right-0 z-50 h-header globalNav',
+        s.glass,
+        {
+          scrolled: scrollClass,
+        }
+      )}
+    >
+      <div className="flex items-center justify-between flex-wrap px-5 container relative z-10 mx-auto">
+        <div className="flex items-center flex-no-shrink text-white">
+          <HeaderLogo />
         </div>
-        <MegaMenuDropdown />
-      </nav>
-    </HeaderContext.Provider>
+        <div className="block lg:hidden">
+          <button className={s.mobileToggle}>
+            <span></span>
+            <span className={cn('my-1')}></span>
+            <span></span>
+          </button>
+        </div>
+        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <NavbarMenu />
+        </div>
+      </div>
+    </nav>
   );
 };
 export default Header;

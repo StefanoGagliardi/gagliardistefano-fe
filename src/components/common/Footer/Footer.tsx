@@ -39,6 +39,17 @@ export const Footer: FC = () => {
               <p className="text-black dark:text-white">
                 Sono uno sviluppatore, ricercatore e cosulente in ambito Web,
                 Blockchain e Mobile.
+                <br />
+                <br />
+                Divido il mio tempo tra essere sviluppatore in{' '}
+                <a
+                  href="sitisrl.it"
+                  target={'_blank'}
+                  rel="noopener noreferrer"
+                >
+                  SITI srl
+                </a>{' '}
+                ed essere ricercatore / contributor di progetti in ambito web
               </p>
             </div>
             <div className="col-span-1">

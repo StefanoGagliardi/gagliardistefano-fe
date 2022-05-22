@@ -93,11 +93,11 @@
 .secondSectionBefore {
   height: 600px;
   background-color: transparent;
-  background: linear-gradient(173deg, #f5f8fa, transparent);
+  /* background: linear-gradient(173deg, #f5f8fa, transparent); */
 }
 
 .secondSectionAfter {
   height: 600px;
   background-color: transparent;
-  background: linear-gradient(357deg, #f5f8fa, transparent);
+  /* background: linear-gradient(357deg, #f5f8fa, transparent); */
 }

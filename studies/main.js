@@ -1,99 +1,86 @@
 function globalNavDropdowns(e) {
-  var t = this; 
-
-    this.root = this.container.querySelector(".navRoot");
-    this.primaryNav = this.root.querySelector(".navSection.primary");
-    
-    this.primaryNavItem = this.root.querySelector(
-      ".navSection.primary .rootLink:last-child"
-    );
-    this.secondaryNavItem = this.root.querySelector(
-      ".navSection.secondary .rootLink:first-child"
-    );
-    this.checkCollision();
-
-    window.addEventListener("load", this.checkCollision.bind(this));
-    window.addEventListener("resize", this.checkCollision.bind(this));
-
-    this.container.classList.add("noDropdownTransition");
-    this.dropdownBackground = this.container.querySelector(
-      ".dropdownBackground"
-    );
-    this.dropdownBackgroundAlt = this.container.querySelector(
-      ".alternateBackground"
-    );
-    
-    this.dropdownContainer =
-      this.container.querySelector(".dropdownContainer");
-
-    this.dropdownArrow = this.container.querySelector(".dropdownArrow");
-    this.dropdownRoots = Strut.queryArray(".hasDropdown", this.root);
-    
-    this.dropdownSections = Strut.queryArray(
-      ".dropdownSection",
+  var t = this;
+  (this.container = document.querySelector(e)),
+    (this.root = this.container.querySelector('.navRoot')),
+    (this.primaryNav = this.root.querySelector('.navSection.primary')),
+    (this.primaryNavItem = this.root.querySelector(
+      '.navSection.primary .rootLink:last-child'
+    )),
+    (this.secondaryNavItem = this.root.querySelector(
+      '.navSection.secondary .rootLink:first-child'
+    )),
+    this.checkCollision(),
+    window.addEventListener('load', this.checkCollision.bind(this)),
+    window.addEventListener('resize', this.checkCollision.bind(this)),
+    this.container.classList.add('noDropdownTransition'),
+    (this.dropdownBackground = this.container.querySelector(
+      '.dropdownBackground'
+    )),
+    (this.dropdownBackgroundAlt = this.container.querySelector(
+      '.alternateBackground'
+    )),
+    (this.dropdownContainer =
+      this.container.querySelector('.dropdownContainer')),
+    (this.dropdownArrow = this.container.querySelector('.dropdownArrow')),
+    (this.dropdownRoots = Strut.queryArray('.hasDropdown', this.root)),
+    (this.dropdownSections = Strut.queryArray(
+      '.dropdownSection',
       this.container
     ).map(function (e) {
       return {
         el: e,
-        name: e.getAttribute("data-dropdown"),
-        content: e.querySelector(".dropdownContent"),
+        name: e.getAttribute('data-dropdown'),
+        content: e.querySelector('.dropdownContent'),
       };
-    });
-
-
+    }));
   var n = window.PointerEvent
     ? {
-        end: "pointerup",
-        enter: "pointerenter",
-        leave: "pointerleave",
+        end: 'pointerup',
+        enter: 'pointerenter',
+        leave: 'pointerleave',
       }
     : {
-        end: " q",
-        enter: "mouseenter",
-        leave: "mouseleave",
+        end: 'touchend',
+        enter: 'mouseenter',
+        leave: 'mouseleave',
       };
-
   this.dropdownRoots.forEach(function (e, r) {
     e.addEventListener(n.end, function (n) {
       n.preventDefault(), n.stopPropagation(), t.toggleDropdown(e);
     }),
       e.addEventListener(n.enter, function (n) {
-        if (n.pointerType == "touch") return;
+        if (n.pointerType == 'touch') return;
         t.stopCloseTimeout(), t.openDropdown(e);
       }),
       e.addEventListener(n.leave, function (e) {
-        if (e.pointerType == "touch") return;
+        if (e.pointerType == 'touch') return;
         t.startCloseTimeout();
       });
-  });
-
-  this.dropdownContainer.addEventListener(n.end, function (e) {
-    e.stopPropagation();
-  });
-
-  this.dropdownContainer.addEventListener(n.enter, function (e) {
-    if (e.pointerType == "touch") return;
-    t.stopCloseTimeout();
-  });
-  
-  this.dropdownContainer.addEventListener(n.leave, function (e) {
-    if (e.pointerType == "touch") return;
-    t.startCloseTimeout();
-  });
-  
-  document.body.addEventListener(n.end, function (e) {
-    Strut.touch.isDragging || t.closeDropdown();
-  });
+  }),
+    this.dropdownContainer.addEventListener(n.end, function (e) {
+      e.stopPropagation();
+    }),
+    this.dropdownContainer.addEventListener(n.enter, function (e) {
+      if (e.pointerType == 'touch') return;
+      t.stopCloseTimeout();
+    }),
+    this.dropdownContainer.addEventListener(n.leave, function (e) {
+      if (e.pointerType == 'touch') return;
+      t.startCloseTimeout();
+    }),
+    document.body.addEventListener(n.end, function (e) {
+      Strut.touch.isDragging || t.closeDropdown();
+    });
 }
 
 function globalNavPopup(e) {
   var t = this,
-    n = Strut.touch.isSupported ? "touchend" : "click";
-  (this.activeClass = "globalPopupActive"),
+    n = Strut.touch.isSupported ? 'touchend' : 'click';
+  (this.activeClass = 'globalPopupActive'),
     (this.root = document.querySelector(e)),
-    (this.link = this.root.querySelector(".rootLink")),
-    (this.popup = this.root.querySelector(".popup")),
-    (this.closeButton = this.root.querySelector(".popupCloseButton")),
+    (this.link = this.root.querySelector('.rootLink')),
+    (this.popup = this.root.querySelector('.popup')),
+    (this.closeButton = this.root.querySelector('.popupCloseButton')),
     this.link.addEventListener(n, function (e) {
       e.stopPropagation(), t.togglePopup();
     }),
@@ -112,7 +99,6 @@ function globalNavPopup(e) {
       !1
     );
 }
-
 (function () {
   window.$ &&
     window.$.ajaxPrefilter &&
@@ -120,15 +106,14 @@ function globalNavPopup(e) {
       return $.ajaxPrefilter(function (e, t, n) {
         var r, i;
         return (
-          (i = $("meta[name=csrf-token]")),
-          (r = i ? i.attr("content") : ""),
-          n.setRequestHeader("x-stripe-csrf-token", r)
+          (i = $('meta[name=csrf-token]')),
+          (r = i ? i.attr('content') : ''),
+          n.setRequestHeader('x-stripe-csrf-token', r)
         );
       });
     });
 }.call(this),
-  "use strict");
-
+  'use strict');
 var Strut = {
   random: function (e, t) {
     return Math.random() * (t - e) + e;
@@ -152,33 +137,32 @@ var Strut = {
     );
   },
   ready: function (e) {
-    document.readyState !== "loading"
+    document.readyState !== 'loading'
       ? e()
-      : document.addEventListener("DOMContentLoaded", e);
+      : document.addEventListener('DOMContentLoaded', e);
   },
 };
-
 (Strut.isRetina = window.devicePixelRatio > 1.3),
   (Strut.mobileViewportWidth = 670),
   (Strut.isMobileViewport = window.innerWidth < Strut.mobileViewportWidth),
-  window.addEventListener("resize", function () {
+  window.addEventListener('resize', function () {
     Strut.isMobileViewport = window.innerWidth < Strut.mobileViewportWidth;
   }),
   (Strut.touch = {
-    isSupported: "ontouchstart" in window || navigator.maxTouchPoints,
+    isSupported: 'ontouchstart' in window || navigator.maxTouchPoints,
     isDragging: !1,
   }),
-  document.addEventListener("DOMContentLoaded", function () {
-    document.body.addEventListener("touchmove", function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    document.body.addEventListener('touchmove', function () {
       Strut.touch.isDragging = !0;
     }),
-      document.body.addEventListener("touchstart", function () {
+      document.body.addEventListener('touchstart', function () {
         Strut.touch.isDragging = !1;
       });
   }),
   (Strut.load = {
     images: function (e, t) {
-      typeof e == "string" && (e = [e]);
+      typeof e == 'string' && (e = [e]);
       var n = -e.length;
       e.forEach(function (e) {
         var r = new Image();
@@ -189,19 +173,19 @@ var Strut = {
       });
     },
     css: function (e, t) {
-      var n = document.createElement("link"),
-        r = window.readConfig("strut_files") || {},
+      var n = document.createElement('link'),
+        r = window.readConfig('strut_files') || {},
         i = r[e];
       if (!i)
         throw new Error('CSS file "' + e + '" not found in strut_files config');
       (n.href = i),
-        (n.rel = "stylesheet"),
+        (n.rel = 'stylesheet'),
         document.head.appendChild(n),
         t && (n.onload = t);
     },
     js: function (e, t) {
-      var n = document.createElement("script"),
-        r = window.readConfig("strut_files") || {},
+      var n = document.createElement('script'),
+        r = window.readConfig('strut_files') || {},
         i = r[e];
       if (!i)
         throw new Error(
@@ -210,6 +194,33 @@ var Strut = {
       (n.src = i), document.head.appendChild(n), t && (n.onload = t);
     },
   }),
+  (Strut.supports = {
+    es6: (function () {
+      try {
+        return new Function('(a = 0) => a'), !0;
+      } catch (e) {
+        return !1;
+      }
+    })(),
+    pointerEvents: (function () {
+      var e = document.createElement('a').style;
+      return (e.cssText = 'pointer-events:auto'), e.pointerEvents === 'auto';
+    })(),
+    positionSticky: (function () {
+      var e = 'position:',
+        t = 'sticky',
+        n = document.createElement('a'),
+        r = n.style,
+        i = ' -webkit- -moz- -o- -ms- '.split(' ');
+      return (
+        (r.cssText = e + i.join(t + ';' + e).slice(0, -e.length)),
+        r.position.indexOf(t) !== -1
+      );
+    })(),
+    masks: (function () {
+      return !/MSIE|Trident|Edge/i.test(navigator.userAgent);
+    })(),
+  }),
   (globalNavDropdowns.prototype.checkCollision = function () {
     var e = this;
     if (Strut.isMobileViewport) return;
@@ -217,41 +228,45 @@ var Strut = {
       var t = document.body.clientWidth,
         n = e.primaryNav.getBoundingClientRect();
       n.left + n.width / 2 > t / 2 &&
-        (e.container.classList.remove("compact"), (e.compact = !1));
+        (e.container.classList.remove('compact'), (e.compact = !1));
     } else {
       var r = e.primaryNavItem.getBoundingClientRect(),
         i = e.secondaryNavItem.getBoundingClientRect();
       r.right > i.left &&
-        (e.container.classList.add("compact"), (e.compact = !0));
+        (e.container.classList.add('compact'), (e.compact = !0));
     }
   }),
   (globalNavDropdowns.prototype.openDropdown = function (e) {
     var t = this;
     if (this.activeDropdown === e) return;
-    this.container.classList.add("overlayActive"),
-      this.container.classList.add("dropdownActive"),
+    this.container.classList.add('overlayActive'),
+      this.container.classList.add('dropdownActive'),
       (this.activeDropdown = e),
       this.dropdownRoots.forEach(function (e, t) {
-        e.classList.remove("active");
+        e.classList.remove('active');
       }),
-      e.classList.add("active");
-    var n = e.getAttribute("data-dropdown"),
-      r = "left",
+      e.classList.add('active');
+    var n = e.getAttribute('data-dropdown'),
+      r = 'left',
       i,
       s,
       o;
     this.dropdownSections.forEach(function (e) {
-      e.el.classList.remove("active"),
-        e.el.classList.remove("left"),
-        e.el.classList.remove("right"),
+      e.el.classList.remove('active'),
+        e.el.classList.remove('left'),
+        e.el.classList.remove('right'),
         e.name == n
-          ? (e.el.classList.add("active"),
-            (r = "right"),
+          ? (e.el.classList.add('active'),
+            (r = 'right'),
             (i = e.content.offsetWidth),
             (s = e.content.offsetHeight),
             (o = e.content))
           : e.el.classList.add(r);
     });
+
+    console.log("OffsetWidth: ",  i);
+    console.log("OffsetWidth: ",  s);
+
     var u = 520,
       a = 400,
       f = i / u,
@@ -261,31 +276,31 @@ var Strut = {
     (h = Math.round(Math.max(h, 10))),
       clearTimeout(this.disableTransitionTimeout),
       (this.enableTransitionTimeout = setTimeout(function () {
-        t.container.classList.remove("noDropdownTransition");
+        t.container.classList.remove('noDropdownTransition');
       }, 50)),
       (this.dropdownBackground.style.transform =
-        "translateX(" + h + "px) scaleX(" + f + ") scaleY(" + l + ")"),
-      (this.dropdownContainer.style.transform = "translateX(" + h + "px)"),
-      (this.dropdownContainer.style.width = i + "px"),
-      (this.dropdownContainer.style.height = s + "px");
+        'translateX(' + h + 'px) scaleX(' + f + ') scaleY(' + l + ')'),
+      (this.dropdownContainer.style.transform = 'translateX(' + h + 'px)'),
+      (this.dropdownContainer.style.width = i + 'px'),
+      (this.dropdownContainer.style.height = s + 'px');
     var p = Math.round(c.left + c.width / 2);
     this.dropdownArrow.style.transform =
-      "translateX(" + p + "px) rotate(45deg)";
+      'translateX(' + p + 'px) rotate(45deg)';
     var d = o.children[0].offsetHeight / l;
-    this.dropdownBackgroundAlt.style.transform = "translateY(" + d + "px)";
+    this.dropdownBackgroundAlt.style.transform = 'translateY(' + d + 'px)';
   }),
   (globalNavDropdowns.prototype.closeDropdown = function () {
     var e = this;
     if (!this.activeDropdown) return;
     this.dropdownRoots.forEach(function (e, t) {
-      e.classList.remove("active");
+      e.classList.remove('active');
     }),
       clearTimeout(this.enableTransitionTimeout),
       (this.disableTransitionTimeout = setTimeout(function () {
-        e.container.classList.add("noDropdownTransition");
+        e.container.classList.add('noDropdownTransition');
       }, 50)),
-      this.container.classList.remove("overlayActive"),
-      this.container.classList.remove("dropdownActive"),
+      this.container.classList.remove('overlayActive'),
+      this.container.classList.remove('dropdownActive'),
       (this.activeDropdown = undefined);
   }),
   (globalNavDropdowns.prototype.toggleDropdown = function (e) {
@@ -308,45 +323,12 @@ var Strut = {
   (globalNavPopup.prototype.closeAllPopups = function (e) {
     var t = document.getElementsByClassName(this.activeClass);
     for (var n = 0; n < t.length; n++) t[n].classList.remove(this.activeClass);
+  }),
+  Strut.supports.pointerEvents ||
+    Strut.load.css('v3/shared/navigation_ie10.css'),
+  Strut.ready(function () {
+    new globalNavDropdowns('.globalNav'),
+      new globalNavPopup('.globalNav .navSection.mobile'),
+      new globalNavPopup('.globalFooterNav .select.country'),
+      new globalNavPopup('.globalFooterNav .select.language');
   });
-
-// Set supports props on Stru
-Strut.supports = {
-  es6: (function () {
-    try {
-      return new Function("(a = 0) => a"), !0;
-    } catch (e) {
-      return !1;
-    }
-  })(),
-  pointerEvents: (function () {
-    var e = document.createElement("a").style;
-    return (e.cssText = "pointer-events:auto"), e.pointerEvents === "auto";
-  })(),
-  positionSticky: (function () {
-    var e = "position:",
-      t = "sticky",
-      n = document.createElement("a"),
-      r = n.style,
-      i = " -webkit- -moz- -o- -ms- ".split(" ");
-    return (
-      (r.cssText = e + i.join(t + ";" + e).slice(0, -e.length)),
-      r.position.indexOf(t) !== -1
-    );
-  })(),
-  masks: (function () {
-    return !/MSIE|Trident|Edge/i.test(navigator.userAgent);
-  })(),
-};
-
-Strut.supports.pointerEvents || Strut.load.css("v3/shared/navigation_ie10.css");
-
-// Run function when DOM is loaded
-Strut.ready(function () {
-  // Instance class for MegaMenu animation
-  new globalNavDropdowns(".globalNav");
-  new globalNavPopup(".globalNav .navSection.mobile");
-  new globalNavPopup(".globalFooterNav .select.country");
-  new globalNavPopup(".globalFooterNav .select.language");
-});
-z;

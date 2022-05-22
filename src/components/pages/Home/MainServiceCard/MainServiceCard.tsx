@@ -127,7 +127,7 @@ export const MainServiceCard: FC = (): ReactElement => {
               <div className={s.focusCardBody}>
                 <p>
                   Possiamo portare online e accativare i prodotti della tua
-                  organizzaziones
+                  organizzazione
                 </p>
                 <p>
                   Diversi fattori incidono nella riuscita di un e-commerce di

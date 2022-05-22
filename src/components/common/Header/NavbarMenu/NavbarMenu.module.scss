@@ -8,6 +8,12 @@
   &:last-child {
     @apply mr-0;
   }
+
+  // class: text-something is generated at runtime from tailwind.config.js
+  // From colors section: secondary: 'var(--color-text-secondary)',
+  &.active {
+    @apply text-secondary;
+  }
 }
 
 .link:focus {

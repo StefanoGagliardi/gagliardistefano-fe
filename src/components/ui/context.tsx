@@ -6,6 +6,8 @@ import React, { FC, useContext, useMemo } from 'react';
 // Theme mode with transition
 //
 import { ThemeProvider } from 'next-themes';
+import { MegaMenu } from '@interfaces/mainMenuLink';
+import themeConfig from '@config/theme';
 
 // Import custom packages
 
@@ -19,6 +21,9 @@ export interface UIState {
   displayToast: boolean;
   modalView: string;
   toastText: string;
+  // V2 Mega Menu
+  displayMegamenu: boolean;
+  megamenuOpen: string;
 }
 
 const initialState = {
@@ -28,8 +33,15 @@ const initialState = {
   modalView: 'LOGIN_VIEW',
   displayToast: false,
   toastText: '',
+  displayMegamenu: false,
+  megamenuOpen: '',
 };
 
+/**
+ * Reducer actions
+ */
+type MODAL_VIEWS = 'SIGNUP_VIEW' | 'LOGIN_VIEW' | 'FORGOT_VIEW';
+type ToastText = string;
 type Action =
   | {
       type: 'OPEN_SIDEBAR';
@@ -60,6 +72,13 @@ type Action =
       type: 'CLOSE_MODAL';
     }
   | {
+      type: 'OPEN_MEGA_MENU';
+      value: typeof MegaMenu[keyof typeof MegaMenu];
+    }
+  | {
+      type: 'CLOSE_MEGA_MENU';
+    }
+  | {
       type: 'SET_MODAL_VIEW';
       view: MODAL_VIEWS;
     }
@@ -67,9 +86,6 @@ type Action =
       type: 'SET_USER_AVATAR';
       value: string;
     };
-
-type MODAL_VIEWS = 'SIGNUP_VIEW' | 'LOGIN_VIEW' | 'FORGOT_VIEW';
-type ToastText = string;
 export const UIContext = React.createContext<UIState | any>(initialState);
 UIContext.displayName = 'UIContext';
 
@@ -142,6 +158,20 @@ function uiReducer(state: UIState, action: Action) {
         userAvatar: action.value,
       };
     }
+    case 'OPEN_MEGA_MENU': {
+      return {
+        ...state,
+        displayMegamenu: true,
+        megamenuOpen: action.value,
+      };
+    }
+    case 'CLOSE_MEGA_MENU': {
+      return {
+        ...state,
+        displayMegamenu: false,
+        megamenuOpen: '',
+      };
+    }
   }
 }
 
@@ -172,6 +202,11 @@ export const UIProvider: FC = (props) => {
   const setModalView = (view: MODAL_VIEWS) =>
     dispatch({ type: 'SET_MODAL_VIEW', view });
 
+  const openMegaMenu = (value: typeof MegaMenu[keyof typeof MegaMenu]) =>
+    dispatch({ type: 'OPEN_MEGA_MENU', value });
+
+  const closeMegaMenu = () => dispatch({ type: 'CLOSE_MEGA_MENU' });
+
   const value = useMemo(
     () => ({
       ...state,
@@ -187,9 +222,15 @@ export const UIProvider: FC = (props) => {
       openToast,
       closeToast,
       setUserAvatar,
+      openMegaMenu,
+      closeMegaMenu,
     }),
     [state]
   );
+
+  if(themeConfig?.debug?.uiContext === true) {
+    console.log("uiContext STATE: ", state);
+  }
 
   return <UIContext.Provider value={value} {...props} />;
 };
@@ -197,7 +238,7 @@ export const UIProvider: FC = (props) => {
 // Context to use in app - integra ui provider
 export const ManagedUIContext: FC = ({ children }) => (
   <UIProvider>
-    <ThemeProvider attribute="class" defaultTheme='dark'>
+    <ThemeProvider attribute="class" defaultTheme="dark">
       {children}
     </ThemeProvider>
   </UIProvider>

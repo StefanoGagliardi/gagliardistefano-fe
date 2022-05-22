@@ -11,9 +11,12 @@ import {
 } from '@assets/svg';
 import AppLink from '@services/routing/AppLink';
 import ContactsForm from '@services/forms/contacts/ContactsView';
+import useThemeWrap from '@services/theme/themeStyleHook';
 
 const ContactsSection: FC = (): ReactElement => {
   // const {register} = useForm();
+
+  const [theme] = useThemeWrap();
 
   return (
     <section className={s.contactsSection}>
@@ -24,7 +27,11 @@ const ContactsSection: FC = (): ReactElement => {
               <h1 className={cn('text-white text-xl block font-bold mb-3')}>
                 Get a quote
               </h1>
-              <p className={cn('text-white text-lg block font-medium my-0 opacity-80')}>
+              <p
+                className={cn(
+                  'text-white text-lg block font-medium my-0 opacity-80'
+                )}
+              >
                 Fill our form and our team will
                 <br />
                 get back to you within 24 hours.
@@ -33,7 +40,13 @@ const ContactsSection: FC = (): ReactElement => {
             <div className={s.colBody}>
               <ul className={s.contactsBoxes}>
                 <li>
-                  <AppLink href={'tel:+393470064005'} label="Call me!">
+                  <AppLink
+                    href={'tel:+393470064005'}
+                    label="Call me!"
+                    className={cn({
+                      ['dark']: !theme,
+                    })}
+                  >
                     <>
                       <SvgDuoPhone />
                       <span>+39 3470064005</span>
@@ -44,6 +57,9 @@ const ContactsSection: FC = (): ReactElement => {
                   <AppLink
                     href={'mailto:stefano.gagliardi@sitisrl.it'}
                     label="Call me!"
+                    className={cn({
+                      ['dark']: !theme,
+                    })}
                   >
                     <>
                       <SvgDuoEnvelope />
@@ -52,7 +68,13 @@ const ContactsSection: FC = (): ReactElement => {
                   </AppLink>
                 </li>
                 <li>
-                  <AppLink href={'#'} label="Scopri il team">
+                  <AppLink
+                    href={'#'}
+                    label="Scopri il team"
+                    className={cn({
+                      ['dark']: !theme,
+                    })}
+                  >
                     <>
                       <SvgDuoMapPin />
                       <span>
