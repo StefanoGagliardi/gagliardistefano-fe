@@ -175,7 +175,7 @@ function uiReducer(state: UIState, action: Action) {
   }
 }
 
-export const UIProvider: FC = (props) => {
+export const UIProvider: FC<{children: any}> = (props) => {
   const [state, dispatch] = React.useReducer(uiReducer, initialState);
 
   const openSidebar = () => dispatch({ type: 'OPEN_SIDEBAR' });
@@ -228,15 +228,15 @@ export const UIProvider: FC = (props) => {
     [state]
   );
 
-  if(themeConfig?.debug?.uiContext === true) {
-    console.log("uiContext STATE: ", state);
+  if (themeConfig?.debug?.uiContext === true) {
+    console.log('uiContext STATE: ', state);
   }
 
   return <UIContext.Provider value={value} {...props} />;
 };
 
 // Context to use in app - integra ui provider
-export const ManagedUIContext: FC = ({ children }) => (
+export const ManagedUIContext: FC<{ children: any }> = ({ children }) => (
   <UIProvider>
     <ThemeProvider attribute="class" defaultTheme="dark">
       {children}

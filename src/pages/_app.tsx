@@ -14,11 +14,12 @@ import themeConfig from '@config/theme';
 import '../assets/main.css';
 import '../assets/chrome-bug.css';
 import 'aos/dist/aos.css';
+import setDebug from 'src/utils/debug';
 
 /**
  * Script start
  */
-const Noop: FC = ({ children }) => <>{children}</>;
+const Noop: FC<{ children: any }> = ({ children }) => <>{children}</>;
 function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop;
 
@@ -34,6 +35,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       AOS.init({
         duration: 500,
       });
+    }
+
+    // Set debug
+    if (typeof window !== 'undefined') {
+      setDebug(true);
     }
   }, []);
 

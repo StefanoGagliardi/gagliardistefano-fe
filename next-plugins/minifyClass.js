@@ -6,38 +6,47 @@ const generateName = require('css-class-generator');
  * Re-wrap next.config.js with custom webpack configuration
  */
 let classPrefix = '';
-module.exports = (prefix, nextConfig = {}) => ({
+module.exports = (prefix, webpackRule = [], nextConfig = {}) => ({
   ...nextConfig,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
+    if (webpackRule && Array.isArray(webpackRule) && webpackRule.length > 0) {
+      config.module.rules.push(...webpackRule);
+    } else {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      });
+    }
 
-    return config;
-    if (dev) return config; // Disable during dev
+    // return config;
+    // if (dev) return config; // Disable during dev
 
     if (prefix) {
       classPrefix = prefix;
     }
 
+    const rulesIndex = getRulesIndex(config.module.rules);
+
+    console.log('rulesIndex: ', rulesIndex);
+    console.log(
+      'config.module.rules[2].oneOf: ',
+      config.module.rules[rulesIndex]
+    );
+    console.log('Prefix: ', prefix);
+
+    const rules = config.module.rules[rulesIndex];
+
     // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
     // Si potrebbe fare a ciclo
-    if (config.module.rules[2].oneOf) {
-      for (let i = 0; i < config.module.rules[2].oneOf.length; i++) {
-        if (config.module.rules[2].oneOf[i].sideEffects === false) {
-          if (Array.isArray(config.module.rules[2].oneOf[i].use)) {
-            for (
-              let l = 0;
-              l < config.module.rules[2].oneOf[i].use.length;
-              l++
-            ) {
-              const { loader, options } =
-                config.module.rules[2].oneOf[i].use[l];
+    if (rules.oneOf) {
+      for (let i = 0; i < rules.oneOf.length; i++) {
+        if (rules.oneOf[i].sideEffects === false) {
+          if (Array.isArray(rules.oneOf[i].use)) {
+            for (let l = 0; l < rules.oneOf[i].use.length; l++) {
+              const { loader, options } = rules.oneOf[i].use[l];
               if (options.modules) {
-                config.module.rules[2].oneOf[i].use[
-                  l
-                ].options.modules.getLocalIdent = getLocalIdentCustom;
+                rules.oneOf[i].use[l].options.modules.getLocalIdent =
+                  getLocalIdentCustom;
               }
             }
           }
@@ -125,3 +134,25 @@ const getMinifiedClassName = (className, path) => {
 
   return newName;
 };
+
+/**
+ * Retrive corrent index of oneOf array with naming rules and functions.ù
+ * From project to project or with update can change
+ */
+function getRulesIndex(rules) {
+  if (!Array.isArray(rules)) {
+    throw new Error(
+      'Webpack config.module.rules is not an Array, disable plugin'
+    );
+  }
+  var index = null;
+  for (let i = 0; i < rules.length; i++) {
+    const rule = rules[i];
+    const size = Object.keys(rule).length;
+    if (index === null && typeof rule.oneOf !== 'undefined' && size === 1) {
+      index = i;
+      return i;
+    }
+  }
+  return index;
+}

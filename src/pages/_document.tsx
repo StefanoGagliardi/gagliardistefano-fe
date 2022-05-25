@@ -1,14 +1,22 @@
 // Import core
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 // Import third parts
 
 // Import customs
 
 class MyDocument extends Document {
+
   render() {
-    const lang = 'it-IT'
-    const dir = 'ltr'
+    const lang = 'it-IT';
+    const dir = 'ltr';
 
     return (
       <Html lang={lang} dir={dir}>
@@ -42,8 +50,7 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
-
-export default MyDocument
+export default MyDocument;

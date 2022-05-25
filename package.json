@@ -45,6 +45,7 @@
     "react-flip-toolkit": "^7.0.14",
     "react-hook-form": "^7.31.2",
     "sass": "^1.52.1",
+    "styled-components": "^5.3.5",
     "three": "^0.140.2"
   },
   "devDependencies": {
@@ -56,6 +57,7 @@
     "@types/jest": "^27.5.1",
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
+    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "autoprefixer": "^10.4.7",
