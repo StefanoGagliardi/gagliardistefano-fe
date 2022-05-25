@@ -6,59 +6,128 @@
  *
  * Styled-component with SWC - https://github.com/vercel/next.js/tree/canary/examples/with-styled-components
  */
+// const withPlugins = require('next-compose-plugins');
+// const withMinifyClassName = require('./next-plugins/minify-class-name.js');
+const overrideGetLocalIdent = require('./next-plugins/overrideGetLocalIdent.js');
+// const sass = require('@zeit/next-sass');
+
+/**
+ * Import plugin
+ */
+// process.env.ANALYZE === 'true';
+// console.log('process.env.ANALYZE: ', process.env.ANALYZE);
+// const withBundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: false, //process.env.ANALYZE === 'true',
+// });
 
 // Check if development mode
 const isDev = process.env.NODE_ENV !== 'development' ? false : true;
 
+// Define className minification in prod
+const MINIFY_CSS_MODULE_CLASSNAME =
+  process.env.NODE_ENV !== 'development' ? false : true;
+
 // Anche se non traduco subito, imposto gli URL sotto /it/ cosi da non dover rifare redirect
 const locales = ['it'];
 
-// Export config, this config is rewrapper by custom plugin "MinifyClass"
-// Add Webpack rule for css classname and re-export all
-module.exports = require('./next-plugins/minifyClass')(
-  // Auto invoke plugin before export nextJs Config
-  'gs', // Custom prefix for className minifaciton
-  [
-    // Array with a list of custom/additional rules for Webpack configuration, due this beacuase classname plugin modify Webapacks
-    // Example is SVG loader
-    {
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    },
-  ],
-  {
-    // This "experimental" features are also about Rust compiler
-    experimental: {},
-    compiler: {
-      // With rust instead of babel we need to port babel's plugin to Rust
-      // Fortunatly mostly used are yet ported on Rust by Vercel team
-      removeConsole: !isDev, // Remove console.log in production
-      styledComponents: true, // Both SWC and Babel support option for "Styled component" for SSR instead use _document.tsx
-    },
-    i18n: {
-      locales: ['default', 'it'],
-      defaultLocale: 'default',
-      localeDetection: false,
-    },
-    // By default Next remove last slash and redirecg
-    trailingSlash: true,
-    // Example of rewrites
-    // NB: Probably this is DEPRECATED after i18n Integartion
-    async rewrites() {
-      return [];
-      const ret = [
-        ...locales
-          // .filter((locale) => locale !== defaultLocale)
-          .map((locale) => [
-            { source: `/${locale}{/}?`, destination: '/' },
-            { source: `/${locale}/:path*`, destination: '/:path*' },
-          ])
-          .reduce((acc, cur) => [...acc, ...cur], []),
-      ];
-      return ret;
-    },
-    async redirects() {
-      return [];
-    },
-  }
-);
+// NextJs custom configuration to pass to plugin's
+const nextConfig = {
+  // This "experimental" features are also about Rust compiler
+  experimental: {},
+  compiler: {
+    // With rust instead of babel we need to port babel's plugin to Rust
+    // Fortunatly mostly used are yet ported on Rust by Vercel team
+    removeConsole: !isDev, // Remove console.log in production
+    styledComponents: true, // Both SWC and Babel support option for "Styled component" for SSR instead use _document.tsx
+  },
+  i18n: {
+    locales: ['default', 'it'],
+    defaultLocale: 'default',
+    localeDetection: false,
+  },
+  // By default Next remove last slash and redirecg
+  trailingSlash: true,
+  // Example of rewrites
+  // NB: Probably this is DEPRECATED after i18n Integartion
+  async rewrites() {
+    return [];
+    const ret = [
+      ...locales
+        // .filter((locale) => locale !== defaultLocale)
+        .map((locale) => [
+          { source: `/${locale}{/}?`, destination: '/' },
+          { source: `/${locale}/:path*`, destination: '/:path*' },
+        ])
+        .reduce((acc, cur) => [...acc, ...cur], []),
+    ];
+    return ret;
+  },
+  async redirects() {
+    return [];
+  },
+
+  // Set svg loader as component via Webpack
+  // SVGR provides an official webpack.js loader to import SVG as React components.
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // Set loader for .sg file so i can load like file as a React Component
+    if (config.module.rules) {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      });
+    }
+
+    // Minify css module classname
+    if (MINIFY_CSS_MODULE_CLASSNAME) {
+      config = overrideGetLocalIdent('gs', config);
+    }
+
+    return config;
+  },
+};
+
+/**
+ * Export configuration with plugin re-wrap
+ */
+module.exports = nextConfig;
+
+/**
+ * Plugin version for direct use (just one plugin)
+ * No senso fro one plugin add another (next-compose-plugins) for handle "more plugins"
+ */
+// module.exports = require('./next-plugins/minify-class-name.js')(
+//   nextConfig
+// );
+
+/**
+ * Plugin version for "withPlugins\"
+ */
+// module.exports = withPlugins(
+//   [[withMinifyClassName], [withBundleAnalyzer]],
+//   nextConfig
+// );
+
+// ===================== BROKEN WITH LATEST VERSIONE OF NEXTJS ==============================
+// ==========================================================================================
+// Export config after plugin parse,
+// "withPlugins" is a package to avoid plugin chain
+// module.exports = withPlugins(
+//   [
+//     [
+//       sass,
+//       {
+//         cssModules: true,
+//         cssxLoaderOptions: {
+//           localIdentName: 'sg_[path]___[local]___[hash:base64:5]',
+//         },
+//         [PHASE_PRODUCTION_BUILD]: {
+//           cssLoaderOptions: {
+//             localIdentName: 'sg_[hash:base64:8]',
+//           },
+//         },
+//       },
+//     ],
+//     [withBundleAnalyzer],
+//   ],
+//   nextConfig
+// );

@@ -1,0 +1,5 @@
+{
+  "watch": ["server", "next.config.js", "next-plugins"],
+  "exec": "ts-node --project tsconfig.server.json server/index.ts",
+  "ext": "js ts"
+}
