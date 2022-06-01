@@ -6,6 +6,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "devServer": "NODE_ENV=development nodemon",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
@@ -16,7 +17,6 @@
     "test:watch": "jest —watch",
     "test:coverage": "jest —coverage",
     "test-all": "yarn lint && yarn type-check && yarn test",
-    "devServer": "NODE_ENV=development nodemon",
     "buildAnalyze": "NODE_ENV=BUNDLE_ANALYZE next build",
     "startServer": "NODE_ENV=production node server.js",
     "analyze": "BUNDLE_ANALYZE=both yarn build"
@@ -41,7 +41,6 @@
     "next": "12.1.6",
     "next-compose-plugins": "^2.2.1",
     "next-themes": "0.2.0",
-    "nodemon": "^2.0.16",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-flip-toolkit": "^7.0.14",
@@ -76,6 +75,7 @@
     "jest": "^28.1.0",
     "jest-watch-typeahead": "^1.1.0",
     "lint-staged": "^12.4.1",
+    "nodemon": "^2.0.16",
     "postcss": "^8.4.14",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.1.0",

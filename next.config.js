@@ -6,26 +6,26 @@
  *
  * Styled-component with SWC - https://github.com/vercel/next.js/tree/canary/examples/with-styled-components
  */
-// const withPlugins = require('next-compose-plugins');
+const withPlugins = require('next-compose-plugins');
+const sass = require('@zeit/next-sass');
 // const withMinifyClassName = require('./next-plugins/minify-class-name.js');
-const overrideGetLocalIdent = require('./next-plugins/overrideGetLocalIdent.js');
-// const sass = require('@zeit/next-sass');
+// const ovverideGetLocalIdent = require('./next-plugins/ovverideGetLocalIdent.js');
 
 /**
  * Import plugin
  */
 // process.env.ANALYZE === 'true';
 // console.log('process.env.ANALYZE: ', process.env.ANALYZE);
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-//   enabled: false, //process.env.ANALYZE === 'true',
-// });
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: false, //process.env.ANALYZE === 'true',
+});
 
 // Check if development mode
 const isDev = process.env.NODE_ENV !== 'development' ? false : true;
 
 // Define className minification in prod
 const MINIFY_CSS_MODULE_CLASSNAME =
-  process.env.NODE_ENV !== 'development' ? false : true;
+  process.env.NODE_ENV !== 'development' ? true : true;
 
 // Anche se non traduco subito, imposto gli URL sotto /it/ cosi da non dover rifare redirect
 const locales = ['it'];
@@ -77,10 +77,9 @@ const nextConfig = {
       });
     }
 
-    // Minify css module classname
-    if (MINIFY_CSS_MODULE_CLASSNAME) {
-      config = overrideGetLocalIdent('gs', config);
-    }
+    // if (MINIFY_CSS_MODULE_CLASSNAME) {
+    //   config = ovverideGetLocalIdent(config, '');
+    // }
 
     return config;
   },
@@ -90,6 +89,11 @@ const nextConfig = {
  * Export configuration with plugin re-wrap
  */
 module.exports = nextConfig;
+
+/**
+ * Base example with bundle analyzer
+ */
+// module.exports = withBundleAnalyzer(nextConfig);
 
 /**
  * Plugin version for direct use (just one plugin)

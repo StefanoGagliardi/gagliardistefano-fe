@@ -1,7 +1,7 @@
 // Import core
 import express, { Request, Response, NextFunction } from 'express';
 
-// Import third parts
+// Impor third parts
 import next from 'next';
 
 // Import custom
@@ -11,53 +11,23 @@ const HOSTNAME = 'localhost';
 const app = next({
   dev: process.env.NODE_ENV !== 'production' ? true : false,
   hostname: HOSTNAME,
-  port: PORT
+  port: PORT,
 });
-const nextHandler = app.getRequestHandler();
-
-// async () => {
-//   try {
-//     await app.prepare();
-
-//     // Init server
-//     const server = express();
-
-//     // Catch all request
-//     server.all('*', (req: Request, res: Response, next: NextFunction) => {
-//       // Pass handle logic to NextJs
-//       nextHandler(req, res);
-//     });
-
-//     // Listen on port... 3000
-//     server.listen(PORT, () => {
-//       console.log(`Server listen on Port: ${PORT}`);
-//     });
-//   } catch (e) {
-//     console.log('Error: ', e);
-//     process.exit(1);
-//   }
-// };
+const appHandler = app.getRequestHandler();
 
 class Server {
-  constructor() {
-    this.startServer();
+  public constructor() {
+    this.initServer();
   }
 
-  async startServer() {
-    await app.prepare();
-
-    // Init server
+  async initServer() {
     const server = express();
-
-    // Catch all request
-    server.all('*', (req: Request, res: Response, next: NextFunction) => {
-      // Pass handle logic to NextJs
-      nextHandler(req, res);
+    await app.prepare();
+    server.all('*', (req: Request, res: Response) => {
+      appHandler(req, res);
     });
-
-    // Listen on port... 3000
     server.listen(PORT, () => {
-      console.log(`Server listen on Port: ${PORT}`);
+      console.log(`Listen on port ${PORT}`);
     });
   }
 }

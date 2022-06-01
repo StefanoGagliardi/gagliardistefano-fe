@@ -40,16 +40,17 @@
     },
     "incremental": true
   },
-  "exclude": [
-    "node_modules",
-    ".next",
-    "out"
-  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "custom.d.ts"
-  ]
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "./next-plugins/*"
+  ],
 }

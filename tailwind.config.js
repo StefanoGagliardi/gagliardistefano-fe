@@ -10,7 +10,7 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}', // Pages contain own style
     './src/components/**/*.{js,ts,jsx,tsx}', // Site Components
-    './src/services/forms/**/*.{js,ts,jsx,tsx}' // ./services/forms contain views for forms
+    './src/services/forms/**/*.{js,ts,jsx,tsx}', // ./services/forms contain views for forms
   ],
   // First value is FontSize, second is LineHeight
   theme: {
@@ -53,7 +53,7 @@ module.exports = {
         accent: 'var(--color-text-accent)',
         primary: 'var(--color-text-primary)',
         secondary: 'var(--color-text-secondary)',
-        dark: 'var(--color-text-dark)'
+        dark: 'var(--color-text-dark)',
       },
       textOpacity: {
         20: '0.2',
@@ -88,6 +88,15 @@ module.exports = {
       // // => @media (min-width: 1536px) { ... }
 
       // '8xl': '1920px',
+    },
+    borderWidth: {
+      DEFAULT: '1px',
+      0: '0',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+      6: '6px',
+      8: '8px',
     },
   },
   variants: {
