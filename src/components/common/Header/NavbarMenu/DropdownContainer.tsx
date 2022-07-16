@@ -1,13 +1,12 @@
 // Import core
 import React, { FC, ReactElement, useRef, Children } from 'react';
-import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 import { Flipped } from 'react-flip-toolkit';
-import FadeContents from './FadeContents';
 
 // Import third parts
 
 // Import custom
+import FadeContents from './FadeContents';
 
 interface Props {
   duration: number;
@@ -106,7 +105,8 @@ export const Caret = styled.div`
   height: 0;
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent var(--white);
+  border-color: transparent transparent #fff;
+  
   /* make sure it's above the main dropdown container so now box-shadow bleeds over it */
   z-index: 1;
   position: relative;
@@ -116,12 +116,19 @@ export const Caret = styled.div`
 
 export const DropdownBackground = styled.div`
   transform-origin: 0 0;
-  background-color: var(--white);
+  // background-color: var(--white);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
+  
   box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1);
+  background: #fff;
   ${promoteLayer}
+
+  // backdrop-filter: blur(4px);
+  // -webkit-backdrop-filter: blur(4px);
+  // background: hsla(0, 0%, 100%, 0.25);
+  // box-shadow: 0 8px 32px 0px rgb(70 70 70 / 37%);
 `;
 
 export const AltBackground = styled.div<{ duration: any }>`

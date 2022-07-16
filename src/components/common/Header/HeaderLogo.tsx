@@ -1,50 +1,56 @@
 // Import core
-import { FC, ReactElement, useState } from 'react'
+import { FC, ReactElement, useState } from 'react';
+import { useRouter } from 'next/router';
 
 // Import third parts
-import cn from 'classnames'
+import cn from 'classnames';
 
 // Impot customs
 import useScrollPosition, {
   IScrollProps,
-} from 'src/services/hooks/useBodyScroll'
-import s from './HeaderLogo.module.css'
-import Link from 'next/link'
+} from 'src/services/hooks/useBodyScroll';
+import s from './HeaderLogo.module.css';
+import Link from 'next/link';
 
+// Check current page
+const regexPage = '^((/)?servizi|(/)?privacy-policy)';
+
+/**
+ * Script start
+ */
 export const HeaderLogo: FC = (): ReactElement => {
-  const [scrollClass, setScrollClass] = useState<boolean>(false)
+  const { pathname } = useRouter();
+  const [scrollClass, setScrollClass] = useState<boolean>(false);
 
   // Get scroll position and set class
   useScrollPosition({
     effect: (props: IScrollProps) => {
-      const { prevPos, currPos } = props
+      const { prevPos, currPos } = props;
 
       if (currPos.y && Math.abs(currPos.y) > 500) {
-        setScrollClass(true)
+        setScrollClass(true);
       } else {
-        setScrollClass(false)
+        setScrollClass(false);
       }
     },
     deps: [scrollClass],
     element: null,
     useWindow: false,
     wait: 300,
-  })
+  });
 
   return (
-    <div
-      className={cn(s.logoWrapper, 'relative', {
-        [s.scrolled]: scrollClass,
-      })}
-    >
+    <div className={cn(s.logoWrapper, 'relative')}>
       <Link href="/">
         <a href="/">
           <img
             className={cn(
               'dark:opacity-100 transition-opacity absolute top-0 left-0',
               {
-                'opacity-100': !scrollClass,
-                'opacity-0': scrollClass,
+                'opacity-100': !scrollClass && !pathname.match(regexPage),
+                'opacity-0':
+                  (scrollClass && !pathname.match(regexPage)) ||
+                  pathname.match(regexPage),
               }
             )}
             src={'/logo/res/gagliardistefano-logo-light250.png'}
@@ -55,8 +61,10 @@ export const HeaderLogo: FC = (): ReactElement => {
             className={cn(
               'dark:opacity-0 transition-opacity absolute top-0 left-0 dark:hide',
               {
-                'opacity-0': !scrollClass,
-                'opacity-100': scrollClass,
+                'opacity-0': !scrollClass && !pathname.match(regexPage),
+                'opacity-100':
+                  (scrollClass && !pathname.match(regexPage)) ||
+                  pathname.match(regexPage),
               }
             )}
             src={'/logo/res/gagliardistefano-logo-dark250.png'}
@@ -66,7 +74,7 @@ export const HeaderLogo: FC = (): ReactElement => {
         </a>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default HeaderLogo
+export default HeaderLogo;

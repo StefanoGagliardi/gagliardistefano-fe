@@ -2,6 +2,7 @@
   @apply sticky top-0 bg-primary z-40 transition-all duration-150;
 }
 
+// Logo
 .logo {
   @apply cursor-pointer rounded-full border transform duration-100 ease-in-out;
 
@@ -12,6 +13,7 @@
   }
 }
 
+// Mobile menu, tailwind gradient
 .mobileToggle > span {
   width: 33px;
   height: 7px;
@@ -32,15 +34,7 @@
   }
 }
 
-.logoLight {
-}
-
-.logoDarl {
-}
-
-.glass {
-}
-
+// Glass effect bg
 .glass::before {
   content: ' ';
   background: rgba(255, 255, 255, 0.25);
@@ -56,4 +50,21 @@
   left: 0;
   border-radius: 0;
   z-index: 0;
+}
+
+/**
+ * White Versio for Service area
+ */
+.light {
+  &.whiteVersion.glass {
+    background: rgba(255, 255, 255, 0.7);
+    &::before {
+      box-shadow: none;
+      box-shadow: 0 2px 2px -1px rgb(15 25 36 / 15%);
+    }
+
+    a {
+      color: #222;
+    }
+  }
 }

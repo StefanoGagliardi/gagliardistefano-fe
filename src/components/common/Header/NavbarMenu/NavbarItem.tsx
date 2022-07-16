@@ -1,10 +1,11 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const NavbarItemTitle = styled.a`
   background: transparent;
-  align-items: center; 
+  align-items: center;
   cursor: pointer;
   display: inline-flex;
   font-weight: 500;
@@ -24,6 +25,8 @@ const DropdownSlot = styled.div`
   left: 50%;
   transform: translateX(-50%);
   perspective: 1500px;
+
+  top: 40px;
 `;
 
 interface Props {
@@ -31,10 +34,11 @@ interface Props {
   title: string;
   index: number;
   children: ReactNode;
+  url?: string;
 }
 
 const NavbarItem: FC<Props> = (props: Props): ReactElement => {
-  const { title, children, index } = props;
+  const { title, children, index, url } = props;
 
   const onMouseEnter = () => {
     props.onMouseEnter(index);
@@ -42,7 +46,13 @@ const NavbarItem: FC<Props> = (props: Props): ReactElement => {
 
   return (
     <NavbarItemEl onMouseEnter={onMouseEnter} onFocus={onMouseEnter}>
-      <NavbarItemTitle>{title}</NavbarItemTitle>
+      {url ? (
+        <Link href={url}>
+          <NavbarItemTitle href={url}>{title}</NavbarItemTitle>
+        </Link>
+      ) : (
+        <NavbarItemTitle>{title}</NavbarItemTitle>
+      )}
       <DropdownSlot>{children}</DropdownSlot>
     </NavbarItemEl>
   );

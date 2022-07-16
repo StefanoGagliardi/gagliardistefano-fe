@@ -175,7 +175,7 @@ function uiReducer(state: UIState, action: Action) {
   }
 }
 
-export const UIProvider: FC<{children: any}> = (props) => {
+export const UIProvider: FC<{ children: any }> = (props) => {
   const [state, dispatch] = React.useReducer(uiReducer, initialState);
 
   const openSidebar = () => dispatch({ type: 'OPEN_SIDEBAR' });

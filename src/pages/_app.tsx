@@ -9,19 +9,23 @@ import AOS from 'aos'; // Animate on scroll
 // Import customs
 import { ManagedUIContext } from '@components/ui/context';
 import themeConfig from '@config/theme';
+import setDebug from 'src/utils/debug';
 
 // Import global styles: website & third parts
 import '../assets/main.css';
-import '../assets/chrome-bug.css';
 import 'aos/dist/aos.css';
-import setDebug from 'src/utils/debug';
+import Footer from '@components/common/Footer';
+import Header from '@components/common/Header';
+import { AnimatePresence } from 'framer-motion';
 
 /**
  * Script start
  */
 const Noop: FC<{ children: any }> = ({ children }) => <>{children}</>;
-function MyApp({ Component, pageProps }: AppProps) {
+
+function MyApp({ Component, pageProps, router }: AppProps) {
   const Layout = (Component as any).Layout || Noop;
+  const url = `http://localhost:3000${router.route}`;
 
   useEffect(() => {
     document.body.classList?.remove('loading');
@@ -47,9 +51,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ManagedUIContext>
         {/* <AnimateSharedLayout> */}
-        <Layout pageProps={pageProps}>
-          <Component {...pageProps} />
-        </Layout>
+        {/* <Layout pageProps={pageProps}> */}
+        <Header />
+        <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component {...pageProps} canonical={url} key={url} />
+        </AnimatePresence>
+        <Footer />
+        {/* </Layout> */}
         {/* </AnimateSharedLayout> */}
       </ManagedUIContext>
     </>

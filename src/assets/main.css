@@ -1,11 +1,9 @@
-@import './base.css'; /* Sovrascrive le classi di tailwind (base) */
-@import './avenir.css'; /* Sovrascrive le classi di tailwind (base) */
+@import "./base.css"; /* Sovrascrive le classi di tailwind (base) */
+@import "./chrome-bug.css";
+@import "./avenir.css";
 
 @tailwind base;
 @tailwind components;
-
-/* @import './components.css'; */
-
 @tailwind utilities;
 
 h6 {
@@ -15,9 +13,10 @@ h6 {
   color: #1d1e1e;
 }
 
-body, html {
+body,
+html {
   overflow-x: hidden;
 }
 
-/* Mailgo hide development by: */
-.m-by {display: none !important;}
+@import "./scrollbar.css";
+@import "./global.css";

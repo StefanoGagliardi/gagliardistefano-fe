@@ -21,31 +21,31 @@ export const MainServiceCard: FC = (): ReactElement => {
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="400"
+          data-aos-offset="100"
         ></div>
         <div
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="400"
+          data-aos-offset="-100"
         ></div>
         <div
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="400"
+          data-aos-offset="-50"
         ></div>
         <div
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="400"
+          data-aos-offset="0"
         ></div>
         <div
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="200"
+          data-aos-offset="0"
         ></div>
         <div
           className={s.square}
@@ -57,13 +57,13 @@ export const MainServiceCard: FC = (): ReactElement => {
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="400"
+          data-aos-offset="-100"
         ></div>
         <div
           className={s.square}
           data-aos-delay="500"
           data-aos="zoom-out-up"
-          data-aos-offset="600"
+          data-aos-offset="-100"
         ></div>
         <div
           className={s.square}
@@ -91,13 +91,13 @@ export const MainServiceCard: FC = (): ReactElement => {
               </div>
               <div className={s.focusCardBody}>
                 <p>
-                  Senza un'app Web, la tua azienda sta perdendo denaro e quote
-                  di mercato.
+                  Senza la presenza web, la tua azienda sta perdendo denaro e
+                  quote di mercato
                 </p>
                 <p>
                   Servizi di sviluppo end-to-end che ti aiuteranno a
                   digitalizzare la tua attività e a rivoluzionare il mercato,
-                  indipendentemente dalle dimensioni della tua azienda.
+                  indipendentemente dalle dimensioni della tua azienda
                 </p>
                 <Link href="/sviluppo-web">
                   <a href="/sviluppo-web" className={s.btnSeeMore}>
@@ -156,7 +156,7 @@ export const MainServiceCard: FC = (): ReactElement => {
               </div>
               <div className={s.focusCardBody}>
                 <p>
-                  Grazie alla tecnologia ibrida le applicazioni per smartphone
+                  Con le tecnologie ibride le applicazioni per smartphone
                   diventano accessibili a tutti
                 </p>
                 <p>

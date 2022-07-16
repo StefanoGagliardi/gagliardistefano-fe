@@ -12,5 +12,15 @@
     "handle": "@gagliardistefano",
     "site": "@gagliardistefano",
     "cardType": "summary_large_image"
+  },
+  "pages": {
+    "rSitiWeb": {
+      "title": "Realizzazione e creazione siti web professionali - Next Generation Developers",
+      "desc": "Realizzazione e creazione siti web professionali - Next Generation Developers - Meta desc"
+    },
+    "privacy-policy": {
+      "title": "La nostra Privacy Policy - Next Generation Developers",
+      "desc": "La nostra Privacy Policy con le ultime linee guida della GDPR - Next Generation Developers"
+    }
   }
 }

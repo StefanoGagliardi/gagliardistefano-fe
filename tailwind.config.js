@@ -1,5 +1,9 @@
-// Custom plugin / function
+/**
+ * Import tailwind plugin: custom callback for class generation, typography and lineclamp
+ */
 const plugin = require('tailwindcss/plugin');
+const typographyPlugin = require('@tailwindcss/typography');
+const lineClampPlugin = require('@tailwindcss/line-clamp');
 
 module.exports = {
   darkMode: 'class',
@@ -12,17 +16,21 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}', // Site Components
     './src/services/forms/**/*.{js,ts,jsx,tsx}', // ./services/forms contain views for forms
   ],
-  // First value is FontSize, second is LineHeight
+  safelist: ['font-avenir', 'lasd'],
   theme: {
-    // Font definition: size and weight.
-    // NB: Weigt must match font-wieght defined in src/assets/avenir.css
+    // Font definition: size and line-height.
     fontSize: {
       sm: ['14px', '20px'],
       base: ['16px', '24px'],
       lg: ['20px', '28px'],
-      lgm: ['24px', '1.4'],
-      xl: ['40px', '1.4'],
+      lgm:   ['24px', '32px'],
+      xl: ['40px', '48px'],
     },
+    // Define outside "extend" for override default font-family
+    fontFamily: {
+      avenir: ['avenir next', 'sans-serif'],
+    },
+    // NB: Must match font-wieght defined in src/assets/avenir.css
     fontWeight: {
       regular: 400,
       medium: 500,
@@ -30,7 +38,7 @@ module.exports = {
     },
     extend: {
       maxWidth: {
-        '8xl': '1920px',
+        '8xl': '1600px',
       },
       colors: {
         ctaStart: 'var(--color-bg-cta-start)',
@@ -45,6 +53,7 @@ module.exports = {
       backgroundColor: {
         primary: 'var(--color-bg-primary)',
         secondary: 'var(--color-bg-secondary)',
+        service: 'var(--color-bg-service)',
       },
       gradientColorStops: {
         ctaStop: 'var(--color-bg-cta-stop)',
@@ -57,7 +66,7 @@ module.exports = {
       },
       textOpacity: {
         20: '0.2',
-        80: '0.8',
+        80: '0  .8',
       },
       spacing: {
         header: '80px',
@@ -68,6 +77,12 @@ module.exports = {
       margin: {
         30: '30px',
         50: '50px',
+      },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
       },
     },
     screens: {
@@ -83,14 +98,18 @@ module.exports = {
       xl: '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      // Per aumentare i container scommentre qui
-      // '2xl': '1536px',
-      // // => @media (min-width: 1536px) { ... }
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+
+      '4xl': '1600px',
+      // => @media (min-width: 1800px) { ... }
 
       // '8xl': '1920px',
+       // => @media (min-width: 1920px) { ... }
     },
     borderWidth: {
       DEFAULT: '1px',
+      1: '1px',
       0: '0',
       2: '2px',
       3: '3px',
@@ -107,7 +126,9 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    typographyPlugin,
+    // require('@tailwindcss/typography'),
+    lineClampPlugin,
     plugin(function ({
       addUtilities,
       theme,

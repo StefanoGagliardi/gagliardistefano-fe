@@ -26,6 +26,10 @@ import Github from './brands/github.svg';
 import LinkedinIcon from './brands/linkedin.svg';
 import Twitter from './brands/twitter.svg';
 
+// Svg Mega menu
+import WebDesign from './menu/web-design.svg';
+import WebsiteCorporate from './menu/website-corporate.svg';
+
 const SVGArrowSvg = SVGArrow;
 const SVGThemeLight = ThemeLight;
 const SVGThemeDark = ThemeDark;
@@ -54,6 +58,9 @@ const SvgGithub = Github;
 const SvgLinkedinIcon = LinkedinIcon;
 const SvgTwitter = Twitter;
 
+// Mega Menu icons
+const SvgWebDesign = WebDesign;
+const SvgWebsiteCorporate = WebsiteCorporate;
 
 export {
   SVGArrowSvg,
@@ -78,5 +85,7 @@ export {
   SvgDuoMapPin,
   SvgGithub,
   SvgLinkedinIcon,
-  SvgTwitter
+  SvgTwitter,
+  SvgWebDesign,
+  SvgWebsiteCorporate
 };

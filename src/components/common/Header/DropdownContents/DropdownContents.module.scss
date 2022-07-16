@@ -1,0 +1,86 @@
+.dropdownWrapper {
+  // width: 100%;
+  padding: 30px;
+  min-height: 400px;
+  min-width: 25rem;
+  // border: 1px solid red;
+
+  color: #222;
+  font-weight: bold;
+
+  // background: hsla(0, 0%, 100%, 0.25);
+  // border-radius: 10px;
+  // border-radius: 0;
+  // box-shadow: 0 8px 32px 0px rgba(70, 70, 70, 0.37);
+
+  // will-change: transform;
+  // backdrop-filter: blur(4px);
+  // -webkit-backdrop-filter: blur(4px);
+}
+
+.dropdownContentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+}
+
+.serviceIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.servicesList {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  li {
+    margin-bottom: 30px;
+    > a {
+      display: flex;
+      > div {
+        margin-left: 10px;
+        > span {
+          svg {
+            width: 20px;
+            height: 20px;
+            display: inline;
+            opacity: 0;
+            transition: 0.3s linear opacity;
+          }
+        }
+      }
+
+      &:hover {
+        > div > span {
+          svg {
+            opacity: 1;
+            transition: 0.3s linear opacity;
+          }
+        }
+      }
+
+      svg {
+        width: 35px;
+        min-width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+
+.serviceTitle {
+  font-size: 14px;
+  color: #222;
+  display: block;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    display: inline;
+  }
+}
+
+.serviceSubtitle {
+  font-size: 14px;
+  display: block;
+}

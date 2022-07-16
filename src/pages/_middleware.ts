@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
   const shouldHandleLocale =
     !PUBLIC_FILE.test(request.nextUrl.pathname) &&
     !request.nextUrl.pathname.includes('/api/') &&
-    request.nextUrl.locale === 'default';
+    request.nextUrl.locale !== 'default';
 
   const siteUrl =
     process.env.NODE_ENV === 'production'
@@ -22,9 +22,9 @@ export function middleware(request: NextRequest) {
 
   return shouldHandleLocale
     ? NextResponse.redirect(
-        `${siteUrl}/it${stripDefaultLocale(
-          request.nextUrl.pathname
-        )}${request.nextUrl.search}`
+        `${siteUrl}${stripDefaultLocale(request.nextUrl.pathname)}${
+          request.nextUrl.search
+        }`
       )
     : undefined;
 }

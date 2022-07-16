@@ -1,19 +1,25 @@
 // Import core
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 // Import third parts
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 
 // Import custom
 import s from './Header.module.scss';
 import { NavbarMenu } from './NavbarMenu/NavbarMenu';
-import useScrollPosition, {
-  IScrollProps,
-} from 'src/services/hooks/useBodyScroll';
+import useScrollPosition, { IScrollProps } from '@services/hooks/useBodyScroll';
 import HeaderLogo from './HeaderLogo';
+import { useTheme } from 'next-themes';
 
 export const Header: FC = () => {
   const [scrollClass, setScrollClass] = useState<boolean>(false);
+  const router = useRouter();
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    console.log('router: ', router);
+  }, []);
 
   // Get scroll position and set class
   useScrollPosition({
@@ -33,14 +39,13 @@ export const Header: FC = () => {
   });
 
   return (
-    <nav
-      className={cn(
-        'p-4  fixed w-100 left-0 right-0 z-50 h-header globalNav',
-        s.glass,
-        {
-          scrolled: scrollClass,
-        }
-      )}
+    <header
+      className={cn('p-4 fixed w-100 left-0 right-0 z-50 h-header', s.glass, {
+        scrolled: scrollClass,
+        [s.whiteVersion]: router.pathname.match('^(/)?servizi'),
+        [s.light]: theme !== 'dark',
+        [s.dark]: theme === 'dark',
+      })}
     >
       <div className="flex items-center justify-between flex-wrap px-5 container relative z-10 mx-auto">
         <div className="flex items-center flex-no-shrink text-white">
@@ -57,7 +62,7 @@ export const Header: FC = () => {
           <NavbarMenu />
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 export default Header;

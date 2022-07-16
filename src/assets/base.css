@@ -7,6 +7,7 @@
   --color-bg-primary: #2d3748;
   --color-bg-primary-inverted: #fff;
   --color-bg-secondary: #283141;
+  --colo-bg-service: #edf2f7;
   --color-bg-cta-start: #81e6d9;
   --color-bg-cta-stop: #2b6cb0;
   --color-text-primary: #f7fafc;
@@ -26,6 +27,9 @@
   --color-green-light: #b7f0ed;
   --color-green-dark: #05baca;
 
+  /* Service */
+  --color-bg-service: #383e47;
+
   /* Common */
   --footer-bg: #272727;
   --socket-bg: #272727;
@@ -36,7 +40,6 @@
 
 [data-theme="light"],
 .light {
-
   /* Tailwind override */
   --color-bg-primary: #fff;
   --color-bg-primary-inverted: #2d3748;
@@ -62,12 +65,13 @@
   /* Dark / light */
   --text-white: #000;
   --color-text-dark: #333;
-  /* --color-bg-dark: #02044a; */
-  
+
+  /* Service */
+  --color-bg-service: #edf2f7;
+
   /* Common parts */
   --footer-bg: #fff;
   --socket-bg: #fff;
-  
 
   /* Display */
   --show-dark-in-light: block;
