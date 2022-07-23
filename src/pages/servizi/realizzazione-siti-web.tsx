@@ -153,10 +153,12 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'text-xl'
                 )}
               >
-                Accedi alla tua <strong>area gestionale</strong> in qualsiasi momento.
+                Accedi alla tua <strong>area gestionale</strong> in qualsiasi
+                momento.
                 <br />
-                Da li, potrai apportare cambiamenti a <strong>prodotti e contenuti</strong> in
-                ogni momento e avere accesso alle <strong>statistiche</strong>.
+                Da li, potrai apportare cambiamenti a{' '}
+                <strong>prodotti e contenuti</strong> in ogni momento e avere
+                accesso alle <strong>statistiche</strong>.
               </p>
             </div>
           </div>
@@ -211,6 +213,31 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
           </div>
         </div>
       </section>
+      <section className={cn('relative', 'section-service', 'bg-service')}>
+        <div className="container mx-auto pl-[5%] pr-[5%]">
+          <div className={cn('grid grid-cols-12', s.sectionCtaImage)}>
+            <div className={cn('col-span-6', s.sectionCtaCol)}>
+              <div>
+                <h3>
+                  Sei un libero
+                  <br />
+                  professionista?
+                </h3>
+                <p>
+                  Scopri come possiamo creare la tua presenza online e attrarre
+                  nuovi clienti per la tua attività
+                </p>
+              </div>
+            </div>
+            <div className={cn('col-span-6', s.sectionCtaImage)}>
+              <figure>
+                <img src="/libero-professionista.jpg" alt="" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ServiceContactsSection classNames={['bg-service']} />
     </Layout>
   );
