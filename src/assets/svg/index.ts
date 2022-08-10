@@ -30,6 +30,12 @@ import Twitter from './brands/twitter.svg';
 import WebDesign from './menu/web-design.svg';
 import WebsiteCorporate from './menu/website-corporate.svg';
 
+// Service page icons (regular and thin)
+import PhoneArrowUpThin from './thin/phone-arrow-up.svg';
+import PhoneArrowUpRegular from './regular/phone-arrow-up.svg';
+import EnvelopeRegular from './regular/envelope.svg';
+import MapPinLight from './light/map-pin.svg';
+
 const SVGArrowSvg = SVGArrow;
 const SVGThemeLight = ThemeLight;
 const SVGThemeDark = ThemeDark;
@@ -62,6 +68,12 @@ const SvgTwitter = Twitter;
 const SvgWebDesign = WebDesign;
 const SvgWebsiteCorporate = WebsiteCorporate;
 
+// Service page icons
+const SvgPhoneArrowUpThin = PhoneArrowUpThin;
+const SvgPhoneArrowUpRegular = PhoneArrowUpRegular;
+const SvgEnvelopeRegular = EnvelopeRegular;
+const SvgMapPinLight = MapPinLight;
+
 export {
   SVGArrowSvg,
   SVGThemeLight,
@@ -87,5 +99,9 @@ export {
   SvgLinkedinIcon,
   SvgTwitter,
   SvgWebDesign,
-  SvgWebsiteCorporate
+  SvgWebsiteCorporate,
+  SvgPhoneArrowUpThin,
+  SvgPhoneArrowUpRegular,
+  SvgEnvelopeRegular,
+  SvgMapPinLight
 };

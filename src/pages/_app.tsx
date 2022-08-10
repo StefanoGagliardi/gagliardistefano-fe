@@ -12,7 +12,8 @@ import themeConfig from '@config/theme';
 import setDebug from 'src/utils/debug';
 
 // Import global styles: website & third parts
-import '../assets/main.css';
+// import '../assets/styles/main.css';
+import '../assets/styles/main.scss';
 import 'aos/dist/aos.css';
 import Footer from '@components/common/Footer';
 import Header from '@components/common/Header';
@@ -52,7 +53,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <ManagedUIContext>
         {/* <AnimateSharedLayout> */}
         {/* <Layout pageProps={pageProps}> */}
-        <Header />
         <AnimatePresence
           exitBeforeEnter
           initial={false}
@@ -60,6 +60,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         >
           <Component {...pageProps} canonical={url} key={url} />
         </AnimatePresence>
+        <Header />
         <Footer />
         {/* </Layout> */}
         {/* </AnimateSharedLayout> */}

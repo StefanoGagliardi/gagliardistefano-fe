@@ -5,60 +5,113 @@ import React, { FC, ReactElement } from 'react';
 import cn from 'classnames';
 
 // Import customs
-import s from './ContactsView.module.scss';
 import { SvgEnvelopeLight, SvgUserLight } from '@assets/svg';
 
 const ContactsForm: FC = (): ReactElement => {
   return (
-    <form autoComplete="off" className={s.formWrapper}>
-      <div className={cn('mb-4', s.inputGroup)}>
+    <form autoComplete="off" className={cn('base-form', 'theme-form-tag')}>
+      <div className={cn('mb-4', 'input-group')}>
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className={cn(
+            'block',
+            'text-dark-gray-5',
+            'dark:text-light-gray-5',
+            'text-sm',
+            'font-bold',
+            'mb-2'
+          )}
           htmlFor="name"
         >
           Il tuo nome o della tua azienda
         </label>
         <div
           className={cn(
-            'flex flex-wrap w-full relative h-15 bg-white items-center rounded mb-6 pr-10 shadow appearance-none border  leading-tight focus:outline-none focus:shadow-outline',
-            s.inputIconWrapper
+            'flex',
+            'flex-wrap',
+            'w-full',
+            'relative h-15',
+            'bg-input',
+            'items-center',
+            'rounded border dark:border-0',
+            'mb-6 pr-10',
+            'shadow',
+            'appearance-none',
+            'leading-tight',
+            'focus:outline-none focus:shado w-outline',
+            'has-icon'
           )}
         >
           <div className="flex justify-center w-15">
-            <span className="flex items-center leading-normal bg-white border-0">
-              <SvgUserLight className={cn('text-secondary', s.svgInput)} />
+            <span className="flex items-center leading-normal bg-input border-0">
+              <SvgUserLight className={cn('text-accent')} />
             </span>
           </div>
           <input
             type="text"
-            className="text-sm flex-shrink flex-grow leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative outline-none"
+            className={cn(
+              'flex-shrink flex-grow flex-1 self-center',
+              'bg-input',
+              'text-sm text-input font-medium',
+              'rounded rounded-l-none',
+              'border-0 border-grey-light',
+              'w-px h-10 px-3',
+              'relative',
+              'outline-none'
+            )}
             placeholder="Nome o ragione sociale"
             name="name"
             id="name"
           />
         </div>
       </div>
-      <div className={cn('mb-4', s.inputGroup)}>
+      <div className={cn('mb-4', 'input-group')}>
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className={cn(
+            'block',
+            'text-dark-gray-5',
+            'dark:text-light-gray-5',
+            'text-sm',
+            'font-bold',
+            'mb-2'
+          )}
           htmlFor="email"
         >
           Indirizzo email
         </label>
         <div
           className={cn(
-            'flex flex-wrap w-full relative h-15 bg-white items-center rounded mb-6 pr-10 shadow appearance-none border  leading-tight focus:outline-none focus:shadow-outline',
-            s.inputIconWrapper
+            'flex',
+            'flex-wrap',
+            'w-full',
+            'relative h-15',
+            'bg-input',
+            'items-center',
+            'rounded border dark:border-0',
+            'mb-6 pr-10',
+            'shadow',
+            'appearance-none',
+            'leading-tight',
+            'focus:outline-none',
+            'has-icon'
           )}
         >
           <div className="flex justify-center w-15">
-            <span className="flex items-center leading-normal bg-white border-0">
-              <SvgEnvelopeLight className={cn('text-secondary', s.svgInput)} />
+            <span className="flex items-center leading-normal bg-input border-0">
+              <SvgEnvelopeLight className={cn('text-accent')} />
             </span>
           </div>
           <input
             type="text"
-            className="text-sm flex-shrink flex-grow leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative outline-none"
+            className={cn(
+              'flex-shrink flex-grow flex-1 self-center',
+              'bg-input',
+              'text-sm text-input font-medium',
+              'rounded rounded-l-none',
+              'border-0 border-grey-light',
+              'w-px h-10 px-3',
+              'relative',
+              'outline-none'
+            )}
             placeholder="Indirizzo ermail"
             name="email"
             id="email"
@@ -66,15 +119,29 @@ const ContactsForm: FC = (): ReactElement => {
           />
         </div>
       </div>
-      <div>
+      <div className={cn('input-group')}>
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className={cn(
+            'block',
+            'text-dark-gray-5',
+            'dark:text-light-gray-5',
+            'text-sm',
+            'font-bold',
+            'mb-2'
+          )}
           htmlFor="message"
         >
           Motivo del contatto
         </label>
         <textarea
-          className="w-full text-sm resize-none px-3 py-3 flex-grow bg-white items-center rounded mb-6 pr-10 shadow appearance-none border  leading-tight focus:outline-none focus:shadow-outline"
+          className={cn(
+            "w-full resize-none appearance-none",
+            'rounded shadow',
+            "flex-grow items-center",
+            "px-3 py-3 mb-6 pr-10",
+            "bg-input text-sm text-input font-medium",
+            'focus:outline-none'
+          )}
           rows={5}
           placeholder="Il tuo messaggio"
           name="message"
@@ -83,7 +150,7 @@ const ContactsForm: FC = (): ReactElement => {
       </div>
       <div className="flex items-center justify-between">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="btn-components-outline py-2 px-4 rounded"
           type="button"
         >
           Invia messaggio

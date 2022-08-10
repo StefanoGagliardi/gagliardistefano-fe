@@ -7,7 +7,7 @@ Tailwind config are compose by this two parts:
 1. `./src/assets/main.css` - is entry .css for tailwind, variables and global styles. This file is imported in `./src/pages/_app.tsx`;
    1.1 CSS Variables used both tailwind and custom are defined in `./src/assets/base.css` and imported in main.css
 2. `./tailwind.config.js` - Class and value css config file for tailwind
-   2.1 - NB: font-weight of font (Avenir Next) defined in `./src/assets/avenir.css` are: 400,500,700. So section of config file "theme: fontWeight" must match previous weight.
+   2.1 - NB: font-weight of font (Avenir Next) defined in `./src/assets/fonts.css` are: 400,500,700. So section of config file "theme: fontWeight" must match previous weight.
    This value can be use via this class: `.font-regular, .font-medium, .font-bold`.
    2.2. NB: Per poter utilizzare e caricare tutte le classi di Tailwind dobbiamo assicurarci che il nostro componente sia incluso nei Path del file di configurazione di Tailwind:
 

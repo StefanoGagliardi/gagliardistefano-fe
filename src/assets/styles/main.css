@@ -1,6 +1,6 @@
 @import "./base.css"; /* Sovrascrive le classi di tailwind (base) */
 @import "./chrome-bug.css";
-@import "./avenir.css";
+@import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -18,5 +18,13 @@ html {
   overflow-x: hidden;
 }
 
+/* Hide mailgo m-by */
+#mailgo-tel .m-by {
+  display: none !important;
+}
+
 @import "./scrollbar.css";
 @import "./global.css";
+
+/* Specific global style for this theme */
+@import "./theme/custom-theme.css";

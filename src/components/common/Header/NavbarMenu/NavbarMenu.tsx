@@ -94,7 +94,7 @@ export const NavbarMenu: FC = (): ReactElement => {
         onMouseLeave={navbarMouseLeave}
       >
         {navbarMenuData.map((value: IMainMenuLink, index: number) => {
-          console.log('navbarMenuData - NavbarItem - value: ', value);
+          // console.log('navbarMenuData - NavbarItem - value: ', value);
 
           // Render mega menu
           if (value?.megaMenu) {

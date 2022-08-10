@@ -28,6 +28,8 @@ const variants = {
 type Props = {
   pageProps?: {
     pages?: any[];
+    useDotsBg?: boolean;
+    wrapperClasses?: string[];
   };
   children?: ReactNode;
 };
@@ -35,7 +37,17 @@ export const Layout: FC<Props> = ({ children, pageProps }) => {
   return (
     <>
       {/* Commerce context */}
-      <div className={cn(s.siteRoot)}>
+      {pageProps?.useDotsBg && pageProps?.useDotsBg === true && (
+        <div id="dotsBackground"></div>
+      )}
+      <div
+        className={cn(
+          s.siteRoot,
+          Array.isArray(pageProps?.wrapperClasses)
+            ? [...pageProps?.wrapperClasses]
+            : ''
+        )}
+      >
         {/* <Header /> */}
         {/* <MobileMenu /> */}
 

@@ -1,5 +1,64 @@
-.sectionContacts {
-  border-top: 1px solid crimson;
-  border-bottom: 1px solid crimson;
-  min-height: 400px;
+.colBody {
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      a {
+        @apply flex;
+        @apply items-center;
+
+        padding: 10px 20px;
+        border: 2px solid transparent;
+
+        &:hover {
+          display: flex;
+          padding: 10px 20px;
+          border-color: var(--color-text-accent);
+          border-radius: 10px;
+          background: rgba(59, 130, 246, 0.1);
+        }
+      }
+
+      svg {
+        fill: var(--color-text-accent);
+        margin-right: 15px;
+        width: 20px;
+        max-width: 30px;
+      }
+    }
+  }
+}
+
+.colFoot {
+  ul {
+    li {
+      a {
+        padding: 10px;
+        display: block;
+        border: 2px solid transparent;
+        border-radius: 5px;
+
+        &:hover {
+          background: rgba(59, 130, 246, 0.1);
+          border-color: var(--color-text-accent);
+          svg {
+            fill: var(--color-text-accent);
+            color: var(--color-text-accent);
+          }
+        }
+
+        svg {
+          // --color-text-accent
+          --icon-color: var(--color-text-dark);
+
+          width: 30px;
+          max-width: 30px;
+          fill: var(--icon-color);
+          color: var(--icon-color);
+        }
+      }
+    }
+  }
 }

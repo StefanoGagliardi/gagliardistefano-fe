@@ -40,10 +40,10 @@ export const Header: FC = () => {
 
   return (
     <header
-      className={cn('p-4 fixed w-100 left-0 right-0 z-50 h-header', s.glass, {
+      className={cn('p-4 fixed w-100 left-0 top-0 right-0 z-50 h-header', s.glass, {
         scrolled: scrollClass,
         [s.whiteVersion]: router.pathname.match('^(/)?servizi'),
-        [s.light]: theme !== 'dark',
+        [s.light]: theme === 'light',
         [s.dark]: theme === 'dark',
       })}
     >

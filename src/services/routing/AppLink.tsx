@@ -8,13 +8,15 @@ interface AppLinkProps {
   children?: React.ReactNode;
   className?: any;
   title?: string;
+  rel?: string;
   onClick?: () => void;
 }
 
 export const AppLink: FC<AppLinkProps> = (
   props: AppLinkProps
 ): ReactElement => {
-  const { href, label, external, children, className, title, onClick } = props;
+  const { href, label, external, children, className, title, rel, onClick } =
+    props;
 
   if (onClick) {
     if (children) {
@@ -39,7 +41,7 @@ export const AppLink: FC<AppLinkProps> = (
     );
   }
 
-  if (children) {
+  if (children && !external) {
     return (
       <Link href={href}>
         <a className={className}>{children}</a>
@@ -48,11 +50,30 @@ export const AppLink: FC<AppLinkProps> = (
   }
 
   if (external) {
-    return (
-      <a href={href} target="_blank" className={className} title={title || ''}>
-        {label}
-      </a>
-    );
+    if (rel && rel !== '') {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          className={className}
+          title={title || ''}
+          rel={rel}
+        >
+          {children ? children : label}
+        </a>
+      );
+    } else {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          className={className}
+          title={title || ''}
+        >
+          {label}
+        </a>
+      );
+    }
   }
 
   return (

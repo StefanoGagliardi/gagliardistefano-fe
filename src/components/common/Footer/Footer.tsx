@@ -17,7 +17,7 @@ export const Footer: FC = () => {
 
   return (
     <>
-      <footer className={cn(s.footer, 'border-t-1', 'border-gray-200')}>
+      <footer className={cn(s.footer, 'border-gray-200')}>
         <div className={cn('container mx-auto', s.footerContainer)}>
           <div className="grid grid-cols-5">
             <div className={cn('col-span-2', s.footerLogo)}>
