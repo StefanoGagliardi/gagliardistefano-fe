@@ -66,6 +66,25 @@ export const ServicesDropdown: FC<Props> = ({
           <ContentTitle>Web design & development</ContentTitle>
           <ul className={s.servicesList}>
             <li>
+              <Link
+                href={`${url.baseServices()}${url.websiteCreation()}`}
+                onClick={closeDropdown}
+              >
+                <a href={`${url.baseServices()}${url.websiteCreation()}`}>
+                  <SvgLaptopThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Sviluppo Sitiweb
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      La tua vetrina online
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
               <Link href={`${url.baseServices()}${url.ecommerceCreation()}`}>
                 <a
                   href={`${url.baseServices()}${url.ecommerceCreation()}`}
@@ -106,25 +125,7 @@ export const ServicesDropdown: FC<Props> = ({
                 </a>
               </Link>
             </li>
-            <li>
-              <Link
-                href={`${url.baseServices()}${url.websiteCreation()}`}
-                onClick={closeDropdown}
-              >
-                <a href={`${url.baseServices()}${url.websiteCreation()}`}>
-                  <SvgLaptopThin className={s.serviceIcon} />
-                  <div className={s.serviceIntroduction}>
-                    <span className={s.serviceTitle}>
-                      Sviluppo Sitiweb
-                      <SVGArrowSvg />
-                    </span>
-                    <span className={s.serviceSubtitle}>
-                      La tua presenza online
-                    </span>
-                  </div>
-                </a>
-              </Link>
-            </li>
+
             <li>
               <Link
                 href="/servizi/realizzazione-siti-web/"
@@ -268,7 +269,7 @@ export const ServicesDropdown: FC<Props> = ({
                   <SvgShareNodesThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
-                      Integarzioni Ecommerce
+                      Integrazioni Ecommerce
                       <SVGArrowSvg />
                     </span>
                     <span className={s.serviceSubtitle}>
@@ -321,7 +322,7 @@ export const ServicesDropdown: FC<Props> = ({
                       <SVGArrowSvg />
                     </span>
                     <span className={s.serviceSubtitle}>
-                      Sviluppo di codice ibrido
+                      Sviluppo iOS e Android
                     </span>
                   </div>
                 </a>

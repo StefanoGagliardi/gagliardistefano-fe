@@ -61,16 +61,18 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'mx-auto',
                   'dark:text-white',
                   'text-paragraphLg',
-                  'font-bold',
+                  'font-medium',
                   'max-w-[60ch]'
                 )}
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                Anni d'esperienza in questo specifico prodotto, uniti a
+                Anni di esperienza negli ecommerce, uniti a
                 molteplici progetti sviluppati, ad oggi ci permettono di offrire
-                le soluzioni più adatte e moderne in base al bussiness e agli
-                obbiettivi del nostro cliente.
+                le soluzioni più adatte e moderne ai bussiness e agli obiettivi dei nostri clienti.
+                <br />
+                Offriamo due macro soluzione per ecommerce: piattaforma ad-hoc
+                oppure utilizzo di un CMS.
                 {/* <br />
                 Il mondo ecommerce è vasto ed è sempre più difficile orientarsi.
                 Questo sia per la complessità intrinseca sia perché sempre più
@@ -84,12 +86,13 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'mx-auto',
                   'dark:text-white',
                   'text-paragraphLg',
-                  'font-bold',
+                  'font-medium',
                   'max-w-[60ch]',
-                  'mb-0'
+                  'mb-0',
+                  'hidden'
                 )}
                 data-aos="fade-up"
-                data-aos-delay="600"
+                data-aos-delay="400"
               >
                 <strong>
                   Offriamo due macro soluzioni Ecommerce per esigenze diverse:
@@ -103,20 +106,47 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'max-w-[650px]',
                   'dark:text-white',
                   'text-lg',
-                  'font-bold'
+                  'font-medium',
+                  'hidden'
                 )}
+                data-aos="fade-up"
+                data-aos-delay="500"
               >
                 <li>
-                  <strong>
-                    1. Piattaforma ad-hoc completamente personalizzata{' '}
-                  </strong>
+                  1. Piattaforma{' '}
+                  <span className="text-accent_stop">ad-hoc</span> completamente{' '}
+                  <span className="text-accent_stop">personalizzata</span>{' '}
                 </li>
                 <li>
-                  <strong>
-                    2. Ecommerce basato su CMS (Content management system){' '}
-                  </strong>
+                  2. Ecommerce{' '}
+                  <span className="text-accent_stop">basato su CMS</span>{' '}
+                  (Content management system){' '}
                 </li>
               </ul>
+
+              <h2
+                className={cn(
+                  'text-center',
+                  'my-5',
+                  'mx-auto',
+                  'text-dark',
+                  'dark:text-white',
+                  'text-paragraphLg',
+                  'font-medium',
+                  'max-w-[60ch]',
+                  'mb-0'
+                )}
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <strong>
+                  In questa pagina vedremo i vantaggi della realizzazione di una
+                  <br />
+                  <span className="text-accent">
+                    piattaforma e-commerce proprietaria
+                  </span>
+                </strong>
+              </h2>
             </div>
           </div>
         </div>
@@ -125,8 +155,10 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
         title="Vuoi aprire un ecommerce?"
         subTitle={
           <>
-            Se hai in mente un ecommerce e desideri approfondire le soluzioni disponibili,<br/> step operativi o altri aspetti
-            il nostro team è a tua disposizione, senza impegni.
+            Se hai in mente un ecommerce e desideri approfondire le soluzioni
+            disponibili,
+            <br /> step operativi o altri aspetti; il nostro team è a tua
+            disposizione, senza impegni.
           </>
         }
         classNames={['bg-service', 'dark:bg-unset']}

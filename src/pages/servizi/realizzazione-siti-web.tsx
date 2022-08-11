@@ -64,7 +64,7 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'my-5',
                   'mx-auto',
                   'text-paragraphLg',
-                  'font-bold',
+                  'font-medium',
                   'max-w-[60ch]'
                 )}
                 data-aos="fade-up"
@@ -84,7 +84,7 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'mx-auto',
                   'dark:text-white',
                   'text-paragraphLg',
-                  'font-bold',
+                  'font-medium  ',
                   'max-w-[60ch]',
                   'mb-0'
                 )}
