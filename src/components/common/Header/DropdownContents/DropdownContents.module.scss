@@ -8,20 +8,27 @@
   color: #222;
   font-weight: bold;
 
-  // background: hsla(0, 0%, 100%, 0.25);
-  // border-radius: 10px;
-  // border-radius: 0;
-  // box-shadow: 0 8px 32px 0px rgba(70, 70, 70, 0.37);
+  &[data-second-dropdown-section] {
+    min-width: 36rem;
+    min-height: 260px;
+    .dropdownContentWrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
-  // will-change: transform;
-  // backdrop-filter: blur(4px);
-  // -webkit-backdrop-filter: blur(4px);
-}
+  &[data-third-dropdown-section] {
+    min-width: 36rem;
+    min-height: 340px;
+    .dropdownContentWrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
-.dropdownContentWrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 30px;
+  .dropdownContentWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+  }
 }
 
 .serviceIcon {
@@ -63,6 +70,15 @@
         width: 35px;
         min-width: 35px;
         height: 35px;
+      }
+    }
+  }
+
+  &.blogList {
+    li {
+      margin-bottom: 10px;
+      > a {
+        @apply text-sm;
       }
     }
   }

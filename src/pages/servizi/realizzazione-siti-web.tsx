@@ -5,13 +5,13 @@ import Head from 'next/head';
 
 // Import third parts
 import cn from 'classnames';
+import Link from 'next/link';
 
 // Import custom
 import s from './realizzazione-siti-web.module.scss';
 import Layout from '@components/common/Layout';
-import ServiceContactsSection from '@components/pages/services/ServiceContactsSection';
 import seo from './../../config/seo.json';
-import Link from 'next/link';
+import ServiceContactsSection from '@components/pages/services/ServiceContactsSection';
 import ContentAndImage from '@components/pages/services/ContentAndImage';
 import ImageBanner from '@components/pages/services/ImageBanner';
 
@@ -19,8 +19,6 @@ import ImageBanner from '@components/pages/services/ImageBanner';
  * Start scripts
  */
 export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
-  console.log('seo: ', seo);
-
   return (
     <Layout
       pageProps={{
@@ -64,7 +62,10 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'text-center',
                   'dark:text-white',
                   'my-5',
-                  s.firstP
+                  'mx-auto',
+                  'text-paragraphLg',
+                  'font-bold',
+                  'max-w-[60ch]'
                 )}
                 data-aos="fade-up"
                 data-aos-delay="300"
@@ -79,11 +80,12 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
               <p
                 className={cn(
                   'text-center',
-                  'dark:text-white',
                   'my-5',
-                  'text-lg',
+                  'mx-auto',
+                  'dark:text-white',
+                  'text-paragraphLg',
                   'font-bold',
-                  s.firstP,
+                  'max-w-[60ch]',
                   'mb-0'
                 )}
                 data-aos="fade-up"
@@ -217,7 +219,8 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
           'relative',
           'bg-service',
           'dark:bg-unset',
-          'section-service'
+          'section-service',
+          'pt-60px'
         )}
       >
         <ContentAndImage

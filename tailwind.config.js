@@ -23,6 +23,7 @@ module.exports = {
       sm: ['14px', '20px'],
       base: ['16px', '24px'],
       paragraph: ['18px', '28px'],
+      paragraphLg: ["22px", "34px"],
       lg: ['20px', '28px'],
       lgm: ['26px', '32px'],
       xl: ['40px', '48px'],

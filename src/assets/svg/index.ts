@@ -29,6 +29,26 @@ import Twitter from './brands/twitter.svg';
 // Svg Mega menu
 import WebDesign from './menu/web-design.svg';
 import WebsiteCorporate from './menu/website-corporate.svg';
+import StoreThin from './thin/store.svg';
+import ShopLockThin from './thin/shop-lock.svg';
+import LaptopThin from './thin/laptop.svg';
+import VectorPolygonThin from './thin/vector-polygon.svg';
+import PenPaintbrushThin from './thin/pen-paintbrush.svg';
+import ArrowUpWideShortThin from './thin/arrow-up-wide-short.svg';
+import BullhornThin from './thin/bullhorn.svg';
+import GroupArrowsRotateThin from './thin/group-arrows-rotate.svg';
+import PassportThin from './thin/passport.svg';
+import ShareNodesThin from './thin/share-nodes.svg';
+import LayerPlusThin from './thin/layer-plus.svg';
+import MobileThin from './thin/mobile.svg';
+import PenToSquareThin from './thin/pen-to-square.svg';
+import HexagonVerticalNFTThin from './thin/hexagon-vertical-nft.svg';
+import FileContractThin from './thin/file-contract.svg';
+import DiceD20Thin from './thin/dice-d20.svg';
+import ChartUserThin from './thin/chart-user.svg';
+import GraduationCapThin from './thin/graduation-cap.svg';
+import PeopleArrowsThin from './thin/people-arrows.svg';
+import ListCheckThin from './thin/list-check.svg';
 
 // Service page icons (regular and thin)
 import PhoneArrowUpThin from './thin/phone-arrow-up.svg';
@@ -67,6 +87,26 @@ const SvgTwitter = Twitter;
 // Mega Menu icons
 const SvgWebDesign = WebDesign;
 const SvgWebsiteCorporate = WebsiteCorporate;
+const SvgStoreThin = StoreThin;
+const SvgShopLockThin = ShopLockThin;
+const SvgLaptopThin = LaptopThin;
+const SvgVectorPolygonThin = VectorPolygonThin;
+const SvgPenPaintbrushThin = PenPaintbrushThin;
+const SvgArrowUpWideShortThin = ArrowUpWideShortThin;
+const SvgBullhornThin = BullhornThin;
+const SvgGroupArrowsRotateThin = GroupArrowsRotateThin;
+const SvgPassportThin = PassportThin;
+const SvgShareNodesThin = ShareNodesThin;
+const SvgLayerPlusThin = LayerPlusThin;
+const SvgMobileThin = MobileThin;
+const SvgPenToSquareThin = PenToSquareThin;
+const SvgHexagonVerticalNFTThin = HexagonVerticalNFTThin;
+const SvgFileContractThin = FileContractThin;
+const SvgDiceD20Thin = DiceD20Thin;
+const SvgChartUserThin = ChartUserThin;
+const SvgGraduationCapThin = GraduationCapThin;
+const SvgPeopleArrowsThin = PeopleArrowsThin;
+const SvgListCheckThin = ListCheckThin;
 
 // Service page icons
 const SvgPhoneArrowUpThin = PhoneArrowUpThin;
@@ -103,5 +143,25 @@ export {
   SvgPhoneArrowUpThin,
   SvgPhoneArrowUpRegular,
   SvgEnvelopeRegular,
-  SvgMapPinLight
+  SvgMapPinLight,
+  SvgStoreThin,
+  SvgShopLockThin,
+  SvgLaptopThin,
+  SvgVectorPolygonThin,
+  SvgPenPaintbrushThin,
+  SvgArrowUpWideShortThin,
+  SvgBullhornThin,
+  SvgGroupArrowsRotateThin,
+  SvgPassportThin,
+  SvgShareNodesThin,
+  SvgLayerPlusThin,
+  SvgMobileThin, 
+  SvgPenToSquareThin,
+  SvgHexagonVerticalNFTThin,
+  SvgFileContractThin,
+  SvgDiceD20Thin,
+  SvgChartUserThin,
+  SvgGraduationCapThin,
+  SvgPeopleArrowsThin,
+  SvgListCheckThin
 };

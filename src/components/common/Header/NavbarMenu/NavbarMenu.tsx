@@ -1,5 +1,5 @@
 // Import core
-import React, { FC, ReactElement, useMemo, useRef, useState } from 'react';
+import React, { FC, ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 
 // Impor third parts
 import cn from 'classnames';
@@ -21,12 +21,24 @@ import DropdownContainer from './DropdownContainer';
 import ServicesDropdown from '@components/common/Header/DropdownContents/ServicesDropdown';
 import Web3Dropdown from '@components/common/Header/DropdownContents/Web3Dropdown';
 import ConsultingDropdown from '@components/common/Header/DropdownContents/ConsultingDropdown';
+import { useRouter } from 'next/router';
 
+/**
+ * Object with Dropdown components. This array is used via index: 0, 1, 2
+ */
 const navbarConfig = [
   { title: 'servizi', dropdown: ServicesDropdown },
   { title: 'web3', dropdown: Web3Dropdown },
   { title: 'formazione', dropdown: ConsultingDropdown },
 ];
+
+/**
+ * Use this for debug dropdown: always open
+ */
+const debubMode = {
+  enabled: false, // Enable mode
+  open: [1, 2], // Set active dropdown: first is previous, second is current
+};
 
 /**
  * Script start
@@ -39,15 +51,21 @@ export const NavbarMenu: FC = (): ReactElement => {
   // Mega menu props
   const duration = 300; // Animation duration (timeout)
 
+  const router = useRouter();
+
   // State
   const [animatingOut, setAnimatingOut] = useState<boolean>(false);
-  const [activeIndices, setActiveIndices] = useState<number[]>([]);
+  const [activeIndices, setActiveIndices] = useState<number[]>(
+    debubMode.enabled === true ? debubMode.open : []
+  );
 
   // le variabili (NON STATE) che nelle classi setto tramite il "this", nei FC devo usare una reference
   const animatingOutTimeout = useRef<any>(null);
 
   const resetDropdownState = (i: any) => {
-    setActiveIndices(typeof i === 'number' ? [i] : []);
+    if (!debubMode.enabled) {
+      setActiveIndices(typeof i === 'number' ? [i] : []);
+    }
     setAnimatingOut(false);
     animatingOutTimeout.current = null;
   };
@@ -63,7 +81,9 @@ export const NavbarMenu: FC = (): ReactElement => {
       return;
     }
     if (activeIndices[activeIndices.length - 1] === index) return;
-    setActiveIndices([...activeIndices, index]);
+    if (!debubMode.enabled) {
+      setActiveIndices([...activeIndices, index]);
+    }
     setAnimatingOut(false);
   };
 
@@ -78,10 +98,17 @@ export const NavbarMenu: FC = (): ReactElement => {
   }, [activeIndices]);
 
   const closeDropdown = () => {
-    console.log("Invoke closeDropdown:", closeDropdown);
-    setAnimatingOut(true);
-    animatingOutTimeout.current = setTimeout(resetDropdownState, duration);
+    if (!debubMode.enabled) {
+      setAnimatingOut(true);
+      animatingOutTimeout.current = setTimeout(resetDropdownState, duration);
+    }
   };
+
+  useEffect(() => {
+    if(router.pathname) {
+      closeDropdown();
+    }
+  }, [router.pathname])
 
   return (
     <Flipper
@@ -129,12 +156,17 @@ export const NavbarMenu: FC = (): ReactElement => {
             );
           }
 
+          console.log("Item menu: ", value?.title);
+
           // Simple link, not mega menu
           return (
             <Link href={value.url as string} key={index}>
               <a
                 className={cn(s.link)}
                 data-dropdown={value?.megaMenu ? value.megaMenu : ''}
+                onMouseEnter={() => {
+                  closeDropdown();
+                }}
               >
                 {value.title}
               </a>

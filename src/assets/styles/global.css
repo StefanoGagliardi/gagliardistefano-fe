@@ -2,6 +2,6 @@
 
 @layer utilities {
   a > small {
-    @apply cursor-pointer;
+    cursor: pointer;
   }
 }

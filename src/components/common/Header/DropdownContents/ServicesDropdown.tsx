@@ -8,7 +8,25 @@ import Link from 'next/link';
 
 // Import customs
 import s from './DropdownContents.module.scss';
-import { SVGArrowSvg, SvgWebDesign, SvgWebsiteCorporate } from '@assets/svg';
+import url from '@services/url';
+import {
+  SVGArrowSvg,
+  SvgArrowUpWideShortThin,
+  SvgBullhornThin,
+  SvgGroupArrowsRotateThin,
+  SvgLaptopThin,
+  SvgLayerPlusThin,
+  SvgMobileThin,
+  SvgPassportThin,
+  SvgPenPaintbrushThin,
+  SvgPenToSquareThin,
+  SvgShareNodesThin,
+  SvgShopLockThin,
+  SvgStoreThin,
+  SvgVectorPolygonThin,
+  SvgWebDesign,
+  SvgWebsiteCorporate,
+} from '@assets/svg';
 
 const ContentColumn = styled.div`
   width: 240px;
@@ -48,22 +66,60 @@ export const ServicesDropdown: FC<Props> = ({
           <ContentTitle>Web design & development</ContentTitle>
           <ul className={s.servicesList}>
             <li>
-              <Link href="/servizi/realizzazione-siti-web/">
+              <Link href={`${url.baseServices()}${url.ecommerceCreation()}`}>
                 <a
-                  href="/servizi/realizzazione-siti-web/"
+                  href={`${url.baseServices()}${url.ecommerceCreation()}`}
                   onClick={() => {
                     console.log('Click on link');
                     closeDropdown();
                   }}
                 >
-                  <SvgWebsiteCorporate className={s.serviceIcon} />
+                  <SvgStoreThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
-                      Corporate E-commerce
+                      Soluzioni E-commerce
                       <SVGArrowSvg />
                     </span>
                     <span className={s.serviceSubtitle}>
-                      Soluzioni E-commerce avanzate
+                      Store personalizzati
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`${url.baseServices()}${url.ecommerceCreation()}`}
+                onClick={closeDropdown}
+              >
+                <a href={`${url.baseServices()}${url.ecommerceCreation()}`}>
+                  <SvgShopLockThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      E-commerce CMS
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Soluzioni preconfigurate
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`${url.baseServices()}${url.websiteCreation()}`}
+                onClick={closeDropdown}
+              >
+                <a href={`${url.baseServices()}${url.websiteCreation()}`}>
+                  <SvgLaptopThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Sviluppo Sitiweb
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      La tua presenza online
                     </span>
                   </div>
                 </a>
@@ -75,14 +131,14 @@ export const ServicesDropdown: FC<Props> = ({
                 onClick={closeDropdown}
               >
                 <a href="/servizi/realizzazione-siti-web/">
-                  <SvgWebsiteCorporate className={s.serviceIcon} />
+                  <SvgPenPaintbrushThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
-                      Integrazione E-commerce
+                      Realizzazione design
                       <SVGArrowSvg />
                     </span>
                     <span className={s.serviceSubtitle}>
-                      Soluzioni e-commerce preconfigurate
+                      Creazione design web
                     </span>
                   </div>
                 </a>
@@ -94,33 +150,14 @@ export const ServicesDropdown: FC<Props> = ({
                 onClick={closeDropdown}
               >
                 <a href="/servizi/realizzazione-siti-web/">
-                  <SvgWebsiteCorporate className={s.serviceIcon} />
+                  <SvgVectorPolygonThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
-                      Sitiweb Corporate
+                      Progettazione UI/UX
                       <SVGArrowSvg />
                     </span>
                     <span className={s.serviceSubtitle}>
-                      Presenta la tua azienda
-                    </span>
-                  </div>
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/servizi/realizzazione-siti-web/"
-                onClick={closeDropdown}
-              >
-                <a href="/servizi/realizzazione-siti-web/">
-                  <SvgWebDesign className={s.serviceIcon} />
-                  <div className={s.serviceIntroduction}>
-                    <span className={s.serviceTitle}>
-                      Corporate design
-                      <SVGArrowSvg />
-                    </span>
-                    <span className={s.serviceSubtitle}>
-                      Progettazione grafica
+                      Progettazione tecnica
                     </span>
                   </div>
                 </a>
@@ -130,9 +167,189 @@ export const ServicesDropdown: FC<Props> = ({
         </ContentColumn>
         <ContentColumn>
           <ContentTitle color="#222">Marketing & SEO strategy</ContentTitle>
+          <ul className={s.servicesList}>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgArrowUpWideShortThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      SEO & Performance
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Analisi e miglioramento
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgBullhornThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Campagne Advertising
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Facebook & Google Ads
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgGroupArrowsRotateThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Email marketing
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Design e automazione
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgPassportThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Brand Identity
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      La tua presenza online
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgShareNodesThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Integarzioni Ecommerce
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Integrazione terze parti
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+          </ul>
         </ContentColumn>
         <ContentColumn>
           <ContentTitle color="#222">iOS & Android Application</ContentTitle>
+          <ul className={s.servicesList}>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgLayerPlusThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Progettazione grafica
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Design applicazione
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgMobileThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Applicazioni ibride
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Sviluppo di codice ibrido
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgPenToSquareThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Modifiche applicazione
+                      <SVGArrowSvg />
+                    </span>
+                    {/* <span className={s.serviceSubtitle}>
+                      Modifiche applicazione esistente
+                    </span> */}
+                  </div>
+                </a>
+              </Link>
+            </li>
+          </ul>
         </ContentColumn>
       </div>
     </div>

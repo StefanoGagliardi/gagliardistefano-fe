@@ -4,135 +4,131 @@ import React, { FC, ReactElement } from 'react';
 // Import third parts
 import cn from 'classnames';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // Import customs
 import s from './DropdownContents.module.scss';
+import {
+  SVGArrowSvg,
+  SvgChartUserThin,
+  SvgDiceD20Thin,
+  SvgFileContractThin,
+  SvgGraduationCapThin,
+  SvgHexagonVerticalNFTThin,
+  SvgListCheckThin,
+  SvgPeopleArrowsThin,
+} from '@assets/svg';
 
-const ProductsSection = styled.ul`
-  li {
-    display: flex;
-    margin-bottom: 50px;
-  }
+const ContentColumn = styled.div`
+  width: 100%;
 `;
-
-const Logo = styled.div`
-  width: 38px;
-  height: 38px;
-  margin-right: 16px;
-  border-radius: 100%;
-  opacity: 0.6;
-  background-color: ${({ color }) => `${color}`};
-`;
-
-export const Heading = styled.h3`
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-top: 0;
-  margin-bottom: ${(props: { noMarginBottom?: boolean; color: string }) =>
-    props.noMarginBottom ? 0 : '1rem'};
-  color: ${({ color }) => (color ? `var(--${color})` : 'var(--blue)')};
+const ContentTitle = styled.span`
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 0.4px;
+  margin-bottom: 30px;
 `;
 
 /**
  * Script start
  */
-export const ConsultingDropdown: FC = (): ReactElement => {
+type Props = {
+  closeDropdown: () => void;
+};
+export const ConsultingDropdown: FC<Props> = ({
+  closeDropdown,
+}: Props): ReactElement => {
   return (
-    <div className={s.dropdownWrapper}>
-      <ProductsSection>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="blue">Payments</Heading>
-            <p>A complete payments platform</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="green">Billing</Heading>
-            <p>Build and scale your recurring business model</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="teal">Connect</Heading>
-            <p style={{ marginBottom: 0 }}>
-              Everything platforms need to get sellers paid
-            </p>
-          </div>
-        </li>
-      </ProductsSection>
-      <ProductsSection>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="blue">Payments</Heading>
-            <p>A complete payments platform</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="green">Billing</Heading>
-            <p>Build and scale your recurring business model</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="teal">Connect</Heading>
-            <p style={{ marginBottom: 0 }}>
-              Everything platforms need to get sellers paid
-            </p>
-          </div>
-        </li>
-      </ProductsSection>
-      <ProductsSection>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="blue">Payments</Heading>
-            <p>A complete payments platform</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="green">Billing</Heading>
-            <p>Build and scale your recurring business model</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Logo color="#6772e5" />
-          </div>
-          <div>
-            <Heading color="teal">Connect</Heading>
-            <p style={{ marginBottom: 0 }}>
-              Everything platforms need to get sellers paid
-            </p>
-          </div>
-        </li>
-      </ProductsSection>
+    <div data-third-dropdown-section className={s.dropdownWrapper}>
+      <div className={s.dropdownContentWrapper}>
+        <ContentColumn>
+          <ContentTitle>Web design & development</ContentTitle>
+          <ul className={s.servicesList}>
+            <li>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={() => {
+                    console.log('Click on link');
+                    closeDropdown();
+                  }}
+                >
+                  <SvgGraduationCapThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Corsi di formazione
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Videocorsi sul web e programmazione
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/servizi/realizzazione-siti-web/"
+                onClick={closeDropdown}
+              >
+                <a href="/servizi/realizzazione-siti-web/">
+                  <SvgPeopleArrowsThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Formazione individuale
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Corsi a numero chiuso
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/servizi/realizzazione-siti-web/"
+                onClick={closeDropdown}
+              >
+                <a href="/servizi/realizzazione-siti-web/">
+                  <SvgListCheckThin className={s.serviceIcon} />
+                  <div className={s.serviceIntroduction}>
+                    <span className={s.serviceTitle}>
+                      Consulenza progettuale
+                      <SVGArrowSvg />
+                    </span>
+                    <span className={s.serviceSubtitle}>
+                      Consulenza progetti
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </ContentColumn>
+        <ContentColumn>
+          <ContentTitle>NextGen Blog</ContentTitle>
+          <ul className={cn(s.servicesList, s.blogList)}>
+            <li>
+              <a href="/">Bundle loader: Webpack &amp; Rollup</a>
+            </li>
+            <li>
+              <a href="/">Corso base ReactJs</a>
+            </li>
+            <li>
+              <a href="/">Corso ReactJs con Typescript</a>
+            </li>
+            <li>
+              <a href="/">ThreeJs shot tutorial</a>
+            </li>
+            <li>
+              <a href="/">NextJs: sviluppo Plugin Webpack</a>
+            </li>
+          </ul>
+        </ContentColumn>
+      </div>
     </div>
   );
 };

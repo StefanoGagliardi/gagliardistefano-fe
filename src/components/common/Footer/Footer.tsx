@@ -11,6 +11,7 @@ import s from './Footer.module.scss';
 import { IMainMenuLink } from '@interfaces/mainMenuLink';
 import footerMenuData from './footerMenuData';
 import useThemeWrap from '@services/theme/themeStyleHook';
+import url from '@services/url';
 
 export const Footer: FC = () => {
   const [theme] = useThemeWrap();
@@ -56,22 +57,22 @@ export const Footer: FC = () => {
               <h6 className="mb-5 text-black dark:text-white">Pagine utili</h6>
               <ul className={cn('text-dark dark:text-white', s.menuList)}>
                 <li>
-                  <Link href="/">Homepage</Link>
+                  <Link href={url.home() as string}>Homepage</Link>
                 </li>
                 <li>
-                  <Link href="/">Sviluppo Web</Link>
+                  <Link href={url.about() as string}>Chi sono</Link>
                 </li>
                 <li>
-                  <Link href="/blobkchain">Sviluppo Blockchain</Link>
+                  <Link href={url.webServices() as string}>Sviluppo Web</Link>
                 </li>
                 <li>
-                  <Link href="/">Chi sono</Link>
+                  <Link href={url.blockchain() as string}>Sviluppo Web3</Link>
                 </li>
                 <li>
-                  <Link href="/">Learning Journal</Link>
+                  <Link href={url.portfolio() as string}>Portfolio</Link>
                 </li>
                 <li>
-                  <Link href="/">Portfolio</Link>
+                  <Link href={url.contacts() as string}>Contatti</Link>
                 </li>
               </ul>
             </div>

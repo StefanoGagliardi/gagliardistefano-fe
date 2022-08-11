@@ -28,12 +28,14 @@ import Link from 'next/link';
  */
 type Props = {
   classNames?: string[];
+  title?: string;
+  subTitle?: JSX.Element | string;
 };
 export const ServiceContactsSection: FC<Props> = ({
   classNames = [],
+  title = '',
+  subTitle = '',
 }: Props): ReactElement => {
-  // const router = useRouter();
-
   const [theme] = useThemeWrap();
 
   return (
@@ -42,7 +44,7 @@ export const ServiceContactsSection: FC<Props> = ({
         <div className="grid grid-cols-12 gap-1">
           <div className="col-start-3 col-span-8 text-center">
             <h3 className={cn('font-bold', 'text-xl', 'text-center')}>
-              Hai un progetto in mente?
+              {title !== '' ? title : 'Hai un progetto in mente?'}
             </h3>
             <p
               className={cn(
@@ -54,10 +56,16 @@ export const ServiceContactsSection: FC<Props> = ({
                 'mt-2'
               )}
             >
-              Se hai un progetto in mente e desideri approfondire alcuni aspetti
-              tecnico - amministrativi
-              <br />
-              il nostro team è a tua disposizione senza impegni.
+              {subTitle && subTitle !== '' ? (
+                <>{subTitle}</>
+              ) : (
+                <>
+                  Se hai un progetto in mente e desideri approfondire alcuni
+                  aspetti tecnico - amministrativi
+                  <br />
+                  il nostro team è a tua disposizione, senza impegni.
+                </>
+              )}
             </p>
             <a
               href=""
@@ -68,7 +76,7 @@ export const ServiceContactsSection: FC<Props> = ({
                 'dark:text-white',
                 'relative',
                 'pr-[20px]',
-                'dot-divider',
+                'dot-divider'
               )}
             >
               <small>
@@ -76,26 +84,26 @@ export const ServiceContactsSection: FC<Props> = ({
                 <span className={cn('italic')}>NDA</span>?
               </small>
             </a>
-            <Link
-              href="/simulazione-preventivo-web/"
-            >
-              <small
-                className={cn(
-                  'text-center',
-                  'inline-block',
-                  'underline',
-                  'dark:text-white',
-                  // 'text-sm'
-                )}
-              >
-                Hai già simulato il tuo preventivo?
-              </small>
+            <Link href="/">
+              <a href="/">
+                <small
+                  className={cn(
+                    'text-center',
+                    'inline-block',
+                    'underline',
+                    'dark:text-white'
+                    // 'text-sm'
+                  )}
+                >
+                  Hai già simulato il tuo preventivo?
+                </small>
+              </a>
             </Link>
           </div>
         </div>
         <div className="grid grid-cols-12 pt-20 gap-1">
           <div className="col-start-3 col-span-4">
-            <div className={cn(s.colBody, "pr-[50px]")}>
+            <div className={cn(s.colBody, 'pr-[50px]')}>
               <ul>
                 <li>
                   <AppLink

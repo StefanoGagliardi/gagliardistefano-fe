@@ -1,5 +1,5 @@
 // Import custom
-import { IAppLinkHref } from '@interfaces/appLinkHref'
+import { IAppLinkHref } from '@interfaces/appLinkHref';
 
 /**
  * Function for manage static page link (url)
@@ -7,16 +7,22 @@ import { IAppLinkHref } from '@interfaces/appLinkHref'
  * @since 1.0.0
  */
 export const url = {
+  // First level url
   home: (): IAppLinkHref => `/`,
-  services: (): IAppLinkHref => `/servizi`,
-  about: (): IAppLinkHref => `/about`,
-  portfolio: (): IAppLinkHref => `/portfolio`,
-  products: (): IAppLinkHref => `/prodotti`,
-  blog: (): IAppLinkHref => `/blog`,
-  contacts: (): IAppLinkHref => `/contatti`,
-  PrivacyPolicy: (): IAppLinkHref => `/privacy-policy`,
+  about: (): IAppLinkHref => `/chi-sono`,
+  webServices: (): IAppLinkHref => `/servizi-web`,
   blockchain: (): IAppLinkHref => `/blockchain`,
-  webThree: (): IAppLinkHref => `/web3`,
-}
+  portfolio: (): IAppLinkHref => `/portfolio`,
+  contacts: (): IAppLinkHref => `/contatti`,
 
-export default url
+  blog: (): IAppLinkHref => `/blog`,
+  PrivacyPolicy: (): IAppLinkHref => `/privacy-policy`,
+  webThree: (): IAppLinkHref => `/web3`,
+
+  // Service URL
+  baseServices: (): IAppLinkHref => `/servizi`,
+  websiteCreation: (): IAppLinkHref => `/realizzazione-siti-web`,
+  ecommerceCreation: (): IAppLinkHref => `/realizzazione-ecommerce`,
+};
+
+export default url;
