@@ -53,6 +53,7 @@ module.exports = {
           dark: '--color-green-dark',
         },
         logoBlue: '#145fb4',
+        accent: 'var(--color-bg-accent)',
       },
       backgroundColor: {
         primary: 'var(--color-bg-primary)',

@@ -177,9 +177,9 @@ export const NavbarMenu: FC = (): ReactElement => {
       <div>
         <ThemeToggle design={'icons'} icon={false} />
       </div>
-      <div className={s.langSelector}>
+      {/* <div className={s.langSelector}>
         <SvgRegularGlobe />
-      </div>
+      </div> */}
     </Flipper>
   );
 };

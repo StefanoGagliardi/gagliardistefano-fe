@@ -208,6 +208,27 @@
       }
     }
   }
+
+  .focus-list {
+    margin: 0px;
+    padding: 0px;
+    li {
+      @apply dark:text-white;
+      @apply text-paragraph;
+      @apply flex;
+      @apply items-center;
+
+      color: var(--text-white);
+      margin-bottom: 20px;
+
+      svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        @apply dark:fill-accent;
+      }
+    }
+  }
 }
 
 /**
@@ -225,5 +246,45 @@
       0 4px 8px rgb(17 20 24 / 40%), 0 18px 46px 6px rgb(17 20 24 / 40%);
     box-shadow: inset 0 0 0 1px hsl(0deg 0% 100% / 20%),
       0 4px 8px rgb(17 20 24 / 40%), 0 18px 46px 6px rgb(17 20 24 / 40%);
+  }
+}
+
+/**
+ * Service components taht could be use outside service template
+ */
+@layer components {
+  .focus-tag-grid {
+    .focus {
+      --ico-svg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20role%3D%22img%22%20aria-label%3D%22Logo%20simplifi%C3%A9%20Linkeo%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%22512px%22%20height%3D%22512px%22%20viewBox%3D%220%200%20512%20512%22%20enable-background%3D%22new%200%200%20512%20512%22%20class%3D%22icon-eo%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20class%3D%22color2%22%20d%3D%22M350.689%20313.505c66.993%2033.957%20130.384-15.806%20150.239-79.137%2020.972-66.937-4.273-158.225-71.853-186.178%20-57.247-23.709-112.512%2018.263-131.416%2070.371%20-1.006%202.178-1.843%204.58-2.458%207.261C280.709%20188.794%20284.646%20280.051%20350.689%20313.505zM411.399%20112.251c11.784%203.91%2016.336%2018.319%2020.051%2028.4%209.075%2024.63%2011.421%2050.489%205.39%2076.041%20-7.038%2029.88-33.622%2051.91-62.581%2033.818%20-11.562-7.233-14.382-27.423-17.229-39.319%20-5.39-22.396-2.849-45.546%202.261-67.719C366.831%20117.556%20384.759%20103.427%20411.399%20112.251z%22%3E%3C%2Fpath%3E%3Cpath%20class%3D%22color2%22%20d%3D%22M210.229%20301.05c36.387-22.451%203.044-79.946-33.566-57.382%20-29.601%2018.263-82.994%2024.961-98.269-15.387%20-0.922-2.374-1.759-5.026-2.569-7.792%2040.38-4.886%2080.704-10.22%20120.889-16.42%2015.722-2.401%2022.591-18.514%2024.407-32.03%204.915-36.833-5.725-75.119-30.578-102.653%20-39.124-43.34-115.694-30.83-153.841%205.25C-10.576%20119.372-2.59%20219.763%2026.034%20272.26%2061.164%20336.739%20155.803%20334.616%20210.229%20301.05zM91.938%20114.736c33.985-23.206%2054.901%200.615%2061.268%2028.958%20-27.311%203.966-54.678%207.624-82.101%2010.947C73.758%20137.747%2080.097%20122.834%2091.938%20114.736z%22%3E%3C%2Fpath%3E%3Cpath%20class%3D%22color2%22%20d%3D%22M467.502%20385.747c-122.677%2025.859-265.427%2024.491-388.829%202.709%20-41.888-7.428-59.816%2056.633-17.677%2064.061%20135.94%2024.016%20288.912%2025.832%20424.181-2.681C527.094%20440.985%20509.305%20376.923%20467.502%20385.747z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+      grid-column-gap: 0.75em;
+      align-content: start;
+      grid-template-columns: auto 1fr;
+      --border-color: var(--fg-separator);
+      bordser: 1px solid var(--border-color);
+      --bg-color: var(--bg-block);
+      border-radius: 1.5em;
+      display: grid;
+      position: relative;
+      align-items: center;
+
+      margin: 10px 10px;
+      flex-grow: 1;
+      min-width: 275px; // 17em
+      box-sizing: border-box;
+      padding: max(0.5em, min(1vw, 1em)) max(1em, min(2vw, 2em));
+      z-index: 3;
+      font-weight: bold;
+
+      &::before {
+        content: none !important;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--color-text-accent);
+      }
+
+    }
   }
 }

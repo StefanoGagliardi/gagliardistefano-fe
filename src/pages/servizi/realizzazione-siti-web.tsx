@@ -14,6 +14,17 @@ import seo from './../../config/seo.json';
 import ServiceContactsSection from '@components/pages/services/ServiceContactsSection';
 import ContentAndImage from '@components/pages/services/ContentAndImage';
 import ImageBanner from '@components/pages/services/ImageBanner';
+import {
+  SvgChalkboardRegular,
+  SvgCheckRegular,
+  SvgCloudArrowDownRegular,
+  SvgDatabaseRegular,
+  SvgEraserRegular,
+  SvgGearRegular,
+  SvgInboxFullRegular,
+  SvgNetworkWiredRegular,
+} from '@assets/svg';
+import FocusBox from '@components/pages/services/FocusBox';
 
 /**
  * Start scripts
@@ -119,97 +130,34 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                 <br /> si prende cura di tutto...
               </p>
             </div>
-            <div className={cn('col-span-9', s.focusGrid)}>
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Design e creazione
-              </div>
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Scrittura contenuti
-              </div>
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Aggiornamenti
-              </div>
-
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Manutenzione
-              </div>
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Gestione domini
-              </div>
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Hosting
-              </div>
-
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                Caselle email
-              </div>
-              <div
-                className={cn(
-                  'grid',
-                  'text-primary',
-                  'bg-primary',
-                  'dark:bg-secondary',
-                  s.focus
-                )}
-              >
-                E molto altro!
-              </div>
+            <div
+              className={cn(
+                'col-span-9',
+                'flex',
+                'flex-wrap',
+                'focus-tag-grid'
+              )}
+            >
+              <FocusBox
+                text={'Design e creazione'}
+                icon={<SvgChalkboardRegular />}
+              />
+              <FocusBox
+                text={'Scrittura contenuti'}
+                icon={<SvgEraserRegular />}
+              />
+              <FocusBox
+                text={'Aggiornamenti'}
+                icon={<SvgCloudArrowDownRegular />}
+              />
+              <FocusBox text={'Manutenzione'} icon={<SvgGearRegular />} />
+              <FocusBox
+                text={'Gestione domini'}
+                icon={<SvgNetworkWiredRegular />}
+              />
+              <FocusBox text={'Hosting'} icon={<SvgDatabaseRegular />} />
+              <FocusBox text={'Casella email'} icon={<SvgInboxFullRegular />} />
+              <FocusBox text={'E molto altro!'} icon={<SvgCheckRegular />} />
             </div>
           </div>
         </div>
@@ -268,10 +216,7 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
           secondColumnContent={{
             columnChild: (
               <figure className={cn('figure-wrapper')}>
-                <img
-                  src="https://www.linkeomiami.com/ressources/images/57e23bd8e342.jpg"
-                  alt=""
-                />
+                <img src="/services/realizzazione-sitiweb.jpg" alt="" />
               </figure>
             ),
             wrapperClassnames: ['self-center'],
@@ -327,7 +272,7 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
             columnChild: (
               <figure className={cn('figure-wrapper')}>
                 <img
-                  src="https://www.linkeomiami.com/ressources/images/13314c1569cf.jpg"
+                  src="/services/realizzazione-sitiweb-corporate.jpg"
                   alt=""
                 />
               </figure>

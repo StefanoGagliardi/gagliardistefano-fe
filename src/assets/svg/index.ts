@@ -49,6 +49,27 @@ import ChartUserThin from './thin/chart-user.svg';
 import GraduationCapThin from './thin/graduation-cap.svg';
 import PeopleArrowsThin from './thin/people-arrows.svg';
 import ListCheckThin from './thin/list-check.svg';
+import ChalkboardRegular from './regular/chalkboard.svg';
+import EraserRegular from './regular/eraser.svg';
+import CloudArrowDownRegular from './regular/cloud-arrow-down.svg';
+import GearRegular from './regular/gear.svg';
+import NetworkWiredRegular from './regular/network-wired.svg';
+import DatabaseRegular from './regular/database.svg';
+import InboxFullRegular from './regular/inbox-full.svg';
+import CheckRegular from './regular/check.svg';
+
+// Number list
+import DoubleZeroThin from './thin/00.svg';
+import ZeroThin from './thin/0.svg';
+import OneThin from './thin/1.svg';
+import TwoThin from './thin/2.svg';
+import ThreeThin from './thin/3.svg';
+import FourThin from './thin/4.svg';
+import FiveThin from './thin/5.svg';
+import SixThin from './thin/6.svg';
+import SevenThin from './thin/7.svg';
+import EightThin from './thin/8.svg';
+import NineThin from './thin/9.svg';
 
 // Service page icons (regular and thin)
 import PhoneArrowUpThin from './thin/phone-arrow-up.svg';
@@ -107,6 +128,27 @@ const SvgChartUserThin = ChartUserThin;
 const SvgGraduationCapThin = GraduationCapThin;
 const SvgPeopleArrowsThin = PeopleArrowsThin;
 const SvgListCheckThin = ListCheckThin;
+const SvgChalkboardRegular = ChalkboardRegular;
+const SvgEraserRegular = EraserRegular;
+const SvgCloudArrowDownRegular = CloudArrowDownRegular;
+const SvgGearRegular = GearRegular;
+const SvgNetworkWiredRegular = NetworkWiredRegular;
+const SvgDatabaseRegular = DatabaseRegular;
+const SvgInboxFullRegular = InboxFullRegular;
+const SvgCheckRegular = CheckRegular;
+
+// Number
+const SvgZeroThin = ZeroThin;
+const SvgDoubleZeroThin = DoubleZeroThin;
+const SvgOneThin = OneThin;
+const SvgTwoThin = TwoThin;
+const SvgThreeThin = ThreeThin;
+const SvgFourThin = FourThin;
+const SvgFiveThin = FiveThin;
+const SvgSixThin = SixThin;
+const SvgSevenThin = SevenThin;
+const SvgEightThin = EightThin;
+const SvgNineThin = NineThin;
 
 // Service page icons
 const SvgPhoneArrowUpThin = PhoneArrowUpThin;
@@ -163,5 +205,24 @@ export {
   SvgChartUserThin,
   SvgGraduationCapThin,
   SvgPeopleArrowsThin,
-  SvgListCheckThin
+  SvgListCheckThin,
+  SvgZeroThin,
+  SvgDoubleZeroThin,
+  SvgOneThin,
+  SvgTwoThin,
+  SvgThreeThin,
+  SvgFourThin,
+  SvgFiveThin,
+  SvgSixThin,
+  SvgSevenThin,
+  SvgEightThin,
+  SvgNineThin,
+  SvgChalkboardRegular,
+  SvgEraserRegular,
+  SvgCloudArrowDownRegular,
+  SvgGearRegular,
+  SvgNetworkWiredRegular,
+  SvgDatabaseRegular,
+  SvgInboxFullRegular,
+  SvgCheckRegular
 };
