@@ -101,7 +101,7 @@ export const ServiceContactsSection: FC<Props> = ({
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-12 pt-20 gap-1">
+        <div className="grid grid-cols-12 pt-60px gap-1">
           <div className="col-start-3 col-span-4">
             <div className={cn(s.colBody, 'pr-[50px]')}>
               <ul>

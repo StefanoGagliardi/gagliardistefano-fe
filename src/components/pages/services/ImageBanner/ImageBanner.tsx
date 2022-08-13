@@ -47,9 +47,7 @@ const ImageBanner: FC<Props> = (props: Props): ReactElement => {
               : ''
           )}
         >
-          <figure>
-            <img src="/libero-professionista.jpg" alt="" />
-          </figure>
+          {secondColumnContent.columnChild}
         </div>
       </div>
     </div>

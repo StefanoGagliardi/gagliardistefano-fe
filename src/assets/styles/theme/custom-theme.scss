@@ -3,6 +3,7 @@
 @import './typography.scss';
 @import './forms.scss';
 @import './button.scss';
+@import './components.scss';
 
 @layer utilities {
   .dot-divider::before {
@@ -15,7 +16,7 @@
     background-color: #fff;
     width: var(--dot-size);
     height: var(--dot-size);
-    right: calc( 10px - ( var(--dot-size) / 2 ) );
+    right: calc(10px - (var(--dot-size) / 2));
     // top: calc(50% - ( var(--dot-size) / 2 ) );
     top: 50%;
   }

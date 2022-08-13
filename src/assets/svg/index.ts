@@ -1,3 +1,4 @@
+// General SVG Icon
 import SVGArrow from './svg-arrow-right.svg';
 import ThemeLight from './theme-light.svg';
 import ThemeDark from './theme-dark.svg';
@@ -88,6 +89,9 @@ import PhoneArrowUpThin from './thin/phone-arrow-up.svg';
 import PhoneArrowUpRegular from './regular/phone-arrow-up.svg';
 import EnvelopeRegular from './regular/envelope.svg';
 import MapPinLight from './light/map-pin.svg';
+
+// Infographic custom
+import DevStepProcess from './development-step-process.svg';
 
 const SVGArrowSvg = SVGArrow;
 const SVGThemeLight = ThemeLight;
@@ -182,6 +186,9 @@ const SvgBarcodeReadRegular = BarcodeReadRegular;
 const SvgFileInvoiceRegular = FileInvoiceRegular;
 const SvgBitcoinSignRegular = BitcoinSignRegular;
 
+// Infographics custom
+const SvgDevStepProcess = DevStepProcess;
+
 /**
  * NB: Volevo riwrapper un primoi chunck di icone in un const e ritornarla, ma non funziona.
  * 
@@ -266,5 +273,6 @@ export {
   SvgFilterCircleDollarRegular,
   SvgBarcodeReadRegular,
   SvgFileInvoiceRegular,
-  SvgBitcoinSignRegular
+  SvgBitcoinSignRegular,
+  SvgDevStepProcess
 };

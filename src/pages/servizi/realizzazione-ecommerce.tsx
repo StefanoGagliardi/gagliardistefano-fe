@@ -17,6 +17,7 @@ import {
   SvgBarcodeReadRegular,
   SvgBitcoinSignRegular,
   SvgChartPieRegular,
+  SvgDevStepProcess,
   SvgEightThin,
   SvgEnvelopeOpenDollarRegular,
   SvgFacebookFBrands,
@@ -35,6 +36,8 @@ import {
   SvgTwoThin,
 } from '@assets/svg';
 import FocusBox from '@components/pages/services/FocusBox';
+import DevelopmentProcess from '@components/pages/sections/DevelopmentProcess';
+import ImageBanner from '@components/pages/services/ImageBanner';
 
 export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
   return (
@@ -337,7 +340,7 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
         <div className="grid grid-cols-12 gap-1">
           <div className="col-start-3 col-span-8 text-center">
             <h3 className={cn('font-bold', 'text-xl', 'text-center')}>
-              Al tuo prossimo ecommerce non macherà nulla!
+              Al tuo prossimo ecommerce non mancherà nulla!
             </h3>
             <p
               className={cn(
@@ -422,28 +425,79 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
           'pb-60px'
         )}
       >
-        <div className="grid grid-cols-12 gap-1">
-          <div className="col-start-3 col-span-8 text-center">
-            <h3 className={cn('font-bold', 'text-xl', 'text-center')}>
-              Il nostro processo produttivo
-            </h3>
-            <p
-              className={cn(
-                'text-center',
-                'dark:text-white',
-                'font-regular',
-                'text-paragraph',
-                'mb-2',
-                'mt-2'
-              )}
-            >
-              Scopri le fasi, del nostro processo produttivo, attraversate da un
-              progetto durante la sua realizzazione.
-              <br /> Durante tutte le fasi di sviluppo teniamo un frequente
-              confronto con il cliente,
-              <br /> cosi da avere sempre una forte attenzione e focus sugli
-              obbiettivi del progetto
-            </p>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-12 gap-1">
+            <div className="col-start-3 col-span-8 text-center">
+              <h3 className={cn('font-bold', 'text-xl', 'text-center')}>
+                Il nostro processo produttivo
+              </h3>
+              <p
+                className={cn(
+                  'text-center',
+                  'dark:text-white',
+                  'font-regular',
+                  'text-paragraph',
+                  'mb-2',
+                  'mt-2'
+                )}
+              >
+                Scopri le fasi, del nostro processo produttivo, attraversate da
+                un progetto durante la sua realizzazione.
+                <br /> Durante tutte le fasi di sviluppo teniamo un frequente
+                confronto con il cliente,
+                <br /> cosi da avere sempre una forte attenzione e focus sugli
+                obbiettivi del progetto
+              </p>
+              <small className={cn('italic', 'text-center', 'dark:text-white')}>
+                Premi sui cerchi e scopri tutte le fasi di sviluppo!
+              </small>
+            </div>
+          </div>
+          <DevelopmentProcess />
+        </div>
+      </section>
+      <section
+        className={cn(
+          'relative',
+          'pt-60px',
+          'pb-60px',
+          'bg-service',
+          'dark:bg-unset'
+        )}
+      >
+        <div className="container mx-auto pl-[5%] pr-[5%]">
+          <div className={cn('grid grid-cols-12')}>
+            <ImageBanner
+              firstColumnContent={{
+                wrapperClassnames: [],
+                columnChild: (
+                  <>
+                    <h3>Hai un negozio fisico?</h3>
+                    <p>
+                      Scopri come possiamo creare il tuo{' '}
+                      <Link href={'/'}>catalogo online</Link> e offire ai tuoi
+                      clienti il ritiro locale degli ordini
+                    </p>
+                    <button
+                      className="btn-components-outline py-2 px-4 rounded text-sm font-bold w-[200px]"
+                      type="button"
+                      role="button"
+                      onClick={() => {}}
+                    >
+                      Contattaci!
+                    </button>
+                  </>
+                ),
+              }}
+              secondColumnContent={{
+                wrapperClassnames: [],
+                columnChild: (
+                  <figure>
+                    <img src="/shop-banner-pos.jpg" alt="" />
+                  </figure>
+                ),
+              }}
+            />
           </div>
         </div>
       </section>

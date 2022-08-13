@@ -117,6 +117,7 @@ module.exports = {
       },
       margin: {
         30: '30px',
+        "60px": "60px",
         50: '50px',
       },
       lineClamp: {
@@ -127,6 +128,7 @@ module.exports = {
       },
       padding: {
         '60px': '60px',
+        '20px': '20px'
       },
       zIndex: {
         3: '3',
