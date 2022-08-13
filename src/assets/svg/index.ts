@@ -57,6 +57,18 @@ import NetworkWiredRegular from './regular/network-wired.svg';
 import DatabaseRegular from './regular/database.svg';
 import InboxFullRegular from './regular/inbox-full.svg';
 import CheckRegular from './regular/check.svg';
+import ChartPieRegular from './regular/chart-pie.svg';
+import TruckFastRegular from './regular/truck-fast.svg';
+import EnvelopeOpenDollarRegular from './regular/envelope-open-dollar.svg';
+import GooglePayBrands from './brands/google-pay.svg';
+import GoogleBrands from './brands/google.svg';
+import HeadsetRegular from './regular/headset.svg';
+import LanguageRegular from './regular/language.svg';
+import FacebookFBrands from './brands/facebook-f.svg';
+import FilterCircleDollarRegular from './regular/filter-circle-dollar.svg';
+import BarcodeReadRegular from './regular/barcode-read.svg';
+import FileInvoiceRegular from './regular/file-invoice.svg';
+import BitcoinSignRegular from './regular/bitcoin-sign.svg';
 
 // Number list
 import DoubleZeroThin from './thin/00.svg';
@@ -156,6 +168,24 @@ const SvgPhoneArrowUpRegular = PhoneArrowUpRegular;
 const SvgEnvelopeRegular = EnvelopeRegular;
 const SvgMapPinLight = MapPinLight;
 
+// Service E-commerce Icon
+const SvgChartPieRegular = ChartPieRegular;
+const SvgTruckFastRegular = TruckFastRegular;
+const SvgEnvelopeOpenDollarRegular = EnvelopeOpenDollarRegular;
+const SvgGooglePayBrands = GooglePayBrands;
+const SvgGoogleBrands = GoogleBrands;
+const SvgHeadsetRegular = HeadsetRegular;
+const SvgLanguageRegular = LanguageRegular;
+const SvgFacebookFBrands = FacebookFBrands;
+const SvgFilterCircleDollarRegular = FilterCircleDollarRegular;
+const SvgBarcodeReadRegular = BarcodeReadRegular;
+const SvgFileInvoiceRegular = FileInvoiceRegular;
+const SvgBitcoinSignRegular = BitcoinSignRegular;
+
+/**
+ * NB: Volevo riwrapper un primoi chunck di icone in un const e ritornarla, ma non funziona.
+ * 
+ */
 export {
   SVGArrowSvg,
   SVGThemeLight,
@@ -197,7 +227,7 @@ export {
   SvgPassportThin,
   SvgShareNodesThin,
   SvgLayerPlusThin,
-  SvgMobileThin, 
+  SvgMobileThin,
   SvgPenToSquareThin,
   SvgHexagonVerticalNFTThin,
   SvgFileContractThin,
@@ -224,5 +254,17 @@ export {
   SvgNetworkWiredRegular,
   SvgDatabaseRegular,
   SvgInboxFullRegular,
-  SvgCheckRegular
+  SvgCheckRegular,
+  SvgChartPieRegular,
+  SvgTruckFastRegular,
+  SvgEnvelopeOpenDollarRegular,
+  SvgGooglePayBrands,
+  SvgGoogleBrands,
+  SvgHeadsetRegular,
+  SvgLanguageRegular,
+  SvgFacebookFBrands,
+  SvgFilterCircleDollarRegular,
+  SvgBarcodeReadRegular,
+  SvgFileInvoiceRegular,
+  SvgBitcoinSignRegular
 };

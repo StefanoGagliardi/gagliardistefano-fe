@@ -14,20 +14,24 @@ import seo from './../../config/seo.json';
 import ServiceContactsSection from '@components/pages/services/ServiceContactsSection';
 import ContentAndImage from '@components/pages/services/ContentAndImage';
 import {
-  SvgChalkboardRegular,
-  SvgCheckRegular,
-  SvgCloudArrowDownRegular,
-  SvgDatabaseRegular,
-  SvgEraserRegular,
+  SvgBarcodeReadRegular,
+  SvgBitcoinSignRegular,
+  SvgChartPieRegular,
+  SvgEightThin,
+  SvgEnvelopeOpenDollarRegular,
+  SvgFacebookFBrands,
+  SvgFileInvoiceRegular,
+  SvgFilterCircleDollarRegular,
   SvgFiveThin,
   SvgFourThin,
-  SvgGearRegular,
-  SvgInboxFullRegular,
-  SvgNetworkWiredRegular,
+  SvgGoogleBrands,
+  SvgHeadsetRegular,
+  SvgLanguageRegular,
   SvgOneThin,
   SvgSevenThin,
   SvgSixThin,
   SvgThreeThin,
+  SvgTruckFastRegular,
   SvgTwoThin,
 } from '@assets/svg';
 import FocusBox from '@components/pages/services/FocusBox';
@@ -37,7 +41,10 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
     <Layout
       pageProps={{
         useDotsBg: true,
-        wrapperClasses: ['single-service-template'],
+        wrapperClasses: [
+          'single-service-template',
+          'service-figure-width-[70%]',
+        ],
       }}
     >
       <Head>
@@ -237,10 +244,7 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
           firstColumnContent={{
             columnChild: (
               <figure className={cn('figure-wrapper')}>
-                <img
-                  src="/services/realizzazione-ecommerce-two.jpg"
-                  alt=""
-                />
+                <img src="/services/realizzazione-ecommerce-two.jpg" alt="" />
               </figure>
             ),
             wrapperClassnames: ['self-center'],
@@ -269,9 +273,9 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   <li>
                     <SvgThreeThin />
                     <span>
-                      Puoi costruire il tuo database di clienti, possedendo
-                      tutti i dati, e usarlo per vendere altri prodotti/servizi
-                      a costo quasi zero.
+                      Puoi costruire il tuo database di clienti, possedendo i
+                      dati, e usarlo per vendere altri prodotti/servizi e
+                      fornire offerte ad-hoc a costo quasi zero.
                     </span>
                   </li>
                   <li>
@@ -285,20 +289,28 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   <li>
                     <SvgFiveThin />
                     <span>
+                      Puoi scegliere liberamente i metodi di pagamento e
+                      spedizione per i tuoi clienti: Carte, Contanti, Bonifico,
+                      AmazonPay, PayPal, spedizione standard, ritiro in sede.
+                    </span>
+                  </li>
+                  <li>
+                    <SvgSixThin />
+                    <span>
                       Puoi vendere al tuo target di riferimento senza avere
                       decine di competitor intorno che ti rubano clienti
                       abbassando il prezzo.
                     </span>
                   </li>
                   <li>
-                    <SvgSixThin />
+                    <SvgSevenThin />
                     <span>
                       Puoi aumentare i guadagni riducendo tutti quei costi fissi
                       che un’azienda tradizionale deve sostenere per vendere.
                     </span>
                   </li>
                   <li>
-                    <SvgSevenThin />
+                    <SvgEightThin />
                     <span>
                       Hai la possibilità di raccogliere i contatti mail dei tuoi
                       clienti in un database, e utilizzarli per svolgere le tue
@@ -337,9 +349,9 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                 'mt-2'
               )}
             >
-              Scopri alcune delle possibilità supportate dai nostri ecommerce
+              Scopri alcune delle possibilità supportate dai nostri ecommerce.
               <br />
-              per incrementare il tuo fatturato
+              Potenzia il tuo negozio, e incrementa il tuo fatturato!
             </p>
           </div>
           <div
@@ -349,29 +361,54 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
               'flex',
               'flex-wrap',
               'focus-tag-grid',
+              'focus-text-inline',
               'pt-60px'
             )}
           >
             <FocusBox
-              text={'Design e creazione'}
-              icon={<SvgChalkboardRegular />}
+              text={'Analytics Sitoweb & Ecommerce'}
+              icon={<SvgChartPieRegular />}
             />
             <FocusBox
-              text={'Scrittura contenuti'}
-              icon={<SvgEraserRegular />}
+              text={'Integrazione spedizionieri'}
+              icon={<SvgTruckFastRegular />}
             />
             <FocusBox
-              text={'Aggiornamenti'}
-              icon={<SvgCloudArrowDownRegular />}
+              text={'Email marketing'}
+              icon={<SvgEnvelopeOpenDollarRegular />}
             />
-            <FocusBox text={'Manutenzione'} icon={<SvgGearRegular />} />
+
+            <FocusBox text={'Google Merchant'} icon={<SvgGoogleBrands />} />
             <FocusBox
-              text={'Gestione domini'}
-              icon={<SvgNetworkWiredRegular />}
+              text={'Customer live chat'}
+              icon={<SvgHeadsetRegular />}
             />
-            <FocusBox text={'Hosting'} icon={<SvgDatabaseRegular />} />
-            <FocusBox text={'Casella email'} icon={<SvgInboxFullRegular />} />
-            <FocusBox text={'E molto altro!'} icon={<SvgCheckRegular />} />
+            <FocusBox
+              text={'Multilingua e multi-regione'}
+              icon={<SvgLanguageRegular />}
+            />
+
+            <FocusBox
+              text={'Facebook & Instagram Shop'}
+              icon={<SvgFacebookFBrands />}
+            />
+            <FocusBox
+              text={'Campagne Advertising Social'}
+              icon={<SvgFilterCircleDollarRegular />}
+            />
+            <FocusBox
+              text={'Codici promozionali'}
+              icon={<SvgBarcodeReadRegular />}
+            />
+
+            <FocusBox
+              text={'Fatture PDF e Fatturazione automatica'}
+              icon={<SvgFileInvoiceRegular />}
+            />
+            <FocusBox
+              text={'Supporto Web3 e Crypto'}
+              icon={<SvgBitcoinSignRegular />}
+            />
           </div>
         </div>
       </section>
@@ -400,11 +437,12 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                 'mt-2'
               )}
             >
-              Scopri le fasi del nostro processo produttivo, attraversate da un
+              Scopri le fasi, del nostro processo produttivo, attraversate da un
               progetto durante la sua realizzazione.
               <br /> Durante tutte le fasi di sviluppo teniamo un frequente
-              confronto col cliente
-              <br /> in modo da esser certi di centrare gli obbiettivi al meglio
+              confronto con il cliente,
+              <br /> cosi da avere sempre una forte attenzione e focus sugli
+              obbiettivi del progetto
             </p>
           </div>
         </div>

@@ -115,7 +115,7 @@
       }
 
       .figure-wrapper {
-        max-width: 30em;
+        // max-width: 30em;
         margin: auto;
         --accent-shadow: rgba(52, 104, 166, 0.5);
         --shadow-color: rgba(15, 25, 36, 0.15);
@@ -209,6 +209,14 @@
     }
   }
 
+  .single-service-template:not([class*="service-figure-width-"]) {
+    .section-service {
+      .figure-wrapper {   
+        max-width: 30em;
+      }
+    }
+  }
+
   .focus-list {
     margin: 0px;
     padding: 0px;
@@ -260,7 +268,7 @@
       align-content: start;
       grid-template-columns: auto 1fr;
       --border-color: var(--fg-separator);
-      bordser: 1px solid var(--border-color);
+      border: 1px solid var(--border-color);
       --bg-color: var(--bg-block);
       border-radius: 1.5em;
       display: grid;
@@ -275,6 +283,12 @@
       z-index: 3;
       font-weight: bold;
 
+      // Set max-width of item, so force max items per row to 3
+      // flex-grow: 1 - Fit all avaible space
+      // flex-shrink: 0 -
+      // flex-basis: 31% - like max-width. In case of 4 per row, first idea is to set "max-width" (flex-basis) to 25%, but this not take into account item spacing (es. 20px), so flex-basis a bit less of 100/n
+      flex: 1 0 31%;
+
       &::before {
         content: none !important;
       }
@@ -284,7 +298,14 @@
         height: 20px;
         fill: var(--color-text-accent);
       }
+    }
 
+    &.focus-text-inline .focus {
+      span {
+        width: 180px;
+        max-width: 200px;
+        white-space: nowrap;
+      }
     }
   }
 }

@@ -5,6 +5,17 @@ const plugin = require('tailwindcss/plugin');
 const typographyPlugin = require('@tailwindcss/typography');
 const lineClampPlugin = require('@tailwindcss/line-clamp');
 
+var flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette');
+if (typeof flattenColorPalette?.default === 'function') {
+  flattenColorPalette = flattenColorPalette.default;
+} else {
+  flattenColorPalette = function () {
+    console.error('Tailwin.config.js - flattenColorPalette - NOT A FUNCTION');
+  };
+}
+
+console.log('flattenColorPalette: ', flattenColorPalette);
+
 module.exports = {
   darkMode: 'class',
   future: {
@@ -23,7 +34,7 @@ module.exports = {
       sm: ['14px', '20px'],
       base: ['16px', '24px'],
       paragraph: ['18px', '28px'],
-      paragraphLg: ["22px", "34px"],
+      paragraphLg: ['22px', '34px'],
       lg: ['20px', '28px'],
       lgm: ['26px', '32px'],
       xl: ['40px', '48px'],
@@ -164,24 +175,31 @@ module.exports = {
   plugins: [
     typographyPlugin,
     lineClampPlugin,
-    plugin(function ({ addBase, addComponents, addUtilities, theme }) {
-      // const dotDivider = {
-      //   'dot-divider': {
-      //     border: '1px solid red',
-      //   },
-      //   '.dot-divider::before': {
-      //     content: ' ',
-      //     backgroundColor: '#fff',
-      //     width: '3px',
-      //     height: '3px',
-      //     position: 'absolute',
-      //     right: '-10px',
-      //     top: 'calc(50% - 5px)',
-      //   },
-      // };
-      // addUtilities(dotDivider, []);
-      // addComponents(dotDivider);
-      // addBase(dotDivider);
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'my-custom-class': (value) => {
+            console.log('my-custom-class _ VALUE: ', value);
+            // Utilizzo: 'my-custom-class-[red]'
+            return {
+              backgroundColor: value,
+              color: theme('colors.white'), // Just for example purposes
+            };
+          },
+          'service-figure-width': (value) => {
+            console.log('service-figure-width _ VALUE: ', value);
+            // Utilizzo: 'service-figure-width-[70%]'
+            return {
+              '.section-service .figure-wrapper': {
+                maxWidth: value,
+              },
+              // backgroundColor: value,
+              // color: theme('colors.white'), // Just for example purposes
+            };
+          },
+        },
+        { values: flattenColorPalette(theme('colors')) }
+      );
     }),
   ],
 };
