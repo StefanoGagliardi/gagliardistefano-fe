@@ -13,7 +13,7 @@ import s from './HeaderLogo.module.css';
 import Link from 'next/link';
 
 // Check current page
-const regexPage = '^((/)?servizi|(/)?privacy-policy)';
+const regexPage = '^((/)?servizi|(/)?privacy-policy|/)';
 
 /**
  * Script start

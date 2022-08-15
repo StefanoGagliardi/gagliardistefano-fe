@@ -111,13 +111,15 @@ module.exports = {
       },
       spacing: {
         header: '80px',
+        '50vw': '50vw',
+        '50vh': '50vh',
       },
       height: {
         header: '80px',
       },
       margin: {
         30: '30px',
-        "60px": "60px",
+        '60px': '60px',
         50: '50px',
       },
       lineClamp: {
@@ -128,7 +130,7 @@ module.exports = {
       },
       padding: {
         '60px': '60px',
-        '20px': '20px'
+        '20px': '20px',
       },
       zIndex: {
         3: '3',

@@ -33,7 +33,7 @@ export const PrivacyPolicyPage: NextPage & {
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
             <div className="col-start-3  col-end-11">
-              <h1 data-aos="fade-up">Realizzazione siti web | Milano</h1>
+              <h1>Realizzazione siti web | Milano</h1>
             </div>
           </div>
         </div>

@@ -70,56 +70,56 @@ exports[`Home page matches snapshot 1`] = `
     >
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="400"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="400"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="400"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="400"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="200"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="100"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="400"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
-        data-aos-offset="600"
+        
+        
+        
       />
       <div
         class="square"
-        data-aos="zoom-out-up"
-        data-aos-delay="500"
+        
+        
       />
       <div
         class="grid grid-cols-3 gap-5"
@@ -127,10 +127,10 @@ exports[`Home page matches snapshot 1`] = `
         <div
           ata-aos="fade-right"
           class="serviceCard relative p-50"
-          data-aos-delay="300"
+          
           data-aos-duration="500"
           data-aos-easing="ease-in-sine"
-          data-aos-offset="400"
+          
         >
           <div
             class="z-10 relative mx-10 glass"
@@ -168,10 +168,10 @@ exports[`Home page matches snapshot 1`] = `
         <div
           ata-aos="fade-right"
           class="serviceCard relative p-50"
-          data-aos-delay="300"
+          
           data-aos-duration="500"
           data-aos-easing="ease-in-sine"
-          data-aos-offset="400"
+          
         >
           <div
             class="z-10 relative mx-10 glass"
@@ -203,10 +203,10 @@ exports[`Home page matches snapshot 1`] = `
         <div
           ata-aos="fade-right"
           class="serviceCard relative p-50"
-          data-aos-delay="300"
+          
           data-aos-duration="500"
           data-aos-easing="ease-in-sine"
-          data-aos-offset="400"
+          
         >
           <div
             class="z-10 relative mx-10 glass"

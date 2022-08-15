@@ -57,7 +57,7 @@
   height: 600px;
   left: calc(50% - 300px);
   top: -150px;
-  background: #ff359b;
+  background: var(--color-text-accent);
 }
 
 .colors2 {
@@ -65,7 +65,7 @@
   height: 500px;
   left: calc(50% - 300px);
   bottom: -150px;
-  background: #fffd87;
+  background: #edf2f7; 
 }
 
 .colors3 {

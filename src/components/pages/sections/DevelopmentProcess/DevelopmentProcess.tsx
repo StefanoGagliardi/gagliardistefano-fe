@@ -26,8 +26,6 @@ const DevelopmentProcess: FC = (): ReactElement => {
         {activePath === 'CIRCLE_V2' && (
           <div
             className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-            data-aos="fade-up"
-            data-aos-delay="0"
           >
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 1 - Analisi della tua idea
@@ -45,8 +43,6 @@ const DevelopmentProcess: FC = (): ReactElement => {
         {activePath === 'CIRCLE_V2-2' && (
           <div
             className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-            data-aos="fade-up"
-            data-aos-delay="0"
           >
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 2 - Creazione Mockup grafico
@@ -65,8 +61,6 @@ const DevelopmentProcess: FC = (): ReactElement => {
         {activePath === 'CIRCLE_V2-3' && (
           <div
             className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-            data-aos="fade-up"
-            data-aos-delay="0"
           >
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 3 - Costruzione Prototipo
@@ -82,8 +76,6 @@ const DevelopmentProcess: FC = (): ReactElement => {
         {activePath === 'CIRCLE_V2-4' && (
           <div
             className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-            data-aos="fade-up"
-            data-aos-delay="0"
           >
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 4 - Messa Online
@@ -103,8 +95,6 @@ const DevelopmentProcess: FC = (): ReactElement => {
         {activePath === 'CIRCLE_V2-5' && (
           <div
             className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-            data-aos="fade-up"
-            data-aos-delay="0"
           >
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 5 - Promozione
@@ -120,8 +110,6 @@ const DevelopmentProcess: FC = (): ReactElement => {
         {activePath === 'CIRCLE_V2-6' && (
           <div
             className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-            data-aos="fade-up"
-            data-aos-delay="0"
           >
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 6 - Assistenza e Ottimizzazione

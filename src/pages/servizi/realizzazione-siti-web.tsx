@@ -64,7 +64,6 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'text-accent',
                   'font-avenir'
                 )}
-                data-aos="fade-up"
               >
                 Realizzazione siti web a Cremona
               </h1>
@@ -78,8 +77,6 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'font-medium',
                   'max-w-[60ch]'
                 )}
-                data-aos="fade-up"
-                data-aos-delay="300"
               >
                 Tutti i nostri siti web sono progettati e adattati per una vasta
                 gamma di dispotivi, adattando ogni elemento ai tuoi obiettivi e
@@ -99,8 +96,6 @@ export const PageRealizzazioneSitiWeb: NextPage = (): ReactElement => {
                   'max-w-[60ch]',
                   'mb-0'
                 )}
-                data-aos="fade-up"
-                data-aos-delay="600"
               >
                 <strong>
                   Tutti i nostri siti web hanno un{' '}

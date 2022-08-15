@@ -162,7 +162,7 @@ export const NavbarMenu: FC = (): ReactElement => {
           return (
             <Link href={value.url as string} key={index}>
               <a
-                className={cn(s.link)}
+                className={cn(s.link, 'navbar-item')}
                 data-dropdown={value?.megaMenu ? value.megaMenu : ''}
                 onMouseEnter={() => {
                   closeDropdown();

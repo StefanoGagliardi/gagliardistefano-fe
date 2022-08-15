@@ -1,4 +1,8 @@
+// Import core
 import React, { FC, ReactElement, ReactNode } from 'react';
+
+// Import third parts
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -13,6 +17,8 @@ const NavbarItemTitle = styled.a`
   margin-left: 30px;
   margin-right: 30px;
   transition-duration: 75ms;
+
+  opacity: 1;
 `;
 
 const NavbarItemEl = styled.span`
@@ -25,7 +31,6 @@ const DropdownSlot = styled.div`
   left: 50%;
   transform: translateX(-50%);
   perspective: 1500px;
-
   top: 40px;
 `;
 
@@ -45,10 +50,12 @@ const NavbarItem: FC<Props> = (props: Props): ReactElement => {
   };
 
   return (
-    <NavbarItemEl onMouseEnter={onMouseEnter} onFocus={onMouseEnter}>
+    <NavbarItemEl className={cn('navbar-item')} onMouseEnter={onMouseEnter} onFocus={onMouseEnter}>
       {url ? (
         <Link href={url}>
-          <NavbarItemTitle href={url}>{title}</NavbarItemTitle>
+          <NavbarItemTitle href={url}>
+            {title}
+          </NavbarItemTitle>
         </Link>
       ) : (
         <NavbarItemTitle>{title}</NavbarItemTitle>

@@ -79,7 +79,6 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'text-accent',
                   'font-avenir'
                 )}
-                data-aos="fade-up"
               >
                 Realizzazione Ecommerce a Cremona
               </h1>
@@ -93,8 +92,6 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'font-medium',
                   'max-w-[60ch]'
                 )}
-                data-aos="fade-up"
-                data-aos-delay="300"
               >
                 Anni di esperienza negli ecommerce, uniti a molteplici progetti
                 sviluppati, ad oggi ci permettono di offrire le soluzioni più
@@ -121,8 +118,6 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'mb-0',
                   'hidden'
                 )}
-                data-aos="fade-up"
-                data-aos-delay="400"
               >
                 <strong>
                   Offriamo due macro soluzioni Ecommerce per esigenze diverse:
@@ -139,8 +134,6 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'font-medium',
                   'hidden'
                 )}
-                data-aos="fade-up"
-                data-aos-delay="500"
               >
                 <li>
                   1. Piattaforma{' '}
@@ -166,8 +159,6 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                   'max-w-[60ch]',
                   'mb-0'
                 )}
-                data-aos="fade-up"
-                data-aos-delay="400"
               >
                 <strong>
                   In questa pagina vedremo i vantaggi della realizzazione di una

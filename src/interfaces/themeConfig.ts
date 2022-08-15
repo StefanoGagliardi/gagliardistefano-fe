@@ -26,6 +26,11 @@ interface ThemeConfiguration {
   aos: boolean;
 
   /**
+   * Enable Gsap - Animate On Scroll
+   */
+   gsap: boolean;
+
+  /**
    * Page list, internal name
    */
   pageList?: string[];

@@ -7,7 +7,8 @@ const themeConfig: ThemeConfiguration = {
     uiContext: false,
   },
   mailgo: true,
-  aos: true
+  aos: false,
+  gsap: true
 };
 
 export default themeConfig;

@@ -19,68 +19,39 @@ export const MainServiceCard: FC = (): ReactElement => {
       <div className="container mx-auto relative">
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="100"
+          
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="-100"
+          
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="-50"
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="0"
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="0"
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="100"
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="-100"
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
-          data-aos-offset="-100"
         ></div>
         <div
           className={s.square}
-          data-aos-delay="500"
-          data-aos="zoom-out-up"
         ></div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
           <div
-            ata-aos="fade-right"
-            data-aos-offset="400"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-sine"
             className={cn(s.serviceCard, 'relative', 'p-50')}
           >
-            <div className={cn('z-10 relative mx-10', s.glass)}>
+            <div className={cn('z-10 relative mx-10', 'glass')}>
               <div className={s.focusCardHeader}>
                 <span>
                   <SvgGlobe />
@@ -108,14 +79,9 @@ export const MainServiceCard: FC = (): ReactElement => {
             </div>
           </div>
           <div
-            ata-aos="fade-right"
-            data-aos-offset="400"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-sine"
             className={cn(s.serviceCard, 'relative', 'p-50')}
           >
-            <div className={cn('z-10 relative mx-10', s.glass)}>
+            <div className={cn('z-10 relative mx-10', 'glass')}>
               <div className={s.focusCardHeader}>
                 <span>
                   <SvgEcommerce />
@@ -138,14 +104,9 @@ export const MainServiceCard: FC = (): ReactElement => {
             </div>
           </div>
           <div
-            ata-aos="fade-right"
-            data-aos-offset="400"
-            data-aos-delay="300"
-            data-aos-duration="500"
-            data-aos-easing="ease-in-sine"
             className={cn(s.serviceCard, 'relative', 'p-50')}
           >
-            <div className={cn('z-10 relative mx-10', s.glass)}>
+            <div className={cn('z-10 relative mx-10', 'glass')}>
               <div className={s.focusCardHeader}>
                 <span>
                   <SvgSmartphone />

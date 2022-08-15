@@ -11,6 +11,8 @@ const sass = require('@zeit/next-sass');
 // const withMinifyClassName = require('./next-plugins/minify-class-name.js');
 // const ovverideGetLocalIdent = require('./next-plugins/ovverideGetLocalIdent.js');
 
+// const withTM = require('next-transpile-modules')(['react-hook-mousetrap']);
+
 /**
  * Import plugin
  */
