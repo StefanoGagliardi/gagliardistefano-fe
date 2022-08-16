@@ -14,7 +14,6 @@ import s from './privacy-policy.module.scss';
 export const PrivacyPolicyPage: NextPage & {
   Layout: FC;
 } = (): ReactElement => {
-  console.log('seo: ', seo);
 
   return (
     <>

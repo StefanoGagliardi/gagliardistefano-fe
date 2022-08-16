@@ -48,7 +48,6 @@ export const Web3Dropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >

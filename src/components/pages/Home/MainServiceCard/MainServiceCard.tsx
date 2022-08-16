@@ -6,52 +6,38 @@ import cn from 'classnames';
 
 // import custom
 import s from './MainServiceCard.module.css';
-import { SvgEcommerce, SvgGlobe, SvgSmartphone } from '@assets/svg';
+import {
+  SvgArrowRightLongLight,
+  SvgArrowRightLongRegular,
+  SvgArrowRightLongThin,
+  SvgEcommerce,
+  SvgGlobe,
+  SvgSmartphone,
+} from '@assets/svg';
 import Link from 'next/link';
+import url from '@services/url';
 
 export const MainServiceCard: FC = (): ReactElement => {
   return (
     <>
-      <div className={s.colors1}></div>
+      {/* <div className={s.colors1}></div>
       <div className={s.colors2}></div>
       <div className={s.colors3}></div>
-      <div className={s.colors4}></div>
+      <div className={s.colors4}></div> */}
       <div className="container mx-auto relative">
-        <div
-          className={s.square}
-          
-        ></div>
-        <div
-          className={s.square}
-          
-        ></div>
-        <div
-          className={s.square}
-        ></div>
-        <div
-          className={s.square}
-        ></div>
-        <div
-          className={s.square}
-        ></div>
-        <div
-          className={s.square}
-        ></div>
-        <div
-          className={s.square}
-        ></div>
-        <div
-          className={s.square}
-        ></div>
-        <div
-          className={s.square}
-        ></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
+        <div className={s.square}></div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
-          <div
-            className={cn(s.serviceCard, 'relative', 'p-50')}
-          >
-            <div className={cn('z-10 relative mx-10', 'glass')}>
+          <div className={cn(s.serviceCard, 'relative', 'p-50')}>
+            <div className={cn('z-10 relative mx-10')}>
               <div className={s.focusCardHeader}>
                 <span>
                   <SvgGlobe />
@@ -66,22 +52,26 @@ export const MainServiceCard: FC = (): ReactElement => {
                   quote di mercato
                 </p>
                 <p>
-                  Servizi di sviluppo end-to-end che ti aiuteranno a
-                  digitalizzare la tua attività e a rivoluzionare il mercato,
-                  indipendentemente dalle dimensioni della tua azienda
+                  Servizi di sviluppo che ti aiuteranno a digitalizzare la tua
+                  attività e a rivoluzionare il mercato, a prescindere dalle
+                  dimensioni della tua azienda
                 </p>
-                <Link href="/sviluppo-web">
-                  <a href="/sviluppo-web" className={s.btnSeeMore}>
-                    Scopri di più
+                <Link href={url.websiteCreation() as string}>
+                  <a
+                    className={cn(
+                      'btn-components-outline btn-icon mt-3',
+                      'rounded text-sm font-bold'
+                    )}
+                  >
+                    Scopri i servizi
+                    <SvgArrowRightLongLight />
                   </a>
                 </Link>
               </div>
             </div>
           </div>
-          <div
-            className={cn(s.serviceCard, 'relative', 'p-50')}
-          >
-            <div className={cn('z-10 relative mx-10', 'glass')}>
+          <div className={cn(s.serviceCard, 'relative', 'p-50', 'glass')}>
+            <div className={cn('z-10 relative mx-10')}>
               <div className={s.focusCardHeader}>
                 <span>
                   <SvgEcommerce />
@@ -100,13 +90,22 @@ export const MainServiceCard: FC = (): ReactElement => {
                   successo, esperienza di sviluppo è fondamentale per non
                   sbagliare
                 </p>
+                <Link href={url.ecommerceCreation() as string}>
+                  <a
+                    className={cn(
+                      'btn-components-outline btn-icon mt-3',
+                      'rounded text-sm font-bold'
+                    )}
+                  >
+                    Scopri i servizi
+                    <SvgArrowRightLongLight />
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
-          <div
-            className={cn(s.serviceCard, 'relative', 'p-50')}
-          >
-            <div className={cn('z-10 relative mx-10', 'glass')}>
+          <div className={cn(s.serviceCard, 'relative', 'p-50')}>
+            <div className={cn('z-10 relative mx-10')}>
               <div className={s.focusCardHeader}>
                 <span>
                   <SvgSmartphone />
@@ -125,6 +124,17 @@ export const MainServiceCard: FC = (): ReactElement => {
                   Native e soluzioni completamente native per creare o far
                   crescere il tuo prodotto software.
                 </p>
+                <Link href={url.ecommerceCreation() as string}>
+                  <a
+                    className={cn(
+                      'btn-components-outline btn-icon mt-3',
+                      'rounded text-sm font-bold'
+                    )}
+                  >
+                    Scopri i servizi
+                    <SvgArrowRightLongLight />
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

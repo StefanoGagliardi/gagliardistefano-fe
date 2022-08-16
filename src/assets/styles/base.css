@@ -58,7 +58,7 @@
   /* Dark / light */
   --text-white: #fff;
   --text-dark: #111;
-  --color-text-dark: #fff;  
+  --color-text-dark: #fff;
 
   /* Common */
   --footer-bg: #272727;
@@ -73,6 +73,9 @@
       beacuse same color deceives and makes header appear shorter
   */
   --scrollbar-bg-bar: #1e1e1e;
+
+  /* Mouse cursor circle color */
+  --cursor-color: #8abbff;
 }
 
 [data-theme="light"],
@@ -143,6 +146,9 @@
 
   /* Scrollbar page Background color */
   --scrollbar-bg-bar: #dbe6f7;
+
+  /* Mouse cursor circle color */
+  --cursor-color: #9333ea;
 }
 
 /**

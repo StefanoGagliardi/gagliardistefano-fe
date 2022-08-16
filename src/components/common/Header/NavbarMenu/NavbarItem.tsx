@@ -1,13 +1,14 @@
 // Import core
-import React, { FC, ReactElement, ReactNode } from 'react';
+import React, { FC, ReactElement, ReactNode, useCallback } from 'react';
 
 // Import third parts
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
+import AppLink from '@services/routing/AppLink';
 
-const NavbarItemTitle = styled.a`
+const NavbarItemTitle = styled.span`
   background: transparent;
   align-items: center;
   cursor: pointer;
@@ -45,18 +46,27 @@ interface Props {
 const NavbarItem: FC<Props> = (props: Props): ReactElement => {
   const { title, children, index, url } = props;
 
-  const onMouseEnter = () => {
+  const onMouseEnter = useCallback(() => {
     props.onMouseEnter(index);
-  };
+  }, []);
 
   return (
-    <NavbarItemEl className={cn('navbar-item')} onMouseEnter={onMouseEnter} onFocus={onMouseEnter}>
+    <NavbarItemEl
+      className={cn('navbar-item')}
+      onMouseEnter={onMouseEnter}
+      onFocus={onMouseEnter}
+    >
       {url ? (
-        <Link href={url}>
-          <NavbarItemTitle href={url}>
-            {title}
-          </NavbarItemTitle>
-        </Link>
+        <AppLink
+          href={url}
+          title="Header menu item"
+          label="Header menu item"
+          useCursorHandler={true}
+        >
+          {/* <a href={url}> */}
+          <NavbarItemTitle>{title}</NavbarItemTitle>
+          {/* </a> */}
+        </AppLink>
       ) : (
         <NavbarItemTitle>{title}</NavbarItemTitle>
       )}
@@ -72,4 +82,4 @@ NavbarItem.propTypes = {
   children: PropTypes.node,
 };
 
-export default NavbarItem;
+export default React.memo(NavbarItem);

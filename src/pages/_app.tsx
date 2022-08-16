@@ -17,9 +17,10 @@ import '../assets/styles/theme/gsap.scss';
 import '../assets/styles/main.scss';
 
 // Animations libraries: gsap and framer-motion
-import gsap, { Power3 } from 'gsap/dist/gsap.js';
+import gsap from 'gsap/dist/gsap.js';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 import { AnimatePresence } from 'framer-motion';
+import Cursor from '@components/ui/Cursor';
 
 /**
  * Script start
@@ -40,7 +41,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   // Test aniamtion
   useEffect(() => {
-    console.log('QUERY SELECTOR - .navbar-item: ', q('.navbar-item'));
     gsap.to(q('.navbar-item'), {
       opacity: 1,
       x: -20,
@@ -87,6 +87,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         {/* Header essendo Fixed, si vederà sempre come primo elemento asttacco in alto. Cosi da partire col DOM coi testi della pagina */}
         <Header />
         <Footer />
+
+        {/* Custom cursor bg and hover effect */}
+        <Cursor />
+
         {/* </Layout> */}
         {/* </AnimateSharedLayout> */}
       </ManagedUIContext>

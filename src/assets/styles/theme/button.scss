@@ -6,10 +6,35 @@
 
     @apply font-medium;
     @apply dark:text-white;
-    
 
     /* Remove outline*/
     @apply focus:outline-none;
+
+    // Button spacing
+    @apply py-2;
+    @apply px-4;
+
+    &.btn-icon {
+      display: inline-flex;
+      align-items: center;
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--text-white);
+        margin-left: 20px;
+      }
+
+      &.icon-hover {
+        svg {
+          width: 0px;
+          transition: .3s linear width;
+        }
+        &:hover svg {
+          width: 20px;
+          transition: .3s linear width;
+        }
+      }
+    }
   }
 
   /* 

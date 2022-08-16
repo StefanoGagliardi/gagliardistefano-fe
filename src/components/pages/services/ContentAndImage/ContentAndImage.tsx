@@ -37,8 +37,6 @@ export const ContentAndImage: FC<Props> = (props: Props): ReactElement => {
 
   usePropsValidation(props);
 
-  console.log('firstColumn props:', firstColumn);
-
   return (
     <div
       className={cn(

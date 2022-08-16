@@ -24,6 +24,8 @@ export interface UIState {
   // V2 Mega Menu
   displayMegamenu: boolean;
   megamenuOpen: string;
+  // V2.1 - Cursor type
+  cursorType: string; // 'initial' | 'hover';
 }
 
 const initialState = {
@@ -35,12 +37,33 @@ const initialState = {
   toastText: '',
   displayMegamenu: false,
   megamenuOpen: '',
+  cursorType: 'initial',
+  setCursortType: () => {},
 };
+
+/**
+ * Context interface
+ */
+interface UiContextInterface {
+  displaySidebar: boolean;
+  displayDropdown: boolean;
+  displayModal: boolean;
+  displayToast: boolean;
+  modalView: string;
+  toastText: string;
+  // V2 Mega Menu
+  displayMegamenu: boolean;
+  megamenuOpen: string;
+  // V2.1 - Cursor type
+  cursorType: string; // 'initial' | 'hover';
+  setCursortType: (value: CURSOR_TYPE) => void;
+}
 
 /**
  * Reducer actions
  */
 type MODAL_VIEWS = 'SIGNUP_VIEW' | 'LOGIN_VIEW' | 'FORGOT_VIEW';
+type CURSOR_TYPE = 'initial' | 'hover';
 type ToastText = string;
 type Action =
   | {
@@ -83,10 +106,14 @@ type Action =
       view: MODAL_VIEWS;
     }
   | {
-      type: 'SET_USER_AVATAR';
-      value: string;
+      type: 'SET_CURSOR_TYPE';
+      value: CURSOR_TYPE;
     };
-export const UIContext = React.createContext<UIState | any>(initialState);
+// | {
+//     type: 'SET_USER_AVATAR';
+//     value: string;
+//   };
+export const UIContext = React.createContext<UiContextInterface>(initialState);
 UIContext.displayName = 'UIContext';
 
 function uiReducer(state: UIState, action: Action) {
@@ -146,16 +173,16 @@ function uiReducer(state: UIState, action: Action) {
         modalView: action.view,
       };
     }
+    case 'SET_CURSOR_TYPE': {
+      return {
+        ...state,
+        cursorType: action.value,
+      };
+    }
     case 'SET_TOAST_TEXT': {
       return {
         ...state,
         toastText: action.text,
-      };
-    }
-    case 'SET_USER_AVATAR': {
-      return {
-        ...state,
-        userAvatar: action.value,
       };
     }
     case 'OPEN_MEGA_MENU': {
@@ -196,8 +223,8 @@ export const UIProvider: FC<{ children: any }> = (props) => {
   const openToast = () => dispatch({ type: 'OPEN_TOAST' });
   const closeToast = () => dispatch({ type: 'CLOSE_TOAST' });
 
-  const setUserAvatar = (value: string) =>
-    dispatch({ type: 'SET_USER_AVATAR', value });
+  // const setUserAvatar = (value: string) =>
+  //   dispatch({ type: 'SET_USER_AVATAR', value });
 
   const setModalView = (view: MODAL_VIEWS) =>
     dispatch({ type: 'SET_MODAL_VIEW', view });
@@ -206,6 +233,9 @@ export const UIProvider: FC<{ children: any }> = (props) => {
     dispatch({ type: 'OPEN_MEGA_MENU', value });
 
   const closeMegaMenu = () => dispatch({ type: 'CLOSE_MEGA_MENU' });
+
+  const setCursortType = (value: CURSOR_TYPE) =>
+    dispatch({ type: 'SET_CURSOR_TYPE', value });
 
   const value = useMemo(
     () => ({
@@ -221,9 +251,10 @@ export const UIProvider: FC<{ children: any }> = (props) => {
       setModalView,
       openToast,
       closeToast,
-      setUserAvatar,
+      // setUserAvatar,
       openMegaMenu,
       closeMegaMenu,
+      setCursortType,
     }),
     [state]
   );

@@ -153,9 +153,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     transform="matrix(0.883, 0.469, -0.469, 0.883, 137.337, 215.689)"
                     fill="none"
                     stroke="#9880ba"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     strokeWidth="45"
-                    stroke-dasharray={
+                    strokeDasharray={
                       activePath === 'CIRCLE_V2' ? '300 0' : '300 165'
                     }
                     className={cn({
@@ -180,9 +180,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     transform="translate(-39.032 327.188) rotate(-34)"
                     fill="none"
                     stroke="#9d93b8"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     strokeWidth="45"
-                    stroke-dasharray={
+                    strokeDasharray={
                       activePath === 'CIRCLE_V2-2' ? '600 0' : '600 315'
                     }
                     className={cn({
@@ -207,9 +207,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     transform="matrix(0.766, -0.643, 0.643, 0.766, -108.207, 344.937)"
                     fill="none"
                     stroke="#a3a5b2"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     strokeWidth="45"
-                    stroke-dasharray={
+                    strokeDasharray={
                       activePath === 'CIRCLE_V2-3' ? '800 0' : '800 465'
                     }
                     className={cn({
@@ -234,9 +234,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     transform="translate(-147.398 228.983) rotate(-22)"
                     fill="none"
                     stroke="#aab6a7"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     strokeWidth="45"
-                    stroke-dasharray={
+                    strokeDasharray={
                       activePath === 'CIRCLE_V2-4' ? '900 0' : '900 630'
                     }
                     className={cn({
@@ -261,9 +261,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     transform="matrix(0.982, 0.191, -0.191, 0.982, -50.826, 12.364)"
                     fill="none"
                     stroke="#b1c697"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     strokeWidth="45"
-                    stroke-dasharray={
+                    strokeDasharray={
                       activePath === 'CIRCLE_V2-5' ? '900 0' : '900 790'
                     }
                     className={cn({
@@ -288,9 +288,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     transform="translate(-161.466 16.452)"
                     fill="none"
                     stroke="#bad881"
-                    stroke-linecap="round"
-                    stroke-width="45"
-                    stroke-dasharray={
+                    strokeLinecap="round"
+                    strokeWidth="45"
+                    strokeDasharray={
                       activePath === 'CIRCLE_V2-6' ? '1112 0' : '1112 984'
                     }
                     className={cn({

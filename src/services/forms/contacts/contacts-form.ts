@@ -14,7 +14,7 @@ const useContactsForm = () => {
 
   const [submit, submitInProgress] = useAsyncAction<SubmitFn>(
     async (data: ContactFormData) => {
-      console.log('Submit form via useAsyncAction(): ', data);
+      // console.log('Submit form via useAsyncAction(): ', data);
     },
     []
   ); // product, cartAddItem

@@ -4,11 +4,12 @@ import menus from './menus';
 const themeConfig: ThemeConfiguration = {
   menus,
   debug: {
-    uiContext: false,
+    uiContext: true,
   },
+  customCursor: true,
   mailgo: true,
   aos: false,
-  gsap: true
+  gsap: true,
 };
 
 export default themeConfig;

@@ -17,10 +17,6 @@ export const Header: FC = () => {
   const router = useRouter();
   const { theme } = useTheme();
 
-  useEffect(() => {
-    console.log('router: ', router);
-  }, []);
-
   // Get scroll position and set class
   useScrollPosition({
     effect: (props: IScrollProps) => {

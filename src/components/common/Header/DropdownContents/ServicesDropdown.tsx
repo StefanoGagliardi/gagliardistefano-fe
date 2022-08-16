@@ -66,11 +66,8 @@ export const ServicesDropdown: FC<Props> = ({
           <ContentTitle>Web design & development</ContentTitle>
           <ul className={s.servicesList}>
             <li>
-              <Link
-                href={`${url.baseServices()}${url.websiteCreation()}`}
-                onClick={closeDropdown}
-              >
-                <a href={`${url.baseServices()}${url.websiteCreation()}`}>
+              <Link href={`${url.websiteCreation()}`}>
+                <a href={`${url.websiteCreation()}`} onClick={closeDropdown}>
                   <SvgLaptopThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -85,11 +82,10 @@ export const ServicesDropdown: FC<Props> = ({
               </Link>
             </li>
             <li>
-              <Link href={`${url.baseServices()}${url.ecommerceCreation()}`}>
+              <Link href={`${url.ecommerceCreation()}`}>
                 <a
-                  href={`${url.baseServices()}${url.ecommerceCreation()}`}
+                  href={`${url.ecommerceCreation()}`}
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -107,11 +103,8 @@ export const ServicesDropdown: FC<Props> = ({
               </Link>
             </li>
             <li>
-              <Link
-                href={`${url.baseServices()}${url.ecommerceCreation()}`}
-                onClick={closeDropdown}
-              >
-                <a href={`${url.baseServices()}${url.ecommerceCreation()}`}>
+              <Link href={`${url.ecommerceCreation()}`}>
+                <a href={`${url.ecommerceCreation()}`} onClick={closeDropdown}>
                   <SvgShopLockThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -127,11 +120,11 @@ export const ServicesDropdown: FC<Props> = ({
             </li>
 
             <li>
-              <Link
-                href="/servizi/realizzazione-siti-web/"
-                onClick={closeDropdown}
-              >
-                <a href="/servizi/realizzazione-siti-web/">
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={closeDropdown}
+                >
                   <SvgPenPaintbrushThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -146,11 +139,11 @@ export const ServicesDropdown: FC<Props> = ({
               </Link>
             </li>
             <li>
-              <Link
-                href="/servizi/realizzazione-siti-web/"
-                onClick={closeDropdown}
-              >
-                <a href="/servizi/realizzazione-siti-web/">
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={closeDropdown}
+                >
                   <SvgVectorPolygonThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -174,7 +167,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -196,7 +188,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -218,7 +209,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -240,7 +230,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -262,7 +251,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -289,7 +277,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -311,7 +298,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -333,7 +319,6 @@ export const ServicesDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >

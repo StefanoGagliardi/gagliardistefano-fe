@@ -89,6 +89,9 @@ import PhoneArrowUpThin from './thin/phone-arrow-up.svg';
 import PhoneArrowUpRegular from './regular/phone-arrow-up.svg';
 import EnvelopeRegular from './regular/envelope.svg';
 import MapPinLight from './light/map-pin.svg';
+import ArrowRightLongRegular from './regular/arrow-right-long.svg';
+import ArrowRightLongThin from './thin/arrow-right-long.svg';
+import ArrowRightLongLight from './light/arrow-right-long.svg';
 
 // Infographic custom
 import DevStepProcess from './development-step-process.svg';
@@ -188,6 +191,9 @@ const SvgBitcoinSignRegular = BitcoinSignRegular;
 
 // Infographics custom
 const SvgDevStepProcess = DevStepProcess;
+const SvgArrowRightLongRegular = ArrowRightLongRegular;
+const SvgArrowRightLongThin = ArrowRightLongThin;
+const SvgArrowRightLongLight = ArrowRightLongLight;
 
 /**
  * NB: Volevo riwrapper un primoi chunck di icone in un const e ritornarla, ma non funziona.
@@ -274,5 +280,8 @@ export {
   SvgBarcodeReadRegular,
   SvgFileInvoiceRegular,
   SvgBitcoinSignRegular,
-  SvgDevStepProcess
+  SvgDevStepProcess,
+  SvgArrowRightLongRegular,
+  SvgArrowRightLongThin,
+  SvgArrowRightLongLight
 };

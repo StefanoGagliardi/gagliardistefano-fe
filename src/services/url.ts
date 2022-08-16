@@ -21,8 +21,8 @@ export const url = {
 
   // Service URL
   baseServices: (): IAppLinkHref => `/servizi`,
-  websiteCreation: (): IAppLinkHref => `/realizzazione-siti-web`,
-  ecommerceCreation: (): IAppLinkHref => `/realizzazione-ecommerce`,
+  websiteCreation: (): IAppLinkHref => `${url.baseServices()}/realizzazione-siti-web`,
+  ecommerceCreation: (): IAppLinkHref => `${url.baseServices()}/realizzazione-ecommerce`,
 };
 
 export default url;

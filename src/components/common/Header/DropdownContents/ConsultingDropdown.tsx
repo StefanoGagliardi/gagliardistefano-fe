@@ -51,7 +51,6 @@ export const ConsultingDropdown: FC<Props> = ({
                 <a
                   href="/servizi/realizzazione-siti-web/"
                   onClick={() => {
-                    console.log('Click on link');
                     closeDropdown();
                   }}
                 >
@@ -71,9 +70,8 @@ export const ConsultingDropdown: FC<Props> = ({
             <li>
               <Link
                 href="/servizi/realizzazione-siti-web/"
-                onClick={closeDropdown}
               >
-                <a href="/servizi/realizzazione-siti-web/">
+                <a href="/servizi/realizzazione-siti-web/" onClick={closeDropdown}>
                   <SvgPeopleArrowsThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -90,9 +88,8 @@ export const ConsultingDropdown: FC<Props> = ({
             <li>
               <Link
                 href="/servizi/realizzazione-siti-web/"
-                onClick={closeDropdown}
               >
-                <a href="/servizi/realizzazione-siti-web/">
+                <a href="/servizi/realizzazione-siti-web/" onClick={closeDropdown}>
                   <SvgListCheckThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>

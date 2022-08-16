@@ -28,12 +28,17 @@ interface ThemeConfiguration {
   /**
    * Enable Gsap - Animate On Scroll
    */
-   gsap: boolean;
+  gsap: boolean;
 
   /**
    * Page list, internal name
    */
   pageList?: string[];
+
+  /**
+   * Custom cursor design: circle bg under cursor and change on Link Hover
+   */
+  customCursor: boolean;
 }
 
 export const PagesList = {

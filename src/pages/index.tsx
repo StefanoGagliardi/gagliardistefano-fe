@@ -11,6 +11,10 @@ import s from './index.module.css';
 import Layout from '@components/common/Layout';
 import HomeComponents from '@components/pages/Home';
 import Image from 'next/image';
+import Link from 'next/link';
+import url from '@services/url';
+import { SvgArrowRightLongRegular } from '@assets/svg';
+import DevelopmentProcess from '@components/pages/sections/DevelopmentProcess';
 // import { SVGArrowSvg, SvgGlobe, SvgScrollIcon } from '@assets/svg';
 
 /**
@@ -45,14 +49,33 @@ export const Home = (): JSX.Element => {
                 <h1 className={cn(s.h1, 'text-dark dark:text-white')}>
                   Assumi le skill,<br></br>la qualità e l'sperienza
                 </h1>
-                <p className={cn(s.subTitle, 'text-dark dark:text-white mt-5')}>
+                <p
+                  className={cn(
+                    'text-paragraphLg',
+                    'my-20px',
+                    'font-semiBold',
+                    'text-dark dark:text-white mt-5'
+                  )}
+                >
                   Accellera i tuoi progetti software e digitali con un team
                   <br></br>
                   all'avanguardia, d'esperienza pronto a valutare ed offire
-                  soluzioni
                   <br></br>
-                  <span className="font-bold text-logoBlue">competitive</span>
+                  <span className="font-bold text-logoBlue">
+                    soluzioni competitive
+                  </span>
                 </p>
+                <Link href={url.websiteCreation() as string}>
+                  <a
+                    className={cn(
+                      'btn-components-outline btn-icon icon-hover',
+                      'rounded text-paragraphLg font-bold'
+                    )}
+                  >
+                    Scopri i servizi
+                    <SvgArrowRightLongRegular />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className="col-span-6 relative">
@@ -101,7 +124,7 @@ export const Home = (): JSX.Element => {
                 <br />
                 <br />
                 <strong>
-                  Next Generation, qeusto è quello per il quale siamo qui.
+                  Next Generation, questo è quello per il quale siamo qui.
                 </strong>
               </p>
             </div>
@@ -111,19 +134,83 @@ export const Home = (): JSX.Element => {
       <section
         className={cn(
           s.secondSection,
-          'py-5 px-3 relative flex items-center bg-service'
+          'relative flex items-center bg-service pt-[80px] pb-[120px]'
         )}
       >
         <HomeComponents.MainServiceCard />
       </section>
-      <section className={cn(s.secondSectionAfter, 'bg-service', 'py-60px')}>
-        {/* <button 
-          onClick={() => {
-            alert('With typescript and Jest');
-          }}
-        >
-          Test Button
-        </button> */}
+      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-12 gap-1">
+            <div className="col-start-3  col-end-11">
+              <h1
+                className={cn(
+                  'font-bold',
+                  'text-center',
+                  'text-xl',
+                  'text-accent',
+                  'font-avenir'
+                )}
+              >
+                Next Generation: come lavoriamo
+              </h1>
+              <p
+                className={cn(
+                  'text-center',
+                  'dark:text-white',
+                  'my-5',
+                  'mx-auto',
+                  'text-paragraphLg',
+                  'font-medium'
+                  // 'max-w-[60ch]'
+                )}
+              >
+                Scopri il nostro approggio verso nuovi clienti e nuovi progetti.
+                <br />
+                <strong>
+                  Rivolto sia a piccole ditte che grandi aziende, digitalizziamo la tua attività.
+                </strong>
+              </p>
+            </div>
+          </div>
+          <DevelopmentProcess />
+        </div>
+      </section>
+      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-12 gap-1">
+            <div className="col-start-3  col-end-11">
+              <h1
+                className={cn(
+                  'font-bold',
+                  'text-center',
+                  'text-xl',
+                  'text-accent',
+                  'font-avenir'
+                )}
+              >
+                I nostri servizi Marketing & SEO
+              </h1>
+              <p
+                className={cn(
+                  'text-center',
+                  'dark:text-white',
+                  'my-5',
+                  'mx-auto',
+                  'text-paragraphLg',
+                  'font-medium'
+                  // 'max-w-[60ch]'
+                )}
+              >
+                Scopri il nostro approggio verso nuovi clienti e nuovi progetti.
+                <br />
+                <strong>
+                  Rivolto sia a piccole ditte che grandi aziende, digitalizziamo la tua attività.
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </Layout>
   );

@@ -355,9 +355,6 @@ export class GlobeClass extends GlobeClassAbstract {
     if (this.loaded.length === this.loading.length) {
       this.isLoaded = true;
     }
-
-    // OK: Corret progression
-    // console.log('fn objectLoaded() - this.isLoaded: ', this.isLoaded);
   };
 
   /**
@@ -425,8 +422,6 @@ export class GlobeClass extends GlobeClassAbstract {
       if (!this.disableGlobeLines) {
         this.addLines();
       }
-
-      console.log('Before first RENDER and INITIALIZATION');
 
       if (!this.initialized || !this.isStatic) {
         // One time is here, after first render() invoke, this function is recursive.

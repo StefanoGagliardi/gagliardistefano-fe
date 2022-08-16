@@ -1,5 +1,13 @@
 // Import core
-import React, { FC, ReactElement, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 // Impor third parts
 import cn from 'classnames';
@@ -74,7 +82,12 @@ export const NavbarMenu: FC = (): ReactElement => {
     closeDropdown();
   };
 
-  const onMouseEnter = (index: number) => {
+  /**
+   * Questa funzion è sempre uguale, ma essendo passata come props a dei compoentni "Figli" e innescata all'evento "onMouseEnter" causa sempre il re-render dei figli.
+   * Per evitare ciò, basta cacharla con useCallback, non ho dipendenze che "ri-calcolano" la funzione perchè "index" agisce su un array statico che non cambia (mega menu dropdown).
+   * Nel caso l'array sul quale agisce il parametro "index" fosse stato dinamico andava aggiunto come deps
+   */
+  const onMouseEnter = useCallback((index: number) => {
     if (animatingOutTimeout.current !== null) {
       clearTimeout(animatingOutTimeout.current);
       resetDropdownState(index);
@@ -85,7 +98,7 @@ export const NavbarMenu: FC = (): ReactElement => {
       setActiveIndices([...activeIndices, index]);
     }
     setAnimatingOut(false);
-  };
+  }, []);
 
   const currentIndex = useMemo(() => {
     return activeIndices[activeIndices.length - 1];
@@ -105,10 +118,10 @@ export const NavbarMenu: FC = (): ReactElement => {
   };
 
   useEffect(() => {
-    if(router.pathname) {
+    if (router.pathname) {
       closeDropdown();
     }
-  }, [router.pathname])
+  }, [router.pathname]);
 
   return (
     <Flipper
@@ -121,8 +134,6 @@ export const NavbarMenu: FC = (): ReactElement => {
         onMouseLeave={navbarMouseLeave}
       >
         {navbarMenuData.map((value: IMainMenuLink, index: number) => {
-          // console.log('navbarMenuData - NavbarItem - value: ', value);
-
           // Render mega menu
           if (value?.megaMenu) {
             let direction = currentIndex > prevIndex ? 'right' : 'left';
@@ -155,8 +166,6 @@ export const NavbarMenu: FC = (): ReactElement => {
               </NavbarItem>
             );
           }
-
-          console.log("Item menu: ", value?.title);
 
           // Simple link, not mega menu
           return (

@@ -110,7 +110,11 @@ module.exports = {
         80: '0  .8',
       },
       spacing: {
+        // h-header in Header.tsx
         header: '80px',
+        // General spacing value
+        '20px': '20px',
+        // Visual Width & Visual height
         '50vw': '50vw',
         '50vh': '50vh',
       },

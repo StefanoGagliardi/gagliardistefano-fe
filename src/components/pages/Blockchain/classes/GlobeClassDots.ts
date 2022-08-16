@@ -77,8 +77,8 @@ class GlobeDotsGroup extends GlobeClassDotsAbstract {
     // Initaializ BufferGeometry
     const bufferGeometry = new BufferGeometry();
 
-    console.log("this.h.length ", this.h.length); // 404604
-    console.log("this.r.length ", this.r.length); // 1213812
+    // console.log("this.h.length ", this.h.length); // 404604
+    // console.log("this.r.length ", this.r.length); // 1213812
 
     /**
      * "Position" attribute is build-in

@@ -1,32 +1,37 @@
+import { useUI } from '@components/ui/context';
 import Link from 'next/link';
 import React, { ReactElement, FC } from 'react';
 
 interface AppLinkProps {
   href: string;
-  label: string;
+  label?: string;
   external?: boolean;
   children?: React.ReactNode;
   className?: any;
   title?: string;
   rel?: string;
   onClick?: () => void;
+  useCursorHandler?: boolean;
 }
 
 export const AppLink: FC<AppLinkProps> = (
   props: AppLinkProps
 ): ReactElement => {
-  const { href, label, external, children, className, title, rel, onClick } =
-    props;
+  const {
+    href,
+    label,
+    external,
+    children,
+    className,
+    title,
+    rel,
+    onClick,
+    useCursorHandler = false,
+  } = props;
+
+  const { setCursortType } = useUI();
 
   if (onClick) {
-    if (children) {
-      return (
-        <a href="#" onClick={onClick} className={className}>
-          {children}
-        </a>
-      );
-    }
-
     return (
       <a
         href={'#'}
@@ -36,50 +41,51 @@ export const AppLink: FC<AppLinkProps> = (
           onClick();
         }}
       >
+        {children ? children : label}
+      </a>
+    );
+  }
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        className={className}
+        title={title || ''}
+        rel={rel ? rel : ''}
+      >
         {label}
       </a>
     );
   }
 
-  if (children && !external) {
-    return (
-      <Link href={href}>
-        <a className={className}>{children}</a>
-      </Link>
-    );
-  }
-
-  if (external) {
-    if (rel && rel !== '') {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          className={className}
-          title={title || ''}
-          rel={rel}
-        >
-          {children ? children : label}
-        </a>
-      );
-    } else {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          className={className}
-          title={title || ''}
-        >
-          {label}
-        </a>
-      );
-    }
-  }
-
   return (
     <Link href={href}>
-      <a href={href} className={className} title={title || ''}>
-        {label}
+      <a
+        href={href}
+        className={className}
+        title={title || ''}
+        rel={rel ? rel : ''}
+        onClick={() => {
+          if (onClick) {
+            onClick();
+          }
+        }}
+        onMouseEnter={() => {
+          if (useCursorHandler === true) {
+            console.log('SET UI CUROSOR TYPE HOVER: ACTIVE');
+            setCursortType('hover');
+          }
+        }}
+        onMouseLeave={() => {
+          if (useCursorHandler === true) {
+            console.log('SET UI CUROSOR TYPE HOVER: DISABLED');
+            setCursortType('initial');
+          }
+        }}
+      >
+        {children ? children : label}
       </a>
     </Link>
   );

@@ -1,6 +1,6 @@
 .focusCardHeader {
   @apply flex;
-  @aplly items-center;
+  @apply items-center;
   margin-bottom: 20px;
   padding-top: 20px;
 }
@@ -98,6 +98,7 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 3;
 }
 
 .square {

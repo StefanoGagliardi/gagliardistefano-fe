@@ -15,11 +15,6 @@
   font-weight: bold;
 }
 
-.subTitle {
-  margin-top: 20px;
-  font-size: 22px;
-}
-
 .scrollIcon {
   position: absolute;
   top: 20px;
@@ -27,14 +22,14 @@
 }
 
 .secondSection {
-  min-height: 500px;
+  /* min-height: 500px; */
   position: relative;
 }
 
 .secondSectionBefore {
-  height: 600px;
+  /* height: 600px; */
 }
 
 .secondSectionAfter {
-  min-height: 600px;
+  /* min-height: 600px; */
 }
