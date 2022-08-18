@@ -76,6 +76,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <ManagedUIContext>
         {/* <AnimateSharedLayout> */}
         {/* <Layout pageProps={pageProps}> */}
+
         <AnimatePresence
           exitBeforeEnter
           initial={false}

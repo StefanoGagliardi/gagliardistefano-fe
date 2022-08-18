@@ -55,7 +55,7 @@ export const AppLink: FC<AppLinkProps> = (
         title={title || ''}
         rel={rel ? rel : ''}
       >
-        {label}
+        {children ? children : label}
       </a>
     );
   }

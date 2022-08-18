@@ -115,10 +115,10 @@
   width: 100px;
   height: 100px;
 
-  animation: animate 15s linear infinite;
+  /* animation: animate 15s linear infinite; */
 }
 
-@keyframes animate {
+/* @keyframes animate {
   0%,
   100% {
     transform: translateY(-70px);
@@ -126,7 +126,7 @@
   50% {
     transform: translateY(70px);
   }
-}
+} */
 
 .square:nth-child(1) {
   z-index: 2;
@@ -156,7 +156,7 @@
 }
 
 .square:nth-child(3) {
-  bottom: -200px;
+  bottom: -100px;
   left: 200px;
   background-image: url("http://localhost:3000/tech-logo/wordpress.svg");
   background-repeat: no-repeat;
@@ -177,7 +177,7 @@
 }
 
 .square:nth-child(5) {
-  top: -200px;
+  top: -100px;
   left: 50%;
   background-image: url("http://localhost:3000/tech-logo/typescriptlang-icon.svg");
   background-repeat: no-repeat;
@@ -231,7 +231,7 @@
 }
 
 /* .square:nth-child(10) {
-  top: -200px;
+  top: -100px;
   left: 50%;
 } */
 

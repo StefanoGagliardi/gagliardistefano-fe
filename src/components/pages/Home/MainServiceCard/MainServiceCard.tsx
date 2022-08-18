@@ -1,34 +1,292 @@
 // import core
-import React, { FC, ReactElement } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 // import third parts
 import cn from 'classnames';
+// import gsap from 'gsap/dist/gsap.js';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 
 // import custom
 import s from './MainServiceCard.module.css';
 import {
   SvgArrowRightLongLight,
-  SvgArrowRightLongRegular,
-  SvgArrowRightLongThin,
   SvgEcommerce,
   SvgGlobe,
   SvgSmartphone,
 } from '@assets/svg';
 import Link from 'next/link';
 import url from '@services/url';
+import useMapRef from '@services/hooks/useMapRef';
 
 export const MainServiceCard: FC = (): ReactElement => {
+  // Custom hook per salvare un Array (Map) di referenze in un'unica
+  // Le referenze vengono storate con una chiave perchè l'ordine portrebbe cambiare in base al tempo di caricamento di alcuni componenti
+  const [gsapRef, setGsapRef] = useMapRef<HTMLElement>();
+  const [tl, setTl] = useState(() => gsap.timeline({ repeat: 0 }));
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const refElements: Map<number, HTMLElement> = gsapRef.current; // Array of dom references
+
+    // Ensure to hide all elements before show animation
+    hide(refElements.get(0));
+    hide(refElements.get(1));
+    hide(refElements.get(2));
+
+    tl.to(refElements.get(0), {
+      // autoAlpha: 1,
+      duration: 3,
+      immediateRender: false, // Prevent animation, and startwith scrollTrigger
+      scrollTrigger: {
+        trigger: refElements.get(0),
+        // start: 'top +=100px',
+        start: 'center bottom', // center of trigger touch bottom of viewporet
+        markers: true,
+        scrub: false,
+        onEnter: function () {
+          fadeIdDown(refElements.get(0), 1);
+        },
+        onEnterBack: function () {
+          // Se arrivo dal basso el card entrano dall'altro, figata :)\
+          fadeIdDown(refElements.get(0), -1);
+        },
+        onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
+          // Nascondo l'elemento quando esco dalla sezione\
+          console.log(progress, direction, isActive);
+          hide(refElements.get(0));
+        }, // assure that the element is hidden when scrolled into view
+        onLeaveBack: function ({
+          progress,
+          direction,
+          isActive,
+        }: ScrollTrigger) {
+          // Nascondo l'elemento quando esco dalla sezione\
+          console.log(progress, direction, isActive);
+          hide(refElements.get(0));
+        }, // assure that the element is hidden when scrolled into view
+      },
+    })
+      .to(refElements.get(1), {
+        // autoAlpha: 1,
+        duration: 3,
+        immediateRender: false, // Prevent animation, and startwith scrollTrigger
+        scrollTrigger: {
+          trigger: refElements.get(1),
+          // start: 'top +=100px',
+          start: 'center bottom', // center of trigger touch bottom of viewporet
+          markers: true,
+          scrub: false,
+          onEnter: function () {
+            fadeIdDown(refElements.get(1), 1, 0.6);
+          },
+          onEnterBack: function () {
+            // Se arrivo dal basso el card entrano dall'altro, figata :)\
+            fadeIdDown(refElements.get(1), -1, 0.6);
+          },
+          onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
+            // Nascondo l'elemento quando esco dalla sezione\
+            console.log(progress, direction, isActive);
+            hide(refElements.get(1));
+          }, // assure that the element is hidden when scrolled into view
+          onLeaveBack: function ({
+            progress,
+            direction,
+            isActive,
+          }: ScrollTrigger) {
+            // Nascondo l'elemento quando esco dalla sezione\
+            console.log(progress, direction, isActive);
+            hide(refElements.get(1));
+          }, // assure that the element is hidden when scrolled into view
+        },
+      })
+      .to(refElements.get(2), {
+        // autoAlpha: 1,
+        duration: 3,
+        immediateRender: false, // Prevent animation, and startwith scrollTrigger
+        scrollTrigger: {
+          trigger: refElements.get(2),
+          // start: 'top +=100px',
+          start: 'center bottom', // center of trigger touch bottom of viewporet
+          markers: true,
+          scrub: false,
+          onEnter: function () {
+            fadeIdDown(refElements.get(2), 1, 1.2);
+          },
+          onEnterBack: function () {
+            // Se arrivo dal basso el card entrano dall'altro, figata :)\
+            fadeIdDown(refElements.get(2), -1, 1.2);
+          },
+          onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
+            // Nascondo l'elemento quando esco dalla sezione\
+            console.log(progress, direction, isActive);
+            hide(refElements.get(2));
+          }, // assure that the element is hidden when scrolled into view
+          onLeaveBack: function ({
+            progress,
+            direction,
+            isActive,
+          }: ScrollTrigger) {
+            // Nascondo l'elemento quando esco dalla sezione\
+            console.log(progress, direction, isActive);
+            hide(refElements.get(2));
+          }, // assure that the element is hidden when scrolled into view
+        },
+      })
+      .fromTo(
+        refElements.get(3),
+        {
+          autoAlpha: 0,
+          y: -100,
+        },
+        {
+          autoAlpha: 1,
+          y: 100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(3),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: true,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      );
+
+    // ScrollTrigger (possibile usarlo nella timeline)
+    // ScrollTrigger.create({
+    //   trigger: refElements.get(0),
+    //   onEnter: function () {
+    //     animateFrom(refElements.get(0));
+    //   },
+    //   onEnterBack: function () {
+    //     // Se arrivo dal basso el card entrano dall'altro, figata :)\
+    //     animateFrom(refElements.get(0), -1);
+    //   },
+    //   onLeave: function () {
+    //     // Nascondo l'elemento quando esco dalla sezione\
+    //     hide(refElements.get(0));
+    //   }, // assure that the element is hidden when scrolled into view
+    // });
+  }, []);
+
+  const fadeIdDown = useCallback(
+    (elem: HTMLElement, direction: 1 | -1 = 1, delay: number = 0): void => {
+      // Coords from
+      const x = 0;
+      const y = 100 * direction;
+
+      elem.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+      elem.style.opacity = '0';
+
+      gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+          duration: 2,
+          x: 0,
+          y: 0,
+          delay,
+          autoAlpha: 1,
+          ease: 'expo',
+          overwrite: 'auto',
+        }
+      );
+    },
+    []
+  );
+
+  const animateFrom = (elem: HTMLElement, direction?: number) => {
+    direction = direction || 1;
+    var x = 0,
+      y = direction * 100;
+    if (elem.classList.contains('gs_reveal_fromLeft')) {
+      x = -100;
+      y = 0;
+    } else if (elem.classList.contains('gs_reveal_fromRight')) {
+      x = 100;
+      y = 0;
+    }
+
+    elem.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+    elem.style.opacity = '0';
+
+    gsap.fromTo(
+      elem,
+      { x: x, y: y, autoAlpha: 0 },
+      {
+        duration: 1.25,
+        x: 0,
+        y: 0,
+        autoAlpha: 1,
+        ease: 'expo',
+        overwrite: 'auto',
+      }
+    );
+  };
+
+  /**
+   * Hide HTMLElement with Gsap via alpha (opacity) 0 to ensure right show of animation
+   * @param elem: HTMLElement | Map<number, HTMLElement>
+   * @returns void
+   */
+  const hide = (elem: HTMLElement | Map<number, HTMLElement>): void => {
+    if (elem instanceof Map) {
+      console.log('HIDE ELEM:');
+      elem.forEach((value, key) => {
+        console.log(key, value);
+        gsap.killTweensOf(value);
+        gsap.set(value, { autoAlpha: 0 });
+      });
+
+      return;
+    }
+    gsap.killTweensOf(elem);
+    gsap.set(elem, { autoAlpha: 0 });
+  };
+
   return (
     <>
       {/* <div className={s.colors1}></div>
       <div className={s.colors2}></div>
       <div className={s.colors3}></div>
       <div className={s.colors4}></div> */}
-      <div className="container mx-auto relative">
+      <div
+        className="container mx-auto relative"
+        // ref={(ref: HTMLDivElement) => setGsapRef(ref, 0)}
+      >
         <div className={s.square}></div>
         <div className={s.square}></div>
         <div className={s.square}></div>
-        <div className={s.square}></div>
+        <div
+          className={cn(s.square, 'square-first-icon')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 3)}
+        ></div>
         <div className={s.square}></div>
         <div className={s.square}></div>
         <div className={s.square}></div>
@@ -36,7 +294,10 @@ export const MainServiceCard: FC = (): ReactElement => {
         <div className={s.square}></div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
-          <div className={cn(s.serviceCard, 'relative', 'p-50')}>
+          <div
+            className={cn(s.serviceCard, 'relative', 'p-50')}
+            ref={(ref: HTMLDivElement) => setGsapRef(ref, 0)}
+          >
             <div className={cn('z-10 relative mx-10')}>
               <div className={s.focusCardHeader}>
                 <span>
@@ -70,7 +331,10 @@ export const MainServiceCard: FC = (): ReactElement => {
               </div>
             </div>
           </div>
-          <div className={cn(s.serviceCard, 'relative', 'p-50', 'glass')}>
+          <div
+            className={cn(s.serviceCard, 'relative', 'p-50')}
+            ref={(ref: HTMLDivElement) => setGsapRef(ref, 1)}
+          >
             <div className={cn('z-10 relative mx-10')}>
               <div className={s.focusCardHeader}>
                 <span>
@@ -104,7 +368,10 @@ export const MainServiceCard: FC = (): ReactElement => {
               </div>
             </div>
           </div>
-          <div className={cn(s.serviceCard, 'relative', 'p-50')}>
+          <div
+            className={cn(s.serviceCard, 'relative', 'p-50')}
+            ref={(ref: HTMLDivElement) => setGsapRef(ref, 2)}
+          >
             <div className={cn('z-10 relative mx-10')}>
               <div className={s.focusCardHeader}>
                 <span>
