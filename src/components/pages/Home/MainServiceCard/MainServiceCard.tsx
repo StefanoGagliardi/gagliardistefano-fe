@@ -49,7 +49,7 @@ export const MainServiceCard: FC = (): ReactElement => {
         trigger: refElements.get(0),
         // start: 'top +=100px',
         start: 'center bottom', // center of trigger touch bottom of viewporet
-        markers: true,
+        markers: false,
         scrub: false,
         onEnter: function () {
           fadeIdDown(refElements.get(0), 1);
@@ -60,7 +60,6 @@ export const MainServiceCard: FC = (): ReactElement => {
         },
         onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
           // Nascondo l'elemento quando esco dalla sezione\
-          console.log(progress, direction, isActive);
           hide(refElements.get(0));
         }, // assure that the element is hidden when scrolled into view
         onLeaveBack: function ({
@@ -68,8 +67,6 @@ export const MainServiceCard: FC = (): ReactElement => {
           direction,
           isActive,
         }: ScrollTrigger) {
-          // Nascondo l'elemento quando esco dalla sezione\
-          console.log(progress, direction, isActive);
           hide(refElements.get(0));
         }, // assure that the element is hidden when scrolled into view
       },
@@ -82,7 +79,7 @@ export const MainServiceCard: FC = (): ReactElement => {
           trigger: refElements.get(1),
           // start: 'top +=100px',
           start: 'center bottom', // center of trigger touch bottom of viewporet
-          markers: true,
+          markers: false,
           scrub: false,
           onEnter: function () {
             fadeIdDown(refElements.get(1), 1, 0.6);
@@ -91,18 +88,11 @@ export const MainServiceCard: FC = (): ReactElement => {
             // Se arrivo dal basso el card entrano dall'altro, figata :)\
             fadeIdDown(refElements.get(1), -1, 0.6);
           },
-          onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
+          onLeave: function () {
             // Nascondo l'elemento quando esco dalla sezione\
-            console.log(progress, direction, isActive);
             hide(refElements.get(1));
           }, // assure that the element is hidden when scrolled into view
-          onLeaveBack: function ({
-            progress,
-            direction,
-            isActive,
-          }: ScrollTrigger) {
-            // Nascondo l'elemento quando esco dalla sezione\
-            console.log(progress, direction, isActive);
+          onLeaveBack: function () {
             hide(refElements.get(1));
           }, // assure that the element is hidden when scrolled into view
         },
@@ -115,7 +105,7 @@ export const MainServiceCard: FC = (): ReactElement => {
           trigger: refElements.get(2),
           // start: 'top +=100px',
           start: 'center bottom', // center of trigger touch bottom of viewporet
-          markers: true,
+          markers: false,
           scrub: false,
           onEnter: function () {
             fadeIdDown(refElements.get(2), 1, 1.2);
@@ -124,18 +114,12 @@ export const MainServiceCard: FC = (): ReactElement => {
             // Se arrivo dal basso el card entrano dall'altro, figata :)\
             fadeIdDown(refElements.get(2), -1, 1.2);
           },
-          onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
+          onLeave: function () {
             // Nascondo l'elemento quando esco dalla sezione\
-            console.log(progress, direction, isActive);
             hide(refElements.get(2));
           }, // assure that the element is hidden when scrolled into view
-          onLeaveBack: function ({
-            progress,
-            direction,
-            isActive,
-          }: ScrollTrigger) {
+          onLeaveBack: function () {
             // Nascondo l'elemento quando esco dalla sezione\
-            console.log(progress, direction, isActive);
             hide(refElements.get(2));
           }, // assure that the element is hidden when scrolled into view
         },
@@ -155,7 +139,303 @@ export const MainServiceCard: FC = (): ReactElement => {
             trigger: refElements.get(3),
             // start: 'top +=100px',
             // start: 'bottom bottom', // center of trigger touch bottom of viewporet
-            markers: true,
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(4),
+        {
+          autoAlpha: 0,
+          y: 100,
+        },
+        {
+          autoAlpha: 1,
+          y: -100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(4),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(5),
+        {
+          autoAlpha: 0,
+          y: -100,
+        },
+        {
+          autoAlpha: 1,
+          y: 100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(5),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(6),
+        {
+          autoAlpha: 0,
+          y: 300,
+        },
+        {
+          autoAlpha: 1,
+          y: -100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(6),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(7),
+        {
+          autoAlpha: 0,
+          y: 200,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(7),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(8),
+        {
+          autoAlpha: 0,
+          y: -100,
+        },
+        {
+          autoAlpha: 1,
+          y: 100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(8),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(9),
+        {
+          autoAlpha: 0,
+          y: -100,
+        },
+        {
+          autoAlpha: 1,
+          y: 300,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(9),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(10),
+        {
+          autoAlpha: 0,
+          y: -200,
+        },
+        {
+          autoAlpha: 1,
+          y: 100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(10),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
+            scrub: true,
+            onEnter: function () {
+              // fadeIdDown(refElements.get(3), 1, 1.2);
+            },
+            onEnterBack: function () {
+              // Se arrivo dal basso el card entrano dall'altro, figata :)\
+              // fadeIdDown(refElements.get(3), -1, 1.2);
+            },
+            onLeave: function ({
+              progress,
+              direction,
+              isActive,
+            }: ScrollTrigger) {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+            onLeaveBack: function () {
+              // hide(refElements.get(3));
+            }, // assure that the element is hidden when scrolled into view
+          },
+        }
+      )
+      .fromTo(
+        refElements.get(11),
+        {
+          autoAlpha: 0,
+          y: -200,
+        },
+        {
+          autoAlpha: 1,
+          y: 100,
+          duration: 3,
+          immediateRender: false, // Prevent animation, and startwith scrollTrigger
+          scrollTrigger: {
+            trigger: refElements.get(11),
+            // start: 'top +=100px',
+            // start: 'bottom bottom', // center of trigger touch bottom of viewporet
+            markers: false,
             scrub: true,
             onEnter: function () {
               // fadeIdDown(refElements.get(3), 1, 1.2);
@@ -257,9 +537,8 @@ export const MainServiceCard: FC = (): ReactElement => {
    */
   const hide = (elem: HTMLElement | Map<number, HTMLElement>): void => {
     if (elem instanceof Map) {
-      console.log('HIDE ELEM:');
       elem.forEach((value, key) => {
-        console.log(key, value);
+        // console.log(key, value);
         gsap.killTweensOf(value);
         gsap.set(value, { autoAlpha: 0 });
       });
@@ -280,18 +559,42 @@ export const MainServiceCard: FC = (): ReactElement => {
         className="container mx-auto relative"
         // ref={(ref: HTMLDivElement) => setGsapRef(ref, 0)}
       >
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
+        <div
+          className={cn(s.square, 'sass')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 6)}
+        ></div>
+        <div
+          className={cn(s.square, 'docker')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 5)}
+        ></div>
+        <div
+          className={cn(s.square, 'wordpress')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 4)}
+        ></div>
         <div
           className={cn(s.square, 'square-first-icon')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 3)}
         ></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
-        <div className={s.square}></div>
+        <div
+          className={cn(s.square, 'ts')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 7)}
+        ></div>
+        <div
+          className={cn(s.square, 'react')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 8)}
+        ></div>
+        <div
+          className={cn(s.square, 'redux')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 9)}
+        ></div>
+        <div
+          className={cn(s.square, '')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 10)}
+        ></div>
+        <div
+          className={cn(s.square, '')}
+          ref={(ref: HTMLDivElement) => setGsapRef(ref, 11)}
+        ></div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
           <div

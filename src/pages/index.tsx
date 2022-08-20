@@ -37,6 +37,7 @@ export const Home = (): JSX.Element => {
   // First section animation Refs
   //Note that we are using useState instead of useRef with the timeline. This is to ensure the timeline will be available when the child renders for the first time.
   const [tl, setTl] = useState(() => gsap.timeline({ repeat: 0 }));
+  const [tl2, setTl2] = useState(() => gsap.timeline({ repeat: 0 }));
 
   // First Section Timeline animation
   useEffect(() => {

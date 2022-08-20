@@ -1,7 +1,10 @@
 // Core
-import { FC, ReactElement, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 // third partrs
 import cn from 'classnames';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
+import useMapRef from '@services/hooks/useMapRef';
 
 /**
  * Script start
@@ -16,17 +19,155 @@ const DevelopmentProcess: FC = (): ReactElement => {
     | 'CIRCLE_V2-5'
     | 'CIRCLE_V2-6'
   >('CIRCLE_V2');
-  const handleActiveCircle = (pathId) => {
-    setActivePath(pathId);
+  // const handleActiveCircle = (pathId) => {
+  //   setActivePath(pathId);
+  // };
+
+  const [gsapRef, setGsapRef] = useMapRef<HTMLElement>();
+  // const [tl, setTl] = useState(() => gsap.timeline());
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const refElements: Map<number, HTMLElement> = gsapRef.current; // Array of dom references
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: refElements.get(0),
+        start: 'center center',
+        // makes the height of the scrolling (while pinning) match the width, thus the speXed remains constant (vertical/horizontal)
+        // end: () => '+=' + refElements.get(0).offsetWidth,
+        scrub: true,
+        pin: true,
+        markers: true,
+        // anticipatePin: 1,
+        onEnter: function () {
+          // fadeIdDown(refElements.get(3), 1, 1.2);
+          console.log('ON-ENTER SVG ANIMATIONSA');
+        },
+        onEnterBack: function () {
+          // Se arrivo dal basso el card entrano dall'altro, figata :)\
+          // fadeIdDown(refElements.get(3), -1, 1.2);
+          console.log('ON-ENTER-BACK SVG ANIMATIONSA');
+        },
+        onLeave: function ({ progress, direction, isActive }: ScrollTrigger) {
+          // hide(refElements.get(3));
+          console.log('ON-LEAVE SVG ANIMATIONSA');
+        }, // assure that the element is hidden when scrolled into view
+        onLeaveBack: function () {
+          // hide(refElements.get(3));
+          console.log('ON-LEAVE-BASCK SVG ANIMATIONSA');
+        }, // assure that the element is hidden when scrolled into view
+      },
+      defaults: { ease: 'none' },
+    });
+
+    tl.fromTo(
+      refElements.get(2),
+      {
+        attr: { 'stroke-dasharray': '600 350' },
+      },
+      {
+        attr: { 'stroke-dasharray': '600 0' },
+        duration: 0.2,
+        onStart: () => {
+          console.log('On start FIRST CIRCLE');
+          setActivePath('CIRCLE_V2-2');
+        },
+      }
+    )
+      .add('scene-2')
+      .fromTo(
+        refElements.get(3),
+        {
+          attr: { 'stroke-dasharray': '800 465' },
+        },
+        {
+          attr: { 'stroke-dasharray': '800 0' },
+          duration: 0.2,
+          onStart: () => {
+            console.log('On start SECOND CIRCLE');
+            setActivePath('CIRCLE_V2-3');
+          },
+          onRepeat: () => {
+            console.log('On start SECOND CIRCLE');
+            setActivePath('CIRCLE_V2-3');
+          },
+        }
+      )
+      .add('scene-3')
+      .fromTo(
+        refElements.get(4),
+        {
+          attr: { 'stroke-dasharray': '900 630' },
+        },
+        {
+          attr: { 'stroke-dasharray': '900 0' },
+          duration: 0.2,
+          onStart: () => {
+            console.log('On start THIRD CIRCLE');
+            setActivePath('CIRCLE_V2-4');
+          },
+        }
+      )
+      .add('scene-4')
+      .fromTo(
+        refElements.get(5),
+        {
+          attr: { 'stroke-dasharray': '900 790' },
+        },
+        {
+          attr: { 'stroke-dasharray': '900 0' },
+          duration: 0.2,
+          onStart: () => {
+            console.log('On start THIRD CIRCLE');
+            setActivePath('CIRCLE_V2-5');
+          },
+        }
+      )
+      .add('scene-5')
+      .fromTo(
+        refElements.get(6),
+        {
+          attr: { 'stroke-dasharray': '1112 984' },
+        },
+        {
+          attr: { 'stroke-dasharray': '1112 0' },
+          duration: 0.2,
+          onStart: () => {
+            console.log('On start THIRD CIRCLE');
+            setActivePath('CIRCLE_V2-6');
+          },
+        }
+      );
+  }, []);
+
+  /**
+   * Hide HTMLElement with Gsap via alpha (opacity) 0 to ensure right show of animation
+   * @param elem: HTMLElement | Map<number, HTMLElement>
+   * @returns void
+   */
+  const hide = (elem: HTMLElement | Map<number, HTMLElement>): void => {
+    if (elem instanceof Map) {
+      console.log('HIDE ELEM:');
+      elem.forEach((value, key) => {
+        console.log(key, value);
+        gsap.killTweensOf(value);
+        gsap.set(value, { autoAlpha: 0 });
+      });
+
+      return;
+    }
+    gsap.killTweensOf(elem);
+    gsap.set(elem, { autoAlpha: 0 });
   };
 
   return (
-    <div className="grid grid-cols-12 gap-1 mt-60px">
+    <div
+      className="grid grid-cols-12 gap-1 mt-60px"
+      ref={(ref: any) => setGsapRef(ref, 0)}
+    >
       <div className="col-start-3 col-span-4 self-center">
         {activePath === 'CIRCLE_V2' && (
-          <div
-            className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-          >
+          <div className="px-20px py-20px bg-white relative z-3 max-w-[90%]">
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 1 - Analisi della tua idea
             </h3>
@@ -41,9 +182,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
         )}
 
         {activePath === 'CIRCLE_V2-2' && (
-          <div
-            className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-          >
+          <div className="px-20px py-20px bg-white relative z-3 max-w-[90%]">
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 2 - Creazione Mockup grafico
             </h3>
@@ -59,9 +198,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
         )}
 
         {activePath === 'CIRCLE_V2-3' && (
-          <div
-            className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-          >
+          <div className="px-20px py-20px bg-white relative z-3 max-w-[90%]">
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 3 - Costruzione Prototipo
             </h3>
@@ -74,9 +211,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
         )}
 
         {activePath === 'CIRCLE_V2-4' && (
-          <div
-            className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-          >
+          <div className="px-20px py-20px bg-white relative z-3 max-w-[90%]">
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 4 - Messa Online
             </h3>
@@ -93,9 +228,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
           </div>
         )}
         {activePath === 'CIRCLE_V2-5' && (
-          <div
-            className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-          >
+          <div className="px-20px py-20px bg-white relative z-3 max-w-[90%]">
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 5 - Promozione
             </h3>
@@ -108,9 +241,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
           </div>
         )}
         {activePath === 'CIRCLE_V2-6' && (
-          <div
-            className="px-20px py-20px bg-white relative z-3 max-w-[90%]"
-          >
+          <div className="px-20px py-20px bg-white relative z-3 max-w-[90%]">
             <h3 className={cn('text-accent', 'text-lg', 'font-bold', 'mb-2')}>
               Fase 6 - Assistenza e Ottimizzazione
             </h3>
@@ -148,6 +279,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
               <g id="CIRCLES_WRAPPER" transform="translate(772.054 169.137)">
                 <g id="FASE-1" transform="translate(0 -0.241)">
                   <path
+                    ref={(ref: any) => setGsapRef(ref, 1)}
                     id="CIRCLE_V2"
                     d="M114.835,0A114.835,114.835,0,1,1,0,114.835,114.835,114.835,0,0,1,114.835,0Z"
                     transform="matrix(0.883, 0.469, -0.469, 0.883, 137.337, 215.689)"
@@ -161,9 +293,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     className={cn({
                       'active-circle-path': activePath === 'CIRCLE_V2',
                     })}
-                    onClick={(e: React.MouseEvent<SVGPathElement>) => {
-                      handleActiveCircle('CIRCLE_V2');
-                    }}
+                    // onClick={(e: React.MouseEvent<SVGPathElement>) => {
+                    //   handleActiveCircle('CIRCLE_V2');
+                    // }}
                   />
                   <path
                     id="FASE_1_TEXT"
@@ -174,6 +306,7 @@ const DevelopmentProcess: FC = (): ReactElement => {
                 </g>
                 <g id="FASE-2" transform="translate(-1.185 0.063)">
                   <path
+                    ref={(ref: any) => setGsapRef(ref, 2)}
                     id="CIRCLE_V2-2"
                     data-name="CIRCLE_V2"
                     d="M162.1,0A162.1,162.1,0,1,1,0,162.1,162.1,162.1,0,0,1,162.1,0Z"
@@ -188,9 +321,9 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     className={cn({
                       'active-circle-path': activePath === 'CIRCLE_V2-2',
                     })}
-                    onClick={(e: React.MouseEvent<SVGPathElement>) => {
-                      handleActiveCircle('CIRCLE_V2-2');
-                    }}
+                    // onClick={(e: React.MouseEvent<SVGPathElement>) => {
+                    //   handleActiveCircle('CIRCLE_V2-2');
+                    // }}
                   />
                   <path
                     id="FASE_2_TEXT"
@@ -215,9 +348,10 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     className={cn({
                       'active-circle-path': activePath === 'CIRCLE_V2-3',
                     })}
-                    onClick={(e: React.MouseEvent<SVGPathElement>) => {
-                      handleActiveCircle('CIRCLE_V2-3');
-                    }}
+                    // onClick={(e: React.MouseEvent<SVGPathElement>) => {
+                    //   handleActiveCircle('CIRCLE_V2-3');
+                    // }}
+                    ref={(ref: any) => setGsapRef(ref, 3)}
                   />
                   <path
                     id="FASE_3_TEXT"
@@ -242,9 +376,10 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     className={cn({
                       'active-circle-path': activePath === 'CIRCLE_V2-4',
                     })}
-                    onClick={(e: React.MouseEvent<SVGPathElement>) => {
-                      handleActiveCircle('CIRCLE_V2-4');
-                    }}
+                    // onClick={(e: React.MouseEvent<SVGPathElement>) => {
+                    //   handleActiveCircle('CIRCLE_V2-4');
+                    // }}
+                    ref={(ref: any) => setGsapRef(ref, 4)}
                   />
                   <path
                     id="FASE_4_TEXT"
@@ -269,9 +404,10 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     className={cn({
                       'active-circle-path': activePath === 'CIRCLE_V2-5',
                     })}
-                    onClick={(e: React.MouseEvent<SVGPathElement>) => {
-                      handleActiveCircle('CIRCLE_V2-5');
-                    }}
+                    // onClick={(e: React.MouseEvent<SVGPathElement>) => {
+                    //   handleActiveCircle('CIRCLE_V2-5');
+                    // }}
+                    ref={(ref: any) => setGsapRef(ref, 5)}
                   />
                   <path
                     id="FASE_5_TEXT"
@@ -296,9 +432,10 @@ const DevelopmentProcess: FC = (): ReactElement => {
                     className={cn({
                       'active-circle-path': activePath === 'CIRCLE_V2-6',
                     })}
-                    onClick={(e: React.MouseEvent<SVGPathElement>) => {
-                      handleActiveCircle('CIRCLE_V2-6');
-                    }}
+                    // onClick={(e: React.MouseEvent<SVGPathElement>) => {
+                    //   handleActiveCircle('CIRCLE_V2-6');
+                    // }}
+                    ref={(ref: any) => setGsapRef(ref, 6)}
                   />
                   <path
                     id="FASE_6_TEXT"
