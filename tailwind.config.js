@@ -114,6 +114,8 @@ module.exports = {
         header: '80px',
         // General spacing value
         '20px': '20px',
+        '50px': '50px',
+        '60px': '60px',
         // Visual Width & Visual height
         '50vw': '50vw',
         '50vh': '50vh',

@@ -157,3 +157,13 @@ sleep 2m
 curl -I https://gioiellissimo.it
 curl -I http://api.gioiellissimo.it/
 ```
+
+### Heroku deploy
+
+1. Login to heroku via CLI `heroku login`, login tramie browser, account logged as response in terminal.
+2. Se non ho ancora un repo procedo con `git init`
+3. Se ho già una repo salto il punto 2 e procedo con `heroku git:remote -a next-generation-developers`
+4. Ora push un commit con i classici:
+   4.1  ` git add .` - Add all change files to next commit
+   4.2  `git commit -am "Heroku commit"` - Create commit with comment
+   4.3  `git push heroku master` - Push commits to Master branch in repo 

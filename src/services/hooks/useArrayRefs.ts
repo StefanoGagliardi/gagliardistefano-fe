@@ -5,7 +5,7 @@ import React, { MutableRefObject, useRef } from 'react';
  */
 const useArrayRef = (): [
   MutableRefObject<any>,
-  (ref: MutableRefObject<any>, key: number) => void
+  (ref: any) => void
 ] => {
   const refs = useRef<any[]>([]);
   refs.current = [];

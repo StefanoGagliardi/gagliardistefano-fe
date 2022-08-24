@@ -1,12 +1,12 @@
 // Import core
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 
 // Import third parts
 import cn from 'classnames';
-import gsap from 'gsap/dist/gsap.js';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 // Import customs
 import s from './index.module.css';
@@ -14,9 +14,29 @@ import Layout from '@components/common/Layout';
 import HomeComponents from '@components/pages/Home';
 import Link from 'next/link';
 import url from '@services/url';
-import { SvgArrowRightLongRegular, SvgFileContractThin } from '@assets/svg';
+import {
+  SvgArrowRightLongRegular,
+  SvgChartUserRegular,
+  SvgDiceD20Regular,
+  SvgFileContractRegular,
+  SvgHexagonVerticalNFTRegular,
+  SvgBarcodeReadRegular,
+  SvgBitcoinSignRegular,
+  SvgChartPieRegular,
+  SvgEnvelopeOpenDollarRegular,
+  SvgFacebookFBrands,
+  SvgFileInvoiceRegular,
+  SvgFilterCircleDollarRegular,
+  SvgGoogleBrands,
+  SvgHeadsetRegular,
+  SvgLanguageRegular,
+  SvgTruckFastRegular,
+} from '@assets/svg';
 import DevelopmentProcess from '@components/pages/sections/DevelopmentProcess';
 import useMapRef from '@services/hooks/useMapRef';
+import FocusBox from '@components/pages/services/FocusBox';
+import useArrayRef from '@services/hooks/useArrayRefs';
+import { useIsomorphicLayoutEffect } from 'framer-motion';
 
 /**
  * Script start
@@ -37,10 +57,9 @@ export const Home = (): JSX.Element => {
   // First section animation Refs
   //Note that we are using useState instead of useRef with the timeline. This is to ensure the timeline will be available when the child renders for the first time.
   const [tl, setTl] = useState(() => gsap.timeline({ repeat: 0 }));
-  const [tl2, setTl2] = useState(() => gsap.timeline({ repeat: 0 }));
 
   // First Section Timeline animation
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const animationRefs = gsapRef.current;
     // tl.to([imationRefs.get(4)], { scale: 0.6, duration: 2 });
     tl.add('first-section')
@@ -71,8 +90,144 @@ export const Home = (): JSX.Element => {
       );
   }, []);
 
+  /**
+   * Gsap menu item stagger animation
+   */
+  const [gsapRefArray, setGsapRefArray] = useArrayRef();
+  useIsomorphicLayoutEffect(() => {
+    // hide(gsapRefArray.current);
+    // Register scroll plugin for GSAP
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      gsapRefArray.current,
+      {
+        autoAlpha: 0,
+        y: -100,
+      },
+      {
+        // NB: REMOVE PROPS FROM HERE Beacuse Define animation in onEnter callback,
+        // This double fromTo() cause double render
+        // autoAlpha: 1,
+        // y: 0,
+        immediateRender: false, // Prevent animation, and startwith scrollTrigger
+        scrollTrigger: {
+          trigger: gsapRefArray.current[0],
+          markers: true,
+          onEnter: (self: ScrollTrigger) => {
+            gsap.fromTo(
+              gsapRefArray.current,
+              {
+                autoAlpha: 0,
+                y: -100,
+              },
+              {
+                autoAlpha: 1,
+                y: 0,
+                stagger: {
+                  from: 'start', // "start", "center", "edges", "random", or "end"
+                  each: 0.2,
+                },
+              }
+            );
+          },
+          onEnterBack: (self: ScrollTrigger) => {
+            gsap.fromTo(
+              gsapRefArray.current,
+              {
+                autoAlpha: 0,
+                y: 100,
+              },
+              {
+                autoAlpha: 1,
+                y: 0,
+                stagger: {
+                  from: 'end', // "start", "center", "edges", "random", or "end"
+                  each: 0.2,
+                },
+              }
+            );
+          },
+          onLeaveBack: (self: ScrollTrigger) => {
+            hide(gsapRefArray.current);
+          },
+          onLeave: (self: ScrollTrigger) => {
+            hide(gsapRefArray.current);
+          },
+        },
+      }
+    );
+  }, []);
+
+  /**
+   * Web3 Section TAB - Animation
+   */
+  const [activeWeb3, setActiveWeb3] = useState<number>(1); // Active TAB of Web3 section
+  const [gsapRefWeb, setGsapRefWeb3] = useMapRef<HTMLElement>();
+  useIsomorphicLayoutEffect(() => {
+    const animationRefs = gsapRefWeb.current;
+    // NB: Da una refs, posso accedere agli elementi figli trami .children().
+    // Posso usarli accendendoci come Array oppure usare direttamente l'array nel caso di uno stagger
+    if (activeWeb3 === 1) {
+      gsap.fromTo(
+        animationRefs.get(0).children,
+        { autoAlpha: 0, y: 50 },
+        { autoAlpha: 1, y: 0, duration: 1, stagger: 0.15 }
+      );
+    }
+    if (activeWeb3 === 2) {
+      gsap.fromTo(
+        animationRefs.get(1).children,
+        { autoAlpha: 0, y: 50 },
+        { autoAlpha: 1, y: 0, duration: 1, stagger: 0.15 }
+      );
+    }
+    if (activeWeb3 === 3) {
+      gsap.fromTo(
+        animationRefs.get(2).children,
+        { autoAlpha: 0, y: 50 },
+        { autoAlpha: 1, y: 0, duration: 1, stagger: 0.15 }
+      );
+    }
+    if (activeWeb3 === 4) {
+      gsap.fromTo(
+        animationRefs.get(3).children,
+        { autoAlpha: 0, y: 50 },
+        { autoAlpha: 1, y: 0, duration: 1, stagger: 0.15 }
+      );
+    }
+  }, [activeWeb3]);
+
+  /**
+   * Hide HTMLElement with Gsap via alpha (opacity) 0 to ensure right show of animation
+   * @param elem: HTMLElement | HTMLElement[] | Map<number, HTMLElement>
+   * @returns void
+   */
+  const hide = (elem: HTMLElement | Map<number, HTMLElement>): void => {
+    // JS Map with DOM Reference
+    if (elem instanceof Map) {
+      elem.forEach((value, key) => {
+        gsap.killTweensOf(value);
+        gsap.set(value, { autoAlpha: 0 });
+      });
+      return;
+    }
+
+    // Array of DOM reference
+    if (Array.isArray(elem) && elem.length > 0) {
+      for (let i = 0; i < elem.length; i++) {
+        gsap.killTweensOf(elem[i]);
+        gsap.set(elem[i], { autoAlpha: 0 });
+      }
+      return;
+    }
+
+    // Single element
+    gsap.killTweensOf(elem);
+    gsap.set(elem, { autoAlpha: 0 });
+  };
+
   return (
-    <Layout pageProps={{ useDotsBg: true }}>
+    <Layout pageProps={{ useDotsBg: true, wrapperClasses: ['homepage'] }}>
       <Head>
         <title>Create Next App</title>
       </Head>
@@ -194,9 +349,10 @@ export const Home = (): JSX.Element => {
         <HomeComponents.MainServiceCard />
       </section>
       <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
-        <div className="container mx-auto">
-          <div className="grid grid-cols-12 gap-1">
-            <div className="col-start-3  col-end-11">
+        {/* <div className="container mx-auto"> */}
+        <DevelopmentProcess
+          introColumnContent={
+            <>
               <h1
                 className={cn(
                   'font-bold',
@@ -226,10 +382,10 @@ export const Home = (): JSX.Element => {
                   la tua attività.
                 </strong>
               </p>
-            </div>
-          </div>
-          <DevelopmentProcess />
-        </div>
+            </>
+          }
+        />
+        {/* </div> */}
       </section>
       <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
         <div className="container mx-auto">
@@ -265,6 +421,73 @@ export const Home = (): JSX.Element => {
                 </strong>
               </p>
             </div>
+            <div
+              className={cn(
+                'col-start-3',
+                'col-span-8',
+                'flex',
+                'flex-wrap',
+                'focus-tag-grid',
+                'focus-text-inline',
+                'pt-60px'
+              )}
+            >
+              <FocusBox
+                text={'Analytics Sitoweb & Ecommerce'}
+                icon={<SvgChartPieRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Integrazione spedizionieri'}
+                icon={<SvgTruckFastRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Email marketing'}
+                icon={<SvgEnvelopeOpenDollarRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Google Merchant'}
+                icon={<SvgGoogleBrands />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Customer live chat'}
+                icon={<SvgHeadsetRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Multilingua e multi-regione'}
+                icon={<SvgLanguageRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Facebook & Instagram Shop'}
+                icon={<SvgFacebookFBrands />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Campagne Advertising Social'}
+                icon={<SvgFilterCircleDollarRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Codici promozionali'}
+                icon={<SvgBarcodeReadRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Fatture PDF e Fatturazione automatica'}
+                icon={<SvgFileInvoiceRegular />}
+                setRef={setGsapRefArray}
+              />
+              <FocusBox
+                text={'Supporto Web3 e Crypto'}
+                icon={<SvgBitcoinSignRegular />}
+                setRef={setGsapRefArray}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -292,7 +515,8 @@ export const Home = (): JSX.Element => {
                   'my-5',
                   'mx-auto',
                   'text-paragraphLg',
-                  'font-medium'
+                  'font-medium',
+                  'mb-[40px]  '
                   // 'max-w-[60ch]'
                 )}
               >
@@ -310,28 +534,180 @@ export const Home = (): JSX.Element => {
           </div>
           <div className="grid grid-cols-12 gap-1 focus-tag-grid">
             <div className="col-start-3 col-span-3">
-              <div className="grid text-primary bg-primary dark:bg-secondary focus">
-                <SvgFileContractThin />
+              <div
+                className={cn(
+                  'grid text-primary bg-primary dark:bg-secondary focus',
+                  {
+                    'active-focus': activeWeb3 === 1,
+                  }
+                )}
+                onClick={() => setActiveWeb3(1)}
+              >
+                <SvgFileContractRegular />
                 <span>Smart contract</span>
               </div>
-              <div className="grid text-primary bg-primary dark:bg-secondary focus">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path d="M304 240V16.58C304 7.555 310.1 0 320 0c123.7 0 224 100.3 224 224 0 9-7.6 16-16.6 16H304zm189.1-48c-14-71.5-69.6-127.96-141.1-141.1V192h141.1zM256 49.61V288l156.5 156.5c6.7 6.7 6.2 17.7-1.5 23.2-39.2 27.9-87.2 44.3-139 44.3-132.5 0-240-107.4-240-240 0-121.3 90.1-221.66 206.1-237.75 10.1-1.26 17.9 6.11 17.9 15.36zM208 307.9V90.91C133.4 117.3 80 188.4 80 272c0 106 85.1 192 192 192 27.2 0 52.1-5.6 76.4-15.8L208 307.9zM558.4 288c9.2 0 16.6 7.8 15.4 17-7.7 55.9-34.7 105.6-73.9 142.3-6 4.8-15.4 5.2-21.2-.6L320 288h238.4z"></path>
-                </svg>
+              <div
+                className={cn(
+                  'grid text-primary bg-primary dark:bg-secondary focus',
+                  {
+                    'active-focus': activeWeb3 === 2,
+                  }
+                )}
+                onClick={() => setActiveWeb3(2)}
+              >
+                <SvgDiceD20Regular />
                 <span>Applicazioni Web3</span>
               </div>
-              <div className="grid text-primary bg-primary dark:bg-secondary focus">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path d="M304 240V16.58C304 7.555 310.1 0 320 0c123.7 0 224 100.3 224 224 0 9-7.6 16-16.6 16H304zm189.1-48c-14-71.5-69.6-127.96-141.1-141.1V192h141.1zM256 49.61V288l156.5 156.5c6.7 6.7 6.2 17.7-1.5 23.2-39.2 27.9-87.2 44.3-139 44.3-132.5 0-240-107.4-240-240 0-121.3 90.1-221.66 206.1-237.75 10.1-1.26 17.9 6.11 17.9 15.36zM208 307.9V90.91C133.4 117.3 80 188.4 80 272c0 106 85.1 192 192 192 27.2 0 52.1-5.6 76.4-15.8L208 307.9zM558.4 288c9.2 0 16.6 7.8 15.4 17-7.7 55.9-34.7 105.6-73.9 142.3-6 4.8-15.4 5.2-21.2-.6L320 288h238.4z"></path>
-                </svg>
+              <div
+                className={cn(
+                  'grid text-primary bg-primary dark:bg-secondary focus',
+                  {
+                    'active-focus': activeWeb3 === 3,
+                  }
+                )}
+                onClick={() => setActiveWeb3(3)}
+              >
+                <SvgHexagonVerticalNFTRegular />
                 <span>NFT: Non-fungible token</span>
               </div>
-              <div className="grid text-primary bg-primary dark:bg-secondary focus">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                  <path d="M304 240V16.58C304 7.555 310.1 0 320 0c123.7 0 224 100.3 224 224 0 9-7.6 16-16.6 16H304zm189.1-48c-14-71.5-69.6-127.96-141.1-141.1V192h141.1zM256 49.61V288l156.5 156.5c6.7 6.7 6.2 17.7-1.5 23.2-39.2 27.9-87.2 44.3-139 44.3-132.5 0-240-107.4-240-240 0-121.3 90.1-221.66 206.1-237.75 10.1-1.26 17.9 6.11 17.9 15.36zM208 307.9V90.91C133.4 117.3 80 188.4 80 272c0 106 85.1 192 192 192 27.2 0 52.1-5.6 76.4-15.8L208 307.9zM558.4 288c9.2 0 16.6 7.8 15.4 17-7.7 55.9-34.7 105.6-73.9 142.3-6 4.8-15.4 5.2-21.2-.6L320 288h238.4z"></path>
-                </svg>
+              <div
+                className={cn(
+                  'grid text-primary bg-primary dark:bg-secondary focus',
+                  {
+                    'active-focus': activeWeb3 === 4,
+                  }
+                )}
+                onClick={() => setActiveWeb3(4)}
+              >
+                <SvgChartUserRegular />
                 <span>Consulenza Blockchain, SM, crypto, nft</span>
               </div>
+            </div>
+            <div className="col-span-5 pl-[50px]">
+              {activeWeb3 === 1 && (
+                <div ref={(ref) => setGsapRefWeb3(ref, 0)}>
+                  <h3
+                    className={cn(
+                      'font-bold',
+                      'text-lgm',
+                      'text-accent',
+                      'font-avenir'
+                    )}
+                  >
+                    Sviluppo Smart Contract
+                  </h3>
+                  <p
+                    className={cn(
+                      'dark:text-white',
+                      'mt-5',
+                      'text-paragraph',
+                      'font-medium'
+                      // 'max-w-[60ch]'
+                    )}
+                  >
+                    Next Generation offers Smart Contract Development services,
+                    the luxury of making Customized Smart Contract is within
+                    your grasp! With a wealth of experience in building advanced
+                    protocols and Virtual Machines, we have gained a deep
+                    understanding of smart contracts’ inter-dependencies and
+                    efficiency triggers, which helps us underpin your solution
+                    by educated tech know-how.
+                  </p>
+                </div>
+              )}
+              {activeWeb3 === 2 && (
+                <div ref={(ref) => setGsapRefWeb3(ref, 1)}>
+                  <h3
+                    className={cn(
+                      'font-bold',
+                      'text-lgm',
+                      'text-accent',
+                      'font-avenir'
+                    )}
+                  >
+                    Sviluppo applicazioni Web 3.0
+                  </h3>
+                  <p
+                    className={cn(
+                      'dark:text-white',
+                      'mt-5',
+                      'text-paragraph',
+                      'font-medium'
+                      // 'max-w-[60ch]'
+                    )}
+                  >
+                    Next Generation offers Smart Contract Development services,
+                    the luxury of making Customized Smart Contract is within
+                    your grasp! With a wealth of experience in building advanced
+                    protocols and Virtual Machines, we have gained a deep
+                    understanding of smart contracts’ inter-dependencies and
+                    efficiency triggers, which helps us underpin your solution
+                    by educated tech know-how.
+                  </p>
+                </div>
+              )}
+              {activeWeb3 === 3 && (
+                <div ref={(ref) => setGsapRefWeb3(ref, 2)}>
+                  <h3
+                    className={cn(
+                      'font-bold',
+                      'text-lgm',
+                      'text-accent',
+                      'font-avenir'
+                    )}
+                  >
+                    Sviluppo e consulenza NFT: Non-fungible Token
+                  </h3>
+                  <p
+                    className={cn(
+                      'dark:text-white',
+                      'mt-5',
+                      'text-paragraph',
+                      'font-medium'
+                      // 'max-w-[60ch]'
+                    )}
+                  >
+                    Next Generation offers Smart Contract Development services,
+                    the luxury of making Customized Smart Contract is within
+                    your grasp! With a wealth of experience in building advanced
+                    protocols and Virtual Machines, we have gained a deep
+                    understanding of smart contracts’ inter-dependencies and
+                    efficiency triggers, which helps us underpin your solution
+                    by educated tech know-how.
+                  </p>
+                </div>
+              )}
+              {activeWeb3 === 4 && (
+                <div ref={(ref) => setGsapRefWeb3(ref, 3)}>
+                  <h3
+                    className={cn(
+                      'font-bold',
+                      'text-lgm',
+                      'text-accent',
+                      'font-avenir'
+                    )}
+                  >
+                    Consulenza su Blockchain, SM, NFT e Web 3.0
+                  </h3>
+                  <p
+                    className={cn(
+                      'dark:text-white',
+                      'mt-5',
+                      'text-paragraph',
+                      'font-medium'
+                      // 'max-w-[60ch]'
+                    )}
+                  >
+                    Next Generation offers Smart Contract Development services,
+                    the luxury of making Customized Smart Contract is within
+                    your grasp! With a wealth of experience in building advanced
+                    protocols and Virtual Machines, we have gained a deep
+                    understanding of smart contracts’ inter-dependencies and
+                    efficiency triggers, which helps us underpin your solution
+                    by educated tech know-how.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

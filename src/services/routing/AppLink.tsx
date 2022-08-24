@@ -74,13 +74,11 @@ export const AppLink: FC<AppLinkProps> = (
         }}
         onMouseEnter={() => {
           if (useCursorHandler === true) {
-            console.log('SET UI CUROSOR TYPE HOVER: ACTIVE');
             setCursortType('hover');
           }
         }}
         onMouseLeave={() => {
           if (useCursorHandler === true) {
-            console.log('SET UI CUROSOR TYPE HOVER: DISABLED');
             setCursortType('initial');
           }
         }}

@@ -70,6 +70,10 @@ import FilterCircleDollarRegular from './regular/filter-circle-dollar.svg';
 import BarcodeReadRegular from './regular/barcode-read.svg';
 import FileInvoiceRegular from './regular/file-invoice.svg';
 import BitcoinSignRegular from './regular/bitcoin-sign.svg';
+import HexagonVerticalNFTRegular from './regular/hexagon-vertical-nft.svg';
+import FileContractRegular from './regular/file-contract.svg';
+import DiceD20Regular from './regular/dice-d20.svg';
+import ChartUserRegular from './regular/chart-user.svg';
 
 // Number list
 import DoubleZeroThin from './thin/00.svg';
@@ -155,6 +159,10 @@ const SvgNetworkWiredRegular = NetworkWiredRegular;
 const SvgDatabaseRegular = DatabaseRegular;
 const SvgInboxFullRegular = InboxFullRegular;
 const SvgCheckRegular = CheckRegular;
+const SvgHexagonVerticalNFTRegular = HexagonVerticalNFTRegular;
+const SvgFileContractRegular = FileContractRegular;
+const SvgDiceD20Regular = DiceD20Regular;
+const SvgChartUserRegular = ChartUserRegular;
 
 // Number
 const SvgZeroThin = ZeroThin;
@@ -283,5 +291,9 @@ export {
   SvgDevStepProcess,
   SvgArrowRightLongRegular,
   SvgArrowRightLongThin,
-  SvgArrowRightLongLight
+  SvgArrowRightLongLight,
+  SvgHexagonVerticalNFTRegular,
+  SvgFileContractRegular,
+  SvgDiceD20Regular,
+  SvgChartUserRegular
 };

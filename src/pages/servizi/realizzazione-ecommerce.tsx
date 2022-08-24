@@ -17,7 +17,6 @@ import {
   SvgBarcodeReadRegular,
   SvgBitcoinSignRegular,
   SvgChartPieRegular,
-  SvgDevStepProcess,
   SvgEightThin,
   SvgEnvelopeOpenDollarRegular,
   SvgFacebookFBrands,
@@ -416,9 +415,9 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
           'pb-60px'
         )}
       >
-        <div className="container mx-auto">
-          <div className="grid grid-cols-12 gap-1">
-            <div className="col-start-3 col-span-8 text-center">
+        <DevelopmentProcess
+          introColumnContent={
+            <>
               <h3 className={cn('font-bold', 'text-xl', 'text-center')}>
                 Il nostro processo produttivo
               </h3>
@@ -439,13 +438,12 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                 <br /> cosi da avere sempre una forte attenzione e focus sugli
                 obbiettivi del progetto
               </p>
-              <small className={cn('italic', 'text-center', 'dark:text-white')}>
+              <small className={cn('italic', 'block', 'text-center', 'dark:text-white')}>
                 Premi sui cerchi e scopri tutte le fasi di sviluppo!
               </small>
-            </div>
-          </div>
-          <DevelopmentProcess />
-        </div>
+            </>
+          }
+        />
       </section>
       <section
         className={cn(

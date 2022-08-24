@@ -41,10 +41,11 @@ interface Props {
   index: number;
   children: ReactNode;
   url?: string;
+  setRef?: (ref: any) => void;
 }
 
 const NavbarItem: FC<Props> = (props: Props): ReactElement => {
-  const { title, children, index, url } = props;
+  const { title, children, index, url, setRef } = props;
 
   const onMouseEnter = useCallback(() => {
     props.onMouseEnter(index);
@@ -55,6 +56,11 @@ const NavbarItem: FC<Props> = (props: Props): ReactElement => {
       className={cn('navbar-item')}
       onMouseEnter={onMouseEnter}
       onFocus={onMouseEnter}
+      ref={(ref) => {
+        if (setRef) {
+          setRef(ref);
+        }
+      }}
     >
       {url ? (
         <AppLink

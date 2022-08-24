@@ -4,7 +4,7 @@ import menus from './menus';
 const themeConfig: ThemeConfiguration = {
   menus,
   debug: {
-    uiContext: true,
+    uiContext: false,
   },
   customCursor: true,
   mailgo: true,

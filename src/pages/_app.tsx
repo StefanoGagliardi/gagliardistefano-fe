@@ -1,6 +1,6 @@
 // Import core
 import { AppProps } from 'next/app';
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 // Import third parts
 import mailgo from 'mailgo';
@@ -17,10 +17,16 @@ import '../assets/styles/theme/gsap.scss';
 import '../assets/styles/main.scss';
 
 // Animations libraries: gsap and framer-motion
-import gsap from 'gsap/dist/gsap.js';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
+// import gsap from 'gsap';
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
+
 import { AnimatePresence } from 'framer-motion';
 import Cursor from '@components/ui/Cursor';
+import useIsomorphicLayoutEffect from '@services/hooks/useIsomorphicLayoutEffect';
+import SmootherContext from '@services/gsap/SmootherContext';
 
 /**
  * Script start
@@ -31,25 +37,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   // NB: Layout component è usato a livello di pagina perchè seno non potevo usare FramerMotion
   // const Layout = (Component as any).Layout || Noop;
   const url = `http://localhost:3000${router.route}`;
-
-  // Register scroll plugin for GSAP
-  gsap.registerPlugin(ScrollTrigger);
-
-  // This empty ref will use as container for query selection for gsap
-  const el = useRef<any>(null);
-  const q = gsap.utils.selector(el);
-
-  // Test aniamtion
-  useEffect(() => {
-    gsap.to(q('.navbar-item'), {
-      opacity: 1,
-      x: -20,
-      delay: 0.5,
-      duration: 0.5,
-      ease: 'none',
-      stagger: 0.2,
-    });
-  }, []);
 
   useEffect(() => {
     document.body.classList?.remove('loading');
@@ -71,18 +58,34 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }
   }, []);
 
+  const [smoother, setSmoother] = useState<null | ScrollSmoother>(null);
+  useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    // let smoother = ScrollSmoother.create({
+    //   smooth: 0,
+    //   normalizeScroll: true, // prevents address bar from showing/hiding on most devices, solves various other browser inconsistencies
+    //   ignoreMobileResize: true, // skips ScrollTrigger.refresh() on mobile resizes from address bar showing/hiding
+    //   effects: true,
+    //   // preventDefault: true,
+    // });
+
+    // setSmoother(smoother);
+  }, []);
+
   return (
-    <div ref={el} id="appRoot">
+    <div id="appRoot">
       <ManagedUIContext>
         {/* <AnimateSharedLayout> */}
         {/* <Layout pageProps={pageProps}> */}
-
         <AnimatePresence
           exitBeforeEnter
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <Component {...pageProps} canonical={url} key={url} />
+          <SmootherContext.Provider value={{ smoother }}>
+            <Component {...pageProps} canonical={url} key={url} />
+          </SmootherContext.Provider>
         </AnimatePresence>
 
         {/* Header essendo Fixed, si vederà sempre come primo elemento asttacco in alto. Cosi da partire col DOM coi testi della pagina */}

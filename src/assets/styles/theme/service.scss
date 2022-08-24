@@ -308,4 +308,23 @@
       }
     }
   }
+
+  .homepage .focus-tag-grid .focus {
+    margin-bottom: 30px;
+    cursor: pointer;
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.active-focus {
+      background: var(--color-text-accent);
+      svg {
+        fill: #2f343c;
+      }
+      span {
+        color: #2f343c;
+      }
+    }
+  }
 }

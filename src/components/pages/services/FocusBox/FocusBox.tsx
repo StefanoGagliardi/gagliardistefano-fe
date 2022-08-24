@@ -5,9 +5,10 @@ import cn from 'classnames';
 interface Props {
   text: string;
   icon?: JSX.Element;
+  setRef?: (ref: HTMLElement) => void;
 }
 const FocusBox: FC<Props> = (props: Props): ReactElement => {
-  const { text, icon } = props;
+  const { text, icon, setRef } = props;
 
   return (
     <div
@@ -19,6 +20,11 @@ const FocusBox: FC<Props> = (props: Props): ReactElement => {
         'focus'
         // s.focus
       )}
+      ref={(ref: any) => {
+        if(setRef) {
+          setRef(ref);
+        }
+      }}
     >
       {icon ? icon : <></>}
       <span>{text}</span>

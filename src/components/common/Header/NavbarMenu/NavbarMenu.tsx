@@ -13,12 +13,13 @@ import React, {
 import cn from 'classnames';
 import Link from 'next/link';
 import { Flipper } from 'react-flip-toolkit';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger.js';
 
 // Import customs
 import s from './NavbarMenu.module.scss';
 import themeConfig from '@config/theme';
 import { IMainMenuLink } from '@interfaces/mainMenuLink';
-import { SvgRegularGlobe } from '@assets/svg';
 import { ThemeToggle } from '@components/ui/ThemeToggle/ThemeToggle';
 
 // Mega menu components
@@ -30,6 +31,8 @@ import ServicesDropdown from '@components/common/Header/DropdownContents/Service
 import Web3Dropdown from '@components/common/Header/DropdownContents/Web3Dropdown';
 import ConsultingDropdown from '@components/common/Header/DropdownContents/ConsultingDropdown';
 import { useRouter } from 'next/router';
+import useIsomorphicLayoutEffect from '@services/hooks/useIsomorphicLayoutEffect';
+import useArrayRef from '@services/hooks/useArrayRefs';
 
 /**
  * Object with Dropdown components. This array is used via index: 0, 1, 2
@@ -123,6 +126,23 @@ export const NavbarMenu: FC = (): ReactElement => {
     }
   }, [router.pathname]);
 
+  /**
+   * Gsap menu item stagger animation
+   */
+  const [gsapRef, setGsapRef] = useArrayRef();
+  useIsomorphicLayoutEffect(() => {
+    // Register scroll plugin for GSAP
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(gsapRef.current, {
+      opacity: 1,
+      x: -20,
+      delay: 0.5,
+      duration: 0.5,
+      ease: 'none',
+      stagger: 0.2,
+    });
+  }, []);
+
   return (
     <Flipper
       flipKey={currentIndex}
@@ -152,6 +172,7 @@ export const NavbarMenu: FC = (): ReactElement => {
                 index={index}
                 onMouseEnter={onMouseEnter}
                 url={value?.url as string}
+                setRef={setGsapRef}
               >
                 {currentIndex === index && (
                   <DropdownContainer
@@ -176,6 +197,7 @@ export const NavbarMenu: FC = (): ReactElement => {
                 onMouseEnter={() => {
                   closeDropdown();
                 }}
+                ref={(ref) => setGsapRef(ref)}
               >
                 {value.title}
               </a>

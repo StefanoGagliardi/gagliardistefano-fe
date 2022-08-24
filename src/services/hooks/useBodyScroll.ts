@@ -2,26 +2,19 @@
 import React, {
   DependencyList,
   MutableRefObject,
-  useEffect,
-  useLayoutEffect,
   useRef,
 } from 'react'
 
 // Import third Fparts
 
 // Import custom
+import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect'
 
 /**
  * SSR: Integrazione Server Side Rendering
  * In accordo con la doc: useLayoutEffect è solo client side, in caso SSR spostare la logica nel
  */
 export const isBrowser: boolean = typeof window !== 'undefined'
-
-// https://reactjs.org/docs/hooks-reference.html#uselayouteffect
-// Uguale a useEffect ma aspetta in modo asincrono i cambiamenti del dom
-// (non gira ssr, in quel caso spostare la logica in useEffect)
-export const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 // Types
 type ElementRef = MutableRefObject<HTMLElement | undefined>
