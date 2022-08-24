@@ -1,12 +1,13 @@
-import { createContext } from 'react';
+// import { createContext } from 'react';
 
-interface SmootherContextInterface {
-  smoother: null | ScrollSmoother;
-}
-const defaultValue = {
-  smoother: null,
-};
-export const SmootherContext =
-  createContext<SmootherContextInterface>(defaultValue);
+// interface SmootherContextInterface {
+//   smoother: null | ScrollSmoother;
+// }
+// const defaultValue = {
+//   smoother: null,
+// };
+// export const SmootherContext =
+//   createContext<SmootherContextInterface>(defaultValue);
 
-export default SmootherContext;
+// export default SmootherContext;
+export default {};

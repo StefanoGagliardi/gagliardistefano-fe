@@ -26,7 +26,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { AnimatePresence } from 'framer-motion';
 import Cursor from '@components/ui/Cursor';
 import useIsomorphicLayoutEffect from '@services/hooks/useIsomorphicLayoutEffect';
-import SmootherContext from '@services/gsap/SmootherContext';
+// import SmootherContext from '@services/gsap/SmootherContext';
 
 /**
  * Script start
@@ -58,9 +58,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }
   }, []);
 
-  const [smoother, setSmoother] = useState<null | ScrollSmoother>(null);
+  // const [smoother, setSmoother] = useState<null | ScrollSmoother>(null);
   useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger); // ScrollSmoother
 
     // let smoother = ScrollSmoother.create({
     //   smooth: 0,
@@ -83,9 +83,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <SmootherContext.Provider value={{ smoother }}>
-            <Component {...pageProps} canonical={url} key={url} />
-          </SmootherContext.Provider>
+          {/* <SmootherContext.Provider value={{ smoother }}> */}
+          <Component {...pageProps} canonical={url} key={url} />
+          {/* </SmootherContext.Provider> */}
         </AnimatePresence>
 
         {/* Header essendo Fixed, si vederà sempre come primo elemento asttacco in alto. Cosi da partire col DOM coi testi della pagina */}
