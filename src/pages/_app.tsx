@@ -21,7 +21,7 @@ import '../assets/styles/main.scss';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
+// import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
 
 import { AnimatePresence } from 'framer-motion';
 import Cursor from '@components/ui/Cursor';
