@@ -164,6 +164,19 @@ curl -I http://api.gioiellissimo.it/
 2. Se non ho ancora un repo procedo con `git init`
 3. Se ho già una repo salto il punto 2 e procedo con `heroku git:remote -a next-generation-developers`
 4. Ora push un commit con i classici:
-   4.1  ` git add .` - Add all change files to next commit
-   4.2  `git commit -am "Heroku commit"` - Create commit with comment
-   4.3  `git push heroku development` - Push commits to Master branch in repo  
+   4.1 `git add .` - Add all change files to next commit
+   4.2 `git commit -am "Heroku commit"` - Create commit with comment
+   4.3 `git push heroku development` - Push commits to Master branch in repo
+
+NB: se usi una branch di sviluppo in Github, heroku skipper la build allora bisogna pushare la branch di sviluppo nella master:
+`git push heroku development:master`
+
+**Install npm with force**
+
+Solution: https://stackoverflow.com/questions/72944475/how-do-i-do-npm-install-force-on-heroku
+Creare un file chiamato `.npmrc` con il contenuto:
+
+```text
+force=true
+legacy-peer-deps=true
+```
