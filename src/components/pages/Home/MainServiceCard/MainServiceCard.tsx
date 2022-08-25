@@ -4,6 +4,7 @@ import React, {
   ReactElement,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -25,6 +26,7 @@ import {
 import Link from 'next/link';
 import url from '@services/url';
 import useMapRef from '@services/hooks/useMapRef';
+import { getWebSiteUrl } from '@config/site';
 
 export const MainServiceCard: FC = (): ReactElement => {
   // Custom hook per salvare un Array (Map) di referenze in un'unica
@@ -549,6 +551,9 @@ export const MainServiceCard: FC = (): ReactElement => {
     gsap.set(elem, { autoAlpha: 0 });
   };
 
+  // Get website url for icon image url
+  const siteUrl = useMemo(() => getWebSiteUrl(), []);
+
   return (
     <>
       {/* <div className={s.colors1}></div>
@@ -562,39 +567,99 @@ export const MainServiceCard: FC = (): ReactElement => {
         <div
           className={cn(s.square, 'sass')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 6)}
-        ></div>
+        >
+          <div
+            style={{ backgroundImage: `url(${siteUrl}/tech-logo/sass.svg)` }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
           className={cn(s.square, 'docker')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 5)}
-        ></div>
+        >
+          <div
+            style={{ backgroundImage: `url(${siteUrl}/tech-logo/docker.svg)` }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
           className={cn(s.square, 'wordpress')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 4)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/wordpress.svg)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
           className={cn(s.square, 'square-first-icon')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 3)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/nextjs-logo.svg)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
+          style={{}}
           className={cn(s.square, 'ts')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 7)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/typescriptlang-icon.svg)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
           className={cn(s.square, 'react')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 8)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/reactjs-icon.svg)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
           className={cn(s.square, 'redux')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 9)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/redux.svg)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
-          className={cn(s.square, '')}
+          className={cn(s.square, 'enzyme')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 10)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/enzyme.png)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         <div
           className={cn(s.square, '')}
           ref={(ref: HTMLDivElement) => setGsapRef(ref, 11)}
-        ></div>
+        >
+          <div
+            style={{
+              backgroundImage: `url(${siteUrl}/tech-logo/i18next.svg)`,
+            }}
+            className={cn(s.squareIcon)}
+          ></div>
+        </div>
         {/* <div className={s.square}></div> */}
         <div className="grid grid-cols-3 gap-5">
           <div

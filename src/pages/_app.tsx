@@ -26,6 +26,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { AnimatePresence } from 'framer-motion';
 import Cursor from '@components/ui/Cursor';
 import useIsomorphicLayoutEffect from '@services/hooks/useIsomorphicLayoutEffect';
+import { getWebSiteUrl } from '@config/site';
 // import SmootherContext from '@services/gsap/SmootherContext';
 
 /**
@@ -36,7 +37,7 @@ const Noop: FC<{ children: any }> = ({ children }) => <>{children}</>;
 function MyApp({ Component, pageProps, router }: AppProps) {
   // NB: Layout component è usato a livello di pagina perchè seno non potevo usare FramerMotion
   // const Layout = (Component as any).Layout || Noop;
-  const url = `http://localhost:3000${router.route}`;
+  const url = `${getWebSiteUrl()}${router.route}`;
 
   useEffect(() => {
     document.body.classList?.remove('loading');
@@ -48,7 +49,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
     // if (themeConfig.aos === true && typeof (AOS as any)?.init !== 'undefined') {
     //   AOS.init({
-    //     duration: 500,
+    //     duration: 500, 
     //   });
     // }
 
@@ -60,7 +61,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   // const [smoother, setSmoother] = useState<null | ScrollSmoother>(null);
   useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger); // ScrollSmoother
+    // gsap.registerPlugin(ScrollTrigger); // ScrollSmoother
 
     // let smoother = ScrollSmoother.create({
     //   smooth: 0,
@@ -80,7 +81,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         {/* <Layout pageProps={pageProps}> */}
         <AnimatePresence
           exitBeforeEnter
-          initial={false}
+          initial={true}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
           {/* <SmootherContext.Provider value={{ smoother }}> */}

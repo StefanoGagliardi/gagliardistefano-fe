@@ -197,14 +197,11 @@ module.exports = {
             };
           },
           'service-figure-width': (value) => {
-            console.log('service-figure-width _ VALUE: ', value);
-            // Utilizzo: 'service-figure-width-[70%]'
+            // console.log('Tailwind.config.js - plugin - service-figure-width value: ', value);
             return {
               '.section-service .figure-wrapper': {
                 maxWidth: value,
               },
-              // backgroundColor: value,
-              // color: theme('colors.white'), // Just for example purposes
             };
           },
         },

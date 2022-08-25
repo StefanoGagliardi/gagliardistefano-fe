@@ -68,6 +68,13 @@ const nextConfig = {
     return [];
   },
 
+  /**
+   * Set Env variable
+   */
+  env: {
+    HEROKU: true,
+  },
+
   // Set svg loader as component via Webpack
   // SVGR provides an official webpack.js loader to import SVG as React components.
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {

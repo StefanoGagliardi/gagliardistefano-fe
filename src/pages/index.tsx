@@ -112,7 +112,8 @@ export const Home = (): JSX.Element => {
         immediateRender: false, // Prevent animation, and startwith scrollTrigger
         scrollTrigger: {
           trigger: gsapRefArray.current[0],
-          markers: true,
+          markers: false,
+          end: "+=300px",
           onEnter: (self: ScrollTrigger) => {
             gsap.fromTo(
               gsapRefArray.current,
@@ -233,7 +234,7 @@ export const Home = (): JSX.Element => {
       </Head>
       <section
         className={cn(
-          'py-5 px-3 relative flex items-center pt-[170px] pb-60px bg-service',
+          'py-5 px-3 relative flex items-center pt-[170px] pb-60px bg-service dark:bg-unset',
           s.firstSection
         )}
       >
@@ -297,7 +298,7 @@ export const Home = (): JSX.Element => {
           </div>
         </div>
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
+      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
             <div className="col-start-3  col-end-11">
@@ -343,12 +344,12 @@ export const Home = (): JSX.Element => {
       <section
         className={cn(
           s.secondSection,
-          'relative flex items-center bg-service pt-[80px] pb-[120px]'
+          'relative flex items-center bg-service dark:bg-unset pt-[80px] pb-[120px]'
         )}
       >
         <HomeComponents.MainServiceCard />
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
+      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
         {/* <div className="container mx-auto"> */}
         <DevelopmentProcess
           introColumnContent={
@@ -387,7 +388,7 @@ export const Home = (): JSX.Element => {
         />
         {/* </div> */}
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
+      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
             <div className="col-start-3  col-end-11">
@@ -492,7 +493,7 @@ export const Home = (): JSX.Element => {
         </div>
       </section>
       <section
-        className={cn(s.secondSectionBefore, 'py-60px', 'bg-service', 'dark')}
+        className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset', 'dark')}
       >
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
@@ -712,7 +713,7 @@ export const Home = (): JSX.Element => {
           </div>
         </div>
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service')}>
+      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
             <div className="col-start-3  col-end-11">
@@ -792,4 +793,4 @@ export const Home = (): JSX.Element => {
 // </AnimatePresence>
 
 // Home.Layout = Layout;
-export default Home;
+export default React.memo(Home);

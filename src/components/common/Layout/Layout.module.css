@@ -1,6 +1,6 @@
 .siteRoot {
   @apply h-full;
-  @apply bg-primary;
+  @apply bg-service;
   @apply mx-auto;
   @apply transition-colors;
   @apply duration-150;

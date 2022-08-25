@@ -1,6 +1,11 @@
 export const getWebSiteUrl = (): string => {
-  if (process.env.NODE_ENV === 'production') {
-    return 'https://gagliardistefano-fe.vercel.app';
+  console.log('process.env.HEROKU: ', process.env.HEROKU);
+  if (process && process.env.NODE_ENV === 'production') {
+    if (process.env.HEROKU) {
+      return 'https://next-generation-developers.herokuapp.com';
+    } else {
+      return 'https://gagliardistefano-fe.vercel.app';
+    }
   } else {
     return 'http://localhost:3000';
   }

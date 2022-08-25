@@ -65,7 +65,7 @@
   height: 500px;
   left: calc(50% - 300px);
   bottom: -150px;
-  background: #edf2f7; 
+  background: #edf2f7;
 }
 
 .colors3 {
@@ -118,6 +118,14 @@
   /* animation: animate 15s linear infinite; */
 }
 
+.squareIcon {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;  
+}
+
 /* @keyframes animate {
   0%,
   100% {
@@ -132,7 +140,6 @@
   z-index: 2;
   top: -60px;
   left: -50px;
-  background-image: url("http://localhost:3000/tech-logo/sass.svg");
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: center;
@@ -145,7 +152,6 @@
 .square:nth-child(2) {
   bottom: -40px;
   left: -50px;
-  background-image: url("http://localhost:3000/tech-logo/docker.svg");
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: center;
@@ -158,7 +164,6 @@
 .square:nth-child(3) {
   bottom: -100px;
   left: 200px;
-  background-image: url("http://localhost:3000/tech-logo/wordpress.svg");
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
@@ -169,7 +174,6 @@
   z-index: 2;
   top: -150px;
   left: 300px;
-  background-image: url("http://localhost:3000/tech-logo/nextjs-logo.svg");
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
@@ -179,7 +183,6 @@
 .square:nth-child(5) {
   top: -100px;
   left: 50%;
-  background-image: url("http://localhost:3000/tech-logo/typescriptlang-icon.svg");
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
@@ -190,7 +193,6 @@
   z-index: 2;
   top: -60px;
   right: 30%;
-  background-image: url("http://localhost:3000/tech-logo/reactjs-icon.svg");
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: center;
@@ -202,7 +204,6 @@
   height: 80px;
   right: -60px;
   top: -50px;
-  background-image: url("http://localhost:3000/tech-logo/redux.svg");
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: center;
@@ -212,7 +213,6 @@
 .square:nth-child(8) {
   right: 0;
   bottom: -120px;
-  background-image: url("http://localhost:3000/tech-logo/enzyme.png");
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
@@ -223,7 +223,6 @@
   z-index: 2;
   bottom: -80px;
   right: 40%;
-  background-image: url("http://localhost:3000/tech-logo/i18next.svg");
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
