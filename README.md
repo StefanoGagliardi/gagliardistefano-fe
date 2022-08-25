@@ -168,6 +168,7 @@ curl -I http://api.gioiellissimo.it/
    4.2 `git commit -am "Heroku commit"` - Create commit with comment
    4.3 `git push heroku development` - Push commits to Master branch in repo
 
+**Heroku build local development branch to online master branch**
 NB: se usi una branch di sviluppo in Github, heroku skipper la build allora bisogna pushare la branch di sviluppo nella master:
 `git push heroku development:master`
 

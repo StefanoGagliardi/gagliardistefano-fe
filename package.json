@@ -19,7 +19,8 @@
     "test-all": "yarn lint && yarn type-check && yarn test",
     "buildAnalyze": "NODE_ENV=BUNDLE_ANALYZE next build",
     "startServer": "NODE_ENV=production node server.js",
-    "analyze": "BUNDLE_ANALYZE=both yarn build"
+    "analyze": "BUNDLE_ANALYZE=both yarn build",
+    "commit": "git add . && git commit -m 'script commit' && git push heroku development:master"
   },
   "prettier": {
     "semi": true,
