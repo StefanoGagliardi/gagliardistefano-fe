@@ -1,7 +1,7 @@
 // Import core
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { GetStaticPropsContext } from 'next';
+import { GetStaticPropsContext, NextPage } from 'next';
 
 // Import third parts
 import cn from 'classnames';
@@ -50,7 +50,7 @@ export async function getStaticProps({
   };
 }
 
-export const Home = (): JSX.Element => {
+export const Home: NextPage = (): JSX.Element => {
   // Generate list of ref
   const [gsapRef, setGsapRef] = useMapRef<HTMLElement>();
 
@@ -786,7 +786,6 @@ export const Home = (): JSX.Element => {
         </div>
       </section>
       <HomeComponents.ContactSection />
-      
     </Layout>
   );
 };

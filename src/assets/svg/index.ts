@@ -99,6 +99,7 @@ import ArrowRightLongLight from './light/arrow-right-long.svg';
 
 // Infographic custom
 import DevStepProcess from './development-step-process.svg';
+import NotFound from './not-found.svg';
 
 const SVGArrowSvg = SVGArrow;
 const SVGThemeLight = ThemeLight;
@@ -202,6 +203,7 @@ const SvgDevStepProcess = DevStepProcess;
 const SvgArrowRightLongRegular = ArrowRightLongRegular;
 const SvgArrowRightLongThin = ArrowRightLongThin;
 const SvgArrowRightLongLight = ArrowRightLongLight;
+const SvgNotFound = NotFound;
 
 /**
  * NB: Volevo riwrapper un primoi chunck di icone in un const e ritornarla, ma non funziona.
@@ -295,5 +297,6 @@ export {
   SvgHexagonVerticalNFTRegular,
   SvgFileContractRegular,
   SvgDiceD20Regular,
-  SvgChartUserRegular
+  SvgChartUserRegular,
+  SvgNotFound
 };

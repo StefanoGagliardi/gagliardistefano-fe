@@ -1,6 +1,6 @@
 import { useUI } from '@components/ui/context';
 import Link from 'next/link';
-import React, { ReactElement, FC, useMemo } from 'react';
+import React, { ReactElement, FC, useMemo, useCallback } from 'react';
 
 interface AppLinkProps {
   href: string;
@@ -38,7 +38,7 @@ export const AppLink: FC<AppLinkProps> = (
         className={className}
         title={title || ''}
         onClick={() => {
-          onClick();
+          useCallback(() => onClick(), []);
         }}
       >
         {children ? children : label}

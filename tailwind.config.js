@@ -117,6 +117,7 @@ module.exports = {
         '20px': '20px',
         '50px': '50px',
         '60px': '60px',
+        '200px': '200px', // not found page
         // Visual Width & Visual height
         '50vw': '50vw',
         '50vh': '50vh',
