@@ -1,6 +1,6 @@
 import { useUI } from '@components/ui/context';
 import Link from 'next/link';
-import React, { ReactElement, FC } from 'react';
+import React, { ReactElement, FC, useMemo } from 'react';
 
 interface AppLinkProps {
   href: string;
@@ -60,6 +60,20 @@ export const AppLink: FC<AppLinkProps> = (
     );
   }
 
+  const mouseEvent = useMemo(() => {
+    if (useCursorHandler === true) {
+      return {
+        onMouseEnter: () => {
+          setCursortType('hover');
+        },
+        onMouseLeave: () => {
+          setCursortType('initial');
+        },
+      };
+    }
+    return {};
+  }, []);
+
   return (
     <Link href={href}>
       <a
@@ -72,16 +86,7 @@ export const AppLink: FC<AppLinkProps> = (
             onClick();
           }
         }}
-        onMouseEnter={() => {
-          if (useCursorHandler === true) {
-            setCursortType('hover');
-          }
-        }}
-        onMouseLeave={() => {
-          if (useCursorHandler === true) {
-            setCursortType('initial');
-          }
-        }}
+        {...mouseEvent}
       >
         {children ? children : label}
       </a>

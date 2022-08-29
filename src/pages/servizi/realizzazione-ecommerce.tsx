@@ -468,7 +468,7 @@ export const PageRealizzazioneEcommerce: NextPage = (): ReactElement => {
                       clienti il ritiro locale degli ordini
                     </p>
                     <button
-                      className="btn-components-outline py-2 px-4 rounded text-sm font-bold w-[200px]"
+                      className="btn btn-components-outline py-2 px-4 rounded text-sm font-bold w-[200px]"
                       type="button"
                       role="button"
                       onClick={() => {}}

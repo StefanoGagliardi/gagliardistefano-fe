@@ -14,15 +14,18 @@ export const url = {
   blockchain: (): IAppLinkHref => `/blockchain`,
   portfolio: (): IAppLinkHref => `/portfolio`,
   contacts: (): IAppLinkHref => `/contatti`,
+  // s - Checkbox form
+  privacyPolicy: (): IAppLinkHref => `/privacy-policy`,
 
   blog: (): IAppLinkHref => `/blog`,
-  PrivacyPolicy: (): IAppLinkHref => `/privacy-policy`,
   webThree: (): IAppLinkHref => `/web3`,
 
   // Service URL
   baseServices: (): IAppLinkHref => `/servizi`,
-  websiteCreation: (): IAppLinkHref => `${url.baseServices()}/realizzazione-siti-web`,
-  ecommerceCreation: (): IAppLinkHref => `${url.baseServices()}/realizzazione-ecommerce`,
+  websiteCreation: (): IAppLinkHref =>
+    `${url.baseServices()}/realizzazione-siti-web`,
+  ecommerceCreation: (): IAppLinkHref =>
+    `${url.baseServices()}/realizzazione-ecommerce`,
 };
 
 export default url;

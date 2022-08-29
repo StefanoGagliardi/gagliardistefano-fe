@@ -688,7 +688,7 @@ export const MainServiceCard: FC = (): ReactElement => {
                 <Link href={url.websiteCreation() as string}>
                   <a
                     className={cn(
-                      'btn-components-outline btn-icon mt-3',
+                      'btn btn-components-outline btn-icon mt-3',
                       'rounded text-sm font-bold'
                     )}
                   >
@@ -725,7 +725,7 @@ export const MainServiceCard: FC = (): ReactElement => {
                 <Link href={url.ecommerceCreation() as string}>
                   <a
                     className={cn(
-                      'btn-components-outline btn-icon mt-3',
+                      'btn btn-components-outline btn-icon mt-3',
                       'rounded text-sm font-bold'
                     )}
                   >
@@ -762,7 +762,7 @@ export const MainServiceCard: FC = (): ReactElement => {
                 <Link href={url.ecommerceCreation() as string}>
                   <a
                     className={cn(
-                      'btn-components-outline btn-icon mt-3',
+                      'btn btn-components-outline btn-icon mt-3',
                       'rounded text-sm font-bold'
                     )}
                   >

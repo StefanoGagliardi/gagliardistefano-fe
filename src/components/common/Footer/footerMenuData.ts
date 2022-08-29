@@ -1,6 +1,6 @@
 // Import custom
 import { IMainMenuLink } from '@interfaces/mainMenuLink'
-import url from 'src/services/url'
+import url from '@services/url'
 
 const footerMenuData: IMainMenuLink[] = [
   {
@@ -9,7 +9,7 @@ const footerMenuData: IMainMenuLink[] = [
   },
   {
     title: 'Privacy Policy',
-    url: url.PrivacyPolicy(),
+    url: url.privacyPolicy(),
   },
 ]
 

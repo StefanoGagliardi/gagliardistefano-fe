@@ -1,13 +1,18 @@
 // Import core
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useRef } from 'react';
 
 // Import third parts
 import cn from 'classnames';
 
 // Import customs
 import { SvgEnvelopeLight, SvgUserLight } from '@assets/svg';
+import Checkbox from '@components/shared/Checkbox';
+import url from '@services/url';
+import AppLink from '@services/routing/AppLink';
 
 const ContactsForm: FC = (): ReactElement => {
+  const checkboxRef = useRef<HTMLInputElement>();
+
   return (
     <form autoComplete="off" className={cn('base-form', 'theme-form-tag')}>
       <div className={cn('mb-4', 'input-group')}>
@@ -135,11 +140,11 @@ const ContactsForm: FC = (): ReactElement => {
         </label>
         <textarea
           className={cn(
-            "w-full resize-none appearance-none",
+            'w-full resize-none appearance-none',
             'rounded shadow',
-            "flex-grow items-center",
-            "px-3 py-3 mb-6 pr-10",
-            "bg-input text-sm text-input font-medium",
+            'flex-grow items-center',
+            'px-3 py-3 mb-6 pr-10',
+            'bg-input text-sm text-input font-medium',
             'focus:outline-none'
           )}
           rows={5}
@@ -148,9 +153,29 @@ const ContactsForm: FC = (): ReactElement => {
           id="message"
         ></textarea>
       </div>
+      <Checkbox
+        ref={checkboxRef}
+        // containerProps={{
+        //   className: 'mb-6',
+        // }}
+        rootClass={'mb-6 items-start'}
+        label={
+          <>
+            Dichiaro di aver letto, compreso e accetto quanto esposto nell'
+            <AppLink
+              href={`${url.privacyPolicy()}`}
+              className={'underline'}
+              useCursorHandler={true}
+            >
+              informativa
+            </AppLink>{' '}
+            sul trattamento dei dati.
+          </>
+        }
+      />
       <div className="flex items-center justify-between">
         <button
-          className="btn-components-outline py-2 px-4 rounded"
+          className="btn btn-components-outline py-2 px-4 rounded"
           type="button"
         >
           Invia messaggio

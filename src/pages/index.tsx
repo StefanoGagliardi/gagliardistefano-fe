@@ -274,7 +274,7 @@ export const Home = (): JSX.Element => {
                 <Link href={url.websiteCreation() as string}>
                   <a
                     className={cn(
-                      'btn-components-outline btn-icon icon-hover',
+                      'btn btn-components-outline btn-icon icon-hover',
                       'rounded text-paragraphLg font-bold'
                     )}
                     ref={(ref) => setGsapRef(ref, 3)}
@@ -641,7 +641,7 @@ export const Home = (): JSX.Element => {
                   <Link href={`${url.blockchain() as string}#smart-contract`}>
                     <a
                       className={cn(
-                        'btn-components-outline btn-icon icon-hover',
+                        'btn btn-components-outline btn-icon icon-hover',
                         'rounded text-paragraph font-bold mt-10'
                       )}
                       // ref={(ref) => setGsapRef(ref, 3)}
@@ -684,7 +684,7 @@ export const Home = (): JSX.Element => {
                   <Link href={`${url.blockchain() as string}#app-web3`}>
                     <a
                       className={cn(
-                        'btn-components-outline btn-icon icon-hover',
+                        'btn btn-components-outline btn-icon icon-hover',
                         'rounded text-paragraph font-bold mt-10'
                       )}
                       // ref={(ref) => setGsapRef(ref, 3)}
@@ -727,7 +727,7 @@ export const Home = (): JSX.Element => {
                   <Link href={`${url.blockchain() as string}#nft  `}>
                     <a
                       className={cn(
-                        'btn-components-outline btn-icon icon-hover',
+                        'btn btn-components-outline btn-icon icon-hover',
                         'rounded text-paragraph font-bold mt-10'
                       )}
                       // ref={(ref) => setGsapRef(ref, 3)}
@@ -770,7 +770,7 @@ export const Home = (): JSX.Element => {
                   <Link href={`${url.blockchain() as string}#consulting`}>
                     <a
                       className={cn(
-                        'btn-components-outline btn-icon icon-hover',
+                        'btn btn-components-outline btn-icon icon-hover',
                         'rounded text-paragraph font-bold mt-10'
                       )}
                       // ref={(ref) => setGsapRef(ref, 3)}

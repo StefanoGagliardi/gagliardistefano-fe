@@ -76,6 +76,9 @@
 
   /* Mouse cursor circle color */
   --cursor-color: #8abbff;
+
+  /* Input text prefix like input for url, prefix is https:// */
+  --color-input-prefix: #f6f6f6;
 }
 
 [data-theme="light"],
@@ -149,6 +152,9 @@
 
   /* Mouse cursor circle color */
   --cursor-color: #9333ea;
+
+  /* Input text prefix like input for url, prefix is https:// */
+  --color-input-prefix: #f6f6f6;
 }
 
 /**

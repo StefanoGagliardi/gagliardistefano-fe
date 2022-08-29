@@ -1,18 +1,20 @@
 @layer components {
-  .btn-components-outline {
-    background: rgba(59, 130, 246, 0.1);
-    border: 2px solid transparent;
-    border-color: var(--color-text-accent);
+  .btn {
+    &.btn-components-outline {
+      background: rgba(59, 130, 246, 0.1);
+      border: 2px solid transparent;
+      border-color: var(--color-text-accent);
 
-    @apply font-medium;
-    @apply dark:text-white;
+      @apply font-medium;
+      @apply dark:text-white;
 
-    /* Remove outline*/
-    @apply focus:outline-none;
+      /* Remove outline*/
+      @apply focus:outline-none;
 
-    // Button spacing
-    @apply py-2;
-    @apply px-4;
+      // Button spacing
+      @apply py-2;
+      @apply px-4;
+    }
 
     &.btn-icon {
       display: inline-flex;
@@ -27,13 +29,41 @@
       &.icon-hover {
         svg {
           width: 0px;
-          transition: .3s linear width;
+          transition: 0.3s linear width;
         }
         &:hover svg {
           width: 20px;
-          transition: .3s linear width;
+          transition: 0.3s linear width;
         }
       }
+    }
+
+    &.btn-link {
+      background: transparent;
+      border: 2px solid transparent;
+
+      @apply font-medium;
+      @apply dark:text-white;
+
+      /* Remove outline*/
+      @apply focus:outline-none;
+
+      // Button spacing
+      @apply py-2;
+      @apply px-4;
+
+      &.btn-link-primary {
+        color: var(--color-text-accent);
+        svg {
+          fill: var(--color-text-accent);
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+
+    &.pl-0 {
+      padding-left: 0px;
     }
   }
 

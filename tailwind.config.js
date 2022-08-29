@@ -80,6 +80,7 @@ module.exports = {
         'gray-5': 'var(--color-gray-5)',
         'gray-light-1': 'var(--color-light-gray-1)',
         'gray-light-5': 'var(--color-light-gray-5)',
+        'input-prefix': 'var(--color-input-prefix)',
       },
       gradientColorStops: {
         ctaStop: 'var(--color-bg-cta-stop)',
@@ -122,6 +123,7 @@ module.exports = {
       },
       height: {
         header: '80px',
+        '40px': '40px',
       },
       margin: {
         30: '30px',
