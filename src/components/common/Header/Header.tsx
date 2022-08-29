@@ -1,5 +1,5 @@
 // Import core
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 
 // Import third parts
 import cn from 'classnames';
@@ -11,6 +11,7 @@ import { NavbarMenu } from './NavbarMenu/NavbarMenu';
 import useScrollPosition, { IScrollProps } from '@services/hooks/useBodyScroll';
 import HeaderLogo from './HeaderLogo';
 import { useTheme } from 'next-themes';
+import useIsomorphicLayoutEffect from '@services/hooks/useIsomorphicLayoutEffect';
 
 export const Header: FC = () => {
   const [scrollClass, setScrollClass] = useState<boolean>(false);
@@ -34,16 +35,20 @@ export const Header: FC = () => {
     wait: 300,
   });
 
-  console.log('INDEX THEME: ', theme);
+  const [headerVersion, setHeaderVersion] = useState<boolean>(false);
+  useIsomorphicLayoutEffect(() => {
+    setHeaderVersion(theme !== 'dark');
+  }, [theme]);
 
   return (
     <header
       className={cn(
         'p-4 fixed w-100 left-0 top-0 right-0 z-50 h-header',
-        s.glass, s.whiteVersion,
+        s.glass,
+        s.whiteVersion,
         {
           scrolled: scrollClass,
-          [s.light]: theme !== 'dark',
+          [s.light]: headerVersion,
         }
       )}
     >

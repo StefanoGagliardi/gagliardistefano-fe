@@ -31,14 +31,6 @@ import {
 const ContentColumn = styled.div`
   width: 240px;
 `;
-const ContentTitle = styled.span`
-  display: block;
-  text-align: left;
-  font-weight: 600;
-  color: #222;
-  letter-spacing: 0.4px;
-  margin-bottom: 30px;
-`;
 
 export const Heading = styled.h3`
   text-transform: uppercase;
@@ -63,7 +55,7 @@ export const ServicesDropdown: FC<Props> = ({
     <div className={s.dropdownWrapper}>
       <div data-first-dropdown-section className={s.dropdownContentWrapper}>
         <ContentColumn>
-          <ContentTitle>Web design & development</ContentTitle>
+          <span className={s.contentTitle}>Web design & development</span>
           <ul className={s.servicesList}>
             <li>
               <Link href={`${url.websiteCreation()}`}>
@@ -160,7 +152,7 @@ export const ServicesDropdown: FC<Props> = ({
           </ul>
         </ContentColumn>
         <ContentColumn>
-          <ContentTitle color="#222">Marketing & SEO strategy</ContentTitle>
+          <span className={s.contentTitle}>Marketing & SEO strategy</span>
           <ul className={s.servicesList}>
             <li>
               <Link href="/servizi/realizzazione-siti-web/">
@@ -270,7 +262,7 @@ export const ServicesDropdown: FC<Props> = ({
           </ul>
         </ContentColumn>
         <ContentColumn>
-          <ContentTitle color="#222">iOS & Android Application</ContentTitle>
+          <span className={s.contentTitle}>iOS & Android Application</span>
           <ul className={s.servicesList}>
             <li>
               <Link href="/servizi/realizzazione-siti-web/">

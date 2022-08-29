@@ -18,6 +18,10 @@ interface ThemeConfiguration {
    */
   debug: {
     uiContext: boolean;
+    menu: {
+      enabled: boolean;
+      open: [number, number];
+    };
   };
 
   /**

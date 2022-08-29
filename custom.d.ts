@@ -33,3 +33,17 @@ declare global {
 }
 
 window.MyNamespace = window.MyNamespace || {};
+
+declare module 'react' {
+  // (property) JSX.IntrinsicElements.video: React.TMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>
+
+  interface VideoHTMLAttributes<T> extends MediaHTMLAttributes<T> {
+    loading: string;
+    type: string;
+  }
+
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    // extends React's HTMLAttributes
+    custom?: string;
+  }
+}

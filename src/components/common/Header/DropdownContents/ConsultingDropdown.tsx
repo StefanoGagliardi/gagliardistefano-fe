@@ -44,7 +44,7 @@ export const ConsultingDropdown: FC<Props> = ({
     <div data-third-dropdown-section className={s.dropdownWrapper}>
       <div className={s.dropdownContentWrapper}>
         <ContentColumn>
-          <ContentTitle>Web design & development</ContentTitle>
+          <span className={s.contentTitle}>Web design & development</span>
           <ul className={s.servicesList}>
             <li>
               <Link href="/servizi/realizzazione-siti-web/">
@@ -68,10 +68,11 @@ export const ConsultingDropdown: FC<Props> = ({
               </Link>
             </li>
             <li>
-              <Link
-                href="/servizi/realizzazione-siti-web/"
-              >
-                <a href="/servizi/realizzazione-siti-web/" onClick={closeDropdown}>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={closeDropdown}
+                >
                   <SvgPeopleArrowsThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -86,10 +87,11 @@ export const ConsultingDropdown: FC<Props> = ({
               </Link>
             </li>
             <li>
-              <Link
-                href="/servizi/realizzazione-siti-web/"
-              >
-                <a href="/servizi/realizzazione-siti-web/" onClick={closeDropdown}>
+              <Link href="/servizi/realizzazione-siti-web/">
+                <a
+                  href="/servizi/realizzazione-siti-web/"
+                  onClick={closeDropdown}
+                >
                   <SvgListCheckThin className={s.serviceIcon} />
                   <div className={s.serviceIntroduction}>
                     <span className={s.serviceTitle}>
@@ -106,7 +108,7 @@ export const ConsultingDropdown: FC<Props> = ({
           </ul>
         </ContentColumn>
         <ContentColumn>
-          <ContentTitle>NextGen Blog</ContentTitle>
+          <span className={s.contentTitle}>NextGen Blog</span>
           <ul className={cn(s.servicesList, s.blogList)}>
             <li>
               <a href="/">Bundle loader: Webpack &amp; Rollup</a>

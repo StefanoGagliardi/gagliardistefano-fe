@@ -65,7 +65,7 @@ export const Home = (): JSX.Element => {
     tl.add('first-section')
       .from(
         [animationRefs.get(4)],
-        { x: '30%', duration: 5, scale: 0.8 },
+        { x: 100, duration: 12, scale: 0.8 },
         'first-section'
       )
       .from(
@@ -113,7 +113,7 @@ export const Home = (): JSX.Element => {
         scrollTrigger: {
           trigger: gsapRefArray.current[0],
           markers: false,
-          end: "+=300px",
+          end: '+=300px',
           onEnter: (self: ScrollTrigger) => {
             gsap.fromTo(
               gsapRefArray.current,
@@ -298,7 +298,13 @@ export const Home = (): JSX.Element => {
           </div>
         </div>
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
+      <section
+        className={cn(
+          s.secondSectionBefore,
+          'py-60px',
+          'bg-service dark:bg-unset'
+        )}
+      >
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
             <div className="col-start-3  col-end-11">
@@ -349,7 +355,13 @@ export const Home = (): JSX.Element => {
       >
         <HomeComponents.MainServiceCard />
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
+      <section
+        className={cn(
+          s.secondSectionBefore,
+          'py-60px',
+          'bg-service dark:bg-unset'
+        )}
+      >
         {/* <div className="container mx-auto"> */}
         <DevelopmentProcess
           introColumnContent={
@@ -388,7 +400,13 @@ export const Home = (): JSX.Element => {
         />
         {/* </div> */}
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
+      <section
+        className={cn(
+          s.secondSectionBefore,
+          'py-60px',
+          'bg-service dark:bg-unset'
+        )}
+      >
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
             <div className="col-start-3  col-end-11">
@@ -493,7 +511,12 @@ export const Home = (): JSX.Element => {
         </div>
       </section>
       <section
-        className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset', 'dark')}
+        className={cn(
+          s.secondSectionBefore,
+          'py-60px',
+          'bg-service dark:bg-unset',
+          'dark'
+        )}
       >
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-1">
@@ -592,7 +615,8 @@ export const Home = (): JSX.Element => {
                       'font-bold',
                       'text-lgm',
                       'text-accent',
-                      'font-avenir'
+                      'font-avenir',
+                      'mb-0'
                     )}
                   >
                     Sviluppo Smart Contract
@@ -614,6 +638,18 @@ export const Home = (): JSX.Element => {
                     efficiency triggers, which helps us underpin your solution
                     by educated tech know-how.
                   </p>
+                  <Link href={`${url.blockchain() as string}#smart-contract`}>
+                    <a
+                      className={cn(
+                        'btn-components-outline btn-icon icon-hover',
+                        'rounded text-paragraph font-bold mt-10'
+                      )}
+                      // ref={(ref) => setGsapRef(ref, 3)}
+                    >
+                      Approfondisci
+                      <SvgArrowRightLongRegular />
+                    </a>
+                  </Link>
                 </div>
               )}
               {activeWeb3 === 2 && (
@@ -645,6 +681,18 @@ export const Home = (): JSX.Element => {
                     efficiency triggers, which helps us underpin your solution
                     by educated tech know-how.
                   </p>
+                  <Link href={`${url.blockchain() as string}#app-web3`}>
+                    <a
+                      className={cn(
+                        'btn-components-outline btn-icon icon-hover',
+                        'rounded text-paragraph font-bold mt-10'
+                      )}
+                      // ref={(ref) => setGsapRef(ref, 3)}
+                    >
+                      Approfondisci
+                      <SvgArrowRightLongRegular />
+                    </a>
+                  </Link>
                 </div>
               )}
               {activeWeb3 === 3 && (
@@ -676,6 +724,18 @@ export const Home = (): JSX.Element => {
                     efficiency triggers, which helps us underpin your solution
                     by educated tech know-how.
                   </p>
+                  <Link href={`${url.blockchain() as string}#nft  `}>
+                    <a
+                      className={cn(
+                        'btn-components-outline btn-icon icon-hover',
+                        'rounded text-paragraph font-bold mt-10'
+                      )}
+                      // ref={(ref) => setGsapRef(ref, 3)}
+                    >
+                      Approfondisci
+                      <SvgArrowRightLongRegular />
+                    </a>
+                  </Link>
                 </div>
               )}
               {activeWeb3 === 4 && (
@@ -707,85 +767,26 @@ export const Home = (): JSX.Element => {
                     efficiency triggers, which helps us underpin your solution
                     by educated tech know-how.
                   </p>
+                  <Link href={`${url.blockchain() as string}#consulting`}>
+                    <a
+                      className={cn(
+                        'btn-components-outline btn-icon icon-hover',
+                        'rounded text-paragraph font-bold mt-10'
+                      )}
+                      // ref={(ref) => setGsapRef(ref, 3)}
+                    >
+                      Approfondisci
+                      <SvgArrowRightLongRegular />
+                    </a>
+                  </Link>
                 </div>
               )}
             </div>
           </div>
         </div>
       </section>
-      <section className={cn(s.secondSectionBefore, 'py-60px', 'bg-service dark:bg-unset')}>
-        <div className="container mx-auto">
-          <div className="grid grid-cols-12 gap-1">
-            <div className="col-start-3  col-end-11">
-              <h3
-                className={cn(
-                  'font-bold',
-                  'text-center',
-                  'text-xl',
-                  'text-accent',
-                  'font-avenir'
-                )}
-              >
-                Entra in contatto con il team!
-              </h3>
-              <p
-                className={cn(
-                  'text-center',
-                  'dark:text-white',
-                  'my-5',
-                  'mx-auto',
-                  'text-paragraphLg',
-                  'font-medium'
-                  // 'max-w-[60ch]'
-                )}
-              >
-                <strong>
-                  Richiedi un Audit gratuito sia tecnico che seo del tuo sito
-                  web.
-                </strong>
-                <br />
-                Inoltre ti consigliamo di iscriverti alla nostra newsletter per
-                ottenere importanti consigli, suggerimenti e aggiornamenti sulle
-                migliori pratiche da adottare per il tuo sitoweb o e-commerce.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-12 gap-[40px] mt-10">
-            <div className="col-span-4 text-center">
-              <div className="bg-white relative z-3 shadow-2xl p-6 rounded-2xl border-2 border-gray-50">
-                <h4 className="font-semiBold text-lgm mb-4">
-                  Cavalca l'onda digitale
-                </h4>
-                <p className="text-paragraph">
-                  <strong>Visita il nostro blog</strong>
-                </p>
-              </div>
-            </div>
-            <div className="col-span-4 text-center">
-              <div className="bg-white relative z-3 shadow-2xl p-6 rounded-2xl border-2 border-gray-50">
-                <h4 className="font-semiBold text-lgm mb-4">
-                  Consigli gratuiti
-                </h4>
-                <p className="text-paragraph">
-                  Iscriviti alla nostra newsletter email per le ultime notizie,
-                  consigli utili e novità SEO per migliorare il tuo
-                  posizionamento online direttamente nella tua casella email!
-                </p>
-              </div>
-            </div>
-            <div className="col-span-4 text-center">
-              <div className="bg-white relative z-3 shadow-2xl p-6 rounded-2xl border-2 border-gray-50">
-                <h4 className="font-semiBold text-lgm mb-4">Analisi sitoweb</h4>
-                <p className="text-paragraph">
-                  Per ottener un'analisi e audit gratuito, sia tecnico che SEO,
-                  sul tuo sitoweb o ecommerce, completa il modulo qui sotto e ti
-                  risponderemo il prima possibile con un'analisi dettagliata
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeComponents.ContactSection />
+      
     </Layout>
   );
 };

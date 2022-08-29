@@ -1,5 +1,5 @@
 {
   "semi": false,
   "singleQuote": true,
-  "prettier.disableLanguages": ["css", "scss", "less", "sass"]
+  "prettier.disableLanguages": ["css", "scss", "less", "sass", "md"]
 }

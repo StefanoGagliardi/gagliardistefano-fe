@@ -19,14 +19,6 @@ import {
 const ContentColumn = styled.div`
   width: 100%;
 `;
-const ContentTitle = styled.span`
-  display: block;
-  text-align: left;
-  font-weight: 600;
-  color: #222;
-  letter-spacing: 0.4px;
-  margin-bottom: 30px;
-`;
 
 /**
  * Script start
@@ -39,7 +31,7 @@ export const Web3Dropdown: FC<Props> = ({
 }: Props): ReactElement => {
   return (
     <div data-second-dropdown-section className={s.dropdownWrapper}>
-      <ContentTitle>Web3, Smart contract & Blockchain</ContentTitle>
+      <span className={s.contentTitle}>Web3, Smart contract & Blockchain</span>
       <div className={s.dropdownContentWrapper}>
         <ContentColumn>
           <ul className={s.servicesList}>

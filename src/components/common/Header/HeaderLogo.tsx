@@ -11,6 +11,7 @@ import useScrollPosition, {
 } from 'src/services/hooks/useBodyScroll';
 import s from './HeaderLogo.module.css';
 import Link from 'next/link';
+import seo from '@config/seo.json';
 
 // Check current page
 const regexPage = '^((/)?servizi|(/)?privacy-policy|/)';
@@ -53,6 +54,7 @@ export const HeaderLogo: FC = (): ReactElement => {
                   pathname.match(regexPage),
               }
             )}
+            alt={seo.logoAlt || "Next Generation - Web Agency - Cremona"}
             src={'/logo/res/gagliardistefano-logo-light250.png'}
             width="250"
             height="49"
@@ -67,6 +69,7 @@ export const HeaderLogo: FC = (): ReactElement => {
                   pathname.match(regexPage),
               }
             )}
+            alt={seo.logoAlt || "Next Generation - Web Agency - Cremona"}
             src={'/logo/res/gagliardistefano-logo-dark250.png'}
             width="250"
             height="49"

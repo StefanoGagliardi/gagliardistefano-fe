@@ -7,6 +7,7 @@ import { Flipped } from 'react-flip-toolkit';
 
 // Import custom
 import FadeContents from './FadeContents';
+import s from './DropdownContainer.module.scss';
 
 interface Props {
   duration: number;
@@ -30,10 +31,10 @@ export const DropdownContainer: FC<Props> = (props: Props): ReactElement => {
       animatingOut={animatingOut}
     >
       <Flipped flipId="dropdown-caret">
-        <Caret />
+        <div className={s.caret}></div>
       </Flipped>
       <Flipped flipId="dropdown">
-        <DropdownBackground>
+        <div className={s.dropdownBackground}>
           <Flipped inverseFlipId="dropdown">
             <InvertedDiv>
               <AltBackground ref={altBackgroundEl} duration={duration} />
@@ -61,7 +62,7 @@ export const DropdownContainer: FC<Props> = (props: Props): ReactElement => {
               )}
             </InvertedDiv>
           </Flipped>
-        </DropdownBackground>
+        </div>
       </Flipped>
     </DropdownRoot>
   );
@@ -100,32 +101,16 @@ export const DropdownRoot = styled.div<Omit<Props, 'children'>>`
   top: -20px;
 `;
 
-export const Caret = styled.div`
-  width: 0;
-  height: 0;
-  border-width: 10px;
-  border-style: solid;
-  border-color: transparent transparent #fff;
-  
-  /* make sure it's above the main dropdown container so now box-shadow bleeds over it */
-  z-index: 1;
-  position: relative;
-  /* prevent any gap in between caret and main dropdown */
-  top: 1px;
-`;
-
 export const DropdownBackground = styled.div`
   transform-origin: 0 0;
   // background-color: var(--white);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-  
+
   box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1);
   background: #fff;
-  ${promoteLayer}
-
-  // backdrop-filter: blur(4px);
+  ${promoteLayer}// backdrop-filter: blur(4px);
   // -webkit-backdrop-filter: blur(4px);
   // background: hsla(0, 0%, 100%, 0.25);
   // box-shadow: 0 8px 32px 0px rgb(70 70 70 / 37%);

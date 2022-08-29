@@ -1,0 +1,36 @@
+.caret {
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff;
+
+  /* make sure it's above the main dropdown container so now box-shadow bleeds over it */
+  z-index: 1;
+  position: relative;
+  /* prevent any gap in between caret and main dropdown */
+  top: 1px;
+}
+
+.dropdownBackground {
+  transform-origin: 0 0;
+  // background-color: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1);
+  background: #fff;
+  will-change: transform;
+  // backdrop-filter: blur(4px);
+  // -webkit-backdrop-filter: blur(4px);
+  // background: hsla(0, 0%, 100%, 0.25);
+  // box-shadow: 0 8px 32px 0px rgb(70 70 70 / 37%);
+}
+
+:global(.dark) .caret {
+  border-color: transparent transparent #1c2127;
+}
+:global(.dark) .dropdownBackground {
+  background: #1c2127;
+}

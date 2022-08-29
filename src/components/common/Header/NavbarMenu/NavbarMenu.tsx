@@ -44,25 +44,17 @@ const navbarConfig = [
 ];
 
 /**
- * Use this for debug dropdown: always open
- */
-const debubMode = {
-  enabled: false, // Enable mode
-  open: [1, 2], // Set active dropdown: first is previous, second is current
-};
-
-/**
  * Script start
  */
 export const NavbarMenu: FC = (): ReactElement => {
   // Retrive menu items
   // @TODO merge this with "navbarConfig"
-  const navbarMenuData = themeConfig.menus.primaryMenu;
+  const navbarMenuData = useMemo(() => themeConfig.menus.primaryMenu, []);
+  const debubMode = useMemo(() => themeConfig.debug.menu, []);
+  const router = useRouter();
 
   // Mega menu props
-  const duration = 300; // Animation duration (timeout)
-
-  const router = useRouter();
+  const duration: number = useMemo(() => 300, []); // Animation duration (timeout)
 
   // State
   const [animatingOut, setAnimatingOut] = useState<boolean>(false);
