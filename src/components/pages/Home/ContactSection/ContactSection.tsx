@@ -135,12 +135,14 @@ const ContactSection: FC = (): ReactElement => {
           <div className="col-span-4 text-center">
             <div className="bg-white relative z-3 shadow-2xl p-6 rounded-2xl border-2 border-gray-50">
               <h4 className="font-semiBold text-lgm mb-4">
-                Contata un professionista
+                Contatt a un professionista
               </h4>
+              <p className="text-paragraph font-medium text-left mb-2">
+                Hai in mente un progetto digital? Devi presentare la tua
+                azienda? Hai un negozio e vorresti vendere online?
+              </p>
               <p className="text-paragraph font-medium text-left mb-5">
-                Hai un progetto in mente? Devi presentare la tua azienda? Hai un
-                negozio e vorresti vendere online?
-                <br /> Per qualsiasi esigenza il team di NextGeneration è a tua
+                Per qualsiasi esigenza il team di NextGeneration è a tua
                 disposizione per indicarti la soluzione migliore alla tua
                 esigenza!
               </p>

@@ -31,6 +31,20 @@ export const AppLink: FC<AppLinkProps> = (
 
   const { setCursortType } = useUI();
 
+  const mouseEvent = useMemo(() => {
+    if (useCursorHandler === true) {
+      return {
+        onMouseEnter: () => {
+          setCursortType('hover');
+        },
+        onMouseLeave: () => {
+          setCursortType('initial');
+        },
+      };
+    }
+    return {};
+  }, []);
+
   if (onClick) {
     return (
       <a
@@ -40,6 +54,7 @@ export const AppLink: FC<AppLinkProps> = (
         onClick={() => {
           useCallback(() => onClick(), []);
         }}
+        {...mouseEvent}
       >
         {children ? children : label}
       </a>
@@ -54,25 +69,12 @@ export const AppLink: FC<AppLinkProps> = (
         className={className}
         title={title || ''}
         rel={rel ? rel : ''}
+        {...mouseEvent}
       >
         {children ? children : label}
       </a>
     );
   }
-
-  const mouseEvent = useMemo(() => {
-    if (useCursorHandler === true) {
-      return {
-        onMouseEnter: () => {
-          setCursortType('hover');
-        },
-        onMouseLeave: () => {
-          setCursortType('initial');
-        },
-      };
-    }
-    return {};
-  }, []);
 
   return (
     <Link href={href}>

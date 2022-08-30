@@ -49,6 +49,7 @@ relative
 appearance-none
 w-6
 h-6
+border-accent
 border
 rounded-md
 border-blue-gray-200
@@ -71,7 +72,7 @@ before:transition-opacity
 checked:bg-blue-500
 checked:border-blue-500
 before:bg-blue-500`;
-const labelClassname = `text-gray-700 font-light select-none cursor-pointer mt-px`;
+const labelClassname = `text-gray-700 font-light select-none cursor-pointer mt-px text-xsm`;
 
 /**
  * Checkbox Component is forwardRef - This is perfect also for Gsap\

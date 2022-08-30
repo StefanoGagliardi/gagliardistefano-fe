@@ -13,9 +13,12 @@ export const url = {
   webServices: (): IAppLinkHref => `/servizi-web`,
   blockchain: (): IAppLinkHref => `/blockchain`,
   portfolio: (): IAppLinkHref => `/portfolio`,
+  // Header and contact form
   contacts: (): IAppLinkHref => `/contatti`,
-  // s - Checkbox form
+  // socket - Checkbox form
   privacyPolicy: (): IAppLinkHref => `/privacy-policy`,
+  // Quotation simulation
+  quotation: (): IAppLinkHref => `/simulazione-preventivo`,
 
   blog: (): IAppLinkHref => `/blog`,
   webThree: (): IAppLinkHref => `/web3`,

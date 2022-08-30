@@ -31,6 +31,7 @@ module.exports = {
   theme: {
     // Font definition: size and line-height.
     fontSize: {
+      xsm: ['13px', '20px'],
       sm: ['14px', '20px'],
       base: ['16px', '24px'],
       paragraph: ['18px', '28px'],

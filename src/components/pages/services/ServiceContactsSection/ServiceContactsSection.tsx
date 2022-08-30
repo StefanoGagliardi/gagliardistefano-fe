@@ -22,6 +22,7 @@ import ContactsForm from '@services/forms/contacts';
 import AppLink from '@services/routing/AppLink';
 import useThemeWrap from '@services/theme/themeStyleHook';
 import Link from 'next/link';
+import url from '@services/url';
 
 /**
  * Script start
@@ -67,8 +68,8 @@ export const ServiceContactsSection: FC<Props> = ({
                 </>
               )}
             </p>
-            <a
-              href=""
+            <AppLink
+              href={`${url.contacts() as string}?nda`}
               className={cn(
                 'text-center',
                 'inline-block',
@@ -78,37 +79,37 @@ export const ServiceContactsSection: FC<Props> = ({
                 'pr-[20px]',
                 'dot-divider'
               )}
+              useCursorHandler={true}
             >
               <small>
                 Hai bisogno di siglare un{' '}
                 <span className={cn('italic')}>NDA</span>?
               </small>
-            </a>
-            <Link href="/">
-              <a href="/">
-                <small
-                  className={cn(
-                    'text-center',
-                    'inline-block',
-                    'underline',
-                    'dark:text-white'
-                    // 'text-sm'
-                  )}
-                >
-                  Hai già simulato il tuo preventivo?
-                </small>
-              </a>
-            </Link>
+            </AppLink>
+            <AppLink href={url.quotation() as string} useCursorHandler={true}>
+              <small
+                className={cn(
+                  'text-center',
+                  'inline-block',
+                  'underline',
+                  'dark:text-white'
+                  // 'text-sm'
+                )}
+              >
+                Hai già simulato il tuo preventivo?
+              </small>
+            </AppLink>
           </div>
         </div>
         <div className="grid grid-cols-12 pt-60px gap-1">
           <div className="col-start-3 col-span-4">
-            <div className={cn(s.colBody, 'pr-[50px]')}>
+            <div className={cn(s.colBody, 'pr-50px')}>
               <ul>
                 <li>
                   <AppLink
                     href={'tel:+393470064005'}
                     label="Chiamaci per informazioni"
+                    useCursorHandler={true}
                   >
                     <>
                       <SvgPhoneArrowUpRegular />
@@ -128,6 +129,7 @@ export const ServiceContactsSection: FC<Props> = ({
                   <AppLink
                     href={'mailto:stefano.gagliardi@sitisrl.it'}
                     label="Scrivici per informazioni!"
+                    useCursorHandler={true}
                   >
                     <>
                       <SvgEnvelopeRegular />
@@ -151,6 +153,7 @@ export const ServiceContactsSection: FC<Props> = ({
                     label="Scopri il team"
                     external={true}
                     rel={'noopener noreferrer'}
+                    useCursorHandler={true}
                   >
                     <>
                       <SvgMapPinLight />
@@ -180,6 +183,7 @@ export const ServiceContactsSection: FC<Props> = ({
                     label="Vai a Linkedin"
                     external={true}
                     rel={'noopener noreferrer'}
+                    useCursorHandler={true}
                   >
                     <SvgLinkedin />
                   </AppLink>
@@ -190,6 +194,7 @@ export const ServiceContactsSection: FC<Props> = ({
                     label="Vai a Github"
                     external={true}
                     rel={'noopener noreferrer'}
+                    useCursorHandler={true}
                   >
                     <SvgGithub />
                   </AppLink>
@@ -200,6 +205,7 @@ export const ServiceContactsSection: FC<Props> = ({
                     label="Vai a Twitter"
                     external={true}
                     rel={'noopener noreferrer'}
+                    useCursorHandler={true}
                   >
                     <SvgTwitter />
                   </AppLink>
