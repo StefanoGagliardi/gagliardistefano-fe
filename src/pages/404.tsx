@@ -7,7 +7,8 @@ import cn from 'classnames';
 // Import custom
 import { Layout } from '@components/common';
 import AppLink from '@services/routing/AppLink';
-import { SvgNotFound } from '@assets/svg';
+import { SvgArrowRightLongRegular, SvgNotFound } from '@assets/svg';
+import url from '@services/url';
 
 /**
  * Script start
@@ -18,10 +19,10 @@ const NotFound: NextPage = (): JSX.Element => {
       <Head>
         <title>Create Next App</title>
       </Head>
-      <div className="py-200px bg-gray-100 flex items-center bg-service justify-center">
+      <div className="py-150px bg-gray-100 flex items-center bg-service justify-center relative">
         <div className="container flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
-          <div className="max-w-md">
-            <figure>
+          <div className="max-w-45% w-45% relative z-10">
+            <figure style={{ maxWidth: '400px' }} className={'ml-auto mr-auto'}>
               <img
                 // login-page-blob.png
                 src="/login-page-blob.png"
@@ -30,21 +31,43 @@ const NotFound: NextPage = (): JSX.Element => {
               />
             </figure>
           </div>
-          <div className="max-w-md pl-[8%]">
-            <div className="text-5xl font-dark font-bold">404</div>
-            <p className="text-2xl md:text-3xl font-light leading-normal">
-              Sorry we couldn't find this page.{' '}
+          <div className="max-w-md relative z-10">
+            <h1 className="font-bold text-xxl text-accent font-avenir text-[60px]">404</h1>
+            <p className="dark:text-white my-5 mx-auto text-paragraphLg font-medium max-w-[60ch]">
+              Spiacenti, non siamo riusciti a trovare questa pagina.
+              <br /> Oppure questa pagina è in costruzione.
             </p>
-            <p className="mb-8">
-              But dont worry, you can find plenty of other things on our
+            <p className="dark:text-white mx-auto text-paragraphLg font-medium max-w-[60ch] mb-8">
+              Ma non preoccuparti, puoi trovare molte altre cose sulla nostra
               homepage.
             </p>
 
-            <button className="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-lg focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-blue-700">
-              back to homepage
-            </button>
+            <AppLink
+              href={url.home() as string}
+              className={cn(
+                'btn btn-components-outline btn-icon',
+                'rounded text-paragraphLg font-bold'
+              )}
+            >
+              Scopri i servizi
+              <SvgArrowRightLongRegular />
+            </AppLink>
             {/* <SvgNotFound /> */}
           </div>
+          <h1
+            className="font-bold text-xxl text-accent font-avenir"
+            style={{
+              position: 'absolute',
+              top: 'calc(50% - 200px)',
+              fontSize: '400px',
+              zIndex: '0',
+              opacity: '.8',
+              lineHeight: '400px',
+              color: '#fff',
+            }}
+          >
+            404
+          </h1>
         </div>
       </div>
     </Layout>

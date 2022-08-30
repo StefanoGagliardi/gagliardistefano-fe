@@ -117,6 +117,7 @@ module.exports = {
         '20px': '20px',
         '50px': '50px',
         '60px': '60px',
+        '150px': '150px', // not found page
         '200px': '200px', // not found page
         // Visual Width & Visual height
         '50vw': '50vw',
@@ -125,6 +126,9 @@ module.exports = {
       height: {
         header: '80px',
         '40px': '40px',
+      },
+      width: {
+        '45%': '45%',
       },
       margin: {
         30: '30px',
